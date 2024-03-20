@@ -29,3 +29,22 @@ If the branch prefix contains any of the strings `fix`, `bug`, `patch`, or any o
 * Major number remains the same.
 * Minor number remains the same.
 * Patch number is incremented.
+
+## Launch-cli Examples
+
+A repo without tags:
+
+```bash
+# bvaughan @ LT-PQJHKQT014 in ~/git_repos/launch/common-platform-documentation on git:feature/auto-version-tagging-docs o [8:44:37] C:2
+$ launch github version predict --source-branch "feature/auto-version-taggig-docs"
+2024-03-20 08:45:02 CDT	launch.local_repo.predict	WARNING	No tags exist on this repo, defaulting to 0.1.0
+0.1.0
+```
+
+A repo with existing tags:
+
+```bash
+# bvaughan @ LT-PQJHKQT014 in ~/git_repos/launch/launch-cli on git:main o [8:47:49] C:130
+$ launch github version predict --source-branch "feature/helm-dependency-resolver"
+0.4.0
+```
