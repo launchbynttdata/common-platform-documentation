@@ -24,7 +24,7 @@ If the branch prefix contains the string `feature`:
 * Minor number is incremented
 * Patch number is set to zero
 
-If the branch prefix contains any of the strings `fix`, `bug`, `patch`, or any other word:
+If the branch prefix contains any of the strings `fix`, `bug`, or `patch`:
 
 * Major number remains the same.
 * Minor number remains the same.
