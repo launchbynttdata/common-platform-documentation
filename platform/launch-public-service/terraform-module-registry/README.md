@@ -26,7 +26,7 @@ Constructing a module source value requires four pieces of information:
 
 The **hostname** for our registry is always `terraform.registry.launch.nttdata.com`. Do not specify the protocol; Terraform will force this to be HTTPS.
 
-The **namespace**, **name**, and **provider** values are driven based on the name of the repository in question. Refer to our [IaC Git Repository Naming Scheme](standards/common-development/git/repository/naming-schemes/iac-repository-names.md) for a refresher on how our names are constructed. 
+The **namespace**, **name**, and **provider** values are driven based on the name of the repository in question. Refer to our [IaC Git Repository Naming Scheme](../../../standards/common-development/git/repository/naming-schemes/iac-repository-names.md) for a refresher on how our names are constructed. 
 
 ```
 Repository name inputs for example Azure Key Vault:
