@@ -1,0 +1,70 @@
+{
+    "provider": "aws",
+    "accounts": {
+        "sandbox": "launch-sandbox-admin"
+    },
+    "naming_prefix": "demo",
+    "skeleton": {
+        "url": "https://github.com/launchbynttdata/lcaf-template-java.git",
+        "tag": "main"
+    },
+    "repos": {
+        "application": {
+            "repo": "",
+            "tag": ""
+        },
+        "service": {
+            "repo": "https://github.com/NTTDATA-Launch/launch-api-hex-java-template.git",
+            "tag": "0.1.1"
+        },
+        "pipeline": {
+            "repo": "https://github.com/nexient-llc/tf-aws-wrapper_module-codepipelines.git",
+            "tag": "0.1.1"
+        },
+        "webhook": {
+            "repo": "https://github.com/nexient-llc/tf-aws-wrapper_module-bulk_lambda_function.git",
+            "tag": "0.1.0"
+        }
+    },
+    "platform": {
+        "configs" : {
+            "application": {
+                "templates": [
+                    "common-application-config-non-secret.env",
+                    "common-application-config-secret.env",
+                    "common-application-config-secret-arns.env"
+                ]
+            }
+        },
+        "service": {
+            "sandbox": {
+                "us-east-2": {
+                    "000": {
+                        "infra_properties_files": "/exact/path/service/sandbox/us-east-2/000/terraform.tfvars",
+                        "properties_files": []
+                    }
+                }
+            }
+        },
+        "pipeline": {
+            "pipeline-provider": {
+                "root": {
+                    "us-east-2": {
+                        "000": {
+                            "infra_properties_file": "/exact/path/pipeline/pipeline-provider/root/us-east-2/000/terraform.tfvars"
+                        }
+                    }
+                }
+            },
+            "webhook-provider": {
+                "root": {
+                    "us-east-2": {
+                        "000": {
+                            "infra_properties_file": "/exact/path/pipeline/webhook-provider/root/us-east-2/000/terraform.tfvars"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
