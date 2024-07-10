@@ -36,29 +36,42 @@ External dependencies:
 
 ### 3.1 Deploy ECS Platform
 
+
+launch service create --name sample-demo-platform
+
 #### 3.1.1 Create the inputs
+
+/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/platform/.launch_config
+/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/platform/pipeline.root.us-east-2.yaml
+/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/platform/service.sandbox.us-east-2.yaml
+/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/platform/webhooks.root.us-east-2.yaml
 
 #### 3.1.2 Create the service
 
+launch service create --name sample-demo-platform --in-file <path to the saved platform .launch_config>
 
 #### 3.1.3 Generate the service
-
+launch service generate
 
 #### 3.1.4 Deploy the service
-
+launch terragrunt plan --target-environment sandbox --platform-resource all
 
 
 ## 4. **Deploy Java Application**
 
 #### 4.1.1 Create the inputs
 
+/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/application/.launch_config
+/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/application/pipeline.root.us-east-2.yaml
+/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/application/service.sandbox.us-east-2.yaml
+/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/application/webhooks.root.us-east-2.yaml
+
 #### 4.1.2 Create the service
 
+launch service create --name sample-demo-platform --in-file <path to the saved application .launch_config>
 
 #### 4.1.3 Generate the service
-
+launch service generate
 
 #### 4.1.4 Deploy the service
-
-
-## 5. **Maintenance**
+launch terragrunt plan --target-environment sandbox --platform-resource all
