@@ -6,9 +6,13 @@
     "naming_prefix": "demo",
     "skeleton": {
         "url": "https://github.com/launchbynttdata/lcaf-template-terragrunt.git",
-        "tag": "patch/template-refactor"
+        "tag": "main"
     },
     "sources": {
+        "application": {
+            "url": "https://github.com/launchbynttdata/launch-api-hex-java-template.git",
+            "tag": "docker_swarm"
+        },
         "service": {
             "url": "https://github.com/launchbynttdata/tf-aws-wrapper_module-s3_bucket.git",
             "tag": "0.1.1"
@@ -23,11 +27,20 @@
         }
     },
     "platform": {
-        "service": {
+        "templates": {
+            "application" : {
+                "secret": "/workspaces/workplace/pxp-portal-rsdk-datachannel-admin-messages-properties/templates/common/application/common-application-config-secret.env.jinja2",
+                "non_secret": "/workspaces/workplace/pxp-portal-rsdk-datachannel-admin-messages-properties/templates/common/application/common-application-config-non-secret.env.jinja2"
+            }
+        },
+        "service": {   
             "sandbox": {
                 "us-east-2": {
                     "000": {
-                        "properties_file": "/workspaces/workplace/lcaf-template-terragrunt/.examples/aws/aws_s3.tfvars"
+                        "properties_file": "/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/application/service.sandbox.us-east-2.yaml",
+                        "template_properties": {
+                            "application": "/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/application/application.sandbox.us-east-2.yaml"
+                        }
                     }
                 }
             }
@@ -37,7 +50,7 @@
                 "root": {
                     "us-east-2": {
                         "000": {
-                            "properties_file": "/workspaces/workplace/lcaf-template-terragrunt/.examples/aws/aws_s3.tfvars"
+                            "properties_file": "/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/application/pipeline.root.us-east-2.yaml"
                         }
                     }
                 }
@@ -46,7 +59,7 @@
                 "root": {
                     "us-east-2": {
                         "000": {
-                            "properties_file": "/workspaces/workplace/lcaf-template-terragrunt/.examples/aws/aws_s3.tfvars"
+                            "properties_file": "/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/application/webhooks.root.us-east-2.yaml"
                         }
                     }
                 }

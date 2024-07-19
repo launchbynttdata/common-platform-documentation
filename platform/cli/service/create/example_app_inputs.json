@@ -37,11 +37,19 @@
             }
         },
         "service": {
+            "templates": {
+                "application": {
+                    "secret": "./platform/service/templates/application/secret.yaml",
+                    "non_secret": "./platform/service/templates/application/non_secret.yaml"
+                }
+            },
             "sandbox": {
                 "us-east-2": {
                     "000": {
-                        "infra_properties_files": "/exact/path/service/sandbox/us-east-2/000/terraform.tfvars",
-                        "properties_files": []
+                        "properties_file": "/exact/path/service/sandbox/us-east-2/000/terraform.tfvars",
+                        "template_properties": {
+                            "application": "./platform/service/sandbox/us-east-2/000/template_properties/application.yaml"
+                        }
                     }
                 }
             }
@@ -51,7 +59,7 @@
                 "root": {
                     "us-east-2": {
                         "000": {
-                            "infra_properties_file": "/exact/path/pipeline/pipeline-provider/root/us-east-2/000/terraform.tfvars"
+                            "properties_file": "/exact/path/pipeline/pipeline-provider/root/us-east-2/000/terraform.tfvars"
                         }
                     }
                 }
@@ -60,7 +68,7 @@
                 "root": {
                     "us-east-2": {
                         "000": {
-                            "infra_properties_file": "/exact/path/pipeline/webhook-provider/root/us-east-2/000/terraform.tfvars"
+                            "properties_file": "/exact/path/pipeline/webhook-provider/root/us-east-2/000/terraform.tfvars"
                         }
                     }
                 }

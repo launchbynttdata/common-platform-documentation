@@ -135,7 +135,17 @@ pipelines:
             [
               {
                 "name":"LAUNCH_ACTION",
-                "value":"launch terragrunt --target-environment ${TARGETENV} --platform-resource webhooks --plan --generation",
+                "value":"terragrunt-plan",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"INTERNALS_PIPELINE",
+                "value":"true",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"INTERNALS_SERVICE",
+                "value":"gitwebhook-handlers",
                 "type":"PLAINTEXT"
               },
               {
@@ -144,8 +154,23 @@ pipelines:
                 "type":"PLAINTEXT"
               },
               {
-                "name":"AWS_DEPLOYMENT_ROLE",
+                "name":"ROLE_TO_ASSUME",
                 "value":"arn:aws:iam::538234414982:role/dso-demo_tg_iam-useast2-root-000-role-000",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"APPLICATION_ID_PARAMETER_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/application_id",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"INSTALLATION_ID_PARAMETER_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/installation_id",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"SIGNING_CERT_SECRET_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/private_key_secret_id",
                 "type":"PLAINTEXT"
               }
             ]
@@ -161,6 +186,22 @@ pipelines:
                 ],
                 "Effect": "Allow",
                 "Resource": "*"
+              },
+              {
+                "Action": ["secretsmanager:GetSecretValue"],
+                "Effect": "Allow",
+                "Resource": [
+                  "arn:aws:secretsmanager:us-east-2:538234414982:secret:github/app/aws-codepipeline-authentication/private_key-??????"
+                ]
+              },
+              {
+                "Action": ["ssm:GetParametersByPath", "ssm:GetParameter"],
+                "Effect": "Allow",
+                "Resource": [
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/application_id",
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/installation_id",
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/private_key_secret_id"
+                ]
               },
               {
                 "Action": ["sts:AssumeRole"],
@@ -181,7 +222,17 @@ pipelines:
             [
               {
                 "name":"LAUNCH_ACTION",
-                "value":"launch terragrunt --target-environment ${TARGETENV} --platform-resource pipeline --plan --generation",
+                "value":"terragrunt-plan",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"INTERNALS_PIPELINE",
+                "value":"true",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"INTERNALS_SERVICE",
+                "value":"pipelines",
                 "type":"PLAINTEXT"
               },
               {
@@ -190,8 +241,23 @@ pipelines:
                 "type":"PLAINTEXT"
               },
               {
-                "name":"AWS_DEPLOYMENT_ROLE",
+                "name":"ROLE_TO_ASSUME",
                 "value":"arn:aws:iam::538234414982:role/dso-demo_tg_iam-useast2-root-000-role-000",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"APPLICATION_ID_PARAMETER_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/application_id",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"INSTALLATION_ID_PARAMETER_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/installation_id",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"SIGNING_CERT_SECRET_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/private_key_secret_id",
                 "type":"PLAINTEXT"
               }
             ]
@@ -207,6 +273,22 @@ pipelines:
                 ],
                 "Effect": "Allow",
                 "Resource": "*"
+              },
+              {
+                "Action": ["secretsmanager:GetSecretValue"],
+                "Effect": "Allow",
+                "Resource": [
+                  "arn:aws:secretsmanager:us-east-2:538234414982:secret:github/app/aws-codepipeline-authentication/private_key-??????"
+                ]
+              },
+              {
+                "Action": ["ssm:GetParametersByPath", "ssm:GetParameter"],
+                "Effect": "Allow",
+                "Resource": [
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/application_id",
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/installation_id",
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/private_key_secret_id"
+                ]
               },
               {
                 "Action": ["sts:AssumeRole"],
@@ -227,7 +309,17 @@ pipelines:
             [
               {
                 "name":"LAUNCH_ACTION",
-                "value":"launch terragrunt --target-environment ${TARGETENV} --platform-resource webhooks --apply --generation",
+                "value":"terragrunt-deploy",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"INTERNALS_PIPELINE",
+                "value":"true",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"INTERNALS_SERVICE",
+                "value":"gitwebhook-handlers",
                 "type":"PLAINTEXT"
               },
               {
@@ -236,8 +328,23 @@ pipelines:
                 "type":"PLAINTEXT"
               },
               {
-                "name":"AWS_DEPLOYMENT_ROLE",
+                "name":"ROLE_TO_ASSUME",
                 "value":"arn:aws:iam::538234414982:role/dso-demo_tg_iam-useast2-root-000-role-000",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"APPLICATION_ID_PARAMETER_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/application_id",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"INSTALLATION_ID_PARAMETER_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/installation_id",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"SIGNING_CERT_SECRET_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/private_key_secret_id",
                 "type":"PLAINTEXT"
               }
             ]
@@ -253,6 +360,22 @@ pipelines:
                 ],
                 "Effect": "Allow",
                 "Resource": "*"
+              },
+              {
+                "Action": ["secretsmanager:GetSecretValue"],
+                "Effect": "Allow",
+                "Resource": [
+                  "arn:aws:secretsmanager:us-east-2:538234414982:secret:github/app/aws-codepipeline-authentication/private_key-??????"
+                ]
+              },
+              {
+                "Action": ["ssm:GetParametersByPath", "ssm:GetParameter"],
+                "Effect": "Allow",
+                "Resource": [
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/application_id",
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/installation_id",
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/private_key_secret_id"
+                ]
               },
               {
                 "Action": ["sts:AssumeRole"],
@@ -273,7 +396,17 @@ pipelines:
             [
               {
                 "name":"LAUNCH_ACTION",
-                "value":"launch terragrunt --target-environment ${TARGETENV} --platform-resource pipeline --apply --generation",
+                "value":"terragrunt-deploy",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"INTERNALS_PIPELINE",
+                "value":"true",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"INTERNALS_SERVICE",
+                "value":"pipelines",
                 "type":"PLAINTEXT"
               },
               {
@@ -282,8 +415,23 @@ pipelines:
                 "type":"PLAINTEXT"
               },
               {
-                "name":"AWS_DEPLOYMENT_ROLE",
+                "name":"ROLE_TO_ASSUME",
                 "value":"arn:aws:iam::538234414982:role/dso-demo_tg_iam-useast2-root-000-role-000",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"APPLICATION_ID_PARAMETER_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/application_id",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"INSTALLATION_ID_PARAMETER_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/installation_id",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"SIGNING_CERT_SECRET_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/private_key_secret_id",
                 "type":"PLAINTEXT"
               }
             ]
@@ -299,6 +447,22 @@ pipelines:
                 ],
                 "Effect": "Allow",
                 "Resource": "*"
+              },
+              {
+                "Action": ["secretsmanager:GetSecretValue"],
+                "Effect": "Allow",
+                "Resource": [
+                  "arn:aws:secretsmanager:us-east-2:538234414982:secret:github/app/aws-codepipeline-authentication/private_key-??????"
+                ]
+              },
+              {
+                "Action": ["ssm:GetParametersByPath", "ssm:GetParameter"],
+                "Effect": "Allow",
+                "Resource": [
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/application_id",
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/installation_id",
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/private_key_secret_id"
+                ]
               },
               {
                 "Action": ["sts:AssumeRole"],
@@ -441,7 +605,7 @@ pipelines:
             [
               {
                 "name":"LAUNCH_ACTION",
-                "value":"launch terragrunt --target-environment ${TARGETENV} --platform-resource service --plan --generation",
+                "value":"terragrunt-plan",
                 "type":"PLAINTEXT"
               },
               {
@@ -450,8 +614,23 @@ pipelines:
                 "type":"PLAINTEXT"
               },
               {
-                "name":"AWS_DEPLOYMENT_ROLE",
-                "value":"arn:aws:iam::020127659860:role/dso-demo_tg_iam-useast2-sandbox-000-role-000",
+                "name": "ROLE_TO_ASSUME",
+                "value": "arn:aws:iam::020127659860:role/dso-demo_tg_iam-useast2-sandbox-000-role-000",
+                "type": "PLAINTEXT"
+              },
+              {
+                "name":"APPLICATION_ID_PARAMETER_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/application_id",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"INSTALLATION_ID_PARAMETER_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/installation_id",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"SIGNING_CERT_SECRET_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/private_key_secret_id",
                 "type":"PLAINTEXT"
               }
             ]
@@ -472,6 +651,22 @@ pipelines:
                 "Action": ["sts:AssumeRole"],
                 "Effect": "Allow",
                 "Resource": "arn:aws:iam::538234414982:role/dso-demo_tg_iam-useast2-root-000-role-000"
+              },
+              {
+                "Action": ["secretsmanager:GetSecretValue"],
+                "Effect": "Allow",
+                "Resource": [
+                  "arn:aws:secretsmanager:us-east-2:538234414982:secret:github/app/aws-codepipeline-authentication/private_key-??????"
+                ]
+              },
+              {
+                "Action": ["ssm:GetParametersByPath", "ssm:GetParameter"],
+                "Effect": "Allow",
+                "Resource": [
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/application_id",
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/installation_id",
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/private_key_secret_id"
+                ]
               }
             ]
           }
@@ -568,18 +763,43 @@ pipelines:
           EnvironmentVariables: | # pragma: allowlist secret
             [
               {
-                "name":"LAUNCH_ACTION",
-                "value":"launch terragrunt --target-environment ${TARGETENV} --platform-resource service --plan --generation",
+                "name": "LAUNCH_ACTION",
+                "value": "terragrunt-plan",
+                "type": "PLAINTEXT"
+              },
+              {
+                "name": "INTERNALS_PIPELINE",
+                "value": "true",
+                "type": "PLAINTEXT"
+              },
+              {
+                "name": "INTERNALS_SERVICE",
+                "value": "gitwebhook-handlers",
+                "type": "PLAINTEXT"
+              },
+              {
+                "name": "TARGETENV",
+                "value": "root",
+                "type": "PLAINTEXT"
+              },
+              {
+                "name": "ROLE_TO_ASSUME",
+                "value": "arn:aws:iam::538234414982:role/dso-demo_tg_iam-useast2-root-000-role-000",
+                "type": "PLAINTEXT"
+              },
+              {
+                "name":"APPLICATION_ID_PARAMETER_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/application_id",
                 "type":"PLAINTEXT"
               },
               {
-                "name":"TARGETENV",
-                "value":"root",
+                "name":"INSTALLATION_ID_PARAMETER_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/installation_id",
                 "type":"PLAINTEXT"
               },
               {
-                "name":"AWS_DEPLOYMENT_ROLE",
-                "value":"arn:aws:iam::538234414982:role/dso-demo_tg_iam-useast2-root-000-role-000",
+                "name":"SIGNING_CERT_SECRET_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/private_key_secret_id",
                 "type":"PLAINTEXT"
               }
             ]
@@ -600,6 +820,22 @@ pipelines:
                 "Action": ["sts:AssumeRole"],
                 "Effect": "Allow",
                 "Resource": "arn:aws:iam::538234414982:role/dso-demo_tg_iam-useast2-root-000-role-000"
+              },
+              {
+                "Action": ["secretsmanager:GetSecretValue"],
+                "Effect": "Allow",
+                "Resource": [
+                  "arn:aws:secretsmanager:us-east-2:538234414982:secret:github/app/aws-codepipeline-authentication/private_key-??????"
+                ]
+              },
+              {
+                "Action": ["ssm:GetParametersByPath", "ssm:GetParameter"],
+                "Effect": "Allow",
+                "Resource": [
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/application_id",
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/installation_id",
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/private_key_secret_id"
+                ]
               }
             ]
           }
@@ -614,18 +850,43 @@ pipelines:
           EnvironmentVariables: | # pragma: allowlist secret
             [
               {
-                "name":"LAUNCH_ACTION",
-                "value":"launch terragrunt --target-environment ${TARGETENV} --platform-resource pipeline --plan --generation",
+                "name": "LAUNCH_ACTION",
+                "value": "terragrunt-plan",
+                "type": "PLAINTEXT"
+              },
+              {
+                "name": "INTERNALS_PIPELINE",
+                "value": "true",
+                "type": "PLAINTEXT"
+              },
+              {
+                "name": "INTERNALS_SERVICE",
+                "value": "pipelines",
+                "type": "PLAINTEXT"
+              },
+              {
+                "name": "TARGETENV",
+                "value": "root",
+                "type": "PLAINTEXT"
+              },
+              {
+                "name": "ROLE_TO_ASSUME",
+                "value": "arn:aws:iam::538234414982:role/dso-demo_tg_iam-useast2-root-000-role-000",
+                "type": "PLAINTEXT"
+              },
+              {
+                "name":"APPLICATION_ID_PARAMETER_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/application_id",
                 "type":"PLAINTEXT"
               },
               {
-                "name":"TARGETENV",
-                "value":"sandbox",
+                "name":"INSTALLATION_ID_PARAMETER_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/installation_id",
                 "type":"PLAINTEXT"
               },
               {
-                "name":"AWS_DEPLOYMENT_ROLE",
-                "value":"arn:aws:iam::538234414982:role/dso-demo_tg_iam-useast2-root-000-role-000",
+                "name":"SIGNING_CERT_SECRET_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/private_key_secret_id",
                 "type":"PLAINTEXT"
               }
             ]
@@ -646,6 +907,22 @@ pipelines:
                 "Action": ["sts:AssumeRole"],
                 "Effect": "Allow",
                 "Resource": "arn:aws:iam::538234414982:role/dso-demo_tg_iam-useast2-root-000-role-000"
+              },
+              {
+                "Action": ["secretsmanager:GetSecretValue"],
+                "Effect": "Allow",
+                "Resource": [
+                  "arn:aws:secretsmanager:us-east-2:538234414982:secret:github/app/aws-codepipeline-authentication/private_key-??????"
+                ]
+              },
+              {
+                "Action": ["ssm:GetParametersByPath", "ssm:GetParameter"],
+                "Effect": "Allow",
+                "Resource": [
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/application_id",
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/installation_id",
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/private_key_secret_id"
+                ]
               }
             ]
           }
@@ -675,7 +952,7 @@ pipelines:
             [
               {
                 "name":"LAUNCH_ACTION",
-                "value":"launch terragrunt --target-environment ${TARGETENV} --platform-resource service --plan --generation",
+                "value":"terragrunt-plan",
                 "type":"PLAINTEXT"
               },
               {
@@ -684,8 +961,23 @@ pipelines:
                 "type":"PLAINTEXT"
               },
               {
-                "name":"AWS_DEPLOYMENT_ROLE",
-                "value":"arn:aws:iam::020127659860:role/dso-demo_tg_iam-useast2-sandbox-000-role-000",
+                "name": "ROLE_TO_ASSUME",
+                "value": "arn:aws:iam::020127659860:role/dso-demo_tg_iam-useast2-sandbox-000-role-000",
+                "type": "PLAINTEXT"
+              },
+              {
+                "name":"APPLICATION_ID_PARAMETER_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/application_id",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"INSTALLATION_ID_PARAMETER_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/installation_id",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"SIGNING_CERT_SECRET_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/private_key_secret_id",
                 "type":"PLAINTEXT"
               }
             ]
@@ -706,6 +998,22 @@ pipelines:
                 "Action": ["sts:AssumeRole"],
                 "Effect": "Allow",
                 "Resource": "arn:aws:iam::538234414982:role/dso-demo_tg_iam-useast2-root-000-role-000"
+              },
+              {
+                "Action": ["secretsmanager:GetSecretValue"],
+                "Effect": "Allow",
+                "Resource": [
+                  "arn:aws:secretsmanager:us-east-2:538234414982:secret:github/app/aws-codepipeline-authentication/private_key-??????"
+                ]
+              },
+              {
+                "Action": ["ssm:GetParametersByPath", "ssm:GetParameter"],
+                "Effect": "Allow",
+                "Resource": [
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/application_id",
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/installation_id",
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/private_key_secret_id"
+                ]
               }
             ]
           }
@@ -802,18 +1110,43 @@ pipelines:
           EnvironmentVariables: | # pragma: allowlist secret
             [
               {
-                "name":"LAUNCH_ACTION",
-                "value":"launch terragrunt --target-environment ${TARGETENV} --platform-resource webhooks --plan --generation",
+                "name": "LAUNCH_ACTION",
+                "value": "terragrunt-plan",
+                "type": "PLAINTEXT"
+              },
+              {
+                "name": "INTERNALS_PIPELINE",
+                "value": "true",
+                "type": "PLAINTEXT"
+              },
+              {
+                "name": "INTERNALS_SERVICE",
+                "value": "gitwebhook-handlers",
+                "type": "PLAINTEXT"
+              },
+              {
+                "name": "TARGETENV",
+                "value": "root",
+                "type": "PLAINTEXT"
+              },
+              {
+                "name": "ROLE_TO_ASSUME",
+                "value": "arn:aws:iam::538234414982:role/dso-demo_tg_iam-useast2-root-000-role-000",
+                "type": "PLAINTEXT"
+              },
+              {
+                "name":"APPLICATION_ID_PARAMETER_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/application_id",
                 "type":"PLAINTEXT"
               },
               {
-                "name":"TARGETENV",
-                "value":"root",
+                "name":"INSTALLATION_ID_PARAMETER_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/installation_id",
                 "type":"PLAINTEXT"
               },
               {
-                "name":"AWS_DEPLOYMENT_ROLE",
-                "value":"arn:aws:iam::538234414982:role/dso-demo_tg_iam-useast2-root-000-role-000",
+                "name":"SIGNING_CERT_SECRET_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/private_key_secret_id",
                 "type":"PLAINTEXT"
               }
             ]
@@ -834,6 +1167,22 @@ pipelines:
                 "Action": ["sts:AssumeRole"],
                 "Effect": "Allow",
                 "Resource": "arn:aws:iam::538234414982:role/dso-demo_tg_iam-useast2-root-000-role-000"
+              },
+              {
+                "Action": ["secretsmanager:GetSecretValue"],
+                "Effect": "Allow",
+                "Resource": [
+                  "arn:aws:secretsmanager:us-east-2:538234414982:secret:github/app/aws-codepipeline-authentication/private_key-??????"
+                ]
+              },
+              {
+                "Action": ["ssm:GetParametersByPath", "ssm:GetParameter"],
+                "Effect": "Allow",
+                "Resource": [
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/application_id",
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/installation_id",
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/private_key_secret_id"
+                ]
               }
             ]
           }
@@ -848,18 +1197,43 @@ pipelines:
           EnvironmentVariables: | # pragma: allowlist secret
             [
               {
-                "name":"LAUNCH_ACTION",
-                "value":"launch terragrunt --target-environment ${TARGETENV} --platform-resource pipeline --plan --generation",
+                "name": "LAUNCH_ACTION",
+                "value": "terragrunt-plan",
+                "type": "PLAINTEXT"
+              },
+              {
+                "name": "INTERNALS_PIPELINE",
+                "value": "true",
+                "type": "PLAINTEXT"
+              },
+              {
+                "name": "INTERNALS_SERVICE",
+                "value": "pipelines",
+                "type": "PLAINTEXT"
+              },
+              {
+                "name": "TARGETENV",
+                "value": "root",
+                "type": "PLAINTEXT"
+              },
+              {
+                "name": "ROLE_TO_ASSUME",
+                "value": "arn:aws:iam::538234414982:role/dso-demo_tg_iam-useast2-root-000-role-000",
+                "type": "PLAINTEXT"
+              },
+              {
+                "name":"APPLICATION_ID_PARAMETER_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/application_id",
                 "type":"PLAINTEXT"
               },
               {
-                "name":"TARGETENV",
-                "value":"root",
+                "name":"INSTALLATION_ID_PARAMETER_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/installation_id",
                 "type":"PLAINTEXT"
               },
               {
-                "name":"AWS_DEPLOYMENT_ROLE",
-                "value":"arn:aws:iam::538234414982:role/dso-demo_tg_iam-useast2-root-000-role-000",
+                "name":"SIGNING_CERT_SECRET_NAME",
+                "value":"/github/app/aws-codepipeline-authentication/private_key_secret_id",
                 "type":"PLAINTEXT"
               }
             ]
@@ -880,6 +1254,22 @@ pipelines:
                 "Action": ["sts:AssumeRole"],
                 "Effect": "Allow",
                 "Resource": "arn:aws:iam::538234414982:role/dso-demo_tg_iam-useast2-root-000-role-000"
+              },
+              {
+                "Action": ["secretsmanager:GetSecretValue"],
+                "Effect": "Allow",
+                "Resource": [
+                  "arn:aws:secretsmanager:us-east-2:538234414982:secret:github/app/aws-codepipeline-authentication/private_key-??????"
+                ]
+              },
+              {
+                "Action": ["ssm:GetParametersByPath", "ssm:GetParameter"],
+                "Effect": "Allow",
+                "Resource": [
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/application_id",
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/installation_id",
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/private_key_secret_id"
+                ]
               }
             ]
           }
@@ -1086,21 +1476,36 @@ pipelines:
         configuration:
           EnvironmentVariables: | # pragma: allowlist secret
             [
-              {
-                "name":"LAUNCH_ACTION",
-                "value":"launch terragrunt --target-environment ${TARGETENV} --platform-resource service --apply --generation",
-                "type":"PLAINTEXT"
-              },
-              {
-                "name":"TARGETENV",
-                "value":"sandbox",
-                "type":"PLAINTEXT"
-              },
-              {
-                "name":"AWS_DEPLOYMENT_ROLE",
-                "value":"arn:aws:iam::020127659860:role/dso-demo_tg_iam-useast2-sandbox-000-role-000",
-                "type":"PLAINTEXT"
-              }
+                {
+                    "name": "LAUNCH_ACTION",
+                    "value": "terragrunt-deploy",
+                    "type": "PLAINTEXT"
+                },
+                {
+                    "name": "TARGETENV",
+                    "value": "sandbox",
+                    "type": "PLAINTEXT"
+                },
+                {
+                    "name": "ROLE_TO_ASSUME",
+                    "value": "arn:aws:iam::020127659860:role/dso-demo_tg_iam-useast2-sandbox-000-role-000",
+                    "type": "PLAINTEXT"
+                },
+                {
+                  "name":"APPLICATION_ID_PARAMETER_NAME",
+                  "value":"/github/app/aws-codepipeline-authentication/application_id",
+                  "type":"PLAINTEXT"
+                },
+                {
+                  "name":"INSTALLATION_ID_PARAMETER_NAME",
+                  "value":"/github/app/aws-codepipeline-authentication/installation_id",
+                  "type":"PLAINTEXT"
+                },
+                {
+                  "name":"SIGNING_CERT_SECRET_NAME",
+                  "value":"/github/app/aws-codepipeline-authentication/private_key_secret_id",
+                  "type":"PLAINTEXT"
+                }
             ]
         input_artifacts: ["SourceArtifact"]
         codebuild_iam: | # pragma: allowlist secret
@@ -1118,7 +1523,23 @@ pipelines:
               {
                 "Action": ["sts:AssumeRole"],
                 "Effect": "Allow",
-                "Resource": "arn:aws:iam::538234414982:role/dso-demo_tg_iam-useast2-root-000-role-000"
+                "Resource": "arn:aws:iam::020127659860:role/dso-demo_tg_iam-useast2-sandbox-000-role-000"
+              },
+              {
+                "Action": ["secretsmanager:GetSecretValue"],
+                "Effect": "Allow",
+                "Resource": [
+                  "arn:aws:secretsmanager:us-east-2:538234414982:secret:github/app/aws-codepipeline-authentication/private_key-??????"
+                ]
+              },
+              {
+                "Action": ["ssm:GetParametersByPath", "ssm:GetParameter"],
+                "Effect": "Allow",
+                "Resource": [
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/application_id",
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/installation_id",
+                  "arn:aws:ssm:us-east-2:538234414982:parameter/github/app/aws-codepipeline-authentication/private_key_secret_id"
+                ]
               }
             ]
           }
