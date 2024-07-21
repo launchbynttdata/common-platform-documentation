@@ -4,6 +4,7 @@
 2. [Basics](#basics)
 3. [Deploy Infrastructure](#deploy-infrastructure)
 4. [Deploy Java Application](#deploy-java-application)
+5. [View the Java Application](#view-the-java-application)
 5. [Maintenance](#maintenance)
 
 ## 1. **Introduction**
@@ -22,8 +23,8 @@ This guide has been modified to work with the following providers:
 - Pipeline provider: **AWS**
 
 External dependencies:
-- [Java application built to Launch's requirements.](#)
-  - This guide will use the following repository: [https://github.com/launchbynttdata/launch-api-hex-java-template](https://github.com/launchbynttdata/launch-api-hex-java-template)
+- [Java application built to Launch's requirements.](#)This guide will use the following repository: 
+  - [https://github.com/launchbynttdata/launch-api-hex-java-template](https://github.com/launchbynttdata/launch-api-hex-java-template)
 
 ## 2. **Basics**
 
@@ -33,8 +34,8 @@ In order to use this guide, it is assumed your local development environment is 
   - or [Setting up local environment - Windows](#)
 - [Setting up AWS config](./../../../../../development-environments/local/aws/config/README.md)
 - [Setting up `aws-sso-utils`](./../../../../../development-environments/local/aws/sso-login/README.md)
-- [Setting up Visual Studio Code](./../../../../../development-environments/local/vscode/README.md)
-- [Setting up Visual Studio Code dev containers](./../../../../../development-environments/local/vscode/dev-containers/README.md)
+- [Setting up Visual Studio Code](./../../../../../development-environments/local/vscode/README.md) (Optional)
+- [Setting up Visual Studio Code dev containers](./../../../../../development-environments/local/vscode/dev-containers/README.md) (Optional)
 - [Installing launch-cli](./../../../../README.md)
 - [Configuring Github Personal Access Token](#)
 
@@ -235,3 +236,5 @@ We will now connect the webhooks for the Java application
   <img src="./pictures/github-settings-webhook-app-java.png" /> 
 </p>
 
+
+## 5. **View the Java Application**
