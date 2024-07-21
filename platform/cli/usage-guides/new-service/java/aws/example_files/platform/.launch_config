@@ -1,17 +1,18 @@
 {
     "provider": "aws",
     "accounts": {
-        "sandbox": "launch-sandbox-admin"
+        "sandbox": "launch-sandbox-admin",
+        "root": "launch-sandbox-admin"
     },
     "naming_prefix": "demo",
     "skeleton": {
         "url": "https://github.com/launchbynttdata/lcaf-template-terragrunt.git",
-        "tag": "main"
+        "tag": "bug/quote-value-fix"
     },
     "sources": {
         "service": {
             "url": "https://github.com/launchbynttdata/tf-aws-module_collection-ecs_platform.git",
-            "tag": "0.1.1"
+            "tag": "1.1.0"
         },
         "pipeline": {
             "url": "https://github.com/launchbynttdata/tf-aws-module_collection-codepipeline.git",
@@ -37,7 +38,7 @@
                 "root": {
                     "us-east-2": {
                         "000": {
-                            "properties_file": "/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/platform/pipeline.root.us-east-2.yaml"
+                            "properties_file": "/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/platform/pipeline.root.us-east-2.tfvars"
                         }
                     }
                 }
@@ -46,7 +47,7 @@
                 "root": {
                     "us-east-2": {
                         "000": {
-                            "properties_file": "/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/platform/webhooks.root.us-east-2.yaml"
+                            "properties_file": "/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/platform/webhooks.root.us-east-2.tfvars"
                         }
                     }
                 }

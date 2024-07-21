@@ -1,4 +1,4 @@
-naming_prefix      = "launchexample"
+naming_prefix      = "springbootexample"
 environment_number = "000"
 interface_vpc_endpoints = {
   ecrdkr = {
@@ -45,7 +45,6 @@ resource_names_map = {
     max_length = 60
   }
 }
-
 
 vpc = {
   vpc_name                   = "sandbox-vpc-ecr"

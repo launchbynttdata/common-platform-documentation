@@ -1,7 +1,8 @@
 {
     "provider": "aws",
     "accounts": {
-        "sandbox": "launch-sandbox-admin"
+        "sandbox": "launch-sandbox-admin",
+        "root": "launch-root-admin"
     },
     "naming_prefix": "demo",
     "skeleton": {
@@ -14,8 +15,8 @@
             "tag": "docker_swarm"
         },
         "service": {
-            "url": "https://github.com/launchbynttdata/tf-aws-wrapper_module-s3_bucket.git",
-            "tag": "0.1.1"
+            "url": "https://github.com/launchbynttdata/tf-aws-module_collection-ecs_app.git",
+            "tag": "1.1.0"
         },
         "pipeline": {
             "url": "https://github.com/launchbynttdata/tf-aws-wrapper_module-codepipelines.git",
@@ -29,15 +30,15 @@
     "platform": {
         "templates": {
             "application" : {
-                "secret": "/workspaces/workplace/pxp-portal-rsdk-datachannel-admin-messages-properties/templates/common/application/common-application-config-secret.env.jinja2",
-                "non_secret": "/workspaces/workplace/pxp-portal-rsdk-datachannel-admin-messages-properties/templates/common/application/common-application-config-non-secret.env.jinja2"
+                "secret": "/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/application/common-application-config-secret.env.jinja2",
+                "non_secret": "/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/application/common-application-config-non-secret.env.jinja2"
             }
         },
         "service": {   
             "sandbox": {
                 "us-east-2": {
                     "000": {
-                        "properties_file": "/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/application/service.sandbox.us-east-2.yaml",
+                        "properties_file": "/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/application/service.sandbox.us-east-2.tfvars",
                         "template_properties": {
                             "application": "/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/application/application.sandbox.us-east-2.yaml"
                         }
@@ -50,7 +51,7 @@
                 "root": {
                     "us-east-2": {
                         "000": {
-                            "properties_file": "/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/application/pipeline.root.us-east-2.yaml"
+                            "properties_file": "/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/application/pipeline.root.us-east-2.tfvars"
                         }
                     }
                 }
@@ -59,7 +60,7 @@
                 "root": {
                     "us-east-2": {
                         "000": {
-                            "properties_file": "/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/application/webhooks.root.us-east-2.yaml"
+                            "properties_file": "/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/application/webhooks.root.us-east-2.tfvars"
                         }
                     }
                 }
