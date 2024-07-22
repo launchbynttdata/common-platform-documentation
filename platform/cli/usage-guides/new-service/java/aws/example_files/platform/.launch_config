@@ -2,7 +2,7 @@
     "provider": "aws",
     "accounts": {
         "sandbox": "launch-sandbox-admin",
-        "root": "launch-sandbox-admin"
+        "root": "launch-root-admin"
     },
     "naming_prefix": "demo",
     "skeleton": {

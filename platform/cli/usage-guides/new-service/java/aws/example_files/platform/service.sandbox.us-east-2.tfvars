@@ -1,4 +1,6 @@
-naming_prefix      = "springbootexample"
+naming_prefix      = "demo"
+logical_product_family = "demo"
+environment = "sandbox"
 environment_number = "000"
 interface_vpc_endpoints = {
   ecrdkr = {

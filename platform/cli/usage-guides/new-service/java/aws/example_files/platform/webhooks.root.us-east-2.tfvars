@@ -1,8 +1,8 @@
 git_tag = "1.1.0"
-environment = "demo"
+environment = "root"
 instance_env = 0
 instance_resource = 0
-logical_product_family = "launch"
+logical_product_family = "demo"
 logical_product_service = "ecs_ptfrm"
 bulk_lambda_functions = {
   pr_opened = {
@@ -18,14 +18,14 @@ bulk_lambda_functions = {
   "MERGE_COMMIT_ID": "pull_request.head.sha"
 }
 EOF
-      CODEBUILD_PROJECT_NAME = "launch-ecs_ptfrm_trigger_pipeline-useast2-root-000-cb-000"
+      CODEBUILD_PROJECT_NAME = "demo-ecs_ptfrm_trigger_pipeline-useast2-root-000-cb-000"
       CODEBUILD_URL = "https://us-east-2.console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-2"
       GIT_SERVER_URL = "https://github.com"
       GIT_SECRET_SM_ARN = "arn:aws:secretsmanager:us-east-2:538234414982:secret:github/launchbynttdata/tg-aws-shared-ecs_platform/git_secret"
       GIT_TOKEN_SM_ARN = "arn:aws:secretsmanager:us-east-2:538234414982:secret:launch/dso-platform/github/service_user/http_access_token"
       GIT_USERNAME_SM_ARN = "arn:aws:secretsmanager:us-east-2:538234414982:secret:launch/dso-platform/github/service_user/username"
       LOGGING_LEVEL = "INFO"
-      USERVAR_S3_CODEPIPELINE_BUCKET = "launch-ecs-ptfrm-pr-event-useast2-root-000-s3-000"
+      USERVAR_S3_CODEPIPELINE_BUCKET = "demo-ecs-ptfrm-pr-event-useast2-root-000-s3-000"
       VALIDATE_DIGITAL_SIGNATURE = "false"
       WEBHOOK_EVENT_TYPE = "opened"
     }
@@ -85,14 +85,14 @@ EOF
   "MERGE_COMMIT_ID": "pull_request.merge_commit_sha"
 }
 EOF
-      CODEBUILD_PROJECT_NAME = "launch-ecs_ptfrm_trigger_pipeline-useast2-root-000-cb-000"
+      CODEBUILD_PROJECT_NAME = "demo-ecs_ptfrm_trigger_pipeline-useast2-root-000-cb-000"
       CODEBUILD_URL = "https://us-east-2.console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-2"
       GIT_SERVER_URL = "https://github.com"
       GIT_SECRET_SM_ARN = "arn:aws:secretsmanager:us-east-2:538234414982:secret:github/launchbynttdata/tg-aws-shared-ecs_platform/git_secret"
       GIT_TOKEN_SM_ARN = "arn:aws:secretsmanager:us-east-2:538234414982:secret:launch/dso-platform/github/service_user/http_access_token"
       GIT_USERNAME_SM_ARN = "arn:aws:secretsmanager:us-east-2:538234414982:secret:launch/dso-platform/github/service_user/username"
       LOGGING_LEVEL = "INFO"
-      USERVAR_S3_CODEPIPELINE_BUCKET = "launch-ecs-ptfrm-pr-merge-useast2-root-000-s3-000"
+      USERVAR_S3_CODEPIPELINE_BUCKET = "demo-ecs-ptfrm-pr-merge-useast2-root-000-s3-000"
       VALIDATE_DIGITAL_SIGNATURE = "false"
       WEBHOOK_EVENT_TYPE = "closed"
     }
@@ -152,14 +152,14 @@ EOF
   "MERGE_COMMIT_ID": "pull_request.head.sha"
 }
 EOF
-      CODEBUILD_PROJECT_NAME = "launch-ecs_ptfrm_trigger_pipeline-useast2-root-000-cb-000"
+      CODEBUILD_PROJECT_NAME = "demo-ecs_ptfrm_trigger_pipeline-useast2-root-000-cb-000"
       CODEBUILD_URL = "https://us-east-2.console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-2"
       GIT_SERVER_URL = "https://github.com"
       GIT_SECRET_SM_ARN = "arn:aws:secretsmanager:us-east-2:538234414982:secret:github/launchbynttdata/tg-aws-shared-ecs_platform/git_secret"
       GIT_TOKEN_SM_ARN = "arn:aws:secretsmanager:us-east-2:538234414982:secret:launch/dso-platform/github/service_user/http_access_token"
       GIT_USERNAME_SM_ARN = "arn:aws:secretsmanager:us-east-2:538234414982:secret:launch/dso-platform/github/service_user/username"
       LOGGING_LEVEL = "INFO"
-      USERVAR_S3_CODEPIPELINE_BUCKET = "launch-ecs-ptfrm-pr-event-useast2-root-000-s3-000"
+      USERVAR_S3_CODEPIPELINE_BUCKET = "demo-ecs-ptfrm-pr-event-useast2-root-000-s3-000"
       VALIDATE_DIGITAL_SIGNATURE = "false"
       WEBHOOK_EVENT_TYPE = "edited"
     }
@@ -219,14 +219,14 @@ EOF
   "MERGE_COMMIT_ID": "pull_request.head.sha"
 }
 EOF
-      CODEBUILD_PROJECT_NAME = "launch-ecs_ptfrm_trigger_pipeline-useast2-root-000-cb-000"
+      CODEBUILD_PROJECT_NAME = "demo-ecs_ptfrm_trigger_pipeline-useast2-root-000-cb-000"
       CODEBUILD_URL = "https://us-east-2.console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-2"
       GIT_SERVER_URL = "https://github.com"
       GIT_SECRET_SM_ARN = "arn:aws:secretsmanager:us-east-2:538234414982:secret:github/launchbynttdata/tg-aws-shared-ecs_platform/git_secret"
       GIT_TOKEN_SM_ARN = "arn:aws:secretsmanager:us-east-2:538234414982:secret:launch/dso-platform/github/service_user/http_access_token"
       GIT_USERNAME_SM_ARN = "arn:aws:secretsmanager:us-east-2:538234414982:secret:launch/dso-platform/github/service_user/username"
       LOGGING_LEVEL = "INFO"
-      USERVAR_S3_CODEPIPELINE_BUCKET = "launch-ecs-ptfrm-pr-event-useast2-root-000-s3-000"
+      USERVAR_S3_CODEPIPELINE_BUCKET = "demo-ecs-ptfrm-pr-event-useast2-root-000-s3-000"
       VALIDATE_DIGITAL_SIGNATURE = "false"
       WEBHOOK_EVENT_TYPE = "synchronize"
     }

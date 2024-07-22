@@ -1,12 +1,17 @@
 #!/bin/bash
-local work_dir="/workspaces/workplace"
-local git_token="<PAT_HERE>"
-local sso_aws_url=""
-local sso_aws_account_id=""
-local sso aws_region="us-east-1"
-local aws_root_account_id=""
-local aws_sandbox_account_id=""
-local aws_region="us-east-2"
+work_dir="/workspaces/workplace"
+
+git_token="<PAT>"
+git_user="<GIT_USER>"
+git_email="<GIT_EMAIL>"
+
+sso_aws_url="<SSO_URL>"
+sso_aws_account_id="<SSO_ACCOUNT_ID>"
+sso_aws_region="us-east-1"
+
+aws_root_account_id="<ROOT_ACCOUNT_ID>"
+aws_sandbox_account_id="<SANDBOX_ACCOUNT_ID>"
+aws_region="us-east-2"
 
 # Set your Git token
 echo 'export GITHUB_TOKEN="'${git_token}'"' >> ~/.bashrc
@@ -37,14 +42,14 @@ python -m pip install launch-cli
 # Set up netrc
 echo "Setting ~/.netrc variables"
 {   echo "machine github.com"; 
-    echo "login aaron-christian-nttd"; 
-    echo "password ${DELETE_ME_TOKEN}"; 
+    echo "login ${git_user}"; 
+    echo "password ${git_token}"; 
 }  >> ~/.netrc
 chmod 600 ~/.netrc
 
 # Configure git
-git config --global user.name "aaron-christian-nttd"
-git config --global user.email "aaron.christian@nttdata.com"
+git config --global user.name "${git_user}"
+git config --global user.email "${git_email}"
 git config --global push.autoSetupRemote true
 
 # shell aliases
@@ -60,7 +65,7 @@ output = json
 
 [profile launch]
 sso_start_url = ${sso_aws_url}
-sso_region = ${aws_region}
+sso_region = ${sso_aws_region}
 sso_account_name = Launch DSO
 sso_account_id = ${sso_aws_account_id}
 sso_role_name = AdministratorAccess
@@ -70,7 +75,7 @@ sso_auto_populated = true
 
 [profile launch-root-admin]
 sso_start_url = ${sso_aws_url}
-sso_region = ${aws_region}
+sso_region = ${sso_aws_region}
 sso_account_name = Launch Root Account
 sso_account_id = ${aws_root_account_id}
 sso_role_name = AdministratorAccess
@@ -80,7 +85,7 @@ sso_auto_populated = true
 
 [profile launch-sandbox-admin]
 sso_start_url = ${sso_aws_url}
-sso_region = ${aws_region}
+sso_region = ${sso_aws_region}
 sso_account_name = Launch Sandbox Account
 sso_account_id = ${aws_sandbox_account_id}
 sso_role_name = AdministratorAccess

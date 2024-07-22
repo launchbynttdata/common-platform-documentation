@@ -30,10 +30,11 @@ Somewhere within your OS, please create or identify a folder in which you wish t
 ```
 
 ### Configure `devcontainer.json`
-- [devcontainer.json](./platform/development-environments/local/vscode/dev-containers/files/devcontainer.json)
+- [devcontainer.json](./files/devcontainer.json)
 
 ### Configure Post Create script
-- [dev.postCreate.sh](./platform/development-environments/local/vscode/dev-containers/files/dev.postCreate.sh)
+- [dev.postCreate.sh](./files/dev.postCreate.sh)
+
 
 ### Build and open the container
 

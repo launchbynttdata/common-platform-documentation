@@ -1,11 +1,11 @@
-# Usage Guide: Create and deploy a new Java service [AWS] ( 1.5 hours )
+# Usage Guide: Create and deploy a new Java service [AWS] (1.5 hours)
 ## **Table of Contents**
-1. [Introduction](#introduction)
-2. [Basics](#basics)
-3. [Deploy Infrastructure](#deploy-infrastructure)
-4. [Deploy Java Application](#deploy-java-application)
-5. [View the Java Application](#view-the-java-application)
-5. [Maintenance](#maintenance)
+1. [Prerequisites](#1-introduction)
+2. [Basics](#2-basics)
+3. [Deploy Infrastructure](#3-deploy-infrastructure)
+4. [Deploy Java Application](#4-deploy-java-application)
+5. [View the Java Application](#5-view-the-java-application)
+6. [Maintenance](#6-maintenance)
 
 ## 1. **Introduction**
 This guide will describe how to deploy a new java service using Launch's cli utility `launch-cli`. Within this guide, we will deploy necessary infrastructure to host a container application. Among the infrastructure, We need to deploy an ECR repository to store the new java containers being built. Secrets Manager to host your container's secrets. Finally, it will deploy an ECS cluster to support and serve the new java service. 
@@ -16,7 +16,6 @@ High level diagram of the architecture we are going to create in this guide.
   <img src="./pictures/userguide-ecs-complete.drawio.png" /> 
 </p>
 
-
 This guide has been modified to work with the following providers:
 
 - Service provider: **AWS**
@@ -26,12 +25,12 @@ External dependencies:
 - [Java application built to Launch's requirements.](#)This guide will use the following repository: 
   - [https://github.com/launchbynttdata/launch-api-hex-java-template](https://github.com/launchbynttdata/launch-api-hex-java-template)
 
-## 2. **Basics**
+## 2. **Prerequisites:**
 
 In order to use this guide, it is assumed your local development environment is set up to use the `launch-cli` platform. To log into your aws credentials, you can utilize the `aws sso utils`. Here is a list of complete guides to follow to set up your local development environment before this guide can be used successfully.
 
-- [Setting up local environment - Mac](#)
-  - or [Setting up local environment - Windows](#)
+- [Setting up local environment - Mac](./../../../../../development-environments/local/java/mac/README.md)
+  - or [Setting up local environment - Windows](./../../../../../development-environments/local/java/windows/README.md)
 - [Setting up AWS config](./../../../../../development-environments/local/aws/config/README.md)
 - [Setting up `aws-sso-utils`](./../../../../../development-environments/local/aws/sso-login/README.md)
 - [Setting up Visual Studio Code](./../../../../../development-environments/local/vscode/README.md) (Optional)
@@ -39,11 +38,12 @@ In order to use this guide, it is assumed your local development environment is 
 - [Installing launch-cli](./../../../../README.md)
 - [Configuring Github Personal Access Token](#)
 
-
 ## 3. **Deploy Infrastructure**
 
 ### 3.1 Deploy Secrets Manager 
 In this section, we will be deploying the secrets needed for our platform and java application.
+
+Create git_lambda_secret 
 
 ### 3.2 Deploy IAM roles 
 In this section, we will be deploying the IAM roles needed for our platform and java application. 
@@ -54,7 +54,7 @@ In this section, we will be deploying the necessary infrastructure to store our 
 ### 3.4 Deploy ECS Platform
 In this section, we will be deploying the ECS platform that our application will be deployed onto. 
 
-#### 3.4.1 Create the inputs for the ECS PLatform
+#### 3.4.1 Create the inputs for the ECS Platform
 This guide has provided basic inputs to be used with the services we are deploying. However, we cannot use these right out of the box and we need to quickly update some paths within our `.launch_config` file.
 
 The launch config for the platform in this guide is at the following:
@@ -72,6 +72,7 @@ We are going to be using the following inputs for our `.launch_config` files.
 </p>
 
 #### 3.4.2 Create the ECS Platform service
+We are now going to create the ECS platform properties repository.
 Replace the path in the `--in-file` argument to the exact path of the `.launch_config` file saved in the previous section. 
 ```
 ~ $ launch service create --name launch-demo-ecs-platform --in-file /workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/platform/.launch_config
@@ -82,7 +83,7 @@ Replace the path in the `--in-file` argument to the exact path of the `.launch_c
 
 #### 3.4.3 Generate the Terragrunt files for the ECS Platform service
 
-Change into the directory of the newly created service. 
+Change into the directory of the newly created service. Once inside the new repositories' directory, generate the Terragrunt code.
 
 ```
 ~ $ cd sample-demo-app
@@ -98,7 +99,7 @@ Change into the directory of the newly created service.
 
 #### 3.4.4 Deploy the ECS Platform service
 
-Deploy the pipeline for the service
+Deploy the pipeline for the ECS Platform service
 ```
 ~ $ launch terragrunt --target-environment root --platform-resource pipeline --apply --generation
 ```
@@ -108,10 +109,10 @@ Deploy the pipeline for the service
   <img src="./pictures/launch-terragrunt-pipeline-apply-platform-output-02.png" />
 </p>
 
-Deploy the webhooks for the service
+Deploy the webhooks for the ECS Platform service
 
 ```
-~ $ launch terragrunt --target-environment root --platform-resource webhooks --apply --generation
+~ $ launch terragrunt --target-environment root --platform-resource webhook --apply --generation
 ```
 <p align="center">
   <img src="./pictures/launch-terragrunt-webhook-apply-platform-output-01.png" /><br>
@@ -119,7 +120,7 @@ Deploy the webhooks for the service
   <img src="./pictures/launch-terragrunt-webhook-apply-platform-output-02.png" />
 </p>
 
-Deploy the service
+Deploy the ECS Platform service
 ```
 ~ $ launch terragrunt --target-environment sandbox --platform-resource service --apply --generation
 ```
@@ -138,8 +139,31 @@ In Github, navigate to the newly created repository. Under `Settings`, navigate 
   <img src="./pictures/github-settings-webhook-platform.png" /> 
 </p>
 
+We are going to create webhooks for each of the lambdas (4). 
+- In `Payload URL` put the function URL of the lambda
+- In `Content type`, select `application/json`
+- In `Secret`, paste your git_lambda_secret created earlier.
+- Select `Let me select individual events`
+  - Only select `Pull requests`
 
-## 4. **Deploy Java Application**
+<p align="center">
+  <img src="./pictures/github-settings-webhook-create-platform-01.png" /><br>
+  <img src="./pictures/github-settings-webhook-create-platform-02.png" />
+</p>
+
+You can find the function URL from the output after running the `launch terragrunt` command to deploy the webhooks or by navigating to the lambdas in the AWS console.
+<p align="center">
+  <img src="./pictures/lambdas.png" /><br>
+  <img src="./pictures/lambda-describe.png" />
+</p>
+
+<p align="center">
+  <img src="./pictures/github-settings-webhook-complete-platform-01.png" />
+</p>
+
+The webhooks will initially fail as the lambda does not allow ping requests.
+
+## 4. **Deploy Java application**
 
 #### 4.1.1 Create the inputs for the Java application
 
@@ -166,7 +190,8 @@ We are going to be using the following inputs for our `.launch_config` files.
 The launch config for the platform in this guide is at the following:
 - [./example_files/application/.launch_config](example_files/application/.launch_config)
 
-#### 4.1.2 Create the Java applciation service
+#### 4.1.2 Create the Java application service
+We are now going to create the Java application properties repository.
 Replace the path in the `--in-file` argument to the exact path of the `.launch_config` file saved in the previous section. 
 ```
 ~ $ launch service create --name launch-demo-ecs-application --in-file /workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/application/.launch_config
@@ -176,6 +201,7 @@ Replace the path in the `--in-file` argument to the exact path of the `.launch_c
 </p>
 
 #### 4.1.3 Build the image and push
+Change into the directory of the newly created service. Once inside the new repositories' directory, build the application's Docker image and push it to a container repository. 
 ```
 ~ $ cd launch-demo-ecs-application
 ~ $ launch service build --container-registry "020127659860.dkr.ecr.us-east-2.amazonaws.com" --container-image-name "launch-api" --container-image-version "0.0.1-dev" --push
@@ -188,7 +214,7 @@ Replace the path in the `--in-file` argument to the exact path of the `.launch_c
 </p>
 
 #### 4.1.4 Generate the Terragrunt files for the Java application service
-Change into the directory of the newly created Java application service. 
+Generate the Terragrunt code of the Java application.
 
 ```
 ~ $ launch service generate
@@ -238,3 +264,6 @@ We will now connect the webhooks for the Java application
 
 
 ## 5. **View the Java Application**
+
+
+## 6. **Maintenance**

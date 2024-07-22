@@ -24,11 +24,11 @@ additional_codebuild_projects = [{
         type = "PLAINTEXT"
       }, {
         name = "USERVAR_S3_CODEPIPELINE_BUCKET"
-        value = "launch-ecs-ptfrm-pr-event-useast2-root-000-s3-000"
+        value = "demo-ecs-ptfrm-pr-event-useast2-root-000-s3-000"
         type = "PLAINTEXT"
       }, {
         name = "INTERNALS_CODEPIPELINE_BUCKET"
-        value = "launch-ecs-ptfrm-internals-useast2-root-000-s3-000"
+        value = "demo-ecs-ptfrm-internals-useast2-root-000-s3-000"
         type = "PLAINTEXT"
       }, {
         name = "APPLICATION_ID_PARAMETER_NAME"
@@ -69,12 +69,12 @@ additional_codebuild_projects = [{
       ],
       "Effect": "Allow",
       "Resource": [
-        "arn:aws:s3:::launch-ecs-ptfrm-pr-event-useast2-root-000-s3-000",
-        "arn:aws:s3:::launch-ecs-ptfrm-pr-event-useast2-root-000-s3-000/*",
-        "arn:aws:s3:::launch-ecs-ptfrm-pr-merge-useast2-root-000-s3-000",
-        "arn:aws:s3:::launch-ecs-ptfrm-pr-merge-useast2-root-000-s3-000/*",
-        "arn:aws:s3:::launch-ecs-ptfrm-internals-useast2-root-000-s3-000",
-        "arn:aws:s3:::launch-ecs-ptfrm-internals-useast2-root-000-s3-000/*"
+        "arn:aws:s3:::demo-ecs-ptfrm-pr-event-useast2-root-000-s3-000",
+        "arn:aws:s3:::demo-ecs-ptfrm-pr-event-useast2-root-000-s3-000/*",
+        "arn:aws:s3:::demo-ecs-ptfrm-pr-merge-useast2-root-000-s3-000",
+        "arn:aws:s3:::demo-ecs-ptfrm-pr-merge-useast2-root-000-s3-000/*",
+        "arn:aws:s3:::demo-ecs-ptfrm-internals-useast2-root-000-s3-000",
+        "arn:aws:s3:::demo-ecs-ptfrm-internals-useast2-root-000-s3-000/*"
       ]
     },
     {
@@ -977,12 +977,12 @@ EOF
   },
   {
     "name": "USERVAR_S3_CODEPIPELINE_BUCKET",
-    "value": "launch-ecs-ptfrm-sandbox-useast2-root-000-s3-000",
+    "value": "demo-ecs-ptfrm-sandbox-useast2-root-000-s3-000",
     "type": "PLAINTEXT"
   },
   {
     "name": "INTERNALS_CODEPIPELINE_BUCKET",
-    "value": "launch-ecs-ptfrm-internals-useast2-root-000-s3-000",
+    "value": "demo-ecs-ptfrm-internals-useast2-root-000-s3-000",
     "type": "PLAINTEXT"
   },
   {
@@ -1027,10 +1027,10 @@ EOF
       ],
       "Effect": "Allow",
       "Resource": [
-        "arn:aws:s3:::launch-ecs-ptfrm-sandbox-useast2-root-000-s3-000",
-        "arn:aws:s3:::launch-ecs-ptfrm-sandbox-useast2-root-000-s3-000/*",
-        "arn:aws:s3:::launch-ecs-ptfrm-internals-useast2-root-000-s3-000",
-        "arn:aws:s3:::launch-ecs-ptfrm-internals-useast2-root-000-s3-000/*"
+        "arn:aws:s3:::demo-ecs-ptfrm-sandbox-useast2-root-000-s3-000",
+        "arn:aws:s3:::demo-ecs-ptfrm-sandbox-useast2-root-000-s3-000/*",
+        "arn:aws:s3:::demo-ecs-ptfrm-internals-useast2-root-000-s3-000",
+        "arn:aws:s3:::demo-ecs-ptfrm-internals-useast2-root-000-s3-000/*"
       ]
     },
     {
