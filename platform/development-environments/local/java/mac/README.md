@@ -1,5 +1,5 @@
 # Introduction
-This(Add URL here for the java sample app project) is a template java project built on the principles of
+This(https://github.com/launchbynttdata/launch-api-hex-java-template) is a template java project built on the principles of
 - Hexagonal architecture
     - clean separation between the core business logic & external interfaces.
 - Command Query Responsibility Segregation and
@@ -7,46 +7,53 @@ This(Add URL here for the java sample app project) is a template java project bu
 - Utilizes OpenAPI for API generation
     - used for API documentation & generation, providing a standardized way to describe & define RESTful APIs.
 
-This document contains instructions for Java developers and platform engineers to run the application locally on their MacOs based machines.
+This document contains instructions for Java developers and platform engineers to run the application locally on their mac based machines.
 
 # Installation instructions to set up the developer machine:
 
 # Pre-requisits:
-1. User has MacOs machine with ARM-64 based processor.
-2. `brew` package managed is installed.
+1. User has mac machine with IOS.
+2. User has rights to install softwares and change permissions as required on their machine.
 
 # Installation Guide
 
 ## Java JDK
-- Add URL from where package with specific version can be downloaded
-- Point to installation instructions on the website/list those in this README
-- Add instructions to export the ENVIRONMENT variables along with their path if necessary
-- Add instructions on how to verify the installtion.
-- Add troubleshooting steps for common problems faced during installation
+
+- Open Intellij IDE
+- Click on Menu -> Project Structure -> SDKs -> Click folder icon next to JDK home path -> Download JDK
+- Select Amazon Corretto 17 . Click Download
+- Launch up Terminal. Type in the command "java –version" . If it does not work, go to the trouble shooting section.
+- Run the command in terminal to set JAVA_HOME "export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home"
+- Add the jdk/bin path to system path variable PATH=$JAVA_HOME/bin:$PATH
+
+## TroubleShooting JDK Installation
+- Check if there are any pre-existing Java installs. Uninstall them and reinstall again
+- Temporarily turn off firewalls and antivirus software.
+- If you get file corrupt message, download the installation file again.
+- Ensure you are making use of the right java download.
+
 
 ## IntelliJ IDEA
-- Add URL from where package with specific version can be downloaded
-- Point to installation instructions on the website/list those in this README
-- Add instructions to export the ENVIRONMENT variables along with their path if necessary
-- Add instructions on how to verify the installtion.
-- Add troubleshooting steps for common problems faced during installation
+- Download Intellij Community Edition from https://www.jetbrains.com/idea/download/?section=mac
+- Run the installer, specify path for installation
+- Open the IDE, select the JDK path in the project structure as mentioned in the Java JDK section.
+- Open the cloned project in IDE. Menu -> Open -> Select the project folder . Click Open
+
 
 ## Gradle
-- Add URL from where package with specific version can be downloaded
-- Point to installation instructions on the website/list those in this README
-- Add instructions to export the ENVIRONMENT variables along with their path if necessary
-- Add instructions on how to verify the installtion.
-- Add troubleshooting steps for common problems faced during installation
+- Intellij IDE has in built Gradle support
+- Settings ->Build, Execution, Deployment -> Build Tools -> Gradle
+- select the installed JDK version under Gradle JVM
 
 ## Docker
-- Add URL from where package with specific version can be downloaded
-- Point to installation instructions on the website/list those in this README
-- Add instructions to export the ENVIRONMENT variables along with their path if necessary
-- Add instructions on how to verify the installtion.
-- Add troubleshooting steps for common problems faced during installation
+- Download Mac Docker Desktop using https://www.docker.com/products/docker-desktop/
+- Run the installer
+- Open the Docker Desktop application. All the containers running will be shown in the dashboard.
 
 ## Source code
-- Add steps here to clone the repository from a github repository url.
+- Clone the repository from a github repository url.
+- git clone https://github.com/launchbynttdata/launch-api-hex-java-template
+- Open the cloned project in Intellij IDE
 
 # Build and Test
 
