@@ -1,5 +1,5 @@
 # Introduction
-This(https://github.com/launchbynttdata/launch-api-hex-java-template) is a template java project built on the principles of
+This [template](https://github.com/launchbynttdata/launch-api-hex-java-template) is a template java project built on the principles of
 - Hexagonal architecture
     - clean separation between the core business logic & external interfaces.
 - Command Query Responsibility Segregation and
@@ -12,7 +12,7 @@ This document contains instructions for Java developers and platform engineers t
 # Installation instructions to set up the developer machine:
 
 # Pre-requisits:
-1. User has mac machine with IOS.
+1. User has MacOS.
 2. User has rights to install softwares and change permissions as required on their machine.
 
 # Installation Guide
@@ -21,8 +21,8 @@ This document contains instructions for Java developers and platform engineers t
 
 - Open Intellij IDE
 - Click on Menu -> Project Structure -> SDKs -> Click folder icon next to JDK home path -> Download JDK
-- Select Amazon Corretto 17 . Click Download
-- Launch up Terminal. Type in the command "java –version" . If it does not work, go to the trouble shooting section.
+- Select Amazon Corretto 17. Click Download
+- Launch up Terminal. Type in the command "java –version". If it does not work, go to the troubleshooting section.
 - Run the command in terminal to set JAVA_HOME "export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home"
 - Add the jdk/bin path to system path variable PATH=$JAVA_HOME/bin:$PATH
 
@@ -75,7 +75,7 @@ This document contains instructions for Java developers and platform engineers t
 - run `./gradlew pactPublish` to push the contract to the broker.
 
 # For Platform Engineers
-Platform engineerings who would like to run the application locally(without having to make the code changes), can set up `docker` on their machines to build/deploy applications.
+Platform engineers who would like to run the application locally(without having to make the code changes), can set up `docker` on their machines to build/deploy applications.
 
 ## Make commands
 - List the `make commands` here to build the image and start and test the application locally.
