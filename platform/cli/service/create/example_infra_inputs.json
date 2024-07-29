@@ -1,0 +1,56 @@
+{
+    "provider": "aws",
+    "accounts": {
+        "sandbox": "launch-sandbox-admin"
+    },
+    "naming_prefix": "demo",
+    "skeleton": {
+        "url": "https://github.com/launchbynttdata/lcaf-template-terragrunt.git",
+        "tag": "main"
+    },
+    "sources": {
+        "service": {
+            "repo": "https://github.com/nexient-llc/tf-aws-wrapper_module-s3_bucket.git",
+            "tag": "0.1.1"
+        },
+        "pipeline": {
+            "repo": "https://github.com/nexient-llc/tf-aws-wrapper_module-codepipelines.git",
+            "tag": "0.1.1"
+        },
+        "webhook": {
+            "repo": "https://github.com/nexient-llc/tf-aws-wrapper_module-bulk_lambda_function.git",
+            "tag": "0.1.0"
+        }
+    },
+    "platform": {
+        "service": {
+            "sandbox": {
+                "us-east-2": {
+                    "000": {
+                        "properties_files": "/exact/path/service/sandbox/us-east-2/000/terraform.tfvars"
+                    }
+                }
+            }
+        },
+        "pipeline": {
+            "pipeline-provider": {
+                "root": {
+                    "us-east-2": {
+                        "000": {
+                            "properties_files": "/exact/path/pipeline/pipeline-provider/root/us-east-2/000/terraform.tfvars"
+                        }
+                    }
+                }
+            },
+            "webhook-provider": {
+                "root": {
+                    "us-east-2": {
+                        "000": {
+                            "properties_files": "/exact/path/pipeline/webhook-provider/root/us-east-2/000/terraform.tfvars"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

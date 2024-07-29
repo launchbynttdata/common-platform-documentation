@@ -1,0 +1,57 @@
+{
+    "provider": "aws",
+    "accounts": {
+        "sandbox": "launch-sandbox-admin",
+        "root": "launch-sandbox-admin"
+    },
+    "naming_prefix": "demo",
+    "skeleton": {
+        "url": "https://github.com/launchbynttdata/lcaf-template-terragrunt.git",
+        "tag": "bug/quote-value-fix"
+    },
+    "sources": {
+        "service": {
+            "url": "https://github.com/launchbynttdata/tf-aws-module_collection-ecs_platform.git",
+            "tag": "1.1.0"
+        },
+        "pipeline": {
+            "url": "https://github.com/launchbynttdata/tf-aws-module_collection-codepipeline.git",
+            "tag": "1.0.2"
+        },
+        "webhook": {
+            "url": "https://github.com/launchbynttdata/tf-aws-module_reference-bulk_lambda_function.git",
+            "tag": "1.1.0"
+        }
+    },
+    "platform": {
+        "service": {
+            "sandbox": {
+                "us-east-2": {
+                    "000": {
+                        "properties_file": "/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/platform/service.sandbox.us-east-2.tfvars"
+                    }
+                }
+            }
+        },
+        "pipeline": {
+            "pipeline-provider": {
+                "root": {
+                    "us-east-2": {
+                        "000": {
+                            "properties_file": "/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/platform/pipeline.root.us-east-2.tfvars"
+                        }
+                    }
+                }
+            },
+            "webhook-provider": {
+                "root": {
+                    "us-east-2": {
+                        "000": {
+                            "properties_file": "/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/platform/webhooks.root.us-east-2.tfvars"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

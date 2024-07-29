@@ -1,0 +1,81 @@
+ccdnotification:
+  phr:
+    url: https://vip.npub.mycompany.net/phrrest-hubadapter/internal/ccdMessage
+phr:
+  rest:
+    healthstatus:
+      url: https://vip.npub.mycompany.net/phrrest-hubadapter/healthstatus
+cdm:
+  persist: false
+codification:
+  hostname: https://vip.npub.mycompany.net
+common:
+  eh:
+    host:
+      url: https://integration.mycompany.net
+    hostname: https://vip-pp-eh-core-api.npub.mycompany.net
+  portal:
+    rest:
+      hostname: https://vip-pp-intapp.npub.mycompany.net
+ecomm:
+  attachment:
+    serviceUrl: https://vip.npub.mycompany.net/attachmentservice
+environment: "prod"
+hub:
+  hostname: https://vip.npub.mycompany.net
+identity:
+  server:
+    host: https://vip.npub.mycompany.net/
+java:
+  tool:
+    options: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8787 -Djava.security.egd=file:/dev/./urandom -Djboss.bind.address=0.0.0.0 -Djboss.as.management.blocking.timeout=600 -javaagent:/opt/jboss/wildfly/modules/system/layers/base/org/opentelemetry/javaagent/main/opentelemetry-javaagent-1.26.0.jar"
+loghub:
+  priority: INFO
+max:
+  activemq:
+    connections: 5
+    consumers: 15
+message:
+  broker:
+    url: failover:(ssl://abcactivemq-openwire.prod.my-app.my-company.net:443)?startupMaxReconnectAttempts=5&maxReconnectAttempts=5&timeout=30000&jms.prefetchPolicy.queuePrefetch=1
+    userName: example/message/broker/username
+    password: example/message/broker/password
+  reprocessing:
+    url: https://abcabcd-ingress.prod.my-app.my-company.net/gef/eh/v1/internal/reprocess
+mfss:
+  forms:
+    host: https://vip-forms.mycompany.net
+mongo:
+  serverAddress: mongodb01.1.mycompany.net:27017,mongodb02.1.mycompany.net:27017
+  collectionkey: example/mongo/collectionkey
+  dbkey: example/mongo/dbkey
+  encryption:
+    key: example/mongo/encryption
+  username: example/mongo/username
+  password: example/mongo/password
+memcached:
+  integrationIdMapping:
+    cluster:
+      endpoint: map.prod.my-app.my-company.net:11211
+  integrationPractice:
+    cluster:
+      endpoint: config.prod.my-app.my-company.net:11211
+  integrationPatient:
+    cluster:
+      endpoint: cache.prod.my-app.my-company.net:11211
+otel:
+  service:
+    name: gef
+  exporter:
+    otlp:
+      protocol: http/protobuf
+      endpoint: http://localhost:4318
+idmap:
+  cache:
+    expiry: 86400
+patient:
+  cache:
+    expiry: 86400
+practice:
+  cache:
+    expiry: 86400

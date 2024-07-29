@@ -1,0 +1,65 @@
+{
+    "provider": string | aws, az,
+    "accounts": {
+        [string]: string
+    },
+    "naming_prefix":string,
+    "skeleton": {
+        "url": string,
+        "tag": string
+    },
+    "sources": {
+        [string | service, pipline, webhook]: {
+            "url": string,
+            "tag": string
+        }
+    },
+    "service?" : {
+        "templates": {
+            [string]: {
+                "config": [
+                    string,
+                    string,
+                    string
+                ]
+            }
+        }
+    },
+    "platform": {
+        "service": {
+            [string]: {
+                [string | must match cloud provider region format]: {
+                    [string | 3 digit int, i.e 000]: {
+                        "properties_files": [
+                            string
+                        ]
+                    }
+                }
+            }
+        },
+        "pipeline": {
+            "pipeline-provider?": {
+                [string]: {
+                    [string | must match cloud provider region format]: {
+                        [string | 3 digit int, i.e 000]: {
+                            "properties_files": [
+                                string
+                            ]
+                        }
+                    }
+                }
+            },
+            "webhook-provider?": {
+                [string]: {
+                    [string | must match cloud provider region format]: {
+                        [string | 3 digit int, i.e 000]: {
+                            "properties_files": [
+                                string
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
