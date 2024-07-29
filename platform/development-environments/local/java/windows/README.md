@@ -88,6 +88,42 @@ Note: If all the software here onwards need to be deployed in WSL, specify the i
 # For Platform Engineers
 Platform engineers who would like to run the application locally(without having to make the code changes), can set up `docker` on their machines to build/deploy applications.
 
+# Build using `make` commands
+
+Launch Common Automation Framework(LCAF) offers standard set of commands to build/test/deploy applications written in different programming lanagugaes and architectures. It is acheived with help of `make` commands. The set of commands described below explain the process of building the docker image for the java application, starting the application locally, bringing it down and pushing the image to the remote repository.
+
+## `make` commands:
+
+### Pre-requisits for running the `make` commands
+1. User should have access to Elastic Container Registry(ECR), in AWS cloud to push/pull the images.
+2. Login to AWS environment using terminal where rest of the `make` commands will be executed. <<aws profile name>> is the name of the aws profile that user has created for `sso login`
+```
+aws sso login --profile <<aws profile name>>
+```
+3. Export the profile as environment variable
+```
+export AWS_PROFILE=<<aws profile name>>
+```
 ## Make commands
-- List the `make commands` here to build the image and start and test the application locally.
+1. make configure
+   This command uses `git repo` tool to fetch dependent repositories which store the code for underlining commands to run `make` commands mentioned below. `make configure` pulls `lcaf-component-container` repository which stores the code for underlining `make` commands.
+
+2. make docker/check-env-vars
+   `CONTAINER_REGISTRY, CONTAINER_IMAGE_NAME, CONTAINER_IMAGE_VERSION` variables are stored in `Makefile.includes` file. The values of these variables can be changed so we customize the image name, version number and container registry name. The `make` commands ensures these values are present. This command does validation check.
+
+3. make docker/build
+   This command builds the image using `Dockerfile`
+
+4. make docker_compose/start
+   This command runs `docker-compose up` command to start the application locally.
+
+5. make docker_compose/stop
+   This command runs `docker-compose up` command to stop the application locally.
+
+6. make docker/aws_ecr_login
+   This commands obtains authentication token to login to CONTAINER_REGISTRY in AWS cloud so that docker image can be pushed to the registry.
+
+7. make docker/push
+   This command builds and pushes the image to the container registry.
+
 
