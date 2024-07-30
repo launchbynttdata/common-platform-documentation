@@ -4,10 +4,10 @@
         "sandbox": "launch-sandbox-admin",
         "root": "launch-root-admin"
     },
-    "naming_prefix": "demo",
+    "naming_prefix": "demo-ecs_ptfrm",
     "skeleton": {
         "url": "https://github.com/launchbynttdata/lcaf-template-terragrunt.git",
-        "tag": "bug/quote-value-fix"
+        "tag": "main"
     },
     "sources": {
         "service": {

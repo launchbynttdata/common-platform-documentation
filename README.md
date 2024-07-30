@@ -24,9 +24,13 @@ The following platforms and environments are currently supported by the `Launch`
 This documentation is filled with guides and information related to developing with the `Launch` platform. 
 
 ### Environment Guides
-- Setting up local environment: [Mac](./platform/development-environments/local/java/mac/README.md), [Windows](./platform/development-environments/local/java/windows/README.md)
+- Setting up local environment: 
+    - [Mac](./platform/development-environments/local/java/mac/README.md)
+    - [Windows](./platform/development-environments/local/java/windows/README.md)
 - [Setting up Visual Studio Code](./platform/development-environments/local/vscode/README.md)
-- [Setting up Visual Studio Code dev containers](./platform/development-environments/local/vscode/dev-containers/README.md)
+- [Setting up Visual Studio Code Dev Containers](./platform/development-environments/local/vscode/dev-containers/README.md)
+- [Installing launch-cli](./../../../../README.md)
+- [Configuring Github Personal Access Token](#)
 
 ### Quick Start Guides:
 - [Deploy a full stack Java application on AWS ECS](./platform/cli/usage-guides/new-service/java/aws/README.md)

@@ -4,7 +4,7 @@
         "sandbox": "launch-sandbox-admin",
         "root": "launch-root-admin"
     },
-    "naming_prefix": "demo",
+    "naming_prefix": "demo-ecs_app",
     "skeleton": {
         "url": "https://github.com/launchbynttdata/lcaf-template-terragrunt.git",
         "tag": "main"
@@ -16,15 +16,15 @@
         },
         "service": {
             "url": "https://github.com/launchbynttdata/tf-aws-module_collection-ecs_app.git",
-            "tag": "1.1.0"
+            "tag": "1.3.0"
         },
         "pipeline": {
-            "url": "https://github.com/launchbynttdata/tf-aws-wrapper_module-codepipelines.git",
-            "tag": "0.1.1"
+            "url": "https://github.com/launchbynttdata/tf-aws-module_collection-codepipeline.git",
+            "tag": "1.0.2"
         },
         "webhook": {
-            "url": "https://github.com/launchbynttdata/tf-aws-wrapper_module-bulk_lambda_function.git",
-            "tag": "0.1.0"
+            "url": "https://github.com/launchbynttdata/tf-aws-module_reference-bulk_lambda_function.git",
+            "tag": "1.1.0"
         }
     },
     "platform": {

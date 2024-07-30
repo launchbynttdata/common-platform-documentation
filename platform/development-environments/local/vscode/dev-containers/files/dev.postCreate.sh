@@ -1,20 +1,20 @@
-#!/bin/bash
-work_dir="/workspaces/workplace"
+#!/usr/bin/bash
+work_dir="/workspaces/CHANGEME"
+git_token="CHANGEME"
 
-git_token="<PAT>"
-git_user="<GIT_USER>"
-git_email="<GIT_EMAIL>"
-
-sso_aws_url="<SSO_URL>"
-sso_aws_account_id="<SSO_ACCOUNT_ID>"
+sso_aws_url="https://d-9067900a0a.awsapps.com/start/#"
 sso_aws_region="us-east-1"
 
-aws_root_account_id="<ROOT_ACCOUNT_ID>"
-aws_sandbox_account_id="<SANDBOX_ACCOUNT_ID>"
+aws_root_account_id="CHANGEME"
+aws_prod_account_id="CHANGEME"
+aws_sandbox_account_id="CHANGEME"
 aws_region="us-east-2"
 
+github_public_user="CHANGEME-nttd"
+github_public_email="CHANGEME@nttdata.com"
+
 # Set your Git token
-echo 'export GITHUB_TOKEN="'${git_token}'"' >> ~/.bashrc
+echo 'export GITHUB_TOKEN='${git_token} >> ~/.bashrc
 
 # Local user scripts to added to PATH for execution
 echo 'export PATH="'${work_dir}'/.localscripts:${PATH}"' >> ~/.bashrc
@@ -29,6 +29,9 @@ chmod a+rx ~/.bin/repo
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
 echo '. "$HOME/.asdf/asdf.sh"' >> ~/.bashrc
 
+# Install aws-sso-util as a make check dependency
+python -m pip install aws-sso-util
+
 # Install Launch CLI as a dev dependency
 python -m pip install launch-cli
 
@@ -41,36 +44,44 @@ python -m pip install launch-cli
 
 # Set up netrc
 echo "Setting ~/.netrc variables"
-{   echo "machine github.com"; 
-    echo "login ${git_user}"; 
-    echo "password ${git_token}"; 
-}  >> ~/.netrc
+echo machine github.com >> ~/.netrc
+echo login ${github_public_user} >> ~/.netrc
+echo password ${github_public_email} >> ~/.netrc
 chmod 600 ~/.netrc
 
 # Configure git
-git config --global user.name "${git_user}"
-git config --global user.email "${git_email}"
+git config --global user.name ${github_public_user}
+git config --global user.email ${github_public_email}
 git config --global push.autoSetupRemote true
+git config --global --add safe.directory ${work_dir}
 
 # shell aliases
-echo 'alias git_sync="git pull origin main"' >> ~/.bashrc
-echo 'alias git_boop="git reset --soft HEAD~1"' >> ~/.bashrc
+echo 'alias git_sync="git pull origin main"' >> ~/.bashrc # Alias to sync the repo with the main branch
+echo 'alias git_boop="git reset --soft HEAD~1"' >> ~/.bashrc # Alias to undo the last local commit but keep the changes
 
 # Set up AWS Config
+# Default profile is set to the Launch Sandbox Account.
 mkdir -p ~/.aws
 echo "
 [default]
 region = ${aws_region}
 output = json
-
-[profile launch]
 sso_start_url = ${sso_aws_url}
 sso_region = ${sso_aws_region}
-sso_account_name = Launch DSO
-sso_account_id = ${sso_aws_account_id}
+sso_account_name = Launch Sandbox Account
+sso_account_id = ${aws_sandbox_account_id}
+sso_role_name = AdministratorAccess
+credential_process = aws-sso-util credential-process --profile launch-sandbox-admin
+sso_auto_populated = true
+
+[profile launch-prod-admin]
+sso_start_url = ${sso_aws_url}
+sso_region = ${sso_aws_region}
+sso_account_name = Launch Production
+sso_account_id = ${aws_prod_account_id}
 sso_role_name = AdministratorAccess
 region = ${aws_region}
-credential_process = aws-sso-util credential-process --profile launch
+credential_process = aws-sso-util credential-process --profile launch-prod-admin
 sso_auto_populated = true
 
 [profile launch-root-admin]
@@ -80,7 +91,7 @@ sso_account_name = Launch Root Account
 sso_account_id = ${aws_root_account_id}
 sso_role_name = AdministratorAccess
 region = ${aws_region}
-credential_process = aws-sso-util credential-process --profile launch
+credential_process = aws-sso-util credential-process --profile launch-root-admin
 sso_auto_populated = true
 
 [profile launch-sandbox-admin]
@@ -90,6 +101,6 @@ sso_account_name = Launch Sandbox Account
 sso_account_id = ${aws_sandbox_account_id}
 sso_role_name = AdministratorAccess
 region = ${aws_region}
-credential_process = aws-sso-util credential-process --profile launch
+credential_process = aws-sso-util credential-process --profile launch-sandbox-admin
 sso_auto_populated = true
 " >> ~/.aws/config

@@ -43,18 +43,61 @@ In order to use this guide, it is assumed your local development environment is 
 ### 3.1 Deploy Secrets Manager 
 In this section, we will be deploying the secrets needed for our platform and java application.
 
-Create git_lambda_secret 
+Current:
+```
+arn:aws:secretsmanager:us-east-2:538234414982:secret:github/launchbynttdata/tg-aws-shared-ecs_platform/git_secret
+arn:aws:secretsmanager:us-east-2:538234414982:secret:launch/dso-platform/github/service_user/http_access_token
+arn:aws:secretsmanager:us-east-2:538234414982:secret:launch/dso-platform/github/service_user/username
+arn:aws:secretsmanager:us-east-2:538234414982:secret:example/postgres/username
+arn:aws:secretsmanager:us-east-2:538234414982:secret:example/postgres/password
+arn:aws:secretsmanager:us-east-2:538234414982:secret:example/actuator/username
+arn:aws:secretsmanager:us-east-2:538234414982:secret:example/actuator/password
+```
 
-### 3.2 Deploy IAM roles 
+TODO:
+#### 3.1.1 Create the inputs for the Secrets Manager 
+#### 3.1.2 Create the Secrets Manager service
+#### 3.1.3 Generate the Terragrunt files for the Secrets Manager service
+#### 3.1.4 Deploy the Secrets Manager service
+#### 3.1.5 Connect the webhooks
+
+### 3.2 Deploy Secrets Manager 
+In this section, we will be deploying the KMS keys needed for our secrets.
+
+
+TODO:
+#### 3.2.1 Create the inputs for the Secrets Manager 
+#### 3.2.2 Create the Secrets Manager service
+#### 3.2.3 Generate the Terragrunt files for the Secrets Manager service
+#### 3.2.4 Deploy the Secrets Manager service
+#### 3.2.5 Connect the webhooks
+
+### 3.3 Deploy IAM roles 
 In this section, we will be deploying the IAM roles needed for our platform and java application. 
 
-### 3.3 Deploy ECR Repository
+TODO:
+#### 3.3.1 Create the inputs for the IAM roles
+#### 3.3.2 Create the IAM roles service
+#### 3.3.3 Generate the Terragrunt files for the IAM roles service
+#### 3.3.4 Deploy the IAM roles service
+#### 3.3.5 Connect the webhooks
+
+### 3.4 Deploy ECR Repository
 In this section, we will be deploying the necessary infrastructure to store our java image built. 
 
-### 3.4 Deploy ECS Platform
+current: `arn:aws:ecr:us-east-2:538234414982:repository/launch-api`
+
+TODO:
+#### 3.4.1 Create the inputs for the ECR Repository 
+#### 3.4.2 Create the ECR Repository service
+#### 3.4.3 Generate the Terragrunt files for the ECR Repository service
+#### 3.4.4 Deploy the ECR Repository service
+#### 3.4.5 Connect the webhooks
+
+### 3.5 Deploy ECS Platform
 In this section, we will be deploying the ECS platform that our application will be deployed onto. 
 
-#### 3.4.1 Create the inputs for the ECS Platform
+#### 3.5.1 Create the inputs for the ECS Platform
 This guide has provided basic inputs to be used with the services we are deploying. However, we cannot use these right out of the box and we need to quickly update some paths within our `.launch_config` file.
 
 The launch config for the platform in this guide is at the following:
@@ -71,7 +114,7 @@ We are going to be using the following inputs for our `.launch_config` files.
   <img src="./pictures/launch_config-paths-platform.png" /> 
 </p>
 
-#### 3.4.2 Create the ECS Platform service
+#### 3.5.2 Create the ECS Platform service
 We are now going to create the ECS platform properties repository.
 Replace the path in the `--in-file` argument to the exact path of the `.launch_config` file saved in the previous section. 
 ```
@@ -81,7 +124,7 @@ Replace the path in the `--in-file` argument to the exact path of the `.launch_c
   <img src="./pictures/launch-service-create-platform-output.png" /> 
 </p>
 
-#### 3.4.3 Generate the Terragrunt files for the ECS Platform service
+#### 3.5.3 Generate the Terragrunt files for the ECS Platform service
 
 Change into the directory of the newly created service. Once inside the new repositories' directory, generate the Terragrunt code.
 
@@ -97,7 +140,7 @@ Change into the directory of the newly created service. Once inside the new repo
   <img src="./pictures/launch-service-generate-platform-output.png" /> 
 </p>
 
-#### 3.4.4 Deploy the ECS Platform service
+#### 3.5.4 Deploy the ECS Platform service
 
 Deploy the pipeline for the ECS Platform service
 ```
@@ -131,7 +174,7 @@ Deploy the ECS Platform service
 </p>
 
 
-#### 3.4.5 Connect the webhooks
+#### 3.5.5 Connect the webhooks
 Navigate to your organization's SCM, this guide will be using Github.
 
 In Github, navigate to the newly created repository. Under `Settings`, navigate to `Webhooks` and click `Add webhook`.
@@ -167,28 +210,25 @@ The webhooks will initially fail as the lambda does not allow ping requests.
 
 #### 4.1.1 Create the inputs for the Java application
 
-We are going to be using the following inputs for our `.launch_config` files. 
-- [./example_files/application/service.sandbox.us-east-2.tfvars](example_files/application/service.sandbox.us-east-2.tfvars)
-- [./example_files/application/pipeline.root.us-east-2.tfvars](example_files/application/pipeline.root.us-east-2.tfvars)
-- [./example_files/application/webhooks.root.us-east-2.tfvars](example_files/application/webhooks.root.us-east-2.tfvars)
-
-This guide has provided basic inputs to be used with the services we are deploying. However, we cannot use these right out of the box and we need to do some quick updated of paths within our `.launch_config` file.
-
 The launch config for the application in this guide is at the following:
 - [./example_files/application/.launch_config](example_files/application/.launch_config)
 
-Open this file and update the `properties_file` key with the exact path from your system to the input files to be used and then save it.
-<p align="center">
-  <img src="./pictures/launch_config-paths-application.png" /> 
-</p>
+Open this file and update the `properties_file` key with the exact path from your system to the input files to be used, and then save it.
 
 We are going to be using the following inputs for our `.launch_config` files. 
 - [Service `properties file ./example_files/application/service.sandbox.us-east-2.tfvars](./example_files/application/service.sandbox.us-east-2.tfvars)
 - [Pipeline `properties file` ./example_files/application/pipeline.root.us-east-2.tfvars](./example_files/application/pipeline.root.us-east-2.tfvars)
 - [Webhooks `properties file` ./example_files/application/webhooks.root.us-east-2.tfvars](./example_files/application/webhooks.root.us-east-2.tfvars)
 
-The launch config for the platform in this guide is at the following:
-- [./example_files/application/.launch_config](example_files/application/.launch_config)
+This file also includes 2 other files for jinja templates. Update these paths as well.
+- [Application inputs `properties file ./example_files/application/service.sandbox.us-east-2.tfvars](./example_files/application/common-application-config-non-secret.env.jinja2)
+- [Application secrets `properties file` ./example_files/application/pipeline.root.us-east-2.tfvars](./example_files/application/common-application-config-secret.env.jinja2)
+
+
+Open this file and update the `properties_file` key with the exact path from your system to the input files to be used and then save it.
+<p align="center">
+  <img src="./pictures/launch_config-paths-application.png" /> 
+</p>
 
 #### 4.1.2 Create the Java application service
 We are now going to create the Java application properties repository.
@@ -225,45 +265,80 @@ Generate the Terragrunt code of the Java application.
 
 #### 4.1.5 Deploy the Java application service
 
-Deploy the webhooks for the Java application service
+Deploy the pipeline for the Java application service
 ```
 ~ $ launch terragrunt --target-environment root --platform-resource pipeline --apply --generation
 ```
-![image info](./pictures/launch-terragrunt-plan-application-pipeline-output.png)
+<p align="center">
+  <img src="./pictures/launch-terragrunt-pipeline-apply-application-output-01.png" /><br>
+  output truncated... <br>
+  <img src="./pictures/launch-terragrunt-pipeline-apply-application-output-02.png" />
+</p>
 
-Deploy the pipeline for the Java application  service
+Deploy the webhooks for the Java application  service
 ```
-~ $ launch terragrunt --target-environment root --platform-resource webhooks --apply --generation
+~ $ launch terragrunt --target-environment root --platform-resource webhook --apply --generation
 ```
-![image info](./pictures/launch-terragrunt-plan-application-webhooks-output.png)
+<p align="center">
+  <img src="./pictures/launch-terragrunt-webhook-apply-application-output-01.png" /><br>
+  output truncated... <br>
+  <img src="./pictures/launch-terragrunt-webhook-apply-application-output-02.png" />
+</p>
 
 Deploy the Java application service
 ```
-~ $ launch terragrunt --target-environment sandbox --platform-resource service --apply --generation
+~ $ launch terragrunt --target-environment sandbox --platform-resource service --apply --generation --render-app-vars
 ```
-![image info](./pictures/launch-terragrunt-plan-application-service-output.png)
+<p align="center">
+  <img src="./pictures/launch-terragrunt-service-apply-application-output-01.png" /><br>
+  output truncated... <br>
+  <img src="./pictures/launch-terragrunt-service-apply-application-output-02.png" />
+</p>
 
 #### 4.1.6 Connect the webhooks
 Within this section, we need to connect the webhooks for the newly created service and the Java application. Both of these repositories will utilize the same webhooks.
 
 In this first section, we will connect the new created repository.
-- Navigate to your organization's SCM, this guide will be using Github.
 - In Github, navigate to the newly created repository. Under `Settings`, navigate to `Webhooks` and click `Add webhook`.
 <p align="center">
   <img src="./pictures/github-settings-webhook-app-props.png" /> 
 </p>
 
+We are going to create webhooks for each of the lambdas (4) for the properties repo.
+- In `Payload URL` put the function URL of the lambda
+- In `Content type`, select `application/json`
+- In `Secret`, paste your git_lambda_secret created earlier.
+- Select `Let me select individual events`
+  - Only select `Pull requests`
+
+<p align="center">
+  <img src="./pictures/github-settings-webhook-create-platform-01.png" /><br>
+  <img src="./pictures/github-settings-webhook-create-platform-02.png" />
+</p>
 
 
 We will now connect the webhooks for the Java application
-- Navigate to your organization's SCM, this guide will be using Github.
 - In Github, navigate to the Java application repository. Under `Settings`, navigate to `Webhooks` and click `Add webhook`.
 <p align="center">
   <img src="./pictures/github-settings-webhook-app-java.png" /> 
 </p>
 
+We are going to create webhooks for each of the lambdas (4) for the Java Application. 
+- In `Payload URL` put the function URL of the lambda
+- In `Content type`, select `application/json`
+- In `Secret`, paste your git_lambda_secret created earlier.
+- Select `Let me select individual events`
+  - Only select `Pull requests`
+
+<p align="center">
+  <img src="./pictures/github-settings-webhook-create-platform-01.png" /><br>
+  <img src="./pictures/github-settings-webhook-create-platform-02.png" />
+</p>
 
 ## 5. **View the Java Application**
 
+Perform this guide to deploy a AWS Client VPN utilizing the launch platform to view this application in a private VPC:
+
+- [Deploy Client VPN]()
 
 ## 6. **Maintenance**

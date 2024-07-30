@@ -1,9 +1,14 @@
+git_tag = "1.3.0"
+
+logical_product_family = "demo"
 logical_product_service = "springboot"
 environment             = "sandbox"
 environment_number      = "000"
 resource_number         = "000"
-logical_product_family  = "launch"
 region                  = "us-east-2"
+
+force_new_deployment = true
+redeploy_on_apply = true
 
 resource_names_map = {
   # Platform
@@ -107,29 +112,6 @@ containers = [
         hostPort      = 5005
         protocol      = "tcp"
     }]
-    environment = {
-      "spring.datasource.url"                                            = "jdbc:postgresql://aarti-private-postgres-db.cafhcpgcbext.us-east-2.rds.amazonaws.com:5432/postgres"
-      "spring.datasource.username"                                       = "postgres"
-      "spring.datasource.password"                                       = "postgres"
-      "spring.datasource.driverClassName"                                = "org.postgresql.Driver"
-      "spring.main.banner-mode"                                          = "off"
-      "spring.session.jdbc.initialize-schema"                            = "always"
-      "spring.sql.init.mode"                                             = "always"
-      "spring.sql.init.platform"                                         = "postgres"
-      "spring.sql.init.continue-on-error"                                = "true"
-      "spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation" = "true"
-      "spring.jpa.properties.hibernate.format_sql"                       = "true"
-      "spring.jpa.properties.hibernate.dialect"                          = "org.hibernate.dialect.PostgreSQLDialect"
-      "spring.jpa.hibernate.ddl-auto"                                    = "none"
-      "spring.jpa.show-sql"                                              = "true"
-      "spring.jpa.generate-ddl"                                          = "true"
-      "spring.jpa.defer-datasource-initialization"                       = "true"
-      "spring.jpa.properties.hibernate.use_sql_comments"                 = "true"
-      "actuator_username"                                                = "test"
-      "actuator_password"                                                = "test"
-      "logging.level.org.springframework"                                = "DEBUG"
-    }
-
   }
 ]
 
@@ -168,13 +150,13 @@ tags = {
   Team    = "dso"
 }
 
-vpc_id = "vpc-02c510a9108940807"
+vpc_id = "vpc-099fd3eb16bcdfafc"
 private_subnets = [
-  "subnet-0fe7bc519009725f8",
-  "subnet-0b6f7d708521d653d",
-  "subnet-01492caeb02671079",
+  "subnet-0e13d45c866b2e7b2",
+  "subnet-0c9280cbd4c3a01dd",
+  "subnet-0369ba8e77a48792b",
 ]
-ecs_cluster_arn = "arn:aws:ecs:us-east-2:020127659860:cluster/launch-springboot-useast2-sandbox-000-fargate-000"
+ecs_cluster_arn = "arn:aws:ecs:us-east-2:020127659860:cluster/demo-ecs_ptfrm-useast2-sandbox-000-fargate-000"
 
 runtime_platform = [{
   cpu_architecture        = "ARM64",
