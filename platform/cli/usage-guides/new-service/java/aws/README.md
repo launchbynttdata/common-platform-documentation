@@ -1,7 +1,7 @@
 # Usage Guide: Create and deploy a new Java service [AWS] (1.5 hours)
 ## **Table of Contents**
-1. [Prerequisites](#1-introduction)
-2. [Basics](#2-basics)
+1. [Introduction](#1-introduction)
+2. [Prerequisites](#2-Prerequisites)
 3. [Deploy Infrastructure](#3-deploy-infrastructure)
 4. [Deploy Java Application](#4-deploy-java-application)
 5. [View the Java Application](#5-view-the-java-application)
@@ -22,21 +22,22 @@ This guide has been modified to work with the following providers:
 - Pipeline provider: **AWS**
 
 External dependencies:
-- [Java application built to Launch's requirements.](#)This guide will use the following repository: 
+- [Java application built to Launch's requirements.](#TODO)This guide will use the following repository: 
   - [https://github.com/launchbynttdata/launch-api-hex-java-template](https://github.com/launchbynttdata/launch-api-hex-java-template)
 
 ## 2. **Prerequisites:**
 
 In order to use this guide, it is assumed your local development environment is set up to use the `launch-cli` platform. To log into your aws credentials, you can utilize the `aws sso utils`. Here is a list of complete guides to follow to set up your local development environment before this guide can be used successfully.
 
-- [Setting up local environment - Mac](./../../../../../development-environments/local/java/mac/README.md)
-  - or [Setting up local environment - Windows](./../../../../../development-environments/local/java/windows/README.md)
+- Setting up local environment:
+  - [Mac](./../../../../../development-environments/local/java/mac/README.md)
+  - [Windows](./../../../../../development-environments/local/java/windows/README.md)
 - [Setting up AWS config](./../../../../../development-environments/local/aws/config/README.md)
 - [Setting up `aws-sso-utils`](./../../../../../development-environments/local/aws/sso-login/README.md)
 - [Setting up Visual Studio Code](./../../../../../development-environments/local/vscode/README.md) (Optional)
 - [Setting up Visual Studio Code dev containers](./../../../../../development-environments/local/vscode/dev-containers/README.md) (Optional)
 - [Installing launch-cli](./../../../../README.md)
-- [Configuring Github Personal Access Token](#)
+- [Configuring Github Personal Access Token](#TODO)
 
 ## 3. **Deploy Infrastructure**
 
@@ -101,12 +102,12 @@ In this section, we will be deploying the ECS platform that our application will
 This guide has provided basic inputs to be used with the services we are deploying. However, we cannot use these right out of the box and we need to quickly update some paths within our `.launch_config` file.
 
 The launch config for the platform in this guide is at the following:
-- [./example_files/platform/.launch_config](example_files/platform/.launch_config)
+- [./example_files/platform/.launch_config](./example_files/platform/.launch_config)
 
-Open this file and update the `properties_file` key with the exact path from your system to the input files to be used, and then save it.
+Open this file and update the `properties_file` key with the absolute path from your system to the input files to be used, and then save it.
 
 We are going to be using the following inputs for our `.launch_config` files. 
-- [Service `properties file ./example_files/platform/service.sandbox.us-east-2.tfvars](./example_files/platform/service.sandbox.us-east-2.tfvars)
+- [Service `properties file` ./example_files/platform/service.sandbox.us-east-2.tfvars](./example_files/platform/service.sandbox.us-east-2.tfvars)
 - [Pipeline `properties file` ./example_files/platform/pipeline.root.us-east-2.tfvars](./example_files/platform/pipeline.root.us-east-2.tfvars)
 - [Webhooks `properties file` ./example_files/platform/webhooks.root.us-east-2.tfvars](./example_files/platform/webhooks.root.us-east-2.tfvars)
 
@@ -116,9 +117,9 @@ We are going to be using the following inputs for our `.launch_config` files.
 
 #### 3.5.2 Create the ECS Platform service
 We are now going to create the ECS platform properties repository.
-Replace the path in the `--in-file` argument to the exact path of the `.launch_config` file saved in the previous section. 
+Replace the path in the `--in-file` argument to the absolute path of the `.launch_config` file saved in the previous section. 
 ```
-~ $ launch service create --name launch-demo-ecs-platform --in-file /workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/platform/.launch_config
+$ launch service create --name launch-demo-ecs-platform --in-file /workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/platform/.launch_config
 ```
 <p align="center">
   <img src="./pictures/launch-service-create-platform-output.png" /> 
@@ -129,8 +130,8 @@ Replace the path in the `--in-file` argument to the exact path of the `.launch_c
 Change into the directory of the newly created service. Once inside the new repositories' directory, generate the Terragrunt code.
 
 ```
-~ $ cd sample-demo-app
-~ $ launch service generate
+$ cd sample-demo-app
+$ launch service generate
 ```
 <p align="center">
   <img src="./pictures/launch-service-create-platform-cd.png" /> 
@@ -144,7 +145,7 @@ Change into the directory of the newly created service. Once inside the new repo
 
 Deploy the pipeline for the ECS Platform service
 ```
-~ $ launch terragrunt --target-environment root --platform-resource pipeline --apply --generation
+$ launch terragrunt --target-environment root --platform-resource pipeline --apply --generation
 ```
 <p align="center">
   <img src="./pictures/launch-terragrunt-pipeline-apply-platform-output-01.png" /><br>
@@ -155,7 +156,7 @@ Deploy the pipeline for the ECS Platform service
 Deploy the webhooks for the ECS Platform service
 
 ```
-~ $ launch terragrunt --target-environment root --platform-resource webhook --apply --generation
+$ launch terragrunt --target-environment root --platform-resource webhook --apply --generation
 ```
 <p align="center">
   <img src="./pictures/launch-terragrunt-webhook-apply-platform-output-01.png" /><br>
@@ -165,7 +166,7 @@ Deploy the webhooks for the ECS Platform service
 
 Deploy the ECS Platform service
 ```
-~ $ launch terragrunt --target-environment sandbox --platform-resource service --apply --generation
+$ launch terragrunt --target-environment sandbox --platform-resource service --apply --generation
 ```
 <p align="center">
   <img src="./pictures/launch-terragrunt-service-apply-platform-output-01.png" /><br>
@@ -213,28 +214,28 @@ The webhooks will initially fail as the lambda does not allow ping requests.
 The launch config for the application in this guide is at the following:
 - [./example_files/application/.launch_config](example_files/application/.launch_config)
 
-Open this file and update the `properties_file` key with the exact path from your system to the input files to be used, and then save it.
+Open this file and update the `properties_file` key with the absolute path from your system to the input files to be used, and then save it.
 
 We are going to be using the following inputs for our `.launch_config` files. 
-- [Service `properties file ./example_files/application/service.sandbox.us-east-2.tfvars](./example_files/application/service.sandbox.us-east-2.tfvars)
+- [Service `properties file` ./example_files/application/service.sandbox.us-east-2.tfvars](./example_files/application/service.sandbox.us-east-2.tfvars)
 - [Pipeline `properties file` ./example_files/application/pipeline.root.us-east-2.tfvars](./example_files/application/pipeline.root.us-east-2.tfvars)
 - [Webhooks `properties file` ./example_files/application/webhooks.root.us-east-2.tfvars](./example_files/application/webhooks.root.us-east-2.tfvars)
 
 This file also includes 2 other files for jinja templates. Update these paths as well.
-- [Application inputs `properties file ./example_files/application/service.sandbox.us-east-2.tfvars](./example_files/application/common-application-config-non-secret.env.jinja2)
+- [Application inputs `properties file` ./example_files/application/service.sandbox.us-east-2.tfvars](./example_files/application/common-application-config-non-secret.env.jinja2)
 - [Application secrets `properties file` ./example_files/application/pipeline.root.us-east-2.tfvars](./example_files/application/common-application-config-secret.env.jinja2)
 
 
-Open this file and update the `properties_file` key with the exact path from your system to the input files to be used and then save it.
+Open this file and update the `properties_file` key with the absolute path from your system to the input files to be used and then save it.
 <p align="center">
   <img src="./pictures/launch_config-paths-application.png" /> 
 </p>
 
 #### 4.1.2 Create the Java application service
 We are now going to create the Java application properties repository.
-Replace the path in the `--in-file` argument to the exact path of the `.launch_config` file saved in the previous section. 
+Replace the path in the `--in-file` argument to the absolute path of the `.launch_config` file saved in the previous section. 
 ```
-~ $ launch service create --name launch-demo-ecs-application --in-file /workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/application/.launch_config
+$ launch service create --name launch-demo-ecs-application --in-file /workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/application/.launch_config
 ```
 <p align="center">
   <img src="./pictures/launch-service-create-application-output.png" /> 
@@ -243,8 +244,8 @@ Replace the path in the `--in-file` argument to the exact path of the `.launch_c
 #### 4.1.3 Build the image and push
 Change into the directory of the newly created service. Once inside the new repositories' directory, build the application's Docker image and push it to a container repository. 
 ```
-~ $ cd launch-demo-ecs-application
-~ $ launch service build --container-registry "020127659860.dkr.ecr.us-east-2.amazonaws.com" --container-image-name "launch-api" --container-image-version "0.0.1-dev" --push
+$ cd launch-demo-ecs-application
+$ launch service build --container-registry "020127659860.dkr.ecr.us-east-2.amazonaws.com" --container-image-name "launch-api" --container-image-version "0.0.1-dev" --push
 ```
 <p align="center">
   <img src="./pictures/launch-service-create-application-cd.png" /> <br>
@@ -257,7 +258,7 @@ Change into the directory of the newly created service. Once inside the new repo
 Generate the Terragrunt code of the Java application.
 
 ```
-~ $ launch service generate
+$ launch service generate
 ```
 <p align="center">
   <img src="./pictures/launch-service-generate-platform-output.png" /> 
@@ -267,7 +268,7 @@ Generate the Terragrunt code of the Java application.
 
 Deploy the pipeline for the Java application service
 ```
-~ $ launch terragrunt --target-environment root --platform-resource pipeline --apply --generation
+$ launch terragrunt --target-environment root --platform-resource pipeline --apply --generation
 ```
 <p align="center">
   <img src="./pictures/launch-terragrunt-pipeline-apply-application-output-01.png" /><br>
@@ -277,7 +278,7 @@ Deploy the pipeline for the Java application service
 
 Deploy the webhooks for the Java application  service
 ```
-~ $ launch terragrunt --target-environment root --platform-resource webhook --apply --generation
+$ launch terragrunt --target-environment root --platform-resource webhook --apply --generation
 ```
 <p align="center">
   <img src="./pictures/launch-terragrunt-webhook-apply-application-output-01.png" /><br>
@@ -287,7 +288,7 @@ Deploy the webhooks for the Java application  service
 
 Deploy the Java application service
 ```
-~ $ launch terragrunt --target-environment sandbox --platform-resource service --apply --generation --render-app-vars
+$ launch terragrunt --target-environment sandbox --platform-resource service --apply --generation --render-app-vars
 ```
 <p align="center">
   <img src="./pictures/launch-terragrunt-service-apply-application-output-01.png" /><br>
@@ -339,6 +340,11 @@ We are going to create webhooks for each of the lambdas (4) for the Java Applica
 
 Perform this guide to deploy a AWS Client VPN utilizing the launch platform to view this application in a private VPC:
 
-- [Deploy Client VPN]()
+- [Deploy Client VPN](#TODO)
+- [Configure VPN Client](#TODO)
+
+Once able to connect to the private VPC your application is running in, navigate to [http://vpn-poc-nlb1-84d114247ebc21eb.elb.us-east-2.amazonaws.com:8080/swagger-ui/index.html](http://vpn-poc-nlb1-84d114247ebc21eb.elb.us-east-2.amazonaws.com:8080/swagger-ui/index.html). You should now see your running application. 
+
+
 
 ## 6. **Maintenance**

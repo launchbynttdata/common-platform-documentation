@@ -4,9 +4,9 @@ This guide will walk you through setting up a development conteinaer environment
 
 ## Prerequistes
 - Local environment setup
-  - [Mac](#)
-  - [Windows](#)
-- [VS Code is installed](#)
+  - [Mac](./../../java/mac/README.md)
+  - [Windows](./../../java/windows/README.md)
+- [VS Code is installed](./../README.md)
 
 ## Step-by-step Guide
 
@@ -90,10 +90,6 @@ Rebuild the container `>Dev Container: Rebuild Container`
 <p align="center">
   <img src="./pictures/dev-containers-new-container-ubuntu-shell.png" /> 
 </p>
-
-
-### Final thoughts
-
 
 ## References
 - [Developing inside a Container](https://code.visualstudio.com/docs/devcontainers/containers)

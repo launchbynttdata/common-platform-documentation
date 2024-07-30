@@ -50,7 +50,7 @@ This document contains instructions for Java developers and platform engineers t
 
 ## Source code
 - Clone the repository from a github repository url.
-- git clone https://github.com/launchbynttdata/launch-api-hex-java-template
+- `git clone https://github.com/launchbynttdata/launch-api-hex-java-template`
 - Open the cloned project in Intellij IDE
 
 # Build and Test
@@ -73,23 +73,23 @@ This document contains instructions for Java developers and platform engineers t
 - run `./gradlew pactPublish` to push the contract to the broker.
 
 # For Platform Engineers
-Platform engineers who would like to run the application locally(without having to make the code changes), can set up `docker` on their machines to build/deploy applications.
+Platform engineers who would like to run the application locally (without having to make the code changes), can set up `docker` on their machines to build/deploy applications.
 
 # Build using `make` commands
 
-Launch Common Automation Framework(LCAF) offers standard set of commands to build/test/deploy applications written in different programming lanagugaes and architectures. It is acheived with help of `make` commands. The set of commands described below explain the process of building the docker image for the java application, starting the application locally, bringing it down and pushing the image to the remote repository.
+Launch Common Automation Framework (LCAF) offers standard set of commands to build/test/deploy applications written in different programming languages and architectures. It is achieved with help of `make` commands. The set of commands described below explain the process of building the docker image for the java application, starting the application locally, bringing it down and pushing the image to the remote repository.
 
 ## `make` commands:
 
 ### Pre-requisits for running the `make` commands
-1. User should have access to Elastic Container Registry(ECR), in AWS cloud to push/pull the images.
-2. Login to AWS environment using terminal where rest of the `make` commands will be executed. <<aws profile name>> is the name of the aws profile that user has created for `sso login`
+1. User should have access to Elastic Container Registry (ECR), in AWS cloud to push/pull the images.
+2. Login to AWS environment using terminal where rest of the `make` commands will be executed. `<aws profile name>` is the name of the aws profile that user has created for `sso login`
 ```
-aws sso login --profile <<aws profile name>>
+aws sso login --profile `<aws profile name>`
 ```
 3. Export the profile as environment variable
 ```
-export AWS_PROFILE=<<aws profile name>>
+export AWS_PROFILE=`<aws profile name>`
 ```
 ## Make commands
 1. make configure
