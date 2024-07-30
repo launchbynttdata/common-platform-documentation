@@ -19,12 +19,12 @@ This document contains instructions for Java developers and platform engineers t
 
 ## WSL
 - Install WSL on your Windows system, open PowerShell as an Administrator (Follow steps from https://learn.microsoft.com/en-us/windows/wsl/install)
-- Use command wsl --install
+- Use command `wsl --install`
 - Reboot your computer when prompted
 - After rebooting, open the newly installed Linux distribution from the Start menu.
-- Use wsl -l -v command to check the version installed
+- Use `wsl -l -v` command to check the version installed
 - You’ll be prompted to create a new user account and password
-- open File Explorer and type \\wsl$ in the address bar to access the Linux file system
+- open File Explorer and type `\\wsl$` in the address bar to access the Linux file system
 
 Note: If all the software here onwards need to be deployed in WSL, specify the instructions accordingly.
 
@@ -33,7 +33,7 @@ Note: If all the software here onwards need to be deployed in WSL, specify the i
 - Open Intellij IDE
 - Click on Menu -> Project Structure -> SDKs -> Click folder icon next to JDK home path -> Download JDK
 - Select Amazon Corretto 17. Click Download
-- Launch up Terminal. Type in the command "java –version". If it does not work, go to the troubleshooting section.
+- Launch up Terminal. Type in the command `java –version`. If it does not work, go to the troubleshooting section.
 - Add to environment variables as JAVA_HOME  in system variables
 - Add the jdk/bin path to system path variable
 
@@ -63,7 +63,7 @@ Note: If all the software here onwards need to be deployed in WSL, specify the i
 
 ## Source code
 - Clone the repository from a github repository url.
-- git clone https://github.com/launchbynttdata/launch-api-hex-java-template
+- `git clone https://github.com/launchbynttdata/launch-api-hex-java-template`
 - Open the cloned project in Intellij IDE
 
 # Build and Test
@@ -86,26 +86,26 @@ Note: If all the software here onwards need to be deployed in WSL, specify the i
 - run `./gradlew pactPublish` to push the contract to the broker.
 
 # For Platform Engineers
-Platform engineers who would like to run the application locally(without having to make the code changes), can set up `docker` on their machines to build/deploy applications.
+Platform engineers who would like to run the application locally (without having to make the code changes), can set up `docker` on their machines to build/deploy applications.
 
 # Build using `make` commands
 
-Launch Common Automation Framework(LCAF) offers standard set of commands to build/test/deploy applications written in different programming lanagugaes and architectures. It is acheived with help of `make` commands. The set of commands described below explain the process of building the docker image for the java application, starting the application locally, bringing it down and pushing the image to the remote repository.
+Launch Common Automation Framework (LCAF) offers standard set of commands to build/test/deploy applications written in different programming languages and architectures. It is achieved with help of `make` commands. The set of commands described below explain the process of building the docker image for the java application, starting the application locally, bringing it down and pushing the image to the remote repository.
 
 ## `make` commands:
 
-### Pre-requisits for running the `make` commands
-1. User should have access to Elastic Container Registry(ECR), in AWS cloud to push/pull the images.
-2. Login to AWS environment using terminal where rest of the `make` commands will be executed. <<aws profile name>> is the name of the aws profile that user has created for `sso login`
+### Pre-requisites for running the `make` commands
+1. User should have access to Elastic Container Registry (ECR), in AWS cloud to push/pull the images.
+2. Login to AWS environment using terminal where rest of the `make` commands will be executed. `<aws profile name>` is the name of the aws profile that user has created for `sso login`
 ```
-aws sso login --profile <<aws profile name>>
+aws sso login --profile `<aws profile name>`
 ```
 3. Export the profile as environment variable
 ```
-export AWS_PROFILE=<<aws profile name>>
+export AWS_PROFILE=`<aws profile name>`
 ```
 ## Make commands
-1. make configure
+1. `make configure`
    This command uses `git repo` tool to fetch dependent repositories which store the code for underlining commands to run `make` commands mentioned below. `make configure` pulls `lcaf-component-container` repository which stores the code for underlining `make` commands.
 
 2. make docker/check-env-vars
@@ -118,7 +118,7 @@ export AWS_PROFILE=<<aws profile name>>
    This command runs `docker-compose up` command to start the application locally.
 
 5. make docker_compose/stop
-   This command runs `docker-compose up` command to stop the application locally.
+   This command runs `docker-compose down` command to stop the application locally.
 
 6. make docker/aws_ecr_login
    This commands obtains authentication token to login to CONTAINER_REGISTRY in AWS cloud so that docker image can be pushed to the registry.
