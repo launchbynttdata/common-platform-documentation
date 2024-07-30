@@ -12,10 +12,16 @@ This document contains instructions for Java developers and platform engineers t
 # Installation instructions to set up the developer machine:
 
 # Pre-requisits:
-1. User has MacOS.
+1. User has MacOS (version Apple M3 Pro and above) .
 2. User has rights to install softwares and change permissions as required on their machine.
 
 # Installation Guide
+
+## IntelliJ IDEA
+- Download Intellij Community Edition from https://www.jetbrains.com/idea/download/?section=mac
+- Run the installer, specify path for installation
+- Open the IDE, select the JDK path in the project structure as mentioned in the Java JDK section, follow the steps.
+- Open the cloned project in IDE. Menu -> Open -> Select the project folder . Click Open
 
 ## Java JDK
 
@@ -31,14 +37,6 @@ This document contains instructions for Java developers and platform engineers t
 - Temporarily turn off firewalls and antivirus software.
 - If you get file corrupt message, download the installation file again.
 - Ensure you are making use of the right java download.
-
-
-## IntelliJ IDEA
-- Download Intellij Community Edition from https://www.jetbrains.com/idea/download/?section=mac
-- Run the installer, specify path for installation
-- Open the IDE, select the JDK path in the project structure as mentioned in the Java JDK section.
-- Open the cloned project in IDE. Menu -> Open -> Select the project folder . Click Open
-
 
 ## Gradle
 - Intellij IDE has in built Gradle support
@@ -62,7 +60,7 @@ This document contains instructions for Java developers and platform engineers t
     - `docker build . -t launch-api:s1`
     - `docker-compose up`: Create and start containers defined in a Docker Compose file.
     - `docker-compose down`: Stop and remove containers defined in a Docker Compose file.
-    - use PgAdmin service to view the table & daa: http://localhost:5050/browser/
+    - use PgAdmin service to view the table & daa: http://localhost:5050/browser
         - https://medium.com/@marvinjungre/get-postgresql-and-pgadmin-4-up-and-running-with-docker-4a8d81048aea
 2. You can modify file: "[docker.env](docker.env)" to use in-memory H2 database instead of the Postgres DB
     1. If you are using H2 database you can connect to the H2 console: http://localhost:8087/h2-console (no password needed, just click "Connect").
