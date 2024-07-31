@@ -29,7 +29,7 @@ This documentation is filled with guides and information related to developing w
     - [Windows](./platform/development-environments/local/java/windows/README.md)
 - [Setting up Visual Studio Code](./platform/development-environments/local/vscode/README.md)
 - [Setting up Visual Studio Code Dev Containers](./platform/development-environments/local/vscode/dev-containers/README.md)
-- [Installing launch-cli](./../../../../README.md)
+- [Installing launch-cli](./platform/cli/README.md)
 - [Configuring Github Personal Access Token](./platform/development-environments/local/token/README.md)
 
 ### Quick Start Guides:
