@@ -41,8 +41,24 @@ In order to use this guide, it is assumed your local development environment is 
 
 ## 3. **Deploy Infrastructure**
 
-### 3.1 Deploy Secrets Manager 
+### 3.1 Deploy KMS Key 
+In this section, we will be deploying the KMS keys needed for our secrets.
+
+TODO:
+
+current: `arn:aws:kms:us-east-2:538234414982:key/ba37724b-ea39-45a5-a938-713fb9f88112` 
+Alias: `demo/example/kms`
+
+#### 3.1.1 Create the inputs for the KMS 
+#### 3.1.2 Create the KMS service
+#### 3.1.3 Generate the Terragrunt files for the KMS service
+#### 3.1.4 Deploy the KMS service
+#### 3.1.5 Connect the webhooks
+
+### 3.2 Deploy Secrets Manager 
 In this section, we will be deploying the secrets needed for our platform and java application.
+
+TODO:
 
 Current:
 ```
@@ -55,18 +71,6 @@ arn:aws:secretsmanager:us-east-2:538234414982:secret:example/actuator/username
 arn:aws:secretsmanager:us-east-2:538234414982:secret:example/actuator/password
 ```
 
-TODO:
-#### 3.1.1 Create the inputs for the Secrets Manager 
-#### 3.1.2 Create the Secrets Manager service
-#### 3.1.3 Generate the Terragrunt files for the Secrets Manager service
-#### 3.1.4 Deploy the Secrets Manager service
-#### 3.1.5 Connect the webhooks
-
-### 3.2 Deploy Secrets Manager 
-In this section, we will be deploying the KMS keys needed for our secrets.
-
-
-TODO:
 #### 3.2.1 Create the inputs for the Secrets Manager 
 #### 3.2.2 Create the Secrets Manager service
 #### 3.2.3 Generate the Terragrunt files for the Secrets Manager service
@@ -119,7 +123,7 @@ We are going to be using the following inputs for our `.launch_config` files.
 We are now going to create the ECS platform properties repository.
 Replace the path in the `--in-file` argument to the absolute path of the `.launch_config` file saved in the previous section. 
 ```
-$ launch service create --name launch-demo-ecs-platform --in-file /workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/platform/.launch_config
+$ launch service create --name launch-demo-ecs-platform --in-file /workspaces/workplace/common-platform-documentation/platform/common-automation-framework/usage-guides/new-service/java/aws/example_files/platform/.launch_config
 ```
 <p align="center">
   <img src="./pictures/launch-service-create-platform-output.png" /> 
@@ -235,7 +239,7 @@ Open this file and update the `properties_file` key with the absolute path from 
 We are now going to create the Java application properties repository.
 Replace the path in the `--in-file` argument to the absolute path of the `.launch_config` file saved in the previous section. 
 ```
-$ launch service create --name launch-demo-ecs-application --in-file /workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/application/.launch_config
+$ launch service create --name launch-demo-ecs-application --in-file /workspaces/workplace/common-platform-documentation/platform/common-automation-framework/usage-guides/new-service/java/aws/example_files/application/.launch_config
 ```
 <p align="center">
   <img src="./pictures/launch-service-create-application-output.png" /> 
