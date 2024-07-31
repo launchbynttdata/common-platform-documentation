@@ -32,8 +32,7 @@ To configure a token to work with Launch-CLI, follow these steps:
    **Members**: Read-only (used to retrieve organization group information)
 ![img_4.png](img_4.png)
 10. Click **Generate token**
-11. Copy the token value
-![img_6.png](img_6.png)
+
 ## Launch token approvals
 Creation of a token against the organization will require approval of your token, and you will receive a notification that your request for access has been submitted:
 
