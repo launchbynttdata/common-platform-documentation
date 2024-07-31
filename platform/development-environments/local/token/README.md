@@ -9,15 +9,27 @@ To configure a token to work with Launch-CLI, follow these steps:
 
 2. From the left navigation menu, select **Personal access tokens**, and then select the **Fine-grained tokens** submenu. https://github.com/settings/tokens?type=beta
 
-![img.png](img.png)
+<p align="center">
+  <img src="./pictures/img.png" /> 
+</p>
+
+
 3. At the top right, press the **Generate new token** button
-![img_1.png](img_1.png)
+
+<p align="center">
+  <img src="./pictures/img_1.png" /> 
+</p>
+
 4. Enter a memorable **Token name**, like Launch-CLI Token
 
 5. Choose an **Expiration**, we highly recommend setting yourself a reminder so that you can generate a new token prior to this token's expiration
 
 6. For **Resource owner**, you must choose the organization, not your personal account; select launchbynttdata from the dropdown
-![img_2.png](img_2.png)
+
+<p align="center">
+  <img src="./pictures/img_2.png" /> 
+</p>
+
 7. After Authorization, for **Repository access**, choose All repositories
 
 8. Expand **Repository permissions** and make the following selections:
@@ -26,11 +38,21 @@ To configure a token to work with Launch-CLI, follow these steps:
    * **Contents**: Read and write (used to push and pull from repositories)
    * **Metadata**: Read-only (mandatory; required by other permissions)
    * **Pull requests**: Read and Write (coming soon!)
-![img_3.png](img_3.png)
-![img_5.png](img_5.png)
+
+<p align="center">
+  <img src="./pictures/img_3.png" /> 
+</p>
+<p align="center">
+  <img src="./pictures/img_5.png" /> 
+</p>
+
 9. Expand **Organization permissions** and make the following selections:
    **Members**: Read-only (used to retrieve organization group information)
-![img_4.png](img_4.png)
+
+<p align="center">
+  <img src="./pictures/img_4.png" /> 
+</p>
+
 10. Click **Generate token**
 
 ## Launch token approvals

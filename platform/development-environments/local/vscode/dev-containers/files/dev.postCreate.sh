@@ -13,8 +13,9 @@ aws_region="us-east-2"
 github_public_user="CHANGEME-nttd"
 github_public_email="CHANGEME@nttdata.com"
 
-# Set your Git token
+# Set your ENV vars
 echo 'export GITHUB_TOKEN='${git_token} >> ~/.bashrc
+echo 'export GOPRIVATE="github.com/launchbynttdata"' >> ~/.bashrc
 
 # Local user scripts to added to PATH for execution
 echo 'export PATH="'${work_dir}'/.localscripts:${PATH}"' >> ~/.bashrc

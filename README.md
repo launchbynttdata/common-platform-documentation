@@ -30,7 +30,7 @@ This documentation is filled with guides and information related to developing w
 - [Setting up Visual Studio Code](./platform/development-environments/local/vscode/README.md)
 - [Setting up Visual Studio Code Dev Containers](./platform/development-environments/local/vscode/dev-containers/README.md)
 - [Installing launch-cli](./../../../../README.md)
-- [Configuring Github Personal Access Token](#TODO)
+- [Configuring Github Personal Access Token](./platform/development-environments/local/token/README.md)
 
 ### Quick Start Guides:
 - [Deploy a full stack Java application on AWS ECS](./platform/cli/usage-guides/new-service/java/aws/README.md)

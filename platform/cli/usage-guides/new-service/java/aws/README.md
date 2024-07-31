@@ -37,7 +37,7 @@ In order to use this guide, it is assumed your local development environment is 
 - [Setting up Visual Studio Code](./../../../../../development-environments/local/vscode/README.md) (Optional)
 - [Setting up Visual Studio Code dev containers](./../../../../../development-environments/local/vscode/dev-containers/README.md) (Optional)
 - [Installing launch-cli](./../../../../README.md)
-- [Configuring Github Personal Access Token](#TODO)
+- [Configuring Github Personal Access Token](./../../../../../development-environments/local/token/README.md)
 
 ## 3. **Deploy Infrastructure**
 
@@ -345,6 +345,9 @@ Perform this guide to deploy a AWS Client VPN utilizing the launch platform to v
 
 Once able to connect to the private VPC your application is running in, navigate to [http://vpn-poc-nlb1-84d114247ebc21eb.elb.us-east-2.amazonaws.com:8080/swagger-ui/index.html](http://vpn-poc-nlb1-84d114247ebc21eb.elb.us-east-2.amazonaws.com:8080/swagger-ui/index.html). You should now see your running application. 
 
+<p align="center">
+  <img src="./pictures/ecs-app-webview.png" /><br>
+</p>
 
 
 ## 6. **Maintenance**
