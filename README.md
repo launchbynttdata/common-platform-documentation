@@ -29,15 +29,14 @@ This documentation is filled with guides and information related to developing w
     - [Windows](./platform/development-environments/local/java/windows/README.md)
 - [Setting up Visual Studio Code](./platform/development-environments/local/vscode/README.md)
 - [Setting up Visual Studio Code Dev Containers](./platform/development-environments/local/vscode/dev-containers/README.md)
-- [Installing launch-cli](./../../../../README.md)
-- [Configuring Github Personal Access Token](#TODO)
-
-### Quick Start Guides:
-- [Deploy a full stack Java application on AWS ECS](./platform/cli/usage-guides/new-service/java/aws/README.md)
+- [Installing launch-cli](./platform/cli/README.md)
+- [Configuring Github Personal Access Token](./platform/development-environments/local/token/README.md)
 
 ### Usage-guides and Tutorials
-- [Using the `launch-cli`](./platform/cli/usage-guides/README.md)
+- [Using Launch's platform and common-automation-framework](./platform/common-automation-framework/usage-guides/README.md)
 
+### Quick Start Guides:
+- [Create and deploy a new Java service [AWS] (1.5 hours)](./platform/common-automation-framework/usage-guides/new-service/java/aws/README.md)
 
 ## License
 Unless explicitly stated otherwise, the content of the "common-platform-documentation" repository is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License (CC BY-NC-ND 4.0).
