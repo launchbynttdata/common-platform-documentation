@@ -151,9 +151,9 @@ $ launch service create --name launch-demo-ecs-platform --in-file /workspaces/wo
 
 Change into the directory of the newly created service. Once inside the new repositories' directory, we can generate the Terragrunt code.
 
-<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #31708f; background-color: #d9edf7; border-color: #bce8f1;">
+<p style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #31708f; background-color: #d9edf7; border-color: #bce8f1;">
 This step is optional and showing how to generate only the terragrunt files. The next step includes a `--generation` flag that does this step for us. You can skip this step.
-</div>
+</p>
 
 ```
 $ cd launch-demo-ecs-platform
@@ -170,6 +170,7 @@ $ launch service generate
 #### 3.5.4 Deploy the ECS Platform service
 
 Deploy the ECS Platform service. This is the actual ECS cluster and related infrastructure. 
+If you skipped the previous step, ensure you are in the newly created repository's directory.
 ```
 $ launch terragrunt --target-environment sandbox --platform-resource service --apply --generation
 ```
