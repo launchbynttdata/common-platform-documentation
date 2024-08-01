@@ -14,7 +14,7 @@ This guide will walk you through setting up a development container environment 
 Please follow this guide on how to install an extension in VS Code:
 - [https://code.visualstudio.com/docs/editor/extension-marketplace](https://code.visualstudio.com/docs/editor/extension-marketplace)
 
-Please install the Dev Containers extension from the extension marketplace:
+Please install the `Dev Containers` extension from the extension marketplace:
 - [https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 <p align="center">
@@ -22,7 +22,7 @@ Please install the Dev Containers extension from the extension marketplace:
 </p>
 
 ### Configure your folder
-Somewhere within your OS, please create or identify a folder in which you wish to be the root of your dev container's home directory. Within this example, we have created a new folder called `workplace` within the home directory of the user. When you run a dev container, you have the ability to attach it to your current workspace. This path is going to be needed in some of the scripts we are going to be updating.
+Somewhere within your base operating system, please create or identify a folder in which you wish to be the root of your dev container's home directory. Within this example, we have created a new folder called `workplace` within the home directory of the user. When you run a dev container, you have the ability to attach it to your current workspace. This path is going to be needed in some of the scripts we are going to be updating.
 
 ```
 /Users/MyUser/workplace
@@ -60,7 +60,7 @@ We are now going to update the `devcontainer.json` with our template from this g
 There is also another file within this guide called `dev.postCreate.sh`. This script is a first time boot script that runs after your container is built. This script performs most of our containers configuration. 
 - [dev.postCreate.sh](./files/dev.postCreate.sh)
 
-Within `devcontainer.json`, update the path in the `postCreateCommand` to the path to where you save `dev.postCreate.sh`. 
+Within `devcontainer.json`, update the path in the `postCreateCommand` to the path to where you saved `dev.postCreate.sh`. 
 `/workspaces/workplace/.vscode/dev.postCreate.sh"`
 It is a good idea to save it in the workspace dir. In this guide, we will place it in a `.vscode` folder within the workspace directory.
 

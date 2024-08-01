@@ -4,6 +4,7 @@
 	"name": "dev-dsk",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "mcr.microsoft.com/devcontainers/base:noble",
+	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
 		"ghcr.io/devcontainers/features/aws-cli:1": {
 			"version": "latest"
@@ -27,36 +28,38 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"ms-vscode.azure-account",
-				"ms-azuretools.azure-dev",
-				"ms-azure-devops.azure-pipelines",
-				"ms-azuretools.vscode-azureresourcegroups",
-				"ms-azuretools.vscode-azureterraform",
+				"4ops.terraform",
 				"aws-scripting-guy.cform",
-				"ms-azuretools.vscode-docker",
-				"hashicorp.terraform",
-				"ms-vscode.makefile-tools",
-				"ms-python.vscode-pylance",
-				"ms-python.python",
-				"ms-python.debugpy",
+				"amazonwebservices.aws-toolkit-vscode",
+				"cschlosser.doxdocgen",
+				"eamodio.gitlens",
 				"erd0s.terraform-autocomplete",
-				"redhat.vscode-yaml",
 				"GitHub.copilot",
 				"GitHub.copilot-chat",
-				"wholroyd.jinja",
-				"wayou.vscode-todo-highlight",
-				"pjmiravalle.terraform-advanced-syntax-highlighting",
-				"4ops.terraform",
-				"streetsidesoftware.code-spell-checker",
-				"eamodio.gitlens",
+				"GitHub.vscode-pull-request-github",
+				"hashicorp.terraform",
+				"hediet.vscode-drawio",
+				"ms-azure-devops.azure-pipelines",
+				"ms-azuretools.azure-dev",
+				"ms-azuretools.vscode-azureresourcegroups",
+				"ms-azuretools.vscode-azureterraform",
+				"ms-azuretools.vscode-docker",
+				"ms-python.debugpy",
 				"ms-python.isort",
-				"hediet.vscode-drawio"
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-vscode.azure-account",
+				"ms-vscode.makefile-tools",
+				"pjmiravalle.terraform-advanced-syntax-highlighting",
+				"redhat.vscode-yaml",
+				"streetsidesoftware.code-spell-checker",
+				"vscjava.vscode-gradle",
+				"wayou.vscode-todo-highlight",
+				"wholroyd.jinja",
+				"cschlosser.doxdocgen",
 			]
 		}
 	},
-
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],

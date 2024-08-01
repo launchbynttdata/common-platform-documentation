@@ -396,7 +396,8 @@ This guide is not complete. You will need to manually update the following while
 - Update Secrets in root account with ecs task execution role
 - Update KMS in root account with ecs task execution role
 - Update ECR in root account with ecs task execution role
-- Attach ECS load balancer in sandbox to VPN target. 
+- create 8080 listener on `vpn-poc-nlb1` to `vpn-poc-nlb-albtg-privatelink2` target group
+- attach ECS LB to the `vpn-poc-nlb-albtg-privatelink2` TG. 
 </div>
 
 In order to view the Java application, we need a way to access the private VPC that we deployed it into.
