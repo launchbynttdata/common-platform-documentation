@@ -74,6 +74,51 @@ Note: If all the software here onwards need to be deployed in WSL, specify the i
     - use PgAdmin service to view the table & daa: http://localhost:5050/browser
         - https://medium.com/@marvinjungre/get-postgresql-and-pgadmin-4-up-and-running-with-docker-4a8d81048aea
 2. You can modify file: "[docker.env](docker.env)" to use in-memory H2 database instead of the Postgres DB
+```SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
+   SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.PostgreSQLDialect
+   SPRING_DATASOURCE_USERNAME=postgres
+   SPRING_DATASOURCE_PASSWORD=postgres
+   PGADMIN_DEFAULT_EMAIL=admin@admin.com
+   PGADMIN_DEFAULT_PASSWORD=root
+   POSTGRES_USER=postgres
+   POSTGRES_PASSWORD=postgres
+   POSTGRES_DB=postgres
+   PACT_BROKER_BASIC_AUTH_USERNAME=pact
+   PACT_BROKER_BASIC_AUTH_PASSWORD=pact
+   PACT_BROKER_DATABASE_USERNAME=postgres
+   PACT_BROKER_DATABASE_PASSWORD=postgres
+   PACT_BROKER_DATABASE_HOST=postgres
+   PACT_BROKER_DATABASE_NAME=postgres
+   spring.profiles.active=local
+   actuator_username=test
+   actuator_password=test
+   spring.main.banner-mode=off
+   logging.level.org.springframework=INFO
+   spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
+   spring.jpa.hibernate.ddl-auto=create
+   spring.sql.init.mode=always
+   spring.sql.init.platform=postgres
+   spring.datasource.url=jdbc:postgresql://launch-postgresqlss-dev-server-eastus-002.postgres.database.azure.com:5432/postgres
+   spring.datasource.username=postgres
+   spring.datasource.password=postgres
+   spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
+   spring.jpa.show-sql=true
+   spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+   spring.jpa.generate-ddl=true
+   spring.jpa.properties.hibernate.dialect= org.hibernate.dialect.PostgreSQLDialect
+   spring.session.jdbc.initialize-schema=always
+   spring.jpa.properties.hibernate.format_sql=true
+   spring.jpa.defer-datasource-initialization=true
+   spring.sql.init.continue-on-error=true
+   spring.jpa.properties.hibernate.use_sql_comments=true
+   spring.h2.console.path=/h2-console
+   spring.h2.console.enabled=true
+   spring.jpa.properties.hibernate.dialect= org.hibernate.dialect.PostgreSQLDialect
+   spring.profiles.active=local
+   actuator_username=test
+   actuator_password=test
+   spring.main.banner-mode=off
+   logging.level.org.springframework=INFO ```
     1. If you are using H2 database you can connect to the H2 console: http://localhost:8087/h2-console (no password needed, just click "Connect").
 3. Connect to the actuator with the credentials "test/test": http://localhost:8087/actuator
 4. Open the API Docs: http://localhost:8087/swagger-ui.html
