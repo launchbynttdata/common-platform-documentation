@@ -149,11 +149,9 @@ $ launch service create --name launch-demo-ecs-platform --in-file /workspaces/wo
 
 #### 3.5.3 Generate the Terragrunt files for the ECS Platform service
 
-Change into the directory of the newly created service. Once inside the new repositories' directory, we can generate the Terragrunt code.
+[INFO]: This step is optional and showing how to generate only the terragrunt files. The next step includes a `--generation` flag that does this step for us. You can skip this step.
 
-<p style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #31708f; background-color: #d9edf7; border-color: #bce8f1;">
-This step is optional and showing how to generate only the terragrunt files. The next step includes a `--generation` flag that does this step for us. You can skip this step.
-</p>
+Change into the directory of the newly created service. Once inside the new repositories' directory, we can generate the Terragrunt code.
 
 ```
 $ cd launch-demo-ecs-platform
@@ -170,7 +168,9 @@ $ launch service generate
 #### 3.5.4 Deploy the ECS Platform service
 
 Deploy the ECS Platform service. This is the actual ECS cluster and related infrastructure. 
-If you skipped the previous step, ensure you are in the newly created repository's directory.
+
+If you skipped the previous step, ensure you are in the newly created repository's directory. `cd launch-demo-ecs-platform`
+
 ```
 $ launch terragrunt --target-environment sandbox --platform-resource service --apply --generation
 ```
@@ -227,9 +227,8 @@ Alternatively, you can find the function URL by navigating to the lambdas in the
 
 Using `launch-cli`, you will need to run this for each of the 4 lambda's functional url's.
 
-<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #a94442; background-color: #f2dede; border-color: #ebccd1;">
-You can not copy and paste this command directly. You need to update `MY_SECRET` with the value of the git secret created in the Secrets Manager section.
-</div>
+[WARNING]: You can not copy and paste this command directly. You need to update `MY_SECRET` with the value of the git secret created in the Secrets Manager section.
+
 
 ```
 $ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL
@@ -300,11 +299,10 @@ $ launch service build --container-registry "538234414982.dkr.ecr.us-east-2.amaz
 </p>
 
 #### 4.1.4 Generate the Terragrunt files for the Java application service
-Generate the Terragrunt code of the Java application.
 
-<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #31708f; background-color: #d9edf7; border-color: #bce8f1;">
-This step is optional and showing how to generate only the terragrunt files. The next step includes a `--generation` flag that does this step for us. You can skip this step.
-</div>
+[INFO]: This step is optional and showing how to generate only the terragrunt files. The next step includes a `--generation` flag that does this step for us. You can skip this step.
+
+Generate the Terragrunt code of the Java application.
 
 ```
 $ launch service generate
