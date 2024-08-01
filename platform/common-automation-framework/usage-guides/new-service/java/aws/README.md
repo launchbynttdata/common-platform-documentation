@@ -361,9 +361,7 @@ lambda_function_urls = {
 
 Using `launch-cli`, you will need to run this for each of the 4 lambda's functional url's.
 
-<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #a94442; background-color: #f2dede; border-color: #ebccd1;">
-You can not copy and paste this command directly. You need to update `MY_SECRET` with the value of the git secret created in the Secrets Manager section and the FUNCTION_URL for the lambda function url. 
-</div>
+[WARNING]: You can not copy and paste this command directly. You need to update `MY_SECRET` with the value of the git secret created in the Secrets Manager section and the FUNCTION_URL for the lambda function url. 
 
 ```
 $ launch github hooks create --repository-name launch-demo-ecs-application --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL
@@ -389,7 +387,8 @@ The webhooks will initially fail as the lambda does not allow ping requests.
 
 ## 5. **View the Java Application**
 
-<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #8a6d3b;; background-color: #fcf8e3; border-color: #faebcc;">
+[WARNING!!!]
+```
 This guide is not complete. You will need to manually update the following while updating on the additional development of the outstanding terraform modules.
 
 - Update Secrets in root account with ecs task execution role
@@ -397,7 +396,7 @@ This guide is not complete. You will need to manually update the following while
 - Update ECR in root account with ecs task execution role
 - create 8080 listener on `vpn-poc-nlb1` to `vpn-poc-nlb-albtg-privatelink2` target group
 - attach ECS LB to the `vpn-poc-nlb-albtg-privatelink2` TG. 
-</div>
+```
 
 In order to view the Java application, we need a way to access the private VPC that we deployed it into.
 
