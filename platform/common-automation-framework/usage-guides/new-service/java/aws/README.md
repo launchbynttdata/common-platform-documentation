@@ -227,14 +227,14 @@ Alternatively, you can find the function URL by navigating to the lambdas in the
 Using `launch-cli`, you will need to run this for each of the 4 lambda's functional url's.
 
 <div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #a94442; background-color: #f2dede; border-color: #ebccd1;">
-You can not copy and paste this command directly. You need to update `CHANGE_ME` with the value of the git secret created in the Secrets Manager section.
+You can not copy and paste this command directly. You need to update `MY_SECRET` with the value of the git secret created in the Secrets Manager section.
 </div>
 
 ```
-$ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret CHANGE_ME --url "https://ezf4qxjpe3gcr4dwokpyhq5bz40tholo.lambda-url.us-east-2.on.aws/"
-$ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret CHANGE_ME --url "https://kiuq5yazpzdmklgb52ytf74eaa0vpyoo.lambda-url.us-east-2.on.aws/"
-$ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret CHANGE_ME --url "https://r4lt6fpncydxtxvsiv4bwoxvyq0cibpa.lambda-url.us-east-2.on.aws/"
-$ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret CHANGE_ME --url "https://ajeswab6dtejbj6vbjxdsssgsa0hyylg.lambda-url.us-east-2.on.aws/"
+$ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL
+$ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL
+$ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL
+$ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL
 ```
 
 <p align="center">
@@ -353,31 +353,31 @@ Like the other section, you will need the function urls found in the output of t
 
 ```
 lambda_function_urls = {
-  "pr_closed" = "https://ezf4qxjpe3gcr4dwokpyhq5bz40tholo.lambda-url.us-east-2.on.aws/"
-  "pr_edited" = "https://kiuq5yazpzdmklgb52ytf74eaa0vpyoo.lambda-url.us-east-2.on.aws/"
-  "pr_opened" = "https://r4lt6fpncydxtxvsiv4bwoxvyq0cibpa.lambda-url.us-east-2.on.aws/"
-  "pr_sync" = "https://ajeswab6dtejbj6vbjxdsssgsa0hyylg.lambda-url.us-east-2.on.aws/"
+  "pr_closed" = "https://p2jk22u7zdx7pzsymyilsgutkq0mydcm.lambda-url.us-east-2.on.aws/"
+  "pr_edited" = "https://z2eblvqlfag47jczuxp4ftchja0htekd.lambda-url.us-east-2.on.aws/"
+  "pr_opened" = "https://nxnzebxlyzjqezihicogxgdp3m0mpeqy.lambda-url.us-east-2.on.aws/"
+  "pr_sync" = "https://lmlhuj3xjog27jr7lb7diokhc40utzbu.lambda-url.us-east-2.on.aws/"
 }
 ```
 
 Using `launch-cli`, you will need to run this for each of the 4 lambda's functional url's.
 
 <div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #a94442; background-color: #f2dede; border-color: #ebccd1;">
-You can not copy and paste this command directly. You need to update `CHANGE_ME` with the value of the git secret created in the Secrets Manager section.
+You can not copy and paste this command directly. You need to update `MY_SECRET` with the value of the git secret created in the Secrets Manager section and the FUNCTION_URL for the lambda function url. 
 </div>
 
 ```
-$ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret CHANGE_ME --url "https://ezf4qxjpe3gcr4dwokpyhq5bz40tholo.lambda-url.us-east-2.on.aws/"
-$ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret CHANGE_ME --url "https://kiuq5yazpzdmklgb52ytf74eaa0vpyoo.lambda-url.us-east-2.on.aws/"
-$ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret CHANGE_ME --url "https://r4lt6fpncydxtxvsiv4bwoxvyq0cibpa.lambda-url.us-east-2.on.aws/"
-$ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret CHANGE_ME --url "https://ajeswab6dtejbj6vbjxdsssgsa0hyylg.lambda-url.us-east-2.on.aws/"
+$ launch github hooks create --repository-name launch-demo-ecs-application --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL
+$ launch github hooks create --repository-name launch-demo-ecs-application --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL
+$ launch github hooks create --repository-name launch-demo-ecs-application --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL
+$ launch github hooks create --repository-name launch-demo-ecs-application --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL
 ```
 
 <p align="center">
   <img src="./pictures/launch-github-hooks-create-application.png" />
 </p>
 
-You will also need to connect the webhooks to the repository where your Java application lives. In this case, [launch-api-hex-java-template](https://github.com/launchbynttdata/launch-api-hex-java-template).
+You will also need to connect the webhooks to the repository where your Java application lives. In this case, [launch-api-hex-java-template](https://github.com/launchbynttdata/launch-api-hex-java-template). You will use the same function urls.
 
 <p align="center">
   <img src="./pictures/launch-github-hooks-create-java.png" />
@@ -389,6 +389,15 @@ The webhooks will initially fail as the lambda does not allow ping requests.
 </p>
 
 ## 5. **View the Java Application**
+
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #8a6d3b;; background-color: #fcf8e3; border-color: #faebcc;">
+This guide is not complete. You will need to manually update the following while updating on the additional development of the outstanding terraform modules.
+
+- Update Secrets in root account with ecs task execution role
+- Update KMS in root account with ecs task execution role
+- Update ECR in root account with ecs task execution role
+- Attach ECS load balancer in sandbox to VPN target. 
+</div>
 
 In order to view the Java application, we need a way to access the private VPC that we deployed it into.
 

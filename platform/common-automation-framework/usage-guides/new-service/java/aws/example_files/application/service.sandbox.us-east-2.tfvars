@@ -159,7 +159,7 @@ private_subnets = [
 ecs_cluster_arn = "arn:aws:ecs:us-east-2:020127659860:cluster/demo-ecs_ptfrm-useast2-sandbox-000-fargate-000"
 
 runtime_platform = [{
-  cpu_architecture        = "AMD64",
+  cpu_architecture        = "X86_64",
   operating_system_family = "LINUX"
 }]
 
