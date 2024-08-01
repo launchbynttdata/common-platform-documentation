@@ -13,7 +13,7 @@ This guide will describe how to deploy a new java service using Launch's cli uti
 High level diagram of the architecture we are going to create in this guide.
 
 <p align="center">
-  <img src="./pictures/userguide-ecs-complete.drawio.png" /> 
+  <img src="./pictures/userguide-ecs-complete.png" /> 
 </p>
 
 This guide has been modified to work with the following providers:
