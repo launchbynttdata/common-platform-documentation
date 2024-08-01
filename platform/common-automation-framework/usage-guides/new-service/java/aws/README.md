@@ -8,7 +8,7 @@
 6. [Maintenance](#6-maintenance)
 
 ## 1. **Introduction**
-This guide will describe how to deploy a new java service using Launch's cli utility `launch-cli`. Within this guide, we will deploy necessary infrastructure to host a container application. Among the infrastructure, We need to deploy an ECR repository to store the new java containers being built. Secrets Manager to host your container's secrets. Finally, it will deploy an ECS cluster to support and serve the new java service. 
+This guide will describe how to deploy a new java service using Launch's cli utility `launch-cli`. Within this guide, we will deploy necessary infrastructure to host a container application. Among the infrastructure, we will deploy an ECR repository to store the new java containers being built. Secrets Manager to host your container's secrets with a new customer managed KMS key. Finally, it will deploy an ECS cluster to support and serve the new java service. 
 
 High level diagram of the architecture we are going to create in this guide.
 
@@ -22,13 +22,14 @@ This guide has been modified to work with the following providers:
 - Pipeline provider: **AWS**
 
 External dependencies:
-- [Java application built to Launch's requirements.](#TODO)This guide will use the following repository: 
-  - [https://github.com/launchbynttdata/launch-api-hex-java-template](https://github.com/launchbynttdata/launch-api-hex-java-template)
+- Java application built to [Launch's requirements.](#TODO)
+  - This guide will use the following repository: [https://github.com/launchbynttdata/launch-api-hex-java-template](https://github.com/launchbynttdata/launch-api-hex-java-template)
 
 ## 2. **Prerequisites:**
 
-In order to use this guide, it is assumed your local development environment is set up to use the `launch-cli` platform. To log into your aws credentials, you can utilize the `aws sso utils`. Here is a list of complete guides to follow to set up your local development environment before this guide can be used successfully.
+In order to use this guide, it is assumed your local development environment is set up to use the `launch-cli` platform. To log into your aws credentials, you can utilize the `aws sso utils`. 
 
+Here is a list of complete guides to follow to set up your local development environment before this guide can be used successfully.
 - Setting up local environment:
   - [Mac](./../../../../../development-environments/local/java/mac/README.md)
   - [Windows](./../../../../../development-environments/local/java/windows/README.md)
@@ -39,6 +40,13 @@ In order to use this guide, it is assumed your local development environment is 
 - [Installing launch-cli](./../../../../README.md)
 - [Configuring Github Personal Access Token](./../../../../../development-environments/local/token/README.md)
 
+### Pre-flight
+Ensure your environmental variable `GIT_TOKEN` is set and you are logged into aws cli.
+```
+$ export GIT_TOKEN="YOUR_TOKEN"
+$ aws sso login --profile `YOUR_AWS_PROFILE`
+```
+
 ## 3. **Deploy Infrastructure**
 
 ### 3.1 Deploy KMS Key 
@@ -46,8 +54,8 @@ In this section, we will be deploying the KMS keys needed for our secrets.
 
 TODO:
 
-current: `arn:aws:kms:us-east-2:538234414982:key/ba37724b-ea39-45a5-a938-713fb9f88112` 
-Alias: `demo/example/kms`
+Current ARN: `arn:aws:kms:us-east-2:538234414982:key/ba37724b-ea39-45a5-a938-713fb9f88112`  
+Key alias: `demo/example/kms`
 
 #### 3.1.1 Create the inputs for the KMS 
 #### 3.1.2 Create the KMS service
@@ -60,7 +68,7 @@ In this section, we will be deploying the secrets needed for our platform and ja
 
 TODO:
 
-Current:
+Current ARNs:
 ```
 arn:aws:secretsmanager:us-east-2:538234414982:secret:github/launchbynttdata/tg-aws-shared-ecs_platform/git_secret
 arn:aws:secretsmanager:us-east-2:538234414982:secret:launch/dso-platform/github/service_user/http_access_token
@@ -81,6 +89,12 @@ arn:aws:secretsmanager:us-east-2:538234414982:secret:example/actuator/password
 In this section, we will be deploying the IAM roles needed for our platform and java application. 
 
 TODO:
+
+Current ARNs:
+```
+arn:aws:iam::020127659860:role/dso-demo_tg_iam-useast2-sandbox-000-role-000
+arn:aws:iam::538234414982:role/dso-demo_tg_iam-useast2-root-000-role-000
+```
 #### 3.3.1 Create the inputs for the IAM roles
 #### 3.3.2 Create the IAM roles service
 #### 3.3.3 Generate the Terragrunt files for the IAM roles service
@@ -90,9 +104,10 @@ TODO:
 ### 3.4 Deploy ECR Repository
 In this section, we will be deploying the necessary infrastructure to store our java image built. 
 
-current: `arn:aws:ecr:us-east-2:538234414982:repository/launch-api`
-
 TODO:
+
+Current ARN: `arn:aws:ecr:us-east-2:538234414982:repository/launch-api`
+
 #### 3.4.1 Create the inputs for the ECR Repository 
 #### 3.4.2 Create the ECR Repository service
 #### 3.4.3 Generate the Terragrunt files for the ECR Repository service
@@ -120,8 +135,11 @@ We are going to be using the following inputs for our `.launch_config` files.
 </p>
 
 #### 3.5.2 Create the ECS Platform service
-We are now going to create the ECS platform properties repository.
-Replace the path in the `--in-file` argument to the absolute path of the `.launch_config` file saved in the previous section. 
+We are now going to create the ECS platform properties repository. This service is the ECS cluster that the java application will deploy too.
+
+- Replace the path in the `--in-file` argument to the absolute path of the `.launch_config` file saved in the previous section. 
+- We are going to use the `--name` of `launch-demo-ecs-platform` in this demo, but you can name it what ever you want.
+
 ```
 $ launch service create --name launch-demo-ecs-platform --in-file /workspaces/workplace/common-platform-documentation/platform/common-automation-framework/usage-guides/new-service/java/aws/example_files/platform/.launch_config
 ```
@@ -131,10 +149,14 @@ $ launch service create --name launch-demo-ecs-platform --in-file /workspaces/wo
 
 #### 3.5.3 Generate the Terragrunt files for the ECS Platform service
 
-Change into the directory of the newly created service. Once inside the new repositories' directory, generate the Terragrunt code.
+Change into the directory of the newly created service. Once inside the new repositories' directory, we can generate the Terragrunt code.
+
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #31708f; background-color: #d9edf7; border-color: #bce8f1;">
+This step is optional and showing how to generate only the terragrunt files. The next step includes a `--generation` flag that does this step for us. You can skip this step.
+</div>
 
 ```
-$ cd sample-demo-app
+$ cd launch-demo-ecs-platform
 $ launch service generate
 ```
 <p align="center">
@@ -147,7 +169,19 @@ $ launch service generate
 
 #### 3.5.4 Deploy the ECS Platform service
 
-Deploy the pipeline for the ECS Platform service
+Deploy the ECS Platform service. This is the actual ECS cluster and related infrastructure. 
+```
+$ launch terragrunt --target-environment sandbox --platform-resource service --apply --generation
+```
+<p align="center">
+  <img src="./pictures/launch-terragrunt-service-apply-platform-output-01.png" /><br>
+  output truncated... <br>
+  <img src="./pictures/launch-terragrunt-service-apply-platform-output-02.png" />
+</p>
+
+Deploy the pipeline for the ECS Platform service. This step will deploy all the CICD pipeline infrastructure to manage this repository. 
+
+If you skipped the previous step, ensure you are in the newly created repository's directory.
 ```
 $ launch terragrunt --target-environment root --platform-resource pipeline --apply --generation
 ```
@@ -157,7 +191,7 @@ $ launch terragrunt --target-environment root --platform-resource pipeline --app
   <img src="./pictures/launch-terragrunt-pipeline-apply-platform-output-02.png" />
 </p>
 
-Deploy the webhooks for the ECS Platform service
+Deploy the webhooks for the ECS Platform service. This will deploy lambda functions that we can connect to a SCM for pull request building events and triggering deployment pipelines. 
 
 ```
 $ launch terragrunt --target-environment root --platform-resource webhook --apply --generation
@@ -168,48 +202,50 @@ $ launch terragrunt --target-environment root --platform-resource webhook --appl
   <img src="./pictures/launch-terragrunt-webhook-apply-platform-output-02.png" />
 </p>
 
-Deploy the ECS Platform service
-```
-$ launch terragrunt --target-environment sandbox --platform-resource service --apply --generation
-```
-<p align="center">
-  <img src="./pictures/launch-terragrunt-service-apply-platform-output-01.png" /><br>
-  output truncated... <br>
-  <img src="./pictures/launch-terragrunt-service-apply-platform-output-02.png" />
-</p>
-
-
 #### 3.5.5 Connect the webhooks
-Navigate to your organization's SCM, this guide will be using Github.
 
-In Github, navigate to the newly created repository. Under `Settings`, navigate to `Webhooks` and click `Add webhook`.
-<p align="center">
-  <img src="./pictures/github-settings-webhook-platform.png" /> 
-</p>
+In this section, we will connect the webhooks we deployed to lambda to github. 
 
-We are going to create webhooks for each of the lambdas (4). 
-- In `Payload URL` put the function URL of the lambda
-- In `Content type`, select `application/json`
-- In `Secret`, paste your git_lambda_secret created earlier.
-- Select `Let me select individual events`
-  - Only select `Pull requests`
+In the previous section when deploying the webhooks, there were outputs of the lambda function urls that will be needed for use in this section. 
 
-<p align="center">
-  <img src="./pictures/github-settings-webhook-create-platform-01.png" /><br>
-  <img src="./pictures/github-settings-webhook-create-platform-02.png" />
-</p>
+```
+lambda_function_urls = {
+  "pr_closed" = "https://ezf4qxjpe3gcr4dwokpyhq5bz40tholo.lambda-url.us-east-2.on.aws/"
+  "pr_edited" = "https://kiuq5yazpzdmklgb52ytf74eaa0vpyoo.lambda-url.us-east-2.on.aws/"
+  "pr_opened" = "https://r4lt6fpncydxtxvsiv4bwoxvyq0cibpa.lambda-url.us-east-2.on.aws/"
+  "pr_sync" = "https://ajeswab6dtejbj6vbjxdsssgsa0hyylg.lambda-url.us-east-2.on.aws/"
+}
+```
 
-You can find the function URL from the output after running the `launch terragrunt` command to deploy the webhooks or by navigating to the lambdas in the AWS console.
+Alternatively, you can find the function URL by navigating to the lambdas in the AWS console.
+
 <p align="center">
   <img src="./pictures/lambdas.png" /><br>
   <img src="./pictures/lambda-describe.png" />
 </p>
 
+Using `launch-cli`, you will need to run this for each of the 4 lambda's functional url's.
+
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #a94442; background-color: #f2dede; border-color: #ebccd1;">
+You can not copy and paste this command directly. You need to update `CHANGE_ME` with the value of the git secret created in the Secrets Manager section.
+</div>
+
+```
+$ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret CHANGE_ME --url "https://ezf4qxjpe3gcr4dwokpyhq5bz40tholo.lambda-url.us-east-2.on.aws/"
+$ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret CHANGE_ME --url "https://kiuq5yazpzdmklgb52ytf74eaa0vpyoo.lambda-url.us-east-2.on.aws/"
+$ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret CHANGE_ME --url "https://r4lt6fpncydxtxvsiv4bwoxvyq0cibpa.lambda-url.us-east-2.on.aws/"
+$ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret CHANGE_ME --url "https://ajeswab6dtejbj6vbjxdsssgsa0hyylg.lambda-url.us-east-2.on.aws/"
+```
+
 <p align="center">
-  <img src="./pictures/github-settings-webhook-complete-platform-01.png" />
+  <img src="./pictures/launch-github-hooks-create-platform.png" />
 </p>
 
 The webhooks will initially fail as the lambda does not allow ping requests.
+<p align="center">
+  <img src="./pictures/github-settings-webhook-complete-platform.png" />
+</p>
+
 
 ## 4. **Deploy Java application**
 
@@ -237,7 +273,11 @@ Open this file and update the `properties_file` key with the absolute path from 
 
 #### 4.1.2 Create the Java application service
 We are now going to create the Java application properties repository.
-Replace the path in the `--in-file` argument to the absolute path of the `.launch_config` file saved in the previous section. 
+
+Ensure you change back into your working directory `cd ..` , as you do not want to accidentally create another repository inside the previously created platform repository. 
+
+- Replace the path in the `--in-file` argument to the absolute path of the `.launch_config` file saved in the previous section. 
+- We are going to use the `--name` of `launch-demo-ecs-application` in this demo, but you can name it what ever you want.
 ```
 $ launch service create --name launch-demo-ecs-application --in-file /workspaces/workplace/common-platform-documentation/platform/common-automation-framework/usage-guides/new-service/java/aws/example_files/application/.launch_config
 ```
@@ -249,7 +289,7 @@ $ launch service create --name launch-demo-ecs-application --in-file /workspaces
 Change into the directory of the newly created service. Once inside the new repositories' directory, build the application's Docker image and push it to a container repository. 
 ```
 $ cd launch-demo-ecs-application
-$ launch service build --container-registry "020127659860.dkr.ecr.us-east-2.amazonaws.com" --container-image-name "launch-api" --container-image-version "0.0.1-dev" --push
+$ launch service build --container-registry "538234414982.dkr.ecr.us-east-2.amazonaws.com" --container-image-name "launch-api" --container-image-version "0.0.1-dev" --push
 ```
 <p align="center">
   <img src="./pictures/launch-service-create-application-cd.png" /> <br>
@@ -261,6 +301,10 @@ $ launch service build --container-registry "020127659860.dkr.ecr.us-east-2.amaz
 #### 4.1.4 Generate the Terragrunt files for the Java application service
 Generate the Terragrunt code of the Java application.
 
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #31708f; background-color: #d9edf7; border-color: #bce8f1;">
+This step is optional and showing how to generate only the terragrunt files. The next step includes a `--generation` flag that does this step for us. You can skip this step.
+</div>
+
 ```
 $ launch service generate
 ```
@@ -269,6 +313,17 @@ $ launch service generate
 </p>
 
 #### 4.1.5 Deploy the Java application service
+
+We will now deploy the Java application service. 
+
+```
+$ launch terragrunt --target-environment sandbox --platform-resource service --apply --generation --render-app-vars
+```
+<p align="center">
+  <img src="./pictures/launch-terragrunt-service-apply-application-output-01.png" /><br>
+  output truncated... <br>
+  <img src="./pictures/launch-terragrunt-service-apply-application-output-02.png" />
+</p>
 
 Deploy the pipeline for the Java application service
 ```
@@ -290,64 +345,60 @@ $ launch terragrunt --target-environment root --platform-resource webhook --appl
   <img src="./pictures/launch-terragrunt-webhook-apply-application-output-02.png" />
 </p>
 
-Deploy the Java application service
-```
-$ launch terragrunt --target-environment sandbox --platform-resource service --apply --generation --render-app-vars
-```
-<p align="center">
-  <img src="./pictures/launch-terragrunt-service-apply-application-output-01.png" /><br>
-  output truncated... <br>
-  <img src="./pictures/launch-terragrunt-service-apply-application-output-02.png" />
-</p>
 
 #### 4.1.6 Connect the webhooks
 Within this section, we need to connect the webhooks for the newly created service and the Java application. Both of these repositories will utilize the same webhooks.
 
-In this first section, we will connect the new created repository.
-- In Github, navigate to the newly created repository. Under `Settings`, navigate to `Webhooks` and click `Add webhook`.
+Like the other section, you will need the function urls found in the output of the webhooks deployment or in the AWS console. 
+
+```
+lambda_function_urls = {
+  "pr_closed" = "https://ezf4qxjpe3gcr4dwokpyhq5bz40tholo.lambda-url.us-east-2.on.aws/"
+  "pr_edited" = "https://kiuq5yazpzdmklgb52ytf74eaa0vpyoo.lambda-url.us-east-2.on.aws/"
+  "pr_opened" = "https://r4lt6fpncydxtxvsiv4bwoxvyq0cibpa.lambda-url.us-east-2.on.aws/"
+  "pr_sync" = "https://ajeswab6dtejbj6vbjxdsssgsa0hyylg.lambda-url.us-east-2.on.aws/"
+}
+```
+
+Using `launch-cli`, you will need to run this for each of the 4 lambda's functional url's.
+
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #a94442; background-color: #f2dede; border-color: #ebccd1;">
+You can not copy and paste this command directly. You need to update `CHANGE_ME` with the value of the git secret created in the Secrets Manager section.
+</div>
+
+```
+$ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret CHANGE_ME --url "https://ezf4qxjpe3gcr4dwokpyhq5bz40tholo.lambda-url.us-east-2.on.aws/"
+$ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret CHANGE_ME --url "https://kiuq5yazpzdmklgb52ytf74eaa0vpyoo.lambda-url.us-east-2.on.aws/"
+$ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret CHANGE_ME --url "https://r4lt6fpncydxtxvsiv4bwoxvyq0cibpa.lambda-url.us-east-2.on.aws/"
+$ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret CHANGE_ME --url "https://ajeswab6dtejbj6vbjxdsssgsa0hyylg.lambda-url.us-east-2.on.aws/"
+```
+
 <p align="center">
-  <img src="./pictures/github-settings-webhook-app-props.png" /> 
+  <img src="./pictures/launch-github-hooks-create-application.png" />
 </p>
 
-We are going to create webhooks for each of the lambdas (4) for the properties repo.
-- In `Payload URL` put the function URL of the lambda
-- In `Content type`, select `application/json`
-- In `Secret`, paste your git_lambda_secret created earlier.
-- Select `Let me select individual events`
-  - Only select `Pull requests`
+You will also need to connect the webhooks to the repository where your Java application lives. In this case, [launch-api-hex-java-template](https://github.com/launchbynttdata/launch-api-hex-java-template).
 
 <p align="center">
-  <img src="./pictures/github-settings-webhook-create-platform-01.png" /><br>
-  <img src="./pictures/github-settings-webhook-create-platform-02.png" />
+  <img src="./pictures/launch-github-hooks-create-java.png" />
 </p>
 
-
-We will now connect the webhooks for the Java application
-- In Github, navigate to the Java application repository. Under `Settings`, navigate to `Webhooks` and click `Add webhook`.
+The webhooks will initially fail as the lambda does not allow ping requests.
 <p align="center">
-  <img src="./pictures/github-settings-webhook-app-java.png" /> 
-</p>
-
-We are going to create webhooks for each of the lambdas (4) for the Java Application. 
-- In `Payload URL` put the function URL of the lambda
-- In `Content type`, select `application/json`
-- In `Secret`, paste your git_lambda_secret created earlier.
-- Select `Let me select individual events`
-  - Only select `Pull requests`
-
-<p align="center">
-  <img src="./pictures/github-settings-webhook-create-platform-01.png" /><br>
-  <img src="./pictures/github-settings-webhook-create-platform-02.png" />
+  <img src="./pictures/github-settings-webhook-complete-platform.png" />
 </p>
 
 ## 5. **View the Java Application**
 
-Perform this guide to deploy a AWS Client VPN utilizing the launch platform to view this application in a private VPC:
+In order to view the Java application, we need a way to access the private VPC that we deployed it into.
+
+Perform these guides to deploy an AWS Client VPN utilizing the launch platform to view this application in a private VPC:
 
 - [Deploy Client VPN](#TODO)
 - [Configure VPN Client](#TODO)
 
-Once able to connect to the private VPC your application is running in, navigate to [http://vpn-poc-nlb1-84d114247ebc21eb.elb.us-east-2.amazonaws.com:8080/swagger-ui/index.html](http://vpn-poc-nlb1-84d114247ebc21eb.elb.us-east-2.amazonaws.com:8080/swagger-ui/index.html). You should now see your running application. 
+Once you are able to connect to the private VPC that your application is running in:
+ - You should see your application running by navigating to [http://vpn-poc-nlb1-84d114247ebc21eb.elb.us-east-2.amazonaws.com:8080/swagger-ui/index.html](http://vpn-poc-nlb1-84d114247ebc21eb.elb.us-east-2.amazonaws.com:8080/swagger-ui/index.html). 
 
 <p align="center">
   <img src="./pictures/ecs-app-webview.png" /><br>

@@ -12,7 +12,7 @@
     "sources": {
         "application": {
             "url": "https://github.com/launchbynttdata/launch-api-hex-java-template.git",
-            "tag": "docker_swarm"
+            "tag": "main"
         },
         "service": {
             "url": "https://github.com/launchbynttdata/tf-aws-module_collection-ecs_app.git",
@@ -30,17 +30,17 @@
     "platform": {
         "templates": {
             "application" : {
-                "secret": "/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/application/common-application-config-secret.env.jinja2",
-                "non_secret": "/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/application/common-application-config-non-secret.env.jinja2"
+                "secret": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/usage-guides/new-service/java/aws/example_files/application/common-application-config-secret.env.jinja2",
+                "non_secret": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/usage-guides/new-service/java/aws/example_files/application/common-application-config-non-secret.env.jinja2"
             }
         },
         "service": {   
             "sandbox": {
                 "us-east-2": {
                     "000": {
-                        "properties_file": "/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/application/service.sandbox.us-east-2.tfvars",
+                        "properties_file": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/usage-guides/new-service/java/aws/example_files/application/service.sandbox.us-east-2.tfvars",
                         "template_properties": {
-                            "application": "/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/application/application.sandbox.us-east-2.yaml"
+                            "application": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/usage-guides/new-service/java/aws/example_files/application/application.sandbox.us-east-2.yaml"
                         }
                     }
                 }
@@ -51,7 +51,7 @@
                 "root": {
                     "us-east-2": {
                         "000": {
-                            "properties_file": "/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/application/pipeline.root.us-east-2.tfvars"
+                            "properties_file": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/usage-guides/new-service/java/aws/example_files/application/pipeline.root.us-east-2.tfvars"
                         }
                     }
                 }
@@ -60,7 +60,7 @@
                 "root": {
                     "us-east-2": {
                         "000": {
-                            "properties_file": "/workspaces/workplace/common-platform-documentation/platform/cli/usage-guides/new-service/java/aws/example_files/application/webhooks.root.us-east-2.tfvars"
+                            "properties_file": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/usage-guides/new-service/java/aws/example_files/application/webhooks.root.us-east-2.tfvars"
                         }
                     }
                 }

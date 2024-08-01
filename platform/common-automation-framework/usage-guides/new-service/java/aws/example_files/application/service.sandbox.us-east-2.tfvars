@@ -89,7 +89,7 @@ ecs_svc_security_group = {
 containers = [
   {
     name      = "launch-api"
-    image_tag = "538234414982.dkr.ecr.us-east-2.amazonaws.com/launch-api:s1"
+    image_tag = "538234414982.dkr.ecr.us-east-2.amazonaws.com/launch-api:0.0.1-dev"
     essential = true
     log_configuration = {
       logDriver = "awslogs"
@@ -159,7 +159,7 @@ private_subnets = [
 ecs_cluster_arn = "arn:aws:ecs:us-east-2:020127659860:cluster/demo-ecs_ptfrm-useast2-sandbox-000-fargate-000"
 
 runtime_platform = [{
-  cpu_architecture        = "ARM64",
+  cpu_architecture        = "AMD64",
   operating_system_family = "LINUX"
 }]
 
