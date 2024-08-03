@@ -25,12 +25,12 @@ This documentation is filled with guides and information related to developing w
 
 ### Environment Guides
 - Setting up local environment: 
-    - [Mac](./platform/development-environments/local/java/mac/README.md)
-    - [Windows](./platform/development-environments/local/java/windows/README.md)
-- [Setting up Visual Studio Code](./platform/development-environments/local/vscode/README.md)
-- [Setting up Visual Studio Code Dev Containers](./platform/development-environments/local/vscode/dev-containers/README.md)
-- [Installing launch-cli](./platform/cli/README.md)
-- [Configuring Github Personal Access Token](./platform/development-environments/local/token/README.md)
+    - [MacOS local developer environment](./platform/development-environments/local/mac/README.md)
+    - [Windows local developer environment](./platform/development-environments/local/windows/README.md)
+- [Setting up Visual Studio Code](./platform/development-environments/local/tools/vscode/README.md)
+- [Setting up Visual Studio Code Dev Containers](./platform/development-environments/local/tools/vscode/dev-containers/README.md)
+- [Installing launch-cli](./platform/common-automation-framework/cli/README.md)
+- [Configuring Github Personal Access Token](./platform/development-environments/local/tools/token/README.md)
 
 ### Usage-guides and Tutorials
 - [Using Launch's platform and common-automation-framework](./platform/common-automation-framework/usage-guides/README.md)

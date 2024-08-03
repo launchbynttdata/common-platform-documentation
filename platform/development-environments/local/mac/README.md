@@ -1,4 +1,4 @@
-# Set up local environment [MacOS] (0.5 hours)
+# MacOS local developer environment (0.5 hours)
 ## **Table of Contents**
 1. [Introduction](#1-introduction)
 2. [Prerequisites](#2-prerequisites)
@@ -10,8 +10,8 @@
 4. [Development Environment](#4-development-environment)  
    4.1. [Platform Container](#41-platform-container)  
    4.2. [Local Dev Container](#42-local-dev-container)  
-   4.3. [LCAF](#43-lcaf)  
-   4.4. [Local build](#44-local-build)  
+   4.3. [Build Container](#43-build-container)  
+   4.4. [Build tools](#44-build-tools)  
 5. [References](#5-references)
 
 ## 1. **Introduction**
@@ -24,7 +24,11 @@ This guide will walk you through setting up a local developer environment on a M
 
 ## 3. Tool Installation
 
+Within this section we will deploy all the tools need to set up a local developer environment. We will install Homebrew, asdf, IntelliJ and Docker. Within IntelliJ, we will set up various builder tools just as Java and Gradle. 
+
 ### 3.1 Homebrew
+
+In this section, we will install Homebrew on the local machine. 
 
 1. Open Terminal.
 
@@ -54,6 +58,8 @@ This guide will walk you through setting up a local developer environment on a M
 
 ### 3.2 asdf
 
+In this section, we will install asdf on the local machine through Homebrew. 
+
 1. Open Terminal.
 
 <p align="center">
@@ -68,7 +74,8 @@ This guide will walk you through setting up a local developer environment on a M
     ```
 
 <p align="center">
-  <img src="./pictures/3.2-asdf-install-01.png" /> 
+  <img src="./pictures/3.2-asdf-install-01.png" /> </br>
+  <img src="./pictures/3.2-asdf-install-02.png" /> 
 </p>
 
 3. Add `asdf` to your shell by running the following commands:
@@ -93,10 +100,15 @@ This guide will walk you through setting up a local developer environment on a M
 </p>
 
 ### 3.3 IntelliJ IDEA
+
+In this section, we will install IntelliJ on the local machine. 
+
 1. [Download](https://www.jetbrains.com/idea/download/?section=mac) Intellij
 
 <p align="center">
-  <img src="./pictures/3.3-intellij-download-01.png" /> 
+  <a href="https://www.jetbrains.com/idea/download/?section=mac">
+    <img src="./pictures/3.3-intellij-download-01.png" /> 
+  </a>
 </p>
 
 2. Run the installer, specify path for installation
@@ -105,21 +117,60 @@ This guide will walk you through setting up a local developer environment on a M
   <img src="./pictures/3.3-intellij-install-01.png" /> 
 </p>
 
-3. Open the IDE, select the JDK path in your project structure.
+3. Open IntelliJ IDE and select a project to open
 
+    - If you need to activate your license, please follow these [official guides](https://www.jetbrains.com/help/idea/register.html#start_trial).
 <p align="center">
-  <img src="./pictures/3.3-intellij-open-01.png" /> 
+  <img src="./pictures/3.3-intellij-open-02.png" /> 
 </p>
+
 
 Within IntelliJ enable support for the following builder tools:
 ####  <u>Java JDK</u>
 
-- Open Intellij IDE
-- Click on Menu -> Project Structure -> SDKs -> Click folder icon next to JDK home path -> Download JDK
-- Select Amazon Corretto 17. Click Download
-- Launch up Terminal. Type in the command "java –version". If it does not work, go to the troubleshooting section.
+- Open a project in Intellij IDE
+<p align="center">
+  <img src="./pictures/3.3-intellij-java-01.png" /> 
+</p>
+- Click on the gear icon in the top right, `IDE and Project Settings` and click `Project Structure`
+
+<p align="center">
+  <img src="./pictures/3.3-intellij-java-01.png" /> 
+</p>
+
+- A New window will pop up. Click `SDKs` in the left menu. Then Click the `+` sign and then `Download JDK`
+
+<p align="center">
+  <img src="./pictures/3.3-intellij-java-02.png" /> 
+</p>
+
+- Select version `17`, then `Amazon Corretto 17`. Click `Download`.
+
+<p align="center">
+  <img src="./pictures/3.3-intellij-java-03.png" /> 
+</p>
+
+- After downloaded, click `Ok`
+<p align="center">
+  <img src="./pictures/3.3-intellij-java-04.png" /> 
+</p>
+
+- Launch a terminal and type the following to ensure java was installed.
+```sh
+$ java --version
+```
+<p align="center">
+  <img src="./pictures/3.3-intellij-java-05.png" /> 
+</p>
 - Run the command in terminal to set JAVA_HOME "export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home"
 - Add the jdk/bin path to system path variable PATH=$JAVA_HOME/bin:$PATH
+
+- Run the following commands to set you `JAVA_HOME` and `PATH`
+```sh
+$ echo 'export JAVA_HOME="/Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home"' >> ~/.zshrc
+$ echo 'export PATH="$JAVA_HOME/bin:$PATH"' >> ~/.zshrc
+$ source ~/.zshrc
+```
 
 #### TroubleShooting JDK Installation
 - Check if there are any pre-existing Java installs. Uninstall them and reinstall again
@@ -128,16 +179,28 @@ Within IntelliJ enable support for the following builder tools:
 - Ensure you are making use of the right java download.
 
 ####  <u>Gradle</u>
-- Intellij IDE has in built Gradle support
-- Settings ->Build, Execution, Deployment -> Build Tools -> Gradle
-- select the installed JDK version under Gradle JVM
+- IntelliJ IDE has in built Gradle support. Click on the gear icon in the top right, `IDE and Project Settings` and click `Settings`
+
+<p align="center">
+  <img src="./pictures/3.3-intellij-gradle-01.png" /> 
+</p>
+
+- Click on `Build, Execution, Deployment` -> `Build Tools` -> `Gradle`, then click on `Ok`
+
+<p align="center">
+  <img src="./pictures/3.3-intellij-gradle-02.png" /> 
+</p>
 
 ### 3.4 Docker
+
+In this section, we will install Docker on the local machine. 
 
 1. [Download](https://www.docker.com/products/docker-desktop/) Mac Docker Desktop
 
 <p align="center">
-  <img src="./pictures/3.4-docker-download-01.png" /> 
+  <a href="https://www.docker.com/products/docker-desktop/">
+    <img src="./pictures/3.4-docker-download-01.png" />
+  </a>
 </p>
 
 2. Run the installer
@@ -157,14 +220,22 @@ Within IntelliJ enable support for the following builder tools:
 A developer has a few different options to build and test their application. This section provides different options and they do not need to perform each step. 
 
 ### 4.1 Platform Container
+TODO:
+
 ### 4.2 Local Dev Container
-### 4.3 LCAF
+Launch platform includes support to utilize a common local developer container through your IDE. Please follow the following guides to utilize this method.
+
+- [Setting up IntelliJ dev containers](./../../../../../development-environments/local/vscode/dev-containers/README.md)
+- [Setting up Visual Studio Code dev containers](./../../../../../development-environments/local/vscode/dev-containers/README.md)
+
+### 4.3 Build Container
 
 Launch Common Automation Framework (LCAF) offers standard set of commands to build/test/deploy applications written in different programming languages and architectures. It is achieved with help of `make` commands. The set of commands described below explain the process of building the docker image for the java application, starting the application locally, bringing it down and pushing the image to the remote repository.
 
-#### `make` commands:
+#### <u>Build using `make` commands</u>
 
-#### Pre-requisits for running the `make` commands
+
+##### `make` prerequisites
 1. User should have access to Elastic Container Registry (ECR), in AWS cloud to push/pull the images.
 2. Login to AWS environment using terminal where rest of the `make` commands will be executed. `<aws profile name>` is the name of the aws profile that user has created for `sso login`
 ```sh
@@ -196,9 +267,9 @@ $ export AWS_PROFILE=`<aws profile name>`
 7. make docker/push
    This command builds and pushes the image to the container registry.
 
-### 4.4 Local build
 
-## Build the application
+
+#### <u>Build using docker</u>
 1. Run the application in docker with postgres
     - `docker build . -t launch-api:s1`
     - `docker-compose up`: Create and start containers defined in a Docker Compose file.
@@ -209,13 +280,12 @@ $ export AWS_PROFILE=`<aws profile name>`
 3. Connect to the actuator with the credentials "test/test": http://localhost:8087/actuator
 4. Open the API Docs: http://localhost:8087/swagger-ui.html
 
-## Contract testing with Pact
+#### Contract testing with Pact
 - the contact files are created when the consumer pact tests are run & can be found under the build/pacts.
 - run `docker-compose up` to start the pact broker.
 - run `./gradlew pactPublish` to push the contract to the broker.
 
-# For Platform Engineers
-Platform engineers who would like to run the application locally (without having to make the code changes), can set up `docker` on their machines to build/deploy applications.
+### 4.4 Build tools
 
 
 ## 5. References

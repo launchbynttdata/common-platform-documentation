@@ -30,15 +30,15 @@ External dependencies:
 In order to use this guide, it is assumed your local development environment is set up to use the `launch-cli` platform. To log into your aws credentials, you can utilize the `aws sso utils`. 
 
 Here is a list of complete guides to follow to set up your local development environment before this guide can be used successfully.
-- Setting up local environment:
-  - [Mac](./../../../../../development-environments/local/java/mac/README.md)
+- Developer environment:
+  - [MacOS local developer environment](./../../../../../development-environments/local/mac/README.md)
   - [Windows](./../../../../../development-environments/local/java/windows/README.md)
-- [Setting up AWS config](./../../../../../development-environments/local/aws/config/README.md)
-- [Setting up `aws-sso-utils`](./../../../../../development-environments/local/aws/sso-login/README.md)
-- [Setting up Visual Studio Code](./../../../../../development-environments/local/vscode/README.md) (Optional)
-- [Setting up Visual Studio Code dev containers](./../../../../../development-environments/local/vscode/dev-containers/README.md) (Optional)
-- [Installing launch-cli](./../../../../README.md)
-- [Configuring Github Personal Access Token](./../../../../../development-environments/local/token/README.md)
+- [Setting up AWS config](./../../../../../development-environments/local/tools/aws/config/README.md)
+- [Setting up `aws-sso-utils`](./../../../../../development-environments/local/tools/aws/sso-login/README.md)
+- [Setting up Visual Studio Code](./../../../../../development-environments/local/tools/vscode/README.md) (Optional)
+- [Setting up Visual Studio Code dev containers](./../../../../../development-environments/local/tools/vscode/dev-containers/README.md) (Optional)
+- [Installing launch-cli](./../../../../cli/README.md)
+- [Configuring Github Personal Access Token](./../../../../../development-environments/local/tools/token/README.md)
 
 ### Pre-flight
 Ensure your environmental variable `GIT_TOKEN` is set and you are logged into aws cli.
