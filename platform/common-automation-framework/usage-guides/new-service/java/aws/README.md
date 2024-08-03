@@ -42,7 +42,8 @@ Here is a list of complete guides to follow to set up your local development env
 
 ### Pre-flight
 Ensure your environmental variable `GIT_TOKEN` is set and you are logged into aws cli.
-```
+
+```sh
 $ export GIT_TOKEN="YOUR_TOKEN"
 $ aws sso login --profile `YOUR_AWS_PROFILE`
 ```
@@ -95,6 +96,7 @@ Current ARNs:
 arn:aws:iam::020127659860:role/dso-demo_tg_iam-useast2-sandbox-000-role-000
 arn:aws:iam::538234414982:role/dso-demo_tg_iam-useast2-root-000-role-000
 ```
+
 #### 3.3.1 Create the inputs for the IAM roles
 #### 3.3.2 Create the IAM roles service
 #### 3.3.3 Generate the Terragrunt files for the IAM roles service
@@ -140,9 +142,10 @@ We are now going to create the ECS platform properties repository. This service 
 - Replace the path in the `--in-file` argument to the absolute path of the `.launch_config` file saved in the previous section. 
 - We are going to use the `--name` of `launch-demo-ecs-platform` in this demo, but you can name it what ever you want.
 
-```
+```sh
 $ launch service create --name launch-demo-ecs-platform --in-file /workspaces/workplace/common-platform-documentation/platform/common-automation-framework/usage-guides/new-service/java/aws/example_files/platform/.launch_config
 ```
+
 <p align="center">
   <img src="./pictures/launch-service-create-platform-output.png" /> 
 </p>
@@ -153,10 +156,11 @@ $ launch service create --name launch-demo-ecs-platform --in-file /workspaces/wo
 
 Change into the directory of the newly created service. Once inside the new repositories' directory, we can generate the Terragrunt code.
 
-```
+```sh
 $ cd launch-demo-ecs-platform
 $ launch service generate
 ```
+
 <p align="center">
   <img src="./pictures/launch-service-create-platform-cd.png" /> 
 </p>
@@ -171,9 +175,10 @@ Deploy the ECS Platform service. This is the actual ECS cluster and related infr
 
 If you skipped the previous step, ensure you are in the newly created repository's directory. `cd launch-demo-ecs-platform`
 
-```
+```sh
 $ launch terragrunt --target-environment sandbox --platform-resource service --apply --generation
 ```
+
 <p align="center">
   <img src="./pictures/launch-terragrunt-service-apply-platform-output-01.png" /><br>
   output truncated... <br>
@@ -183,9 +188,11 @@ $ launch terragrunt --target-environment sandbox --platform-resource service --a
 Deploy the pipeline for the ECS Platform service. This step will deploy all the CICD pipeline infrastructure to manage this repository. 
 
 If you skipped the previous step, ensure you are in the newly created repository's directory.
-```
+
+```sh
 $ launch terragrunt --target-environment root --platform-resource pipeline --apply --generation
 ```
+
 <p align="center">
   <img src="./pictures/launch-terragrunt-pipeline-apply-platform-output-01.png" /><br>
   output truncated... <br>
@@ -194,9 +201,10 @@ $ launch terragrunt --target-environment root --platform-resource pipeline --app
 
 Deploy the webhooks for the ECS Platform service. This will deploy lambda functions that we can connect to a SCM for pull request building events and triggering deployment pipelines. 
 
-```
+```sh
 $ launch terragrunt --target-environment root --platform-resource webhook --apply --generation
 ```
+
 <p align="center">
   <img src="./pictures/launch-terragrunt-webhook-apply-platform-output-01.png" /><br>
   output truncated... <br>
@@ -230,7 +238,7 @@ Using `launch-cli`, you will need to run this for each of the 4 lambda's functio
 [WARNING]: You can not copy and paste this command directly. You need to update `MY_SECRET` with the value of the git secret created in the Secrets Manager section.
 
 
-```
+```sh
 $ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL
 $ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL
 $ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL
@@ -242,6 +250,7 @@ $ launch github hooks create --repository-name launch-demo-ecs-platform --events
 </p>
 
 The webhooks will initially fail as the lambda does not allow ping requests.
+
 <p align="center">
   <img src="./pictures/github-settings-webhook-complete-platform.png" />
 </p>
@@ -267,6 +276,7 @@ This file also includes 2 other files for jinja templates. Update these paths as
 
 
 Open this file and update the `properties_file` key with the absolute path from your system to the input files to be used and then save it.
+
 <p align="center">
   <img src="./pictures/launch_config-paths-application.png" /> 
 </p>
@@ -278,19 +288,23 @@ Ensure you change back into your working directory `cd ..` , as you do not want 
 
 - Replace the path in the `--in-file` argument to the absolute path of the `.launch_config` file saved in the previous section. 
 - We are going to use the `--name` of `launch-demo-ecs-application` in this demo, but you can name it what ever you want.
-```
+
+```sh
 $ launch service create --name launch-demo-ecs-application --in-file /workspaces/workplace/common-platform-documentation/platform/common-automation-framework/usage-guides/new-service/java/aws/example_files/application/.launch_config
 ```
+
 <p align="center">
   <img src="./pictures/launch-service-create-application-output.png" /> 
 </p>
 
 #### 4.1.3 Build the image and push
 Change into the directory of the newly created service. Once inside the new repositories' directory, build the application's Docker image and push it to a container repository. 
-```
+
+```sh
 $ cd launch-demo-ecs-application
 $ launch service build --container-registry "538234414982.dkr.ecr.us-east-2.amazonaws.com" --container-image-name "launch-api" --container-image-version "0.0.1-dev" --push
 ```
+
 <p align="center">
   <img src="./pictures/launch-service-create-application-cd.png" /> <br>
   <img src="./pictures/launch-service-build-application-output-01.png" /> <br>
@@ -304,9 +318,10 @@ $ launch service build --container-registry "538234414982.dkr.ecr.us-east-2.amaz
 
 Generate the Terragrunt code of the Java application.
 
-```
+```sh
 $ launch service generate
 ```
+
 <p align="center">
   <img src="./pictures/launch-service-generate-platform-output.png" /> 
 </p>
@@ -315,9 +330,10 @@ $ launch service generate
 
 We will now deploy the Java application service. 
 
-```
+```sh
 $ launch terragrunt --target-environment sandbox --platform-resource service --apply --generation --render-app-vars
 ```
+
 <p align="center">
   <img src="./pictures/launch-terragrunt-service-apply-application-output-01.png" /><br>
   output truncated... <br>
@@ -325,9 +341,11 @@ $ launch terragrunt --target-environment sandbox --platform-resource service --a
 </p>
 
 Deploy the pipeline for the Java application service
-```
+
+```sh
 $ launch terragrunt --target-environment root --platform-resource pipeline --apply --generation
 ```
+
 <p align="center">
   <img src="./pictures/launch-terragrunt-pipeline-apply-application-output-01.png" /><br>
   output truncated... <br>
@@ -335,9 +353,11 @@ $ launch terragrunt --target-environment root --platform-resource pipeline --app
 </p>
 
 Deploy the webhooks for the Java application  service
-```
+
+```sh
 $ launch terragrunt --target-environment root --platform-resource webhook --apply --generation
 ```
+
 <p align="center">
   <img src="./pictures/launch-terragrunt-webhook-apply-application-output-01.png" /><br>
   output truncated... <br>
@@ -363,7 +383,7 @@ Using `launch-cli`, you will need to run this for each of the 4 lambda's functio
 
 [WARNING]: You can not copy and paste this command directly. You need to update `MY_SECRET` with the value of the git secret created in the Secrets Manager section and the FUNCTION_URL for the lambda function url. 
 
-```
+```sh
 $ launch github hooks create --repository-name launch-demo-ecs-application --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL
 $ launch github hooks create --repository-name launch-demo-ecs-application --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL
 $ launch github hooks create --repository-name launch-demo-ecs-application --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL
