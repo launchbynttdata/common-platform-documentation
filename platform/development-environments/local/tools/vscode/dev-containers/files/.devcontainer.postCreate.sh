@@ -47,7 +47,7 @@ python -m pip install launch-cli
 echo "Setting ~/.netrc variables"
 echo machine github.com >> ~/.netrc
 echo login ${github_public_user} >> ~/.netrc
-echo password ${github_public_email} >> ~/.netrc
+echo password ${git_token} >> ~/.netrc
 chmod 600 ~/.netrc
 
 # Configure git
