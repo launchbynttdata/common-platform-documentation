@@ -217,57 +217,58 @@ In this section, we will install Docker on the local machine.
 
 ## 4 Development Environment
 
-A developer has a few different options to build and test their application. This section provides different options and they do not need to perform each step. 
+A developer has a few different options to build and test their application. This section provides different options and only one of them needs to be chosen to develop, build, and test your application on your local machine.
+
+##### Prerequisites
+1. User should have access to Elastic Container Registry (ECR), in AWS cloud to push/pull the images.
+2. Login to AWS environment using terminal where rest of the commands will be executed. `<aws profile name>` is the name of the aws profile that user has created for `sso login`
+```sh
+$ aws sso login --profile '<aws profile name>'
+$ export AWS_PROFILE='<aws profile name>'
+```
 
 ### 4.1 Platform Container
 TODO:
 
 ### 4.2 Local Dev Container
-Launch platform includes support to utilize a common local developer container through your IDE. Please follow the following guides to utilize this method.
+Launch platform includes support to utilize a common local developer container through your IDE. This Dev Container has all the tools and software loaded and configured to build and test utilizing the Launch platform. Please follow the following guides to utilize this method.
 
 - [Setting up IntelliJ dev containers](./../../../development-environments/local/tools/intellij/dev-containers/README.md)
 - [Setting up Visual Studio Code dev containers](./../../../development-environments/local/tools/vscode/dev-containers/README.md)
 
+Utilize the `launch-cli` commands of the following to build and push.
+```sh
+$ launch service build
+$ launch service build --push
+```
+
+<p align="center">
+  <img src="./pictures/4.2-launch-build.png" /> 
+</p>
+
+
 ### 4.3 Build Container
 
-Launch Common Automation Framework (LCAF) offers standard set of commands to build/test/deploy applications written in different programming languages and architectures. It is achieved with help of `make` commands. The set of commands described below explain the process of building the docker image for the java application, starting the application locally, bringing it down and pushing the image to the remote repository.
+Launch Common Automation Framework (LCAF) offers standard set of commands to build/test/deploy applications written in different programming languages and architectures. It is achieved with help of `make` commands. The set of commands described below explain the process of building a docker image for a java application, starting the application locally, bringing it down and pushing the image to the remote repository.
 
-#### <u>Build using `make` commands</u>
-
-
-##### `make` prerequisites
-1. User should have access to Elastic Container Registry (ECR), in AWS cloud to push/pull the images.
-2. Login to AWS environment using terminal where rest of the `make` commands will be executed. `<aws profile name>` is the name of the aws profile that user has created for `sso login`
-```sh
-$ aws sso login --profile `<aws profile name>`
-```
-3. Export the profile as environment variable
-```sh 
-$ export AWS_PROFILE=`<aws profile name>`
-```
 #### Make commands
-1. make configure
-   This command uses `git repo` tool to fetch dependent repositories which store the code for underlining commands to run `make` commands mentioned below. `make configure` pulls `lcaf-component-container` repository which stores the code for underlining `make` commands.
+1. `make configure`: This command uses `git repo` tool to fetch dependent repositories which store the code for underlining commands to run `make` commands mentioned below. `make configure` pulls `lcaf-component-container` repository which stores the code for underlining `make` commands.
 
-2. make docker/check-env-vars
-   `CONTAINER_REGISTRY, CONTAINER_IMAGE_NAME, CONTAINER_IMAGE_VERSION` variables are stored in `Makefile.includes` file. The values of these variables can be changed so we customize the image name, version number and container registry name. The `make` commands ensures these values are present. This command does validation check.
+2. `make docker/check-env-vars`: Variables are stored in `Makefile.includes` file. The values of these variables, `CONTAINER_REGISTRY, CONTAINER_IMAGE_NAME, CONTAINER_IMAGE_VERSION`, can be changed so we customize the image name, version number and container registry name. The `make` commands ensures these values are present. This command does validation check.
 
-3. make docker/build
-   This command builds the image using `Dockerfile`
+3. `make docker/build`: This command builds the image using `Dockerfile`
 
-4. make docker_compose/start
-   This command runs `docker-compose up` command to start the application locally.
+4. `make docker_compose/start`: This command runs `docker-compose up` command to start the application locally.
 
-5. make docker_compose/stop
-   This command runs `docker-compose up` command to stop the application locally.
+5. `make docker_compose/stop`: This command runs `docker-compose up` command to stop the application locally.
 
-6. make docker/aws_ecr_login
-   This commands obtains authentication token to login to CONTAINER_REGISTRY in AWS cloud so that docker image can be pushed to the registry.
+6. `make docker/aws_ecr_login`: This commands obtains authentication token to login to CONTAINER_REGISTRY in AWS cloud so that docker image can be pushed to the registry.
 
-7. make docker/push
-   This command builds and pushes the image to the container registry.
+7. `make docker/push`: This command builds and pushes the image to the container registry.
 
+### 4.4 Build tools
 
+The final method a user can use to build and test their application is utilizing the base level tools themselfs. The user can run Docker, Gradle or Maven commands directly if they choose. 
 
 #### <u>Build using docker</u>
 1. Run the application in docker with postgres
@@ -284,9 +285,6 @@ $ export AWS_PROFILE=`<aws profile name>`
 - the contact files are created when the consumer pact tests are run & can be found under the build/pacts.
 - run `docker-compose up` to start the pact broker.
 - run `./gradlew pactPublish` to push the contract to the broker.
-
-### 4.4 Build tools
-
 
 ## 5. References
 - [Homebrew official](https://brew.sh/) install guide

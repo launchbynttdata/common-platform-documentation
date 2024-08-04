@@ -8,3 +8,6 @@ Download the client:
 Install the client:
 - [Mac Install](https://www.jetbrains.com/help/idea/installation-guide.html#-u36bwj_90)
 - [Windows Install](https://www.jetbrains.com/help/idea/installation-guide.html#-u36bwj_76)
+
+Use a Dev Container
+- [IntelliJ Dev Containersl](./dev-containers/README.md)

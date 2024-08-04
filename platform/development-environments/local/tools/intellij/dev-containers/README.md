@@ -98,6 +98,11 @@ Your client may go into a download loop for additional packages. Keep hitting `C
   <img src="./pictures/3-intellij-devcontainer-build-03.png" />
 </p>
 
+After building, a new window will launch with your dev container.
+
+<p align="center">
+  <img src="./pictures/3-intellij-devcontainer-open-01.png" />
+</p>
+
 ## 4. Reference
-- [](https://www.jetbrains.com/help/idea/connect-to-devcontainer.html)
-- []()
+- [IntelliJ Dev Containers](https://www.jetbrains.com/help/idea/connect-to-devcontainer.html)
