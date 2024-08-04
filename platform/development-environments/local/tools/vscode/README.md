@@ -8,4 +8,3 @@ Download the client:
 Install the client:
 - [Mac Install](https://code.visualstudio.com/docs/setup/mac)
 - [Windows Install](https://code.visualstudio.com/docs/setup/windows)
-- [Linux Install](https://code.visualstudio.com/docs/setup/linux)

@@ -3,15 +3,15 @@
 1. [Introduction](#1-introduction)
 2. [Prerequisites](#2-prerequisites)
 3. [Tool Installation](#3-tool-installation)  
-   3.1. [Homebrew](#31-homebrew)  
-   3.2. [asdf](#31-asdf)  
-   3.3. [IntelliJ IDEA](#33-intellij-idea)  
-   3.4. [Docker](#34-docker)
+  3.1. [Homebrew](#31-homebrew)  
+  3.2. [asdf](#31-asdf)  
+  3.3. [IntelliJ IDEA](#33-intellij-idea)  
+  3.4. [Docker](#34-docker)
 4. [Development Environment](#4-development-environment)  
-   4.1. [Platform Container](#41-platform-container)  
-   4.2. [Local Dev Container](#42-local-dev-container)  
-   4.3. [Build Container](#43-build-container)  
-   4.4. [Build tools](#44-build-tools)  
+  4.1. [Platform Container](#41-platform-container)  
+  4.2. [Local Dev Container](#42-local-dev-container)  
+  4.3. [Build Container](#43-build-container)  
+  4.4. [Build tools](#44-build-tools)  
 5. [References](#5-references)
 
 ## 1. **Introduction**
@@ -19,7 +19,7 @@
 This guide will walk you through setting up a local developer environment on a MacOS device. It provides instructions on how to install Homebrew, asdf version manager, IntelliJ IDEA, JavaSDK, and Gradle. In addition, it provides links on how to set up a development environment with using either the Launch platform container, a local developer container, or utilizing local build methods. 
 
 ## 2. Prerequisites:
-1. MacOS 14.6+ M1.
+1. MacOS 14.5+ M1.
 2. User has rights to install softwares and change permissions as required on their machine.
 
 ## 3. Tool Installation
@@ -225,8 +225,8 @@ TODO:
 ### 4.2 Local Dev Container
 Launch platform includes support to utilize a common local developer container through your IDE. Please follow the following guides to utilize this method.
 
-- [Setting up IntelliJ dev containers](./../../../../../development-environments/local/vscode/dev-containers/README.md)
-- [Setting up Visual Studio Code dev containers](./../../../../../development-environments/local/vscode/dev-containers/README.md)
+- [Setting up IntelliJ dev containers](./../../../development-environments/local/tools/intellij/dev-containers/README.md)
+- [Setting up Visual Studio Code dev containers](./../../../development-environments/local/tools/vscode/dev-containers/README.md)
 
 ### 4.3 Build Container
 

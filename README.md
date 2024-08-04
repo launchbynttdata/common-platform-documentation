@@ -17,7 +17,6 @@ The following platforms and environments are currently supported by the `Launch`
 ### Local Development Environments
 - Windows 11+
 - MacOS M1, 14.5+
-- Linux, Ubuntu 20.04+
 
 ## Getting Started
 
