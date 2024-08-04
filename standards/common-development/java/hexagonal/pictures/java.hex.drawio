@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:128.0) Gecko/20100101 Firefox/128.0" version="24.7.6">
   <diagram name="Page-1" id="bbkfeE0ZKGbeMulcRJ6j">
-    <mxGraphModel dx="2074" dy="1129" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2924" dy="1129" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -85,7 +85,7 @@
         <mxCell id="udor24Wlc1t1U40zxqAk-39" value="Adapter" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;fontStyle=1;rotation=-60;" vertex="1" parent="1">
           <mxGeometry x="500" y="484" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="udor24Wlc1t1U40zxqAk-58" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="udor24Wlc1t1U40zxqAk-41" target="udor24Wlc1t1U40zxqAk-55">
+        <mxCell id="udor24Wlc1t1U40zxqAk-58" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="udor24Wlc1t1U40zxqAk-36" target="udor24Wlc1t1U40zxqAk-55">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="udor24Wlc1t1U40zxqAk-41" value="Adapter" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;fontStyle=1;rotation=51;" vertex="1" parent="1">
@@ -94,28 +94,28 @@
         <mxCell id="udor24Wlc1t1U40zxqAk-43" value="Adapter" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;fontStyle=1;rotation=51;" vertex="1" parent="1">
           <mxGeometry x="160" y="484" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="udor24Wlc1t1U40zxqAk-61" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="udor24Wlc1t1U40zxqAk-44" target="udor24Wlc1t1U40zxqAk-38">
+        <mxCell id="udor24Wlc1t1U40zxqAk-61" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="udor24Wlc1t1U40zxqAk-44" target="udor24Wlc1t1U40zxqAk-12">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="udor24Wlc1t1U40zxqAk-44" value="Client" style="points=[[0.35,0,0],[0.98,0.51,0],[1,0.71,0],[0.67,1,0],[0,0.795,0],[0,0.65,0]];verticalLabelPosition=bottom;sketch=0;html=1;verticalAlign=top;aspect=fixed;align=center;pointerEvents=1;shape=mxgraph.cisco19.user;fillColor=#005073;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="16.04" y="186" width="65" height="65" as="geometry" />
+          <mxGeometry x="-20" y="268.5" width="65" height="65" as="geometry" />
         </mxCell>
         <mxCell id="udor24Wlc1t1U40zxqAk-52" value="MQ Broker" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#E7157B;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.mq_broker;" vertex="1" parent="1">
-          <mxGeometry x="622" y="528.5" width="78" height="69" as="geometry" />
+          <mxGeometry x="680" y="478" width="78" height="69" as="geometry" />
         </mxCell>
-        <mxCell id="udor24Wlc1t1U40zxqAk-60" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="udor24Wlc1t1U40zxqAk-54" target="udor24Wlc1t1U40zxqAk-43">
+        <mxCell id="udor24Wlc1t1U40zxqAk-60" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="udor24Wlc1t1U40zxqAk-54" target="udor24Wlc1t1U40zxqAk-12">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="udor24Wlc1t1U40zxqAk-54" value="External APIs" style="aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon2;kubernetesLabel=1;prIcon=api" vertex="1" parent="1">
-          <mxGeometry x="3.960000000000001" y="526" width="77.08" height="74" as="geometry" />
+          <mxGeometry x="-32.07999999999999" y="460" width="77.08" height="74" as="geometry" />
         </mxCell>
         <mxCell id="udor24Wlc1t1U40zxqAk-55" value="&lt;div&gt;Database&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#C925D1;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.dynamodb;" vertex="1" parent="1">
-          <mxGeometry x="622" y="173" width="78" height="78" as="geometry" />
+          <mxGeometry x="680" y="279.5" width="78" height="78" as="geometry" />
         </mxCell>
         <mxCell id="udor24Wlc1t1U40zxqAk-56" value="Java Hexagonal Architecture" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
           <mxGeometry x="325" y="20" width="100" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="udor24Wlc1t1U40zxqAk-59" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="udor24Wlc1t1U40zxqAk-39" target="udor24Wlc1t1U40zxqAk-52">
+        <mxCell id="udor24Wlc1t1U40zxqAk-59" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="udor24Wlc1t1U40zxqAk-36" target="udor24Wlc1t1U40zxqAk-52">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>

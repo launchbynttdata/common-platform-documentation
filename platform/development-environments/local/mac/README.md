@@ -236,6 +236,8 @@ Launch platform includes support to utilize a common local developer container t
 - [Setting up IntelliJ dev containers](./../../../development-environments/local/tools/intellij/dev-containers/README.md)
 - [Setting up Visual Studio Code dev containers](./../../../development-environments/local/tools/vscode/dev-containers/README.md)
 
+Methods described in the next sections of `3.3 Build Container` and `3.4 Build tools` will also work within the container as well. 
+
 Utilize the `launch-cli` commands of the following to build and push.
 ```sh
 $ launch service build
@@ -246,12 +248,11 @@ $ launch service build --push
   <img src="./pictures/4.2-launch-build.png" /> 
 </p>
 
-
 ### 4.3 Build Container
 
 Launch Common Automation Framework (LCAF) offers standard set of commands to build/test/deploy applications written in different programming languages and architectures. It is achieved with help of `make` commands. The set of commands described below explain the process of building a docker image for a java application, starting the application locally, bringing it down and pushing the image to the remote repository.
 
-#### Make commands
+#### <u>Build using make</u>
 1. `make configure`: This command uses `git repo` tool to fetch dependent repositories which store the code for underlining commands to run `make` commands mentioned below. `make configure` pulls `lcaf-component-container` repository which stores the code for underlining `make` commands.
 
 2. `make docker/check-env-vars`: Variables are stored in `Makefile.includes` file. The values of these variables, `CONTAINER_REGISTRY, CONTAINER_IMAGE_NAME, CONTAINER_IMAGE_VERSION`, can be changed so we customize the image name, version number and container registry name. The `make` commands ensures these values are present. This command does validation check.
@@ -266,13 +267,13 @@ Launch Common Automation Framework (LCAF) offers standard set of commands to bui
 
 7. `make docker/push`: This command builds and pushes the image to the container registry.
 
-### 4.4 Build tools
-
-The final method a user can use to build and test their application is utilizing the base level tools themselfs. The user can run Docker, Gradle or Maven commands directly if they choose. 
+<p align="center">
+  <img src="./pictures/4.3-make-configure.png" /> 
+</p>
 
 #### <u>Build using docker</u>
 1. Run the application in docker with postgres
-    - `docker build . -t launch-api:s1`
+    - `docker build . -t launch-api:dev-tag`
     - `docker-compose up`: Create and start containers defined in a Docker Compose file.
     - `docker-compose down`: Stop and remove containers defined in a Docker Compose file.
     - use PgAdmin service to view the table & daa: http://localhost:5050/browser
@@ -281,10 +282,21 @@ The final method a user can use to build and test their application is utilizing
 3. Connect to the actuator with the credentials "test/test": http://localhost:8087/actuator
 4. Open the API Docs: http://localhost:8087/swagger-ui.html
 
+<p align="center">
+  <img src="./pictures/4.4-docker-build.png" /> 
+</p>
+
 #### Contract testing with Pact
 - the contact files are created when the consumer pact tests are run & can be found under the build/pacts.
 - run `docker-compose up` to start the pact broker.
 - run `./gradlew pactPublish` to push the contract to the broker.
+
+### 3.4 Run without containerizing
+
+If you don't wish to containerize the application and run it directly, you can utilize gradle directly to build and run the application.
+#### <u>Build using Gradle</u>
+
+TODO:
 
 ## 5. References
 - [Homebrew official](https://brew.sh/) install guide
