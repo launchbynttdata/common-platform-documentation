@@ -74,7 +74,7 @@ CLIENT_CONFIG=$(aws --profile launch-root-admin secretsmanager get-secret-value 
 ```
 
 ## 5. **Downloading Client Certificate and Key .p12 Bundle**
-The cert bundle has been stored centrally within the Launch AWS Root account's AWS Secrets Manager at arn:aws:secretsmanager:us-east-2:538234414982:secret:vpn/client_test/cert_bundle
+The cert bundle has been stored centrally within the Launch AWS Root account's AWS Secrets Manager at `arn:aws:secretsmanager:us-east-2:538234414982:secret:vpn/client_test/cert_bundle`
 
 Because this file is binary rather than text, it cannot be retreived via the AWS Console and requires use of the AWS CLI
   ### Retrieve via AWS CLI on MacOS and Linux
