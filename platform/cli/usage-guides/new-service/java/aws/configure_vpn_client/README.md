@@ -28,7 +28,7 @@ While it is also possible to connect to the AWS Client VPN Endpoint using the AW
   - cut
   - base64
  
-  Open a terminal via **Launchpad**
+  Open a **Terminal** via **Launchpad**
 
 - Windows: 
 
@@ -41,7 +41,7 @@ While it is also possible to connect to the AWS Client VPN Endpoint using the AW
     3. Select **Command Prompt** from the list
 
 > [!NOTE]
-> On Windows 11, or if you have manually installed Windows Terminal, you will see the Command Prompt open within it
+> On Windows 11, or if you have manually installed **Windows Terminal**, you will see the Command Prompt open within it
 
 ## 3. **Installing OpenVPN Connect Client**
   - In order to install the current version of the OpenVPN Connect client (version 3.4.9 as-of the time of this documentation), follow the steps below
@@ -63,7 +63,7 @@ While it is also possible to connect to the AWS Client VPN Endpoint using the AW
 ### 3.2. Windows
   1. Click on the large button labeled "Download OpenVPN Connect for Windows" to download the software as an .msi installer
   2. Once the download has been completed, double-click on the downloaded .msi installer file to begin installation.
-  3. Proceed with the installer's installation steps
+  3. Proceed with the installer's installation steps.
 
 ## 4. **Downloading Client Configuration**
 The configuration has been stored centrally within the Launch AWS Root account's AWS Secrets Manager at `arn:aws:secretsmanager:us-east-2:538234414982:secret:vpn/client_test/client_config`
@@ -91,23 +91,13 @@ CLIENT_CONFIG=$(aws --profile launch-root-admin secretsmanager get-secret-value 
 ```
 
 ### 4.3 Retrieve via AWS CLI on Windows 
-  Due to the encoded newlines in the CLI output, it is advised to obtain this configuration via the [AWS Console](#41-retrieve-via-aws-console).
-  
-  Otherwise, you may execute the following in your Command Prompt after having signed in via SSO
-
-```bat
-aws --profile launch-root-admin secretsmanager get-secret-value  ^
---secret-id=arn:aws:secretsmanager:us-east-2:538234414982:secret:vpn/client_test/client_config ^
---query SecretString
-```
-
-Copy all text within the quotation marks and replace all \n escape sequences with literal line endings
+  Due to the complexity of handling the secret output given its encoded newline characters and leading/trailing quotes, it is advised to obtain this configuration via the [AWS Console](#41-retrieve-via-aws-console) for Windows users, for simplicity.
 
 ## 5. **Downloading Client Certificate and Key .p12 Bundle**
 The cert bundle has been stored centrally within the Launch AWS Root account's AWS Secrets Manager at `arn:aws:secretsmanager:us-east-2:538234414982:secret:vpn/client_test/cert_bundle`
 
 Because this file is binary rather than text, it cannot be retreived via the AWS Console and requires use of the AWS CLI
-  ### Retrieve via AWS CLI on macOS
+  ### 5.1 Retrieve via AWS CLI on macOS
   Execute the following in your shell after having signed in via SSO and note that it has been saved to your home directory
 
 ```sh
@@ -116,7 +106,7 @@ aws --profile launch-root-admin secretsmanager get-secret-value \
 --query SecretBinary --output text | base64 --decode > ~/cert_bundle.p12 && chmod 0600 ~/cert_bundle.p12
 ```
 
-### Retrieve via AWS CLI on Windows 
+### 5.2 Retrieve via AWS CLI on Windows 
   Execute the following in your Command Prompt after having signed in via SSO and note that it has been saved to your user profile directory
 
 ```bat
@@ -137,7 +127,7 @@ set CertBundle=""
 ## 6. **Obtaining .p12 Bundle password**
 The password for the cert bundle has been stored centrally within the Launch AWS Root account's AWS Secrets Manager at `arn:aws:secretsmanager:us-east-2:538234414982:secret:vpn/client_test/passphrase`
 
-### Retrieve via AWS Console
+### 6.1 Retrieve via AWS Console
 - You can retrieve the cert bundle via the AWS Console as follows:
   1. Log into the AWS Access Portal via [Okta](https://services-onentt.okta.com/app/UserHome)'s "AWS IAM Identity Center [2]" application tile
   2. Click to expand the entry for launch.nttdata.com, then click on your desired role name (e.g. AdministratorAccess) to log into that account's AWS Console
@@ -149,7 +139,7 @@ The password for the cert bundle has been stored centrally within the Launch AWS
 
       ![AWS Secret Config](pictures/AWSSecretPassword.png)
 
-### Retrieve via AWS CLI on macOS
+### 6.2 Retrieve via AWS CLI on macOS
   Execute the following in your shell after having signed in via SSO, select the output value, and copy it to your clipboard
 
 ```sh
@@ -158,7 +148,7 @@ aws --profile launch-root-admin secretsmanager get-secret-value \
 --query SecretString --output text | cut -d: -f2 | sed -e 's/^"//' -e 's/"}$//'
 ```
 
-### Retrieve via AWS CLI on Windows
+### 6.3 Retrieve via AWS CLI on Windows
   Execute the following in your shell after having signed in via SSO, select the value within the key/value pair displayed. and copy it to your clipboard
 
 ```bat
@@ -180,14 +170,17 @@ Click on "Certificates and Tokens", then the tab for "PKCS #12", then "Add Certi
 
 ![Add Certificate](pictures/OpenVPNConnectAddCert.png)
 
+> [!IMPORTANT]
+> Windows users only should navigate to their user profile directory, right click on the .p12 certificate and key bundle, and click **Install PFX**, then accept all default values in the configuration wizard for it to be correctly installed at the system level and ready for use with OpenVPN Connect.
+
 Navigate to the path where you previously saved the .p12 certificate and key bundle, click the filename, then click "Open" and you will be prompted to enter the password from the prior section.
 
 ![Import PKCS #12](pictures/OpenVPNConnectImportPKCS12.png)
 
 Enter the password, then click "OK" to continue.
 
-> [!NOTE]
-> macOS users may be prompted at this point for the password to their openvpn-associated keychain, in order for it to be successfully and securely saved. 
+> [!IMPORTANT]
+> macOS users only should be prompted at this point for the password to their openvpn-associated keychain, in order for it to be successfully and securely saved at the system level.
 
 If entered correctly, at this point, the "Certificates and Tokens" screen of OpenVPN Connect should display an entry for "vpnclienttest.launch.nttdata.com" with certificate and key icons to the left of the name.
 
