@@ -40,7 +40,7 @@ While it is also possible to connect to the AWS Client VPN Endpoint using the AW
 3. Double-click the installer for your device, based upon the CPU type your target device uses. For users within Launch, this is typically the "Mac with Apple Silicon chip" installer
 ![CPU Selection](pictures/OpenVPNConnectChooseCPU.png)
 4. Proceed with the installer's installation steps
-### For Windows:
+### 3.2. Windows
 1. Click on the large button labeled "Download OpenVPN Connect for Windows" to download the software as an .msi installer
 2. Once the download has been completed, double-click on the downloaded .msi installer file to begin installation.
 3. Proceed with the installer's installation steps
