@@ -21,37 +21,54 @@ While it is also possible to connect to the AWS Client VPN Endpoint using the AW
 ## 2. **Prerequisites**
 - Follow the [Setting up AWS config guide](../../../../../../platform/development-environments/local/aws/config/README.md)
 - Follow the [Setting up aws-sso-utils guide](../../../../../../platform/development-environments/local/aws/sso-login/README.md)
-- MacOS
-  The following utilities are necessary but come bundled with modern versions of MacOS
+- macOS:
+
+  The following utilities are necessary but come bundled with modern versions of macOS
   - sed
   - cut
   - base64
-- Windows:
-  - TODO
+ 
+  Open a terminal via **Launchpad**
+
+- Windows: 
+
+  The following utility is necessary but comes bundled with modern versions of Windows
+  - certutil
+
+  Open a command prompt:
+    1. Select the **Start menu** (the Windows icon) on the taskbar, or press the **Windows key**.
+    2. Type **cmd**
+    3. Select **Command Prompt** from the list
+
+> [!NOTE]
+> On Windows 11, or if you have manually installed Windows Terminal, you will see the Command Prompt open within it
 
 ## 3. **Installing OpenVPN Connect Client**
   - In order to install the current version of the OpenVPN Connect client (version 3.4.9 as-of the time of this documentation), follow the steps below
 
-  1. In your web browser, visit https://openvpn.net/client/
-* The site will attempt to detect the OS you are currently using and open the appropriate section for that OS.
-* If it has opened a section for the incorrect target OS, click on the mid-page tab corresponding to your target OS
-![OS Selection](pictures/OpenVPNConnectOSSelect.png)
+    - In your web browser, visit https://openvpn.net/client/
+    - The site will attempt to detect the OS you are currently using and open the appropriate section for that OS.
+    - If it has opened a section for the incorrect target OS, click on the mid-page tab corresponding to your target OS
 
-  ### 3.1. MacOS
-1. Click on the large button labeled "Download OpenVPN Connect for Mac" to download the software as a .dmg image
-2. Once the download has been completed, locate the downloaded file in your Downloads, and click to open
-3. Double-click the installer for your device, based upon the CPU type your target device uses. For users within Launch, this is typically the "Mac with Apple Silicon chip" installer
-![CPU Selection](pictures/OpenVPNConnectChooseCPU.png)
-4. Proceed with the installer's installation steps
+  ![OS Selection](pictures/OpenVPNConnectOSSelect.png)
+
+### 3.1. macOS
+  1. Click on the large button labeled "Download OpenVPN Connect for Mac" to download the software as a .dmg image
+  2. Once the download has been completed, locate the downloaded file in your Downloads, and click to open
+  3. Double-click the installer for your device, based upon the CPU type your target device uses. For users within Launch, this is typically the "Mac with Apple Silicon chip" installer
+
+  ![CPU Selection](pictures/OpenVPNConnectChooseCPU.png)
+
+  4. Proceed with the installer's installation steps
 ### 3.2. Windows
-1. Click on the large button labeled "Download OpenVPN Connect for Windows" to download the software as an .msi installer
-2. Once the download has been completed, double-click on the downloaded .msi installer file to begin installation.
-3. Proceed with the installer's installation steps
+  1. Click on the large button labeled "Download OpenVPN Connect for Windows" to download the software as an .msi installer
+  2. Once the download has been completed, double-click on the downloaded .msi installer file to begin installation.
+  3. Proceed with the installer's installation steps
 
 ## 4. **Downloading Client Configuration**
 The configuration has been stored centrally within the Launch AWS Root account's AWS Secrets Manager at `arn:aws:secretsmanager:us-east-2:538234414982:secret:vpn/client_test/client_config`
 
-### Retrieve via AWS Console
+### 4.1 Retrieve via AWS Console
 You can retrieve the latest configuration via the AWS Console as follows:
 
   1. Log into the AWS Access Portal via [Okta](https://services-onentt.okta.com/app/UserHome)'s "AWS IAM Identity Center [2]" application tile
@@ -64,7 +81,7 @@ You can retrieve the latest configuration via the AWS Console as follows:
 
       ![AWS Secret Config](pictures/AWSSecretConfig.png)
 
-### Retrieve via AWS CLI on MacOS
+### 4.2 Retrieve via AWS CLI on macOS
   Execute the following in your shell after having signed in via SSO and note that it has been saved to your home directory
 
 ```sh
@@ -73,17 +90,48 @@ CLIENT_CONFIG=$(aws --profile launch-root-admin secretsmanager get-secret-value 
 --query SecretString | sed -e 's/^"//' -e 's/"$//'); printf "%b" $CLIENT_CONFIG  > ~/client_config.ovpn
 ```
 
+### 4.3 Retrieve via AWS CLI on Windows 
+  Due to the encoded newlines in the CLI output, it is advised to obtain this configuration via the [AWS Console](#41-retrieve-via-aws-console).
+  
+  Otherwise, you may execute the following in your Command Prompt after having signed in via SSO
+
+```bat
+aws --profile launch-root-admin secretsmanager get-secret-value  ^
+--secret-id=arn:aws:secretsmanager:us-east-2:538234414982:secret:vpn/client_test/client_config ^
+--query SecretString
+```
+
+Copy all text within the quotation marks and replace all \n escape sequences with literal line endings
+
 ## 5. **Downloading Client Certificate and Key .p12 Bundle**
 The cert bundle has been stored centrally within the Launch AWS Root account's AWS Secrets Manager at `arn:aws:secretsmanager:us-east-2:538234414982:secret:vpn/client_test/cert_bundle`
 
 Because this file is binary rather than text, it cannot be retreived via the AWS Console and requires use of the AWS CLI
-  ### Retrieve via AWS CLI on MacOS
+  ### Retrieve via AWS CLI on macOS
   Execute the following in your shell after having signed in via SSO and note that it has been saved to your home directory
 
 ```sh
 aws --profile launch-root-admin secretsmanager get-secret-value \
 --secret-id=arn:aws:secretsmanager:us-east-2:538234414982:secret:vpn/client_test/cert_bundle \
 --query SecretBinary --output text | base64 --decode > ~/cert_bundle.p12 && chmod 0600 ~/cert_bundle.p12
+```
+
+### Retrieve via AWS CLI on Windows 
+  Execute the following in your Command Prompt after having signed in via SSO and note that it has been saved to your user profile directory
+
+```bat
+set CertBundle="%UserProfile%\cert_bundle.p12"
+aws --profile launch-root-admin secretsmanager get-secret-value ^
+--secret-id=arn:aws:secretsmanager:us-east-2:538234414982:secret:vpn/client_test/cert_bundle ^
+--query SecretBinary --output text > cert_bundle.base64
+certutil -decode cert_bundle.base64 %CertBundle%
+del cert_bundle.base64
+Icacls %CertBundle% /c /t /Inheritance:d
+Icacls %CertBundle% /c /t /Grant %UserName%:F
+TakeOwn /F %CertBundle%
+Icacls %CertBundle% /c /t /Grant:r %UserName%:F
+Icacls %CertBundle% /c /t /Remove:g "Authenticated Users" BUILTIN\Administrators BUILTIN Everyone System Users
+set CertBundle=""
 ```
 
 ## 6. **Obtaining .p12 Bundle password**
@@ -101,13 +149,22 @@ The password for the cert bundle has been stored centrally within the Launch AWS
 
       ![AWS Secret Config](pictures/AWSSecretPassword.png)
 
-### Retrieve via AWS CLI on MacOS
+### Retrieve via AWS CLI on macOS
   Execute the following in your shell after having signed in via SSO, select the output value, and copy it to your clipboard
 
 ```sh
 aws --profile launch-root-admin secretsmanager get-secret-value \
 --secret-id=arn:aws:secretsmanager:us-east-2:538234414982:secret:vpn/client_test/passphrase \
 --query SecretString --output text | cut -d: -f2 | sed -e 's/^"//' -e 's/"}$//'
+```
+
+### Retrieve via AWS CLI on Windows
+  Execute the following in your shell after having signed in via SSO, select the value within the key/value pair displayed. and copy it to your clipboard
+
+```bat
+aws --profile launch-root-admin secretsmanager get-secret-value ^
+--secret-id=arn:aws:secretsmanager:us-east-2:538234414982:secret:vpn/client_test/passphrase ^
+--query SecretString --output text
 ```
 
 ## 7. **Adding Cert .p12 Bundle to OpenVPN Connect**
@@ -130,7 +187,7 @@ Navigate to the path where you previously saved the .p12 certificate and key bun
 Enter the password, then click "OK" to continue.
 
 > [!NOTE]
-> MacOS users may be prompted at this point for the password to their openvpn-associated keychain, in order for it to be successfully and securely saved. 
+> macOS users may be prompted at this point for the password to their openvpn-associated keychain, in order for it to be successfully and securely saved. 
 
 If entered correctly, at this point, the "Certificates and Tokens" screen of OpenVPN Connect should display an entry for "vpnclienttest.launch.nttdata.com" with certificate and key icons to the left of the name.
 
