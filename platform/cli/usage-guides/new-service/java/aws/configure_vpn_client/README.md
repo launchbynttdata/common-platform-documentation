@@ -34,7 +34,7 @@ While it is also possible to connect to the AWS Client VPN Endpoint using the AW
 * If it has opened a section for the incorrect target OS, click on the mid-page tab corresponding to your target OS
 ![OS Selection](pictures/OpenVPNConnectOSSelect.png)
 
-  ### For MacOS:
+  ### 3.1. MacOS
 1. Click on the large button labeled "Download OpenVPN Connect for Mac" to download the software as a .dmg image
 2. Once the download has been completed, locate the downloaded file in your Downloads, and click to open
 3. Double-click the installer for your device, based upon the CPU type your target device uses. For users within Launch, this is typically the "Mac with Apple Silicon chip" installer
