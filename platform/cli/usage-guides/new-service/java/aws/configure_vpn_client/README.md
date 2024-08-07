@@ -104,7 +104,7 @@ The password for the cert bundle has been stored centrally within the Launch AWS
 ### Retrieve via AWS CLI on MacOS and Linux
   Execute the following in your shell after having signed in via SSO, select the output value, and copy it to your clipboard
 
-```
+```sh
 aws --profile launch-root-admin secretsmanager get-secret-value \
 --secret-id=arn:aws:secretsmanager:us-east-2:538234414982:secret:vpn/client_test/passphrase \
 --query SecretString --output text | cut -d: -f2 | sed -e 's/^"//' -e 's/"}$//'
