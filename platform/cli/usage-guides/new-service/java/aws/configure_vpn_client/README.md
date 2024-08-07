@@ -87,7 +87,7 @@ aws --profile launch-root-admin secretsmanager get-secret-value \
 ```
 
 ## 6. **Obtaining .p12 Bundle password**
-The password for the cert bundle has been stored centrally within the Launch AWS Root account's AWS Secrets Manager at arn:aws:secretsmanager:us-east-2:538234414982:secret:vpn/client_test/passphrase
+The password for the cert bundle has been stored centrally within the Launch AWS Root account's AWS Secrets Manager at `arn:aws:secretsmanager:us-east-2:538234414982:secret:vpn/client_test/passphrase`
 
 ### Retrieve via AWS Console
 - You can retrieve the cert bundle via the AWS Console as follows:
