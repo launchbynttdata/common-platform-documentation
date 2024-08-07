@@ -67,7 +67,7 @@ You can retrieve the latest configuration via the AWS Console as follows:
 ### Retrieve via AWS CLI on MacOS and Linux
   Execute the following in your shell after having signed in via SSO and note that it has been saved to your home directory
 
-```
+```sh
 CLIENT_CONFIG=$(aws --profile launch-root-admin secretsmanager get-secret-value  \
 --secret-id=arn:aws:secretsmanager:us-east-2:538234414982:secret:vpn/client_test/client_config \
 --query SecretString | sed -e 's/^"//' -e 's/"$//'); printf "%b" $CLIENT_CONFIG  > ~/client_config.ovpn
