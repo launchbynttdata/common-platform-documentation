@@ -21,10 +21,13 @@ While it is also possible to connect to the AWS Client VPN Endpoint using the AW
 ## 2. **Prerequisites**
 - Follow the [Setting up AWS config guide](../../../../../..//platform/development-environments/local/aws/config/README.md)
 - Follow the [Setting up aws-sso-utils guide](../../../../../..//platform/development-environments/local/aws/sso-login/README.md)
-- For parsing of aws cli results, the following utilities are needed:
+- MacOS
+  The following utilities are necessary but come bundled with modern versions of MacOS
   - sed
   - cut
   - base64
+- Windows:
+  - TODO
 
 ## 3. **Installing OpenVPN Connect Client**
   - In order to install the current version of the OpenVPN Connect client (version 3.4.9 as-of the time of this documentation), follow the steps below
