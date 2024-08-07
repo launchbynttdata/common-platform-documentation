@@ -49,7 +49,7 @@ While it is also possible to connect to the AWS Client VPN Endpoint using the AW
 2. Click the large button labeled "Install OpenVPN 3 for Linux", and follow the instructions appropriate for your target Linux distribution
 
 ## 4. **Downloading Client Configuration**
-The configuration has been stored centrally within the Launch AWS Root account's AWS Secrets Manager at arn:aws:secretsmanager:us-east-2:538234414982:secret:vpn/client_test/client_config
+The configuration has been stored centrally within the Launch AWS Root account's AWS Secrets Manager at `arn:aws:secretsmanager:us-east-2:538234414982:secret:vpn/client_test/client_config`
 
 ### Retrieve via AWS Console
 You can retrieve the latest configuration via the AWS Console as follows:
