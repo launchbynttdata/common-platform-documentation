@@ -80,7 +80,7 @@ Because this file is binary rather than text, it cannot be retreived via the AWS
   ### Retrieve via AWS CLI on MacOS and Linux
   Execute the following in your shell after having signed in via SSO and note that it has been saved to your home directory
 
-```
+```sh
 aws --profile launch-root-admin secretsmanager get-secret-value \
 --secret-id=arn:aws:secretsmanager:us-east-2:538234414982:secret:vpn/client_test/cert_bundle \
 --query SecretBinary --output text | base64 --decode > ~/cert_bundle.p12 && chmod 0600 ~/cert_bundle.p12
