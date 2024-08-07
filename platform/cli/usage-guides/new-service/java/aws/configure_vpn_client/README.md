@@ -19,8 +19,8 @@ The AWS Client VPN Endpoint has been configured with split-tunneling enabled, mi
 While it is also possible to connect to the AWS Client VPN Endpoint using the AWS VPN Client application, the official documentation requires an unencrypted private key as part of the client configuration file, which is unsecure when using mutual certificate-based authentication. In the future, SSO SAML-based authentication is the desired end state, which will require corporate IT integrations with Okta for SAML endpoints and will likely require additional DNS configuration within our AWS accounts.  When this does occur, it should be possible to distribute a single file for configuration with without compromising security.
 
 ## 2. **Prerequisites**
-- Follow the [Setting up AWS config guide](../../../../../..//platform/development-environments/local/aws/config/README.md)
-- Follow the [Setting up aws-sso-utils guide](../../../../../..//platform/development-environments/local/aws/sso-login/README.md)
+- Follow the [Setting up AWS config guide](../../../../../../platform/development-environments/local/aws/config/README.md)
+- Follow the [Setting up aws-sso-utils guide](../../../../../../platform/development-environments/local/aws/sso-login/README.md)
 - MacOS
   The following utilities are necessary but come bundled with modern versions of MacOS
   - sed
