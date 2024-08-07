@@ -44,9 +44,6 @@ While it is also possible to connect to the AWS Client VPN Endpoint using the AW
 1. Click on the large button labeled "Download OpenVPN Connect for Windows" to download the software as an .msi installer
 2. Once the download has been completed, double-click on the downloaded .msi installer file to begin installation.
 3. Proceed with the installer's installation steps
-### For Linux:
-1. Click on the large button labeled "Download OpenVPN Connect for Linux" to be directed to the OpenVPN 3 for Linux next-generation client
-2. Click the large button labeled "Install OpenVPN 3 for Linux", and follow the instructions appropriate for your target Linux distribution
 
 ## 4. **Downloading Client Configuration**
 The configuration has been stored centrally within the Launch AWS Root account's AWS Secrets Manager at `arn:aws:secretsmanager:us-east-2:538234414982:secret:vpn/client_test/client_config`
@@ -64,7 +61,7 @@ You can retrieve the latest configuration via the AWS Console as follows:
 
       ![AWS Secret Config](pictures/AWSSecretConfig.png)
 
-### Retrieve via AWS CLI on MacOS and Linux
+### Retrieve via AWS CLI on MacOS
   Execute the following in your shell after having signed in via SSO and note that it has been saved to your home directory
 
 ```sh
@@ -77,7 +74,7 @@ CLIENT_CONFIG=$(aws --profile launch-root-admin secretsmanager get-secret-value 
 The cert bundle has been stored centrally within the Launch AWS Root account's AWS Secrets Manager at `arn:aws:secretsmanager:us-east-2:538234414982:secret:vpn/client_test/cert_bundle`
 
 Because this file is binary rather than text, it cannot be retreived via the AWS Console and requires use of the AWS CLI
-  ### Retrieve via AWS CLI on MacOS and Linux
+  ### Retrieve via AWS CLI on MacOS
   Execute the following in your shell after having signed in via SSO and note that it has been saved to your home directory
 
 ```sh
@@ -101,7 +98,7 @@ The password for the cert bundle has been stored centrally within the Launch AWS
 
       ![AWS Secret Config](pictures/AWSSecretPassword.png)
 
-### Retrieve via AWS CLI on MacOS and Linux
+### Retrieve via AWS CLI on MacOS
   Execute the following in your shell after having signed in via SSO, select the output value, and copy it to your clipboard
 
 ```sh
