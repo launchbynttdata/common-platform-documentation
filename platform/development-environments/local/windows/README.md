@@ -32,7 +32,7 @@ Note: If all the software here onwards need to be deployed in WSL, specify the i
 - Download Intellij Community Edition from https://www.jetbrains.com/idea/download/?section=windows
 - Run the installer, specify path for installation
 - Open the IDE, select the JDK path in the project structure as mentioned in the Java JDK section, follow the steps.
-- Open the cloned project in IDE. Menu -> Open -> Select the project folder . Click Open
+- Open the cloned project in IDE. Menu -> Open -> Select the project folder -> Click Open
 
 ## Java JDK
 
