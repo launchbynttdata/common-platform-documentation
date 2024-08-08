@@ -298,7 +298,7 @@ $ launch service create --name launch-demo-ecs-application --in-file /workspaces
 </p>
 
 #### 4.1.3 Build the image and push
-Change into the directory of the newly created service. Once inside the new repositories' directory, build the application's Docker image and push it to a container repository. 
+Change into the directory of the newly created service. Once inside the new repository's directory, build the application's Docker image and push it to a container repository. 
 
 ```sh
 $ cd launch-demo-ecs-application
