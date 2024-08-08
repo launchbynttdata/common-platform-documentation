@@ -287,7 +287,7 @@ We are now going to create the Java application properties repository.
 Ensure you change back into your working directory `cd ..` , as you do not want to accidentally create another repository inside the previously created platform repository. 
 
 - Replace the path in the `--in-file` argument to the absolute path of the `.launch_config` file saved in the previous section. 
-- We are going to use the `--name` of `launch-demo-ecs-application` in this demo, but you can name it what ever you want.
+- We are going to use the `--name` of `launch-demo-ecs-application` in this demo, but you can name it whatever you want.
 
 ```sh
 $ launch service create --name launch-demo-ecs-application --in-file /workspaces/workplace/common-platform-documentation/platform/common-automation-framework/usage-guides/new-service/java/aws/example_files/application/.launch_config
