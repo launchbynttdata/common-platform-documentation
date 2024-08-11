@@ -9,10 +9,11 @@
 
 ## 1. Introduction
 
+
 ## 2. Prerequisites
 Local development environment:
-- [MacOS local developer environment](./../../../../../development-environments/local/mac/README.md)
-- [Windows local developer environment](./../../../../../development-environments/local/java/windows/README.md)
+- [MacOS local developer environment](./../development-environments/local/mac/README.md)
+- [Windows local developer environment](./../development-environments/local/java/windows/README.md)
 
 ## 3. Template Architecture Compatibility
 Template architecture compatibility matrix that shows each our of our templates and their certified compute platform. 

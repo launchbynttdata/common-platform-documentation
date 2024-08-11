@@ -2,16 +2,21 @@
 ### **Table of Contents**
 1. [Introduction](#1-introduction)
 2. [Prerequisites](#2-Prerequisites)
-3. [Getting Started](#3)  
-  3.1. [Configure the inputs](#31-configure-the-inputs)  
-  3.2. [Create the repository](#32-create-the-repository)  
-4. [Deploy service](#4-deploy-service)  
-  4.1. [Deploy Resources](#41-deploy-resources)  
-  4.2. [Connect webhooks](#42-connect-webhooks)  
+3. [Getting Started](#3-getting-started)  
+  3.1. [Create the repository](#31-create-the-repository)  
+  3.2. [Configure the inputs](#32-configure-the-inputs)  
+4. [Deploy Service](#4-deploy-service)  
+  4.1. [Deploy Infrastructure](#41-deploy-infrastructure)  
+  4.2. [Connect Webhooks](#42-connect-webhooks)  
+  4.3. [Deploy Service](#43-deploy-service)  
 5. [Appendix](#5-appendix)
 
 ## 1. **Introduction**
-This guide will deploy an Elastic Container Service (ECS) cluster as your compute platform to host your application.
+This guide will deploy an Elastic Container Service (ECS) cluster compute platform to host an application along with the necessary infrastructure for CICD.
+
+<p align="center">
+  <img src="./pictures/ecs-complete.png" />
+</p>
 
 ## 2. **Prerequisites:**
 
@@ -21,9 +26,6 @@ Local development environment:
   - [MacOS local developer environment](./../../../../../development-environments/local/mac/README.md)
   - [Windows local developer environment](./../../../../../development-environments/local/java/windows/README.md)
   
-Cloud Services:
-- None
-
 ## 3. **Getting Started**
 
 ### 3.1. Configure the inputs
@@ -50,7 +52,7 @@ We are now going to create the ECS platform properties repository. This service 
 - We are going to use the `--name` of `launch-demo-ecs-platform` in this demo, but you can name it what ever you want.
 
 ```sh
-$ launch service create --name launch-demo-ecs-platform --in-file /workspaces/workplace/common-platform-documentation/platform/common-automation-framework/usage-guides/new-service/java/aws/example_files/platform/.launch_config
+$ launch service create --name launch-demo-ecs-platform --in-file /workspaces/workplace/common-platform-documentation/platform/common-automation-framework/shared-services/aws/ecs/inputs/.launch_config
 ```
 
 <p align="center">
@@ -67,26 +69,11 @@ $ export GIT_TOKEN="YOUR_TOKEN"
 $ aws sso login --profile "YOUR_AWS_PROFILE"
 ```
 
-### 4.1. Deploy Resources
-Deploy the ECS Platform service. This is the actual ECS cluster and related infrastructure. 
-
-If you skipped the previous step, ensure you are in the newly created repository's directory. `cd launch-demo-ecs-platform`
+### 4.1. Deploy Infrastructure
+Deploy the pipeline for the ECS service. This step will deploy all the CICD pipeline infrastructure to manage this repository. 
 
 ```sh
-$ launch terragrunt --target-environment sandbox --platform-resource service --apply --generation
-```
-
-<p align="center">
-  <img src="./pictures/launch-terragrunt-service-apply-platform-output-01.png" /><br>
-  output truncated... <br>
-  <img src="./pictures/launch-terragrunt-service-apply-platform-output-02.png" />
-</p>
-
-Deploy the pipeline for the ECS Platform service. This step will deploy all the CICD pipeline infrastructure to manage this repository. 
-
-If you skipped the previous step, ensure you are in the newly created repository's directory.
-
-```sh
+$ cd launch-demo-ecs-platform # Ensure you are in the newly created repository's directory
 $ launch terragrunt --target-environment root --platform-resource pipeline --apply --generation
 ```
 
@@ -96,7 +83,7 @@ $ launch terragrunt --target-environment root --platform-resource pipeline --app
   <img src="./pictures/launch-terragrunt-pipeline-apply-platform-output-02.png" />
 </p>
 
-Deploy the webhooks for the ECS Platform service. This will deploy lambda functions that we can connect to a SCM for pull request building events and triggering deployment pipelines. 
+Deploy the webhooks for the ECS service. This will deploy lambda functions that we can connect to a SCM for pull request building events and triggering deployment pipelines. 
 
 ```sh
 $ launch terragrunt --target-environment root --platform-resource webhook --apply --generation
@@ -133,12 +120,11 @@ Using `launch-cli`, you will need to run this for each of the 4 lambdas' functio
 
 [WARNING]: You can not copy and paste this command directly. You need to update `MY_SECRET` with the value of the git secret created in the Secrets Manager section.
 
-
 ```sh
-$ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL
-$ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL
-$ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL
-$ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL
+$ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL_1
+$ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL_2
+$ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL_3
+$ launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL_4
 ```
 
 <p align="center">
@@ -150,6 +136,26 @@ The webhooks will initially fail as the lambda does not allow ping requests.
 <p align="center">
   <img src="./pictures/github-settings-webhook-complete-platform.png" />
 </p>
+
+
+### 4.3. Deploy Service
+
+#### 4.3.1 Open and merge your first pull request (PR)
+
+#### 4.3.2 Manually deploy service
+Deploy the ECS service. This is the actual ECS cluster. 
+
+```sh
+$ cd launch-demo-ecs-platform # Ensure you are in your created repository's directory
+$ launch terragrunt --target-environment sandbox --platform-resource service --apply --generation
+```
+
+<p align="center">
+  <img src="./pictures/launch-terragrunt-service-apply-platform-output-01.png" /><br>
+  output truncated... <br>
+  <img src="./pictures/launch-terragrunt-service-apply-platform-output-02.png" />
+</p>
+
 
 ## 5. Appendix 
 - [Platform Application Naming Schema](./../../../../../standards/common-development/git/repository/naming-schemes/platform-sample-applications.md)

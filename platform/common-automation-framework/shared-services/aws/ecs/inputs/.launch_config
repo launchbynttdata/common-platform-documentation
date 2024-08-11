@@ -28,7 +28,7 @@
             "sandbox": {
                 "us-east-2": {
                     "000": {
-                        "properties_file": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/usage-guides/new-service/java/aws/example_files/platform/service.sandbox.us-east-2.tfvars"
+                        "properties_file": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/shared-services/aws/ecs/inputs/service.sandbox.us-east-2.tfvars"
                     }
                 }
             }
@@ -38,7 +38,7 @@
                 "root": {
                     "us-east-2": {
                         "000": {
-                            "properties_file": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/usage-guides/new-service/java/aws/example_files/platform/pipeline.root.us-east-2.tfvars"
+                            "properties_file": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/shared-services/aws/ecs/inputs/pipeline.root.us-east-2.tfvars"
                         }
                     }
                 }
@@ -47,7 +47,7 @@
                 "root": {
                     "us-east-2": {
                         "000": {
-                            "properties_file": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/usage-guides/new-service/java/aws/example_files/platform/webhooks.root.us-east-2.tfvars"
+                            "properties_file": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/shared-services/aws/ecs/inputs/webhooks.root.us-east-2.tfvars"
                         }
                     }
                 }

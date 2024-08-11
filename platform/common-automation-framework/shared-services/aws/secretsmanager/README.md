@@ -1,27 +1,32 @@
-# Shared-service: Identity and Access Management (IAM)
+# Shared-service: Secrets Manager
 ### **Table of Contents**
 1. [Introduction](#1-introduction)
 2. [Prerequisites](#2-Prerequisites)
-3. [Getting Started](#3)  
-  3.1. [Configure the inputs](#31-configure-the-inputs)  
-  3.2. [Create the repository](#32-create-the-repository)  
-  3.3. [Open and merge your first PR](#33-open-and-merge-your-first-pr)
-4. [Manually deploy service](#4-deploy-service)  
-  4.1. [Deploy Resources](#41-deploy-resources)  
-  4.2. [Connect webhooks](#42-connect-webhooks)  
+3. [Getting Started](#3-getting-started)  
+  3.1. [Create the repository](#31-create-the-repository)  
+  3.2. [Configure the inputs](#32-configure-the-inputs)  
+4. [Deploy Service](#4-deploy-service)  
+  4.1. [Deploy Infrastructure](#41-deploy-infrastructure)  
+  4.2. [Connect Webhooks](#42-connect-webhooks)  
+  4.3. [Deploy Service](#43-deploy-service)  
 5. [Appendix](#5-appendix)
 
 ## 1. **Introduction**
 
-TODO:
-
+TODO:  
+Current ARNs:
 ```
-arn:aws:iam::020127659860:role/dso-demo_tg_iam-useast2-sandbox-000-role-000
-arn:aws:iam::538234414982:role/dso-demo_tg_iam-useast2-root-000-role-000
+arn:aws:secretsmanager:us-east-2:538234414982:secret:github/launchbynttdata/tg-aws-shared-ecs_platform/git_secret
+arn:aws:secretsmanager:us-east-2:538234414982:secret:launch/dso-platform/github/service_user/http_access_token
+arn:aws:secretsmanager:us-east-2:538234414982:secret:launch/dso-platform/github/service_user/username
+arn:aws:secretsmanager:us-east-2:538234414982:secret:example/postgres/username
+arn:aws:secretsmanager:us-east-2:538234414982:secret:example/postgres/password
+arn:aws:secretsmanager:us-east-2:538234414982:secret:example/actuator/username
+arn:aws:secretsmanager:us-east-2:538234414982:secret:example/actuator/password
 ```
 
 <p align="center">
-  <img src="./pictures/iam-complete.png" />
+  <img src="./pictures/sm-complete.png" />
 </p>
 
 ## 2. **Prerequisites:**
