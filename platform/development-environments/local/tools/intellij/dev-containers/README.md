@@ -6,13 +6,15 @@
 4. [Reference](#4-reference)
 
 ## 1. Introduction
-This guide will walk you through setting up a development container environment using Visual Studio Code (VS Code) Dev Containers. By using dev containers, you can ensure a consistent and reproducible development environment for your code.
+This guide will walk you through setting up a development container environment using IntelliJ Dev Containers. By using dev containers, you can ensure a consistent and reproducible development environment for your code.
 
 ## 2. Prerequisites
-- Setting up local environment: 
-    - [MacOS local developer environment](./../../../mac/README.md)
-    - [Windows local developer environment](./../../../windows/README.md)
-- [IntelliJ is installed](./../README.md)
+In order to use this guide successfully, there may be assumptions within your current environment. Please follow these other guides that are dependencies to successfully utilizes this one. 
+
+Local development environment:
+- [MacOS local developer environment](./../../../../../development-environments/local/mac/README.md)
+- [Windows local developer environment](./../../../../../development-environments/local/java/windows/README.md)
+- [IntelliJ Install](./../README.md)
 
 ## 3. Step-by-step Guide
 

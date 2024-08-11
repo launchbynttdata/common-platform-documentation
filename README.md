@@ -1,5 +1,9 @@
 # Launch DevSecOps `common-platform-documentation`
+### **Table of Contents**
+1. [Introduction](#1-introduction)
 
+
+## 1. **Introduction**
 This repository is a knowledge base repository containing information related to, and associated with, the `Launch` platform.
 
 The `Launch` platform is a DevSecOps platform that integrates security in your development and operations process. It streamlines the creation and management of Infrastructure as Code (IaC) using Terraform and Terragrunt, and automates deployments through secure efficient pipelines. The `Launch` platform integrates with your SCM of choice utilizing webhooks and allows you to utilize the platform on a variety of cloud providers. The `launch-cli` tool enables local repository creation and lifecycle management of your service.

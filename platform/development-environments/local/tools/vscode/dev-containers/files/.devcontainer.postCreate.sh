@@ -1,8 +1,11 @@
 #!/usr/bin/bash
+# This script is ran within the dev container and does not make
+# changes to the host machine. It is used to set up the dev container.
+
 work_dir="/workspaces/CHANGEME"
 git_token="CHANGEME"
 
-sso_aws_url="https://d-9067900a0a.awsapps.com/start/#"
+sso_aws_url="CHANGEME"
 sso_aws_region="us-east-1"
 
 aws_root_account_id="CHANGEME"
@@ -10,8 +13,8 @@ aws_prod_account_id="CHANGEME"
 aws_sandbox_account_id="CHANGEME"
 aws_region="us-east-2"
 
-github_public_user="CHANGEME-nttd"
-github_public_email="CHANGEME@nttdata.com"
+github_public_user="CHANGEME"
+github_public_email="CHANGEME@CHANGEME.com"
 
 # Set your ENV vars
 echo 'export GITHUB_TOKEN='${git_token} >> ~/.bashrc
