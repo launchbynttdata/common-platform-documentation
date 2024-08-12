@@ -53,8 +53,8 @@ Copy the settings from that into your newly created `.devcontainer.json` file.
   <img src="./pictures/3-intellij-devcontainer-copy-01.png" /> 
 </p>
 
-Within `.devcontainer.json`, update the path in the `postCreateCommand` to the path to where you saved `.devcontainer.postCreate.sh`. 
-`/workspaces/workplace/myproject/.devcontainer.postCreate.sh`
+Within `.devcontainer.json`, update the relative path in the `postCreateCommand` to the path to where you saved `.devcontainer.postCreate.sh`. 
+`./.devcontainer.postCreate.sh`
 
 <p align="center">
   <img src="./pictures/3-intellij-devcontainer-postcreate-path-01.png" /> 

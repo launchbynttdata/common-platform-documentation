@@ -73,8 +73,8 @@ We are now going to update the `.devcontainer.json` with our template from this 
 There is also another file within this guide called `.devcontainer.postCreate.sh`. This script is a first time boot script that runs after your container is built. This script performs most of our containers configuration. 
 - [.devcontainer.postCreate.sh](./files/.devcontainer.postCreate.sh)
 
-Within `.devcontainer.json`, update the path in the `postCreateCommand` to the path to where you saved `.devcontainer.postCreate.sh`. 
-`/workspaces/workplace/.vscode/.devcontainer.postCreate.sh`
+Within `.devcontainer.json`, update the relative path in the `postCreateCommand` to the path to where you saved `.devcontainer.postCreate.sh`. 
+`./.devcontainer.postCreate.sh`
 It is a good idea to save it in the workspace dir. In this guide, we will place it in a `.vscode` folder within the workspace directory.
 
 <p align="center">

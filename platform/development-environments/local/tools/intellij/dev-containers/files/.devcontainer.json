@@ -25,5 +25,5 @@
 			"version": "latest"
 		}
 	},
-	"postCreateCommand": "sudo apt-get install -y gettext-base && bash /workspaces/workplace/.vscode/.devcontainer.postCreate.sh"
+	"postCreateCommand": "sudo apt-get install -y gettext-base && bash ./.devcontainer.postCreate.sh"
 }
