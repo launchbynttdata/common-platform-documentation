@@ -23,8 +23,8 @@ This guide will deploy an Elastic Container Service (ECS) cluster compute platfo
 In order to use this guide successfully, there may be assumptions within your current environment. Please follow these other guides that are dependencies to successfully utilizes this one. 
 
 Local development environment:
-  - [MacOS local developer environment](./../../../../../development-environments/local/mac/README.md)
-  - [Windows local developer environment](./../../../../../development-environments/local/java/windows/README.md)
+  - [MacOS local developer environment](./../../../../development-environments/local/mac/README.md)
+  - [Windows local developer environment](./../../../../development-environments/local/java/windows/README.md)
   
 ## 3. **Getting Started**
 
@@ -32,14 +32,14 @@ Local development environment:
 This guide has provided basic inputs to be used with the services we are deploying. However, we cannot use these right out of the box and we need to quickly update some paths within our `.launch_config` file.
 
 The launch config for the platform in this guide is at the following:
-- [./example_files/platform/.launch_config](./example_files/platform/.launch_config)
+- [./inputs/.launch_config](./inputs/.launch_config)
 
 Open this file and update the `properties_file` key with the absolute path from your system to the input files to be used, and then save it.
 
 We are going to be using the following inputs for our `.launch_config` files. 
-- [Service `properties file` ./example_files/platform/service.sandbox.us-east-2.tfvars](./example_files/platform/service.sandbox.us-east-2.tfvars)
-- [Pipeline `properties file` ./example_files/platform/pipeline.root.us-east-2.tfvars](./example_files/platform/pipeline.root.us-east-2.tfvars)
-- [Webhooks `properties file` ./example_files/platform/webhooks.root.us-east-2.tfvars](./example_files/platform/webhooks.root.us-east-2.tfvars)
+- [Service `properties file` ./inputs/service.sandbox.us-east-2.tfvars](./inputs/service.sandbox.us-east-2.tfvars)
+- [Pipeline `properties file` ./inputs/pipeline.root.us-east-2.tfvars](./inputs/pipeline.root.us-east-2.tfvars)
+- [Webhooks `properties file` ./inputs/webhooks.root.us-east-2.tfvars](./inputs/webhooks.root.us-east-2.tfvars)
 
 <p align="center">
   <img src="./pictures/launch_config-paths-platform.png" /> 
