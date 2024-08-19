@@ -10,7 +10,8 @@
   4.2. [Connect Webhooks](#42-connect-webhooks)  
   4.3. [Deploy Service](#43-deploy-service)  
 5. [View the Java Application](#5-view-the-java-application)
-6. [Appendix](#6-appendix)
+6. [Teardown Service](#6-teardown-service)
+7. [Appendix](#7-appendix)
 
 ## 1. **Introduction**
 This guide will describe how to deploy a new java service using Launch's cli utility `launch-cli`. Within this guide, we will deploy necessary infrastructure to host a container application. Among the infrastructure, we will deploy an ECR repository to store the new java containers being built. Secrets Manager to host your container's secrets with a new customer managed KMS key. Finally, it will deploy an ECS cluster to support and serve the new java service. 
@@ -84,12 +85,12 @@ $ launch service create --name launch-demo-ecs-application --in-file /workspaces
 ## 4. **Deploy service**
 
 ### Pre-flight
-Ensure your environmental variable `GIT_TOKEN` is set and you are logged into aws cli.
+1. Please ensure you have generated a Github token and it is ready to use in your environment.
+    - [Github Token](./../../../../development-environments/local/tools/token/README.md)
 
-```sh
-$ export GIT_TOKEN="YOUR_TOKEN"
-$ aws sso login --profile `YOUR_AWS_PROFILE`
-```
+2. Please ensure you have set your AWS credentials.
+    - If using SSO: [AWS SSO](./../../../../../development-environments/local/tools/aws/sso-login/README.md)
+    - Standard config: [AWS cli](./../../../../../development-environments/local/tools/aws/cli/README.md)
 
 ### 4.1. Deploy Infrastructure
 Deploy the pipeline for the Java application service. This step will deploy all the CICD pipeline infrastructure to manage this repository.
@@ -224,6 +225,7 @@ Once you are able to connect to the private VPC that your application is running
   <img src="./pictures/ecs-app-webview.png" /><br>
 </p>
 
+## 6. **Teardown Service**
 
-## 6. **Appendix**
+## 7. **Appendix**
 - [Platform Application Naming Schema](./../../../../../standards/common-development/git/repository/naming-schemes/platform-sample-applications.md)

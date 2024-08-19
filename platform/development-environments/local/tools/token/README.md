@@ -1,4 +1,14 @@
-## Generating a Personal Access Token
+# Shared-service: Elastic Container Service (ECS)
+### **Table of Contents**
+1. [Introduction](#1-introduction)
+2. [Prerequisites](#2-Prerequisites)
+3. [Generate Token](#3-generate-token)  
+4. [Appendix](#5-appendix)
+## 1. **Introduction**
+
+## 2. **Prerequisites**
+
+## 3. **Generate Toke**
 Launch-CLI makes use of a Personal Access Token (PAT) to authenticate with GitHub.
 
 We currently support fine-grained personal access tokens. More information about setting up a fine-grained token can be found here.
@@ -63,3 +73,14 @@ An in-flight token approval request
 Please also post a message in the #devsecops-platform channel in Slack and someone will review and approve your token as soon as possible.
 
 Once approved, you will be shown the token value once and never again. Ensure that you copy the token value into a secure location (like a password manager) for safekeeping.
+
+
+```sh
+$ export GIT_TOKEN="YOUR_TOKEN"
+$ aws sso login --profile "YOUR_AWS_PROFILE"
+```
+
+## 4. **Appendix**
+Local development environment:  
+- [MacOS local developer environment](./../../mac/README.md)
+- [Windows local developer environment](./../../windows/README.md)

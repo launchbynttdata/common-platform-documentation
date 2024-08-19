@@ -39,6 +39,8 @@ python -m pip install aws-sso-util
 # Install Launch CLI as a dev dependency
 python -m pip install launch-cli
 
+python -m pip install ruamel_yaml
+
 ## Uncomment the following lines if wish to have a local 
 ## dev source as the install folder
 # cd ${work_dir}/launch-cli

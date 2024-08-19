@@ -9,7 +9,8 @@
   4.1. [Deploy Infrastructure](#41-deploy-infrastructure)  
   4.2. [Connect Webhooks](#42-connect-webhooks)  
   4.3. [Deploy Service](#43-deploy-service)  
-5. [Appendix](#5-appendix)
+5. [Teardown Service](#5-teardown-service)
+6. [Appendix](#6-appendix)
 
 ## 1. **Introduction**
 This guide will deploy an Elastic Container Service (ECS) cluster compute platform to host an application along with the necessary infrastructure for CICD.
@@ -62,12 +63,12 @@ $ launch service create --name launch-demo-ecs-platform --in-file /workspaces/wo
 ## 4. **Deploy service**
 
 ### Pre-flight
-Ensure your environmental variable `GIT_TOKEN` is set and you are logged into aws cli.
+1. Please ensure you have generated a Github token and it is ready to use in your environment.
+    - [Github Token](./../../../../development-environments/local/tools/token/README.md)
 
-```sh
-$ export GIT_TOKEN="YOUR_TOKEN"
-$ aws sso login --profile "YOUR_AWS_PROFILE"
-```
+2. Please ensure you have set your AWS credentials.
+    - If using SSO: [AWS SSO](./../../../../../development-environments/local/tools/aws/sso-login/README.md)
+    - Standard config: [AWS cli](./../../../../../development-environments/local/tools/aws/cli/README.md)
 
 ### 4.1. Deploy Infrastructure
 Deploy the pipeline for the ECS service. This step will deploy all the CICD pipeline infrastructure to manage this repository. 
@@ -140,8 +141,6 @@ The webhooks will initially fail as the lambda does not allow ping requests.
 
 ### 4.3. Deploy Service
 
-#### 4.3.1 Open and merge your first pull request (PR)
-
 #### 4.3.2 Manually deploy service
 Deploy the ECS service. This is the actual ECS cluster. 
 
@@ -156,6 +155,10 @@ $ launch terragrunt --target-environment sandbox --platform-resource service --a
   <img src="./pictures/launch-terragrunt-service-apply-platform-output-02.png" />
 </p>
 
+#### 4.3.1 Open and merge your first pull request (PR)
 
-## 5. Appendix 
+
+## 5. **Teardown Service**
+
+## 6. **Appendix**
 - [Platform Application Naming Schema](./../../../../../standards/common-development/git/repository/naming-schemes/platform-sample-applications.md)

@@ -2,7 +2,7 @@ git_tag = "1.3.0"
 
 logical_product_family = "demo"
 logical_product_service = "springboot"
-environment             = "sandbox"
+environment             = "uat"
 environment_number      = "000"
 resource_number         = "000"
 region                  = "us-east-2"
@@ -89,7 +89,7 @@ ecs_svc_security_group = {
 containers = [
   {
     name      = "launch-api"
-    image_tag = "538234414982.dkr.ecr.us-east-2.amazonaws.com/launch-api:0.0.1-dev"
+    image_tag = "020127659860.dkr.ecr.us-east-2.amazonaws.com/launch-api:0.0.1-dev"
     essential = true
     log_configuration = {
       logDriver = "awslogs"
@@ -146,7 +146,7 @@ enable_service_discovery = false
 
 tags = {
   Purpose = "terratest examples"
-  Env     = "sandbox"
+  Env     = "uat"
   Team    = "dso"
 }
 
@@ -156,7 +156,7 @@ private_subnets = [
   "subnet-0c9280cbd4c3a01dd",
   "subnet-0369ba8e77a48792b",
 ]
-ecs_cluster_arn = "arn:aws:ecs:us-east-2:020127659860:cluster/demo-ecs_ptfrm-useast2-sandbox-000-fargate-000"
+ecs_cluster_arn = "arn:aws:ecs:us-east-2:020127659860:cluster/demo-ecs_ptfrm-useast2-uat-000-fargate-000"
 
 runtime_platform = [{
   cpu_architecture        = "X86_64",
@@ -185,7 +185,7 @@ ecs_exec_role_custom_policy_json = <<-EOF
         "kms:DescribeKey"
       ],
       "Resource": [
-        "arn:aws:kms:us-east-2:538234414982:key/ba37724b-ea39-45a5-a938-713fb9f88112"
+        "arn:aws:kms:us-east-2:020127659860:key/ba37724b-ea39-45a5-a938-713fb9f88112"
       ]
     },
     {
@@ -198,10 +198,10 @@ ecs_exec_role_custom_policy_json = <<-EOF
       ],
       "Effect": "Allow",
       "Resource": [
-        "arn:aws:secretsmanager:us-east-2:538234414982:secret:example/actuator/password-*",
-        "arn:aws:secretsmanager:us-east-2:538234414982:secret:example/actuator/username-*",
-        "arn:aws:secretsmanager:us-east-2:538234414982:secret:example/postgres/password-*",
-        "arn:aws:secretsmanager:us-east-2:538234414982:secret:example/postgres/username-*"
+        "arn:aws:secretsmanager:us-east-2:020127659860:secret:example/actuator/password-*",
+        "arn:aws:secretsmanager:us-east-2:020127659860:secret:example/actuator/username-*",
+        "arn:aws:secretsmanager:us-east-2:020127659860:secret:example/postgres/password-*",
+        "arn:aws:secretsmanager:us-east-2:020127659860:secret:example/postgres/username-*"
       ]
     }
 ]}

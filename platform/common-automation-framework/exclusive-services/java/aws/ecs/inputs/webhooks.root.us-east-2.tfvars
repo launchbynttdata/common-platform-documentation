@@ -22,9 +22,9 @@ EOF
       CODEBUILD_PROJECT_NAME = "demo-ecs_app_trigger_pipeline-useast2-root-000-cb-000"
       CODEBUILD_URL = "https://us-east-2.console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-2"
       GIT_SERVER_URL = "https://github.com"
-      GIT_SECRET_SM_ARN = "arn:aws:secretsmanager:us-east-2:538234414982:secret:github/launchbynttdata/tg-aws-shared-ecs_platform/git_secret"
-      GIT_TOKEN_SM_ARN = "arn:aws:secretsmanager:us-east-2:538234414982:secret:launch/dso-platform/github/service_user/http_access_token"
-      GIT_USERNAME_SM_ARN = "arn:aws:secretsmanager:us-east-2:538234414982:secret:launch/dso-platform/github/service_user/username"
+      GIT_SECRET_SM_ARN = "arn:aws:secretsmanager:us-east-2:020127659860:secret:github/launchbynttdata/tg-aws-shared-ecs_platform/git_secret"
+      GIT_TOKEN_SM_ARN = "arn:aws:secretsmanager:us-east-2:020127659860:secret:launch/dso-platform/github/service_user/http_access_token"
+      GIT_USERNAME_SM_ARN = "arn:aws:secretsmanager:us-east-2:020127659860:secret:launch/dso-platform/github/service_user/username"
       LOGGING_LEVEL = "INFO"
       USERVAR_S3_CODEPIPELINE_BUCKET = "demo-ecs-app-pr-event-useast2-root-000-s3-000"
       VALIDATE_DIGITAL_SIGNATURE = "false"
@@ -64,9 +64,9 @@ EOF
       ],
       "Effect": "Allow",
       "Resource": [
-        "arn:aws:secretsmanager:us-east-2:538234414982:secret:github/launchbynttdata/tg-aws-shared-ecs_platform/git_secret-??????",
-        "arn:aws:secretsmanager:us-east-2:538234414982:secret:launch/dso-platform/github/service_user/username-??????",
-        "arn:aws:secretsmanager:us-east-2:538234414982:secret:launch/dso-platform/github/service_user/http_access_token-??????"
+        "arn:aws:secretsmanager:us-east-2:020127659860:secret:github/launchbynttdata/tg-aws-shared-ecs_platform/git_secret-??????",
+        "arn:aws:secretsmanager:us-east-2:020127659860:secret:launch/dso-platform/github/service_user/username-??????",
+        "arn:aws:secretsmanager:us-east-2:020127659860:secret:launch/dso-platform/github/service_user/http_access_token-??????"
       ]
     }
   ]
@@ -89,9 +89,9 @@ EOF
       CODEBUILD_PROJECT_NAME = "demo-ecs_app_trigger_pipeline-useast2-root-000-cb-000"
       CODEBUILD_URL = "https://us-east-2.console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-2"
       GIT_SERVER_URL = "https://github.com"
-      GIT_SECRET_SM_ARN = "arn:aws:secretsmanager:us-east-2:538234414982:secret:github/launchbynttdata/tg-aws-shared-ecs_platform/git_secret"
-      GIT_TOKEN_SM_ARN = "arn:aws:secretsmanager:us-east-2:538234414982:secret:launch/dso-platform/github/service_user/http_access_token"
-      GIT_USERNAME_SM_ARN = "arn:aws:secretsmanager:us-east-2:538234414982:secret:launch/dso-platform/github/service_user/username"
+      GIT_SECRET_SM_ARN = "arn:aws:secretsmanager:us-east-2:020127659860:secret:github/launchbynttdata/tg-aws-shared-ecs_platform/git_secret"
+      GIT_TOKEN_SM_ARN = "arn:aws:secretsmanager:us-east-2:020127659860:secret:launch/dso-platform/github/service_user/http_access_token"
+      GIT_USERNAME_SM_ARN = "arn:aws:secretsmanager:us-east-2:020127659860:secret:launch/dso-platform/github/service_user/username"
       LOGGING_LEVEL = "INFO"
       USERVAR_S3_CODEPIPELINE_BUCKET = "demo-ecs-app-pr-merge-useast2-root-000-s3-000"
       VALIDATE_DIGITAL_SIGNATURE = "false"
@@ -131,9 +131,9 @@ EOF
       ],
       "Effect": "Allow",
       "Resource": [
-        "arn:aws:secretsmanager:us-east-2:538234414982:secret:github/launchbynttdata/tg-aws-shared-ecs_platform/git_secret-??????",
-        "arn:aws:secretsmanager:us-east-2:538234414982:secret:launch/dso-platform/github/service_user/username-??????",
-        "arn:aws:secretsmanager:us-east-2:538234414982:secret:launch/dso-platform/github/service_user/http_access_token-??????"
+        "arn:aws:secretsmanager:us-east-2:020127659860:secret:github/launchbynttdata/tg-aws-shared-ecs_platform/git_secret-??????",
+        "arn:aws:secretsmanager:us-east-2:020127659860:secret:launch/dso-platform/github/service_user/username-??????",
+        "arn:aws:secretsmanager:us-east-2:020127659860:secret:launch/dso-platform/github/service_user/http_access_token-??????"
       ]
     }
   ]
@@ -156,9 +156,9 @@ EOF
       CODEBUILD_PROJECT_NAME = "demo-ecs_app_trigger_pipeline-useast2-root-000-cb-000"
       CODEBUILD_URL = "https://us-east-2.console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-2"
       GIT_SERVER_URL = "https://github.com"
-      GIT_SECRET_SM_ARN = "arn:aws:secretsmanager:us-east-2:538234414982:secret:github/launchbynttdata/tg-aws-shared-ecs_platform/git_secret"
-      GIT_TOKEN_SM_ARN = "arn:aws:secretsmanager:us-east-2:538234414982:secret:launch/dso-platform/github/service_user/http_access_token"
-      GIT_USERNAME_SM_ARN = "arn:aws:secretsmanager:us-east-2:538234414982:secret:launch/dso-platform/github/service_user/username"
+      GIT_SECRET_SM_ARN = "arn:aws:secretsmanager:us-east-2:020127659860:secret:github/launchbynttdata/tg-aws-shared-ecs_platform/git_secret"
+      GIT_TOKEN_SM_ARN = "arn:aws:secretsmanager:us-east-2:020127659860:secret:launch/dso-platform/github/service_user/http_access_token"
+      GIT_USERNAME_SM_ARN = "arn:aws:secretsmanager:us-east-2:020127659860:secret:launch/dso-platform/github/service_user/username"
       LOGGING_LEVEL = "INFO"
       USERVAR_S3_CODEPIPELINE_BUCKET = "demo-ecs-app-pr-event-useast2-root-000-s3-000"
       VALIDATE_DIGITAL_SIGNATURE = "false"
@@ -198,9 +198,9 @@ EOF
       ],
       "Effect": "Allow",
       "Resource": [
-        "arn:aws:secretsmanager:us-east-2:538234414982:secret:github/launchbynttdata/tg-aws-shared-ecs_platform/git_secret-??????",
-        "arn:aws:secretsmanager:us-east-2:538234414982:secret:launch/dso-platform/github/service_user/username-??????",
-        "arn:aws:secretsmanager:us-east-2:538234414982:secret:launch/dso-platform/github/service_user/http_access_token-??????"
+        "arn:aws:secretsmanager:us-east-2:020127659860:secret:github/launchbynttdata/tg-aws-shared-ecs_platform/git_secret-??????",
+        "arn:aws:secretsmanager:us-east-2:020127659860:secret:launch/dso-platform/github/service_user/username-??????",
+        "arn:aws:secretsmanager:us-east-2:020127659860:secret:launch/dso-platform/github/service_user/http_access_token-??????"
       ]
     }
   ]
@@ -223,9 +223,9 @@ EOF
       CODEBUILD_PROJECT_NAME = "demo-ecs_app_trigger_pipeline-useast2-root-000-cb-000"
       CODEBUILD_URL = "https://us-east-2.console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-2"
       GIT_SERVER_URL = "https://github.com"
-      GIT_SECRET_SM_ARN = "arn:aws:secretsmanager:us-east-2:538234414982:secret:github/launchbynttdata/tg-aws-shared-ecs_platform/git_secret"
-      GIT_TOKEN_SM_ARN = "arn:aws:secretsmanager:us-east-2:538234414982:secret:launch/dso-platform/github/service_user/http_access_token"
-      GIT_USERNAME_SM_ARN = "arn:aws:secretsmanager:us-east-2:538234414982:secret:launch/dso-platform/github/service_user/username"
+      GIT_SECRET_SM_ARN = "arn:aws:secretsmanager:us-east-2:020127659860:secret:github/launchbynttdata/tg-aws-shared-ecs_platform/git_secret"
+      GIT_TOKEN_SM_ARN = "arn:aws:secretsmanager:us-east-2:020127659860:secret:launch/dso-platform/github/service_user/http_access_token"
+      GIT_USERNAME_SM_ARN = "arn:aws:secretsmanager:us-east-2:020127659860:secret:launch/dso-platform/github/service_user/username"
       LOGGING_LEVEL = "INFO"
       USERVAR_S3_CODEPIPELINE_BUCKET = "demo-ecs-app-pr-event-useast2-root-000-s3-000"
       VALIDATE_DIGITAL_SIGNATURE = "false"
@@ -265,9 +265,9 @@ EOF
       ],
       "Effect": "Allow",
       "Resource": [
-        "arn:aws:secretsmanager:us-east-2:538234414982:secret:github/launchbynttdata/tg-aws-shared-ecs_platform/git_secret-??????",
-        "arn:aws:secretsmanager:us-east-2:538234414982:secret:launch/dso-platform/github/service_user/username-??????",
-        "arn:aws:secretsmanager:us-east-2:538234414982:secret:launch/dso-platform/github/service_user/http_access_token-??????"
+        "arn:aws:secretsmanager:us-east-2:020127659860:secret:github/launchbynttdata/tg-aws-shared-ecs_platform/git_secret-??????",
+        "arn:aws:secretsmanager:us-east-2:020127659860:secret:launch/dso-platform/github/service_user/username-??????",
+        "arn:aws:secretsmanager:us-east-2:020127659860:secret:launch/dso-platform/github/service_user/http_access_token-??????"
       ]
     }
   ]

@@ -1,13 +1,15 @@
 {
     "provider": "aws",
     "accounts": {
-        "sandbox": "launch-sandbox-admin",
-        "root": "launch-root-admin"
+        "root": "launch-sandbox-admin",
+        "qa": "launch-qa-admin",
+        "uat": "launch-uat-admin",
+        "prod": "launch-prod-admin"
     },
     "naming_prefix": "demo-ecs_app",
     "skeleton": {
         "url": "https://github.com/launchbynttdata/lcaf-template-terragrunt.git",
-        "tag": "main"
+        "tag": "1.0.0"
     },
     "sources": {
         "application": {
@@ -35,12 +37,32 @@
             }
         },
         "service": {   
-            "sandbox": {
+            "qa": {
                 "us-east-2": {
                     "000": {
-                        "properties_file": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/exclusive-services/java/aws/ecs/inputs/service.sandbox.us-east-2.tfvars",
+                        "properties_file": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/exclusive-services/java/aws/ecs/inputs/service.qa.us-east-2.tfvars",
                         "template_properties": {
-                            "application": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/exclusive-services/java/aws/ecs/inputs/application.sandbox.us-east-2.yaml"
+                            "application": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/exclusive-services/java/aws/ecs/inputs/application.qa.us-east-2.yaml"
+                        }
+                    }
+                }
+            },
+            "uat": {
+                "us-east-2": {
+                    "000": {
+                        "properties_file": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/exclusive-services/java/aws/ecs/inputs/service.uat.us-east-2.tfvars",
+                        "template_properties": {
+                            "application": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/exclusive-services/java/aws/ecs/inputs/application.qa.us-east-2.yaml"
+                        }
+                    }
+                }
+            },
+            "prod": {
+                "us-east-2": {
+                    "000": {
+                        "properties_file": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/exclusive-services/java/aws/ecs/inputs/service.prod.us-east-2.tfvars",
+                        "template_properties": {
+                            "application": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/exclusive-services/java/aws/ecs/inputs/application.qa.us-east-2.yaml"
                         }
                     }
                 }
