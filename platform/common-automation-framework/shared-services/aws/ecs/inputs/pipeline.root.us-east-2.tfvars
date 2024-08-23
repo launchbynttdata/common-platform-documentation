@@ -4,7 +4,7 @@ logical_product_service = "ecs_ptfrm"
 environment = "root"
 environment_number = "000"
 resource_number = "000"
-build_image = "ghcr.io/launchbynttdata/launch-build-agent-aws:latest"
+build_image = "ghcr.io/launchbynttdata/launch-build-agent-aws:version-bump"
 build_image_pull_credentials_type = "SERVICE_ROLE"
 additional_codebuild_projects = [{
     name = "trigger_pipeline"
@@ -12,7 +12,7 @@ additional_codebuild_projects = [{
     description = "Trigger the pipeline based on the event type."
     source_type = "NO_SOURCE"
     artifact_type = "NO_ARTIFACTS"
-    build_image = "ghcr.io/launchbynttdata/launch-build-agent-aws:latest"
+    build_image = "ghcr.io/launchbynttdata/launch-build-agent-aws:version-bump"
     build_image_pull_credentials_type = "SERVICE_ROLE"
     environment_variables = [{
         name = "LAUNCH_ACTION"
@@ -386,7 +386,8 @@ pipelines = [
       }
       output_artifacts = ["SourceArtifact"]
     }
-    stages = [{
+    stages = [
+      {
         stage_name = "Launch-Predict-SemVer"
         name = "Launch-Predict-SemVer"
         description = "Predict semantic version for the next git tag based on the changes in the PR."
@@ -567,71 +568,6 @@ pipelines = [
           }
         EOF
       }, {
-        stage_name = "Pre-Deploy-Tests"
-        name = "Pre-Deploy-Tests"
-        description = "Run regula/conftests/OPA tests for the configuration changes."
-        category = "Build"
-        provider = "CodeBuild"
-        project_name = "pre_deploy_svc"
-        buildspec = "buildspec.yml"
-        input_artifacts = ["SourceArtifact"]
-        configuration = {
-          EnvironmentVariables = <<EOF
-            [
-              {
-                "name": "LAUNCH_ACTION",
-                "value": "pre-deploy-test",
-                "type": "PLAINTEXT"
-              },
-              {
-                "name": "IS_PIPELINE",
-                "value": "true",
-                "type": "PLAINTEXT"
-              },
-              {
-                "name": "TARGETENV",
-                "value": "qa",
-                "type": "PLAINTEXT"
-              },
-              {
-                "name":"GITHUB_APPLICATION_ID",
-                "value":"932069",
-                "type":"PLAINTEXT"
-              },
-              {
-                "name":"GITHUB_INSTALLATION_ID",
-                "value":"52272900",
-                "type":"PLAINTEXT"
-              },
-              {
-                "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                "value":"github/app/aws-codepipeline-authentication/private_key",
-                "type":"PLAINTEXT"
-              }
-            ]
-          EOF
-        }
-        codebuild_iam = <<EOF
-          {
-            "Version": "2012-10-17",
-            "Statement": [
-              {
-                "Action": [
-                  "kms:Decrypt",
-                  "kms:DescribeKey"
-                ],
-                "Effect": "Allow",
-                "Resource": "*"
-              },
-              {
-                "Action": [ "secretsmanager:GetSecretValue" ],
-                "Effect": "Allow",
-                "Resource": "*"
-              }
-            ]
-          }
-        EOF
-      }, {
         stage_name = "TG-Plan-Git-Webhooks"
         name = "TG-Plan-Git-Webhooks"
         description = "Terragrunt plan git webhooks. This stage will run in pr_event pipeline but would run terragrunt plan just when changes are made in `internals` folder."
@@ -771,6 +707,71 @@ pipelines = [
             ]
           }
         EOF
+      }, {
+        stage_name = "Pre-Deploy-Tests"
+        name = "Pre-Deploy-Tests"
+        description = "Run regula/conftests/OPA tests for the configuration changes."
+        category = "Build"
+        provider = "CodeBuild"
+        project_name = "pre_deploy"
+        buildspec = "buildspec.yml"
+        input_artifacts = ["SourceArtifact"]
+        configuration = {
+          EnvironmentVariables = <<EOF
+            [
+              {
+                "name": "LAUNCH_ACTION",
+                "value": "pre-deploy-test",
+                "type": "PLAINTEXT"
+              },
+              {
+                "name": "IS_PIPELINE",
+                "value": "true",
+                "type": "PLAINTEXT"
+              },
+              {
+                "name": "TARGETENV",
+                "value": "qa",
+                "type": "PLAINTEXT"
+              },
+              {
+                "name":"GITHUB_APPLICATION_ID",
+                "value":"932069",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"GITHUB_INSTALLATION_ID",
+                "value":"52272900",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
+                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "type":"PLAINTEXT"
+              }
+            ]
+          EOF
+        }
+        codebuild_iam = <<EOF
+          {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Action": [
+                  "kms:Decrypt",
+                  "kms:DescribeKey"
+                ],
+                "Effect": "Allow",
+                "Resource": "*"
+              },
+              {
+                "Action": [ "secretsmanager:GetSecretValue" ],
+                "Effect": "Allow",
+                "Resource": "*"
+              }
+            ]
+          }
+        EOF
       }]
   }, {
     name = "pr_merge"
@@ -788,7 +789,8 @@ pipelines = [
       }
       output_artifacts = ["SourceArtifact"]
     }
-    stages = [{
+    stages = [
+      {
         stage_name = "TG-Plan-Service"
         name = "TG-Plan-Service"
         description = "Terragrunt plan the configuration changes for the infrastructure.(Not pipelines or git webhooks)"
@@ -849,66 +851,6 @@ pipelines = [
                 "Action": [ "sts:AssumeRole" ],
                 "Effect": "Allow",
                 "Resource": "*"
-              }
-            ]
-          }
-        EOF
-      }, {
-        stage_name = "Pre-Deploy-Tests-Service"
-        name = "Pre-Deploy-Tests-Service"
-        description = "Run regula/conftests/OPA tests for the configuration changes."
-        category = "Build"
-        provider = "CodeBuild"
-        project_name = "pre_deploy_svc"
-        buildspec = "buildspec.yml"
-        input_artifacts = ["SourceArtifact"]
-        configuration = {
-          EnvironmentVariables = <<EOF
-            [
-              {
-                  "name": "LAUNCH_ACTION",
-                  "value": "pre-deploy-test",
-                  "type": "PLAINTEXT"
-              },
-              {
-                  "name": "IS_PIPELINE",
-                  "value": "true",
-                  "type": "PLAINTEXT"
-              },
-              {
-                  "name": "TARGETENV",
-                  "value": "qa",
-                  "type": "PLAINTEXT"
-              },
-              {
-                "name":"GITHUB_APPLICATION_ID",
-                "value":"932069",
-                "type":"PLAINTEXT"
-              },
-              {
-                "name":"GITHUB_INSTALLATION_ID",
-                "value":"52272900",
-                "type":"PLAINTEXT"
-              },
-              {
-                "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                "value":"github/app/aws-codepipeline-authentication/private_key",
-                "type":"PLAINTEXT"
-              }
-            ]
-          EOF
-        }
-        codebuild_iam = <<EOF
-          {
-            "Version": "2012-10-17",
-            "Statement": [
-              {
-                "Action": [
-                  "kms:Decrypt",
-                  "kms:DescribeKey"
-                ],
-                "Effect": "Allow",
-                "Resource": "*"
               },
               {
                 "Action": [ "secretsmanager:GetSecretValue" ],
@@ -979,6 +921,11 @@ pipelines = [
                 "Action": [ "sts:AssumeRole" ],
                 "Effect": "Allow",
                 "Resource": "*"
+              },
+              {
+                "Action": [ "secretsmanager:GetSecretValue" ],
+                "Effect": "Allow",
+                "Resource": "*"
               }
             ]
           }
@@ -1042,6 +989,136 @@ pipelines = [
               },
               {
                 "Action": [ "sts:AssumeRole" ],
+                "Effect": "Allow",
+                "Resource": "*"
+              },
+              {
+                "Action": [ "secretsmanager:GetSecretValue" ],
+                "Effect": "Allow",
+                "Resource": "*"
+              }
+            ]
+          }
+        EOF
+      }, {
+        stage_name = "Pre-Deploy-Tests"
+        name = "Pre-Deploy-Tests"
+        description = "Run regula/conftests/OPA tests for the configuration changes."
+        category = "Build"
+        provider = "CodeBuild"
+        project_name = "pre_deploy"
+        buildspec = "buildspec.yml"
+        input_artifacts = ["SourceArtifact"]
+        configuration = {
+          EnvironmentVariables = <<EOF
+            [
+              {
+                  "name": "LAUNCH_ACTION",
+                  "value": "pre-deploy-test",
+                  "type": "PLAINTEXT"
+              },
+              {
+                  "name": "IS_PIPELINE",
+                  "value": "true",
+                  "type": "PLAINTEXT"
+              },
+              {
+                  "name": "TARGETENV",
+                  "value": "qa",
+                  "type": "PLAINTEXT"
+              },
+              {
+                "name":"GITHUB_APPLICATION_ID",
+                "value":"932069",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"GITHUB_INSTALLATION_ID",
+                "value":"52272900",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
+                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "type":"PLAINTEXT"
+              }
+            ]
+          EOF
+        }
+        codebuild_iam = <<EOF
+          {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Action": [
+                  "kms:Decrypt",
+                  "kms:DescribeKey"
+                ],
+                "Effect": "Allow",
+                "Resource": "*"
+              },
+              {
+                "Action": [ "secretsmanager:GetSecretValue" ],
+                "Effect": "Allow",
+                "Resource": "*"
+              }
+            ]
+          }
+        EOF
+      }, {
+        stage_name = "Launch-Apply-SemVer"
+        name = "Launch-Apply-SemVer"
+        description = "Create a git tag with semantic version predicted in previous stage and push the tag to the repository."
+        category = "Build"
+        provider = "CodeBuild"
+        project_name = "semver_apply"
+        buildspec = "buildspec.yml"
+        input_artifacts = ["SourceArtifact"]
+        configuration = {
+          EnvironmentVariables = <<EOF
+            [
+              {
+                "name":"LAUNCH_ACTION",
+                "value":"launch-apply-semver",
+                "type": "PLAINTEXT"
+              },
+              {
+                "name":"ROLE_TO_ASSUME",
+                "value":"arn:aws:iam::020127659860:role/demo_iam-useast2-sandbox-000-role-000",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"GITHUB_APPLICATION_ID",
+                "value":"932069",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"GITHUB_INSTALLATION_ID",
+                "value":"52272900",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
+                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "type":"PLAINTEXT"
+              }
+            ]
+          EOF
+        }
+        codebuild_iam = <<EOF
+          {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Action": [
+                  "kms:Decrypt",
+                  "kms:DescribeKey"
+                ],
+                "Effect": "Allow",
+                "Resource": "*"
+              },
+              {
+                "Action": [ "secretsmanager:GetSecretValue" ],
                 "Effect": "Allow",
                 "Resource": "*"
               }
@@ -1143,66 +1220,6 @@ pipelines = [
             ]
           }
         EOF
-      }, {
-        stage_name = "Launch-Apply-SemVer"
-        name = "Launch-Apply-SemVer"
-        description = "Create a git tag with semantic version predicted in previous stage and push the tag to the repository."
-        category = "Build"
-        provider = "CodeBuild"
-        project_name = "semver_apply"
-        buildspec = "buildspec.yml"
-        input_artifacts = ["SourceArtifact"]
-        configuration = {
-          EnvironmentVariables = <<EOF
-            [
-              {
-                "name":"LAUNCH_ACTION",
-                "value":"launch-apply-semver",
-                "type": "PLAINTEXT"
-              },
-              {
-                "name":"ROLE_TO_ASSUME",
-                "value":"arn:aws:iam::020127659860:role/demo_iam-useast2-sandbox-000-role-000",
-                "type":"PLAINTEXT"
-              },
-              {
-                "name":"GITHUB_APPLICATION_ID",
-                "value":"932069",
-                "type":"PLAINTEXT"
-              },
-              {
-                "name":"GITHUB_INSTALLATION_ID",
-                "value":"52272900",
-                "type":"PLAINTEXT"
-              },
-              {
-                "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                "value":"github/app/aws-codepipeline-authentication/private_key",
-                "type":"PLAINTEXT"
-              }
-            ]
-          EOF
-        }
-        codebuild_iam = <<EOF
-          {
-            "Version": "2012-10-17",
-            "Statement": [
-              {
-                "Action": [
-                  "kms:Decrypt",
-                  "kms:DescribeKey"
-                ],
-                "Effect": "Allow",
-                "Resource": "*"
-              },
-              {
-                "Action": [ "secretsmanager:GetSecretValue" ],
-                "Effect": "Allow",
-                "Resource": "*"
-              }
-            ]
-          }
-        EOF
       }]
   }, {
     name = "qa"
@@ -1228,18 +1245,18 @@ pipelines = [
       output_artifacts = ["SourceArtifact"]
     }
     stages = [{
-        stage_name = "Pre-Functional-tests"
-        name = "Pre-Functional-tests"
+        stage_name = "Pre-Deploy-Tests"
+        name = "Pre-Deploy-Tests"
         category = "Build"
         provider = "CodeBuild"
-        project_name = "pre_fn_tests"
+        project_name = "pre_deploy"
         buildspec = "buildspec.yml"
         configuration = {
           EnvironmentVariables = <<EOF
             [
               {
                 "name":"LAUNCH_ACTION",
-                "value":"tf-pre-deploy-functional-test",
+                "value":"pre-deploy-test",
                 "type":"PLAINTEXT"
               },
               { 
@@ -1426,8 +1443,8 @@ pipelines = [
           }
         EOF
       }, {
-        stage_name = "Release-To-UAT"
-        name = "Release-To-UAT"
+        stage_name = "Manual-Approval-To-UAT"
+        name = "Manual-Approval-To-UAT"
         category = "Approval"
         provider = "Manual"
         configuration = {
@@ -1531,18 +1548,18 @@ pipelines = [
       output_artifacts = ["SourceArtifact"]
     }
     stages = [{
-        stage_name = "Pre-Functional-tests"
-        name = "Pre-Functional-tests"
+        stage_name = "Pre-Deploy-Tests"
+        name = "Pre-Deploy-Tests"
         category = "Build"
         provider = "CodeBuild"
-        project_name = "pre_fn_tests"
+        project_name = "pre_deploy"
         buildspec = "buildspec.yml"
         configuration = {
           EnvironmentVariables = <<EOF
             [
               {
                 "name":"LAUNCH_ACTION",
-                "value":"tf-pre-deploy-functional-test",
+                "value":"pre-deploy-test",
                 "type":"PLAINTEXT"
               },
               { 
@@ -1654,6 +1671,11 @@ pipelines = [
                 "Action": [ "sts:AssumeRole" ],
                 "Effect": "Allow",
                 "Resource": "*"
+              },
+              {
+                "Action": [ "secretsmanager:GetSecretValue" ],
+                "Effect": "Allow",
+                "Resource": "*"
               }
             ]
           }
@@ -1723,8 +1745,8 @@ pipelines = [
         EOF
         input_artifacts = ["SourceArtifact"]
       }, {
-        stage_name = "Release-To-Prod"
-        name = "Release-To-Prod"
+        stage_name = "Manual-Approval-To-Prod"
+        name = "Manual-Approval-To-Prod"
         category = "Approval"
         provider = "Manual"
         configuration = {
@@ -1821,18 +1843,18 @@ pipelines = [
       output_artifacts = ["SourceArtifact"]
     }
     stages = [{
-        stage_name = "Pre-Functional-tests"
-        name = "Pre-Functional-tests"
+        stage_name = "Pre-Deploy-Tests"
+        name = "Pre-Deploy-Tests"
         category = "Build"
         provider = "CodeBuild"
-        project_name = "pre_fn_tests"
+        project_name = "pre_deploy"
         buildspec = "buildspec.yml"
         configuration = {
           EnvironmentVariables = <<EOF
             [
               {
                 "name":"LAUNCH_ACTION",
-                "value":"tf-pre-deploy-functional-test",
+                "value":"pre-deploy-test",
                 "type":"PLAINTEXT"
               },
               { 
@@ -1941,6 +1963,11 @@ pipelines = [
               },
               {
                 "Action": [ "sts:AssumeRole" ],
+                "Effect": "Allow",
+                "Resource": "*"
+              },
+              {
+                "Action": [ "secretsmanager:GetSecretValue" ],
                 "Effect": "Allow",
                 "Resource": "*"
               }

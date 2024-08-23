@@ -4,7 +4,7 @@ logical_product_service = "ecs_app"
 environment = "root"
 environment_number = "000"
 resource_number = "000"
-build_image = "ghcr.io/launchbynttdata/launch-build-agent-aws:latest"
+build_image = "ghcr.io/launchbynttdata/launch-build-agent-aws:version-bump"
 build_image_pull_credentials_type = "SERVICE_ROLE"
 additional_codebuild_projects = [{
     name = "trigger_pipeline"
@@ -12,7 +12,7 @@ additional_codebuild_projects = [{
     description = "Trigger the pipeline based on the event type."
     source_type = "NO_SOURCE"
     artifact_type = "NO_ARTIFACTS"
-    build_image = "ghcr.io/launchbynttdata/launch-build-agent-aws:latest"
+    build_image = "ghcr.io/launchbynttdata/launch-build-agent-aws:version-bump"
     build_image_pull_credentials_type = "SERVICE_ROLE"
     environment_variables = [{
         name = "LAUNCH_ACTION"
@@ -386,7 +386,8 @@ pipelines = [
       }
       output_artifacts = ["SourceArtifact"]
     }
-    stages = [{
+    stages = [
+      {
         stage_name = "Launch-Predict-SemVer"
         name = "Launch-Predict-SemVer"
         description = "Predict semantic version for the next git tag based on the changes in the PR."
@@ -910,6 +911,11 @@ pipelines = [
                 "Action": [ "sts:AssumeRole" ],
                 "Effect": "Allow",
                 "Resource": "*"
+              },
+              {
+                "Action": [ "secretsmanager:GetSecretValue" ],
+                "Effect": "Allow",
+                "Resource": "*"
               }
             ]
           }
@@ -975,6 +981,11 @@ pipelines = [
                 "Action": [ "sts:AssumeRole" ],
                 "Effect": "Allow",
                 "Resource": "*"
+              },
+              {
+                "Action": [ "secretsmanager:GetSecretValue" ],
+                "Effect": "Allow",
+                "Resource": "*"
               }
             ]
           }
@@ -1014,6 +1025,16 @@ pipelines = [
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
                 "value":"github/app/aws-codepipeline-authentication/private_key",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"CONTAINER_REGISTRY",
+                "value":"020127659860.dkr.ecr.us-east-2.amazonaws.com",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"CONTAINER_IMAGE_NAME",
+                "value":"launch-api",
                 "type":"PLAINTEXT"
               }
             ]
@@ -1062,11 +1083,6 @@ pipelines = [
                   "ecr:PutImage",
                   "ecr:UploadLayerPart"
                   ],
-                "Resource": "*""
-              },
-              {
-                "Effect": "Allow",
-                "Action": "ecr:GetAuthorizationToken",
                 "Resource": "*"
               }
             ]
@@ -1389,8 +1405,8 @@ pipelines = [
           }
         EOF
       }, {
-        stage_name = "Release-To-UAT"
-        name = "Release-To-UAT"
+        stage_name = "Manual-Approval-To-UAT"
+        name = "Manual-Approval-To-UAT"
         category = "Approval"
         provider = "Manual"
         configuration = {
@@ -1704,8 +1720,8 @@ pipelines = [
           }
         EOF
       }, {
-        stage_name = "Release-To-UAT"
-        name = "Release-To-UAT"
+        stage_name = "Manual-Approval-To-UAT"
+        name = "Manual-Approval-To-UAT"
         category = "Approval"
         provider = "Manual"
         configuration = {
