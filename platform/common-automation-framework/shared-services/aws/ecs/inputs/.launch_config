@@ -1,0 +1,73 @@
+{
+    "provider": "aws",
+    "accounts": {
+        "root": "launch-sandbox-admin",
+        "qa": "launch-sandbox-admin",
+        "uat": "launch-sandbox-admin",
+        "prod": "launch-sandbox-admin"
+    },
+    "naming_prefix": "demo-ecs_ptfrm",
+    "skeleton": {
+        "url": "https://github.com/launchbynttdata/lcaf-template-terragrunt.git",
+        "tag": "1.0.0"
+    },
+    "sources": {
+        "service": {
+            "url": "https://github.com/launchbynttdata/tf-aws-module_collection-ecs_platform.git",
+            "tag": "1.1.1"
+        },
+        "pipeline": {
+            "url": "https://github.com/launchbynttdata/tf-aws-module_collection-codepipeline.git",
+            "tag": "1.0.2"
+        },
+        "webhook": {
+            "url": "https://github.com/launchbynttdata/tf-aws-module_reference-bulk_lambda_function.git",
+            "tag": "1.1.0"
+        }
+    },
+    "platform": {
+        "service": {
+            "qa": {
+                "us-east-2": {
+                    "000": {
+                        "properties_file": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/shared-services/aws/ecs/inputs/service.qa.us-east-2.tfvars"
+                    }
+                }
+            },
+            "uat": {
+                "us-east-2": {
+                    "000": {
+                        "properties_file": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/shared-services/aws/ecs/inputs/service.uat.us-east-2.tfvars"
+                    }
+                }
+            },
+            "prod": {
+                "us-east-2": {
+                    "000": {
+                        "properties_file": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/shared-services/aws/ecs/inputs/service.prod.us-east-2.tfvars"
+                    }
+                }
+            }
+        },
+        "pipeline": {
+            "pipeline-provider": {
+                "root": {
+                    "us-east-2": {
+                        "000": {
+                            "properties_file": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/shared-services/aws/ecs/inputs/pipeline.root.us-east-2.tfvars"
+                        }
+                    }
+                }
+            },
+            "webhook-provider": {
+                "root": {
+                    "us-east-2": {
+                        "000": {
+                            "properties_file": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/shared-services/aws/ecs/inputs/webhooks.root.us-east-2.tfvars"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
