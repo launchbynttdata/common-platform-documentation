@@ -131,7 +131,7 @@ set CertBundle=""
 ```
 
 ### 4.2.2.3. **Obtaining .p12 Bundle password**
-The password for the encrypyed cert bundle has been stored within the AWS Secrets Manager at `arn:aws:secretsmanager:us-east-2:538234414982:secret:vpn/client_test/passphrase`
+The password for the encrypyed cert bundle has been stored within AWS Secrets Manager at `arn:aws:secretsmanager:us-east-2:538234414982:secret:vpn/client_test/passphrase`
 
 It can most easily be retrieved via the AWS CLI, but is also available via the AWS Console (instructions available in the [Appendix](#63-retrieve-p12-bundle-password-via-aws-console)).
 
