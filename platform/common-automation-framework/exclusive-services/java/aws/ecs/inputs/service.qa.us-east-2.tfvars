@@ -89,7 +89,6 @@ ecs_svc_security_group = {
 containers = [
   {
     name      = "launch-api"
-    image_tag = "020127659860.dkr.ecr.us-east-2.amazonaws.com/launch-api:0.0.1-dev"
     essential = true
     log_configuration = {
       logDriver = "awslogs"
@@ -184,9 +183,7 @@ ecs_exec_role_custom_policy_json = <<-EOF
         "kms:Decrypt",
         "kms:DescribeKey"
       ],
-      "Resource": [
-        "arn:aws:kms:us-east-2:020127659860:key/ba37724b-ea39-45a5-a938-713fb9f88112"
-      ]
+      "Resource": "*"
     },
     {
       "Action": [
@@ -197,12 +194,7 @@ ecs_exec_role_custom_policy_json = <<-EOF
         "secretsmanager:ListSecretVersionIds"
       ],
       "Effect": "Allow",
-      "Resource": [
-        "arn:aws:secretsmanager:us-east-2:020127659860:secret:example/actuator/password-*",
-        "arn:aws:secretsmanager:us-east-2:020127659860:secret:example/actuator/username-*",
-        "arn:aws:secretsmanager:us-east-2:020127659860:secret:example/postgres/password-*",
-        "arn:aws:secretsmanager:us-east-2:020127659860:secret:example/postgres/username-*"
-      ]
+      "Resource": "*"
     }
 ]}
 EOF

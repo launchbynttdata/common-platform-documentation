@@ -1283,7 +1283,7 @@ pipelines = [
             [
               {
                 "name":"LAUNCH_ACTION",
-                "value":"launch terragrunt --target-environment $TARGETENV --platform-resource service --apply --generation",
+                "value":"launch terragrunt --target-environment $TARGETENV --platform-resource service --apply --generation --render-app-vars",
                 "type":"PLAINTEXT"
               },
               {
@@ -1294,6 +1294,11 @@ pipelines = [
               {
                 "name":"AWS_DEPLOYMENT_ROLE",
                 "value":"arn:aws:iam::020127659860:role/demo_iam-useast2-sandbox-000-role-000",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"SM_AWS_PROFILE",
+                "value":"launch-qa-admin",
                 "type":"PLAINTEXT"
               },
               {
@@ -1309,6 +1314,16 @@ pipelines = [
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
                 "value":"github/app/aws-codepipeline-authentication/private_key",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"CONTAINER_REGISTRY",
+                "value":"020127659860.dkr.ecr.us-east-2.amazonaws.com",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"CONTAINER_IMAGE_NAME",
+                "value":"launch-api",
                 "type":"PLAINTEXT"
               }
             ]
@@ -1430,6 +1445,16 @@ pipelines = [
                 "name": "NEW_IMAGE_TAG",
                 "value": "qa_certified",
                 "type": "PLAINTEXT"
+              },
+              {
+                "name":"CONTAINER_REGISTRY",
+                "value":"020127659860.dkr.ecr.us-east-2.amazonaws.com",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"CONTAINER_IMAGE_NAME",
+                "value":"launch-api",
+                "type":"PLAINTEXT"
               }
             ]
           EOF
@@ -1598,7 +1623,7 @@ pipelines = [
             [
               {
                 "name":"LAUNCH_ACTION",
-                "value":"launch terragrunt --target-environment $TARGETENV --platform-resource service --apply --generation",
+                "value":"launch terragrunt --target-environment $TARGETENV --platform-resource service --apply --generation --render-app-vars",
                 "type":"PLAINTEXT"
               },
               {
@@ -1624,6 +1649,16 @@ pipelines = [
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
                 "value":"github/app/aws-codepipeline-authentication/private_key",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"CONTAINER_REGISTRY",
+                "value":"020127659860.dkr.ecr.us-east-2.amazonaws.com",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"CONTAINER_IMAGE_NAME",
+                "value":"launch-api",
                 "type":"PLAINTEXT"
               }
             ]
@@ -1745,6 +1780,16 @@ pipelines = [
                 "name": "NEW_IMAGE_TAG",
                 "value": "uat_certified",
                 "type": "PLAINTEXT"
+              },
+              {
+                "name":"CONTAINER_REGISTRY",
+                "value":"020127659860.dkr.ecr.us-east-2.amazonaws.com",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"CONTAINER_IMAGE_NAME",
+                "value":"launch-api",
+                "type":"PLAINTEXT"
               }
             ]
           EOF
@@ -1905,7 +1950,7 @@ pipelines = [
             [
               {
                 "name":"LAUNCH_ACTION",
-                "value":"launch terragrunt --target-environment $TARGETENV --platform-resource service --apply --generation",
+                "value":"launch terragrunt --target-environment $TARGETENV --platform-resource service --apply --generation --render-app-vars",
                 "type":"PLAINTEXT"
               },
               {
@@ -1931,6 +1976,16 @@ pipelines = [
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
                 "value":"github/app/aws-codepipeline-authentication/private_key",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"CONTAINER_REGISTRY",
+                "value":"020127659860.dkr.ecr.us-east-2.amazonaws.com",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"CONTAINER_IMAGE_NAME",
+                "value":"launch-api",
                 "type":"PLAINTEXT"
               }
             ]

@@ -18,7 +18,7 @@
         },
         "service": {
             "url": "https://github.com/launchbynttdata/tf-aws-module_collection-ecs_app.git",
-            "tag": "1.3.0"
+            "tag": "patch/moving-vars"
         },
         "pipeline": {
             "url": "https://github.com/launchbynttdata/tf-aws-module_collection-codepipeline.git",
@@ -42,7 +42,7 @@
                     "000": {
                         "properties_file": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/exclusive-services/java/aws/ecs/inputs/service.qa.us-east-2.tfvars",
                         "template_properties": {
-                            "application": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/exclusive-services/java/aws/ecs/inputs/application.qa.us-east-2.yaml"
+                            "application": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/exclusive-services/java/aws/ecs/inputs/application.sandbox.us-east-2.yaml"
                         }
                     }
                 }
@@ -52,7 +52,7 @@
                     "000": {
                         "properties_file": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/exclusive-services/java/aws/ecs/inputs/service.uat.us-east-2.tfvars",
                         "template_properties": {
-                            "application": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/exclusive-services/java/aws/ecs/inputs/application.qa.us-east-2.yaml"
+                            "application": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/exclusive-services/java/aws/ecs/inputs/application.sandbox.us-east-2.yaml"
                         }
                     }
                 }
@@ -62,7 +62,7 @@
                     "000": {
                         "properties_file": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/exclusive-services/java/aws/ecs/inputs/service.prod.us-east-2.tfvars",
                         "template_properties": {
-                            "application": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/exclusive-services/java/aws/ecs/inputs/application.qa.us-east-2.yaml"
+                            "application": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/exclusive-services/java/aws/ecs/inputs/application.sandbox.us-east-2.yaml"
                         }
                     }
                 }

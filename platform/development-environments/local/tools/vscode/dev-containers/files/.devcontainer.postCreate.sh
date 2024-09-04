@@ -110,3 +110,5 @@ region = ${aws_region}
 credential_process = aws-sso-util credential-process --profile launch-sandbox-admin
 sso_auto_populated = true
 " >> ~/.aws/config
+
+echo "Dev container setup complete"

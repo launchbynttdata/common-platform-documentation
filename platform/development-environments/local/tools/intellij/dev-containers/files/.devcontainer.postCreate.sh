@@ -1,7 +1,8 @@
 #!/usr/bin/bash
 # This script is ran within the dev container and does not make
 # changes to the host machine. It is used to set up the dev container.
-
+echo "Setting up dev-container..."
+container_user=${1}
 work_dir="/workspaces/CHANGEME"
 git_token="CHANGEME"
 
@@ -17,21 +18,21 @@ github_public_user="CHANGEME"
 github_public_email="CHANGEME@CHANGEME.com"
 
 # Set your ENV vars
-echo 'export GITHUB_TOKEN='${git_token} >> ~/.bashrc
-echo 'export GOPRIVATE="github.com/launchbynttdata"' >> ~/.bashrc
+echo 'export GITHUB_TOKEN='${git_token} >> /home/${container_user}/.bashrc
+echo 'export GOPRIVATE="github.com/launchbynttdata"' >> /home/${container_user}/.bashrc
 
 # Local user scripts to added to PATH for execution
-echo 'export PATH="'${work_dir}'/.localscripts:${PATH}"' >> ~/.bashrc
+echo 'export PATH="'${work_dir}'/.localscripts:${PATH}"' >> /home/${container_user}/.bashrc
 
 # Install repo
-mkdir -p ~/.bin
-echo 'export PATH="${HOME}/.bin/repo:${PATH}"' >> ~/.bashrc
-git clone https://github.com/launchbynttdata/git-repo.git ~/.bin/repo
-chmod a+rx ~/.bin/repo
+mkdir -p /home/${container_user}/.bin
+echo 'export PATH="${HOME}/.bin/repo:${PATH}"' >> /home/${container_user}/.bashrc
+git clone https://github.com/launchbynttdata/git-repo.git /home/${container_user}/.bin/repo
+chmod a+rx /home/${container_user}/.bin/repo
 
 # Install asdf
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
-echo '. "$HOME/.asdf/asdf.sh"' >> ~/.bashrc
+git clone https://github.com/asdf-vm/asdf.git /home/${container_user}/.asdf --branch v0.14.0
+echo '. "$HOME/.asdf/asdf.sh"' >> /home/${container_user}/.bashrc
 
 # Install aws-sso-util as a make check dependency
 python -m pip install aws-sso-util
@@ -41,7 +42,7 @@ python -m pip install launch-cli
 
 python -m pip install ruamel_yaml
 
-## Uncomment the following lines if wish to have a local 
+## Uncomment the following lines if wish to have a local
 ## dev source as the install folder
 # cd ${work_dir}/launch-cli
 # python -m pip install -e '.[dev]'
@@ -49,11 +50,11 @@ python -m pip install ruamel_yaml
 # cd ${work_dir}
 
 # Set up netrc
-echo "Setting ~/.netrc variables"
-echo machine github.com >> ~/.netrc
-echo login ${github_public_user} >> ~/.netrc
-echo password ${git_token} >> ~/.netrc
-chmod 600 ~/.netrc
+echo "Setting /home/${container_user}/.netrc variables"
+echo machine github.com >> /home/${container_user}/.netrc
+echo login ${github_public_user} >> /home/${container_user}/.netrc
+echo password ${git_token} >> /home/${container_user}/.netrc
+chmod 600 /home/${container_user}/.netrc
 
 # Configure git
 git config --global user.name ${github_public_user}
@@ -62,12 +63,12 @@ git config --global push.autoSetupRemote true
 git config --global --add safe.directory ${work_dir}
 
 # shell aliases
-echo 'alias git_sync="git pull origin main"' >> ~/.bashrc # Alias to sync the repo with the main branch
-echo 'alias git_boop="git reset --soft HEAD~1"' >> ~/.bashrc # Alias to undo the last local commit but keep the changes
+echo 'alias git_sync="git pull origin main"' >> /home/${container_user}/.bashrc # Alias to sync the repo with the main branch
+echo 'alias git_boop="git reset --soft HEAD~1"' >> /home/${container_user}/.bashrc # Alias to undo the last local commit but keep the changes
 
 # Set up AWS Config
 # Default profile is set to the Launch Sandbox Account.
-mkdir -p ~/.aws
+mkdir -p /home/${container_user}/.aws
 echo "
 [default]
 region = ${aws_region}
@@ -109,6 +110,5 @@ sso_role_name = AdministratorAccess
 region = ${aws_region}
 credential_process = aws-sso-util credential-process --profile launch-sandbox-admin
 sso_auto_populated = true
-" >> ~/.aws/config
-
+" >> /home/${container_user}/.aws/config
 echo "Dev container setup complete"

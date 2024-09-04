@@ -75,7 +75,7 @@ Ensure you change back into your working directory `cd ..` , as you do not want 
 - We are going to use the `--name` of `launch-demo-ecs-application` in this demo, but you can name it whatever you want.
 
 ```sh
-$ launch service create --name launch-demo-ecs-application --in-file /workspaces/workplace/common-platform-documentation/platform/common-automation-framework/exclusive-services/java/aws/ecs/inputs/.launch_config
+launch service create --name launch-demo-ecs-application --in-file /workspaces/workplace/common-platform-documentation/platform/common-automation-framework/exclusive-services/java/aws/ecs/inputs/.launch_config
 ```
 
 <p align="center">
@@ -96,8 +96,8 @@ $ launch service create --name launch-demo-ecs-application --in-file /workspaces
 Deploy the pipeline for the Java application service. This step will deploy all the CICD pipeline infrastructure to manage this repository.
 
 ```sh
-$ cd launch-demo-ecs-application # Ensure you are in the newly created repository's directory
-$ launch terragrunt --target-environment root --platform-resource pipeline --apply --generation
+cd launch-demo-ecs-application # Ensure you are in the newly created repository's directory
+launch terragrunt --target-environment root --platform-resource pipeline --apply --generation
 ```
 
 <p align="center">
@@ -109,7 +109,7 @@ $ launch terragrunt --target-environment root --platform-resource pipeline --app
 Deploy the webhooks for the Java application service. This will deploy lambda functions that we can connect to a SCM for pull request building events and triggering deployment pipelines. 
 
 ```sh
-$ launch terragrunt --target-environment root --platform-resource webhook --apply --generation
+launch terragrunt --target-environment root --platform-resource webhook --apply --generation
 ```
 
 <p align="center">
@@ -146,10 +146,10 @@ Using `launch-cli`, you will need to run this for each of the 4 lambda's functio
 [WARNING]: You can not copy and paste this command directly. You need to update `MY_SECRET` with the value of the git secret created in the Secrets Manager section and the FUNCTION_URL for the lambda function url. 
 
 ```sh
-$ launch github hooks create --repository-name launch-demo-ecs-application --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL_1
-$ launch github hooks create --repository-name launch-demo-ecs-application --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL_2
-$ launch github hooks create --repository-name launch-demo-ecs-application --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL_3
-$ launch github hooks create --repository-name launch-demo-ecs-application --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL_4
+launch github hooks create --repository-name launch-demo-ecs-application --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL_1
+launch github hooks create --repository-name launch-demo-ecs-application --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL_2
+launch github hooks create --repository-name launch-demo-ecs-application --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL_3
+launch github hooks create --repository-name launch-demo-ecs-application --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL_4
 ```
 
 <p align="center">
@@ -159,10 +159,10 @@ $ launch github hooks create --repository-name launch-demo-ecs-application --eve
 You will also need to connect the webhooks to the repository where your Java application lives. In this case, [launch-api-hex-java-template](https://github.com/launchbynttdata/launch-api-hex-java-template). You will use the same function urls.
 
 ```sh
-$ launch github hooks create --repository-name launch-api-hex-java-template --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL_1
-$ launch github hooks create --repository-name launch-api-hex-java-template --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL_2
-$ launch github hooks create --repository-name launch-api-hex-java-template --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL_3
-$ launch github hooks create --repository-name launch-api-hex-java-template --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL_4
+launch github hooks create --repository-name launch-api-hex-java-template --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL_1
+launch github hooks create --repository-name launch-api-hex-java-template --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL_2
+launch github hooks create --repository-name launch-api-hex-java-template --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL_3
+launch github hooks create --repository-name launch-api-hex-java-template --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL_4
 ```
 
 <p align="center">
@@ -187,7 +187,7 @@ If you cannot wait for the pipeline to deploy your service through the PR proces
 We will now deploy the Java application service. 
 
 ```sh
-$ launch terragrunt --target-environment sandbox --platform-resource service --apply --generation --render-app-vars
+launch terragrunt --target-environment sandbox --platform-resource service --apply --generation --render-app-vars
 ```
 
 <p align="center">

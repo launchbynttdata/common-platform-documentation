@@ -1333,7 +1333,7 @@ pipelines = [
                 "name":"AWS_DEPLOYMENT_ROLE",
                 "value":"arn:aws:iam::020127659860:role/demo_iam-useast2-sandbox-000-role-000",
                 "type":"PLAINTEXT"
-              },
+              }
               {
                 "name":"GITHUB_APPLICATION_ID",
                 "value":"932069",
