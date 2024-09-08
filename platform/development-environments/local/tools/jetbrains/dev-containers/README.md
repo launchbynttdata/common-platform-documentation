@@ -12,12 +12,13 @@ This guide will walk you through setting up a development container environment 
 In order to use this guide successfully, there may be assumptions within your current environment. Please follow these other guides that are dependencies to successfully utilizes this one. 
 
 Local development environment:
-- [MacOS local developer environment](./../../../../../development-environments/local/mac/README.md)
-- [Windows local developer environment](./../../../../../development-environments/local/java/windows/README.md)
+- [MacOS local developer environment](./../../../mac/README.md)
+- [Windows local developer environment](./../../../windows/README.md)
+
+Software:
 - [IntelliJ Install](./../README.md)
 
 ## 3. Step-by-step Guide
-
 Open an IntelliJ IDE project 
 
 <p align="center">
@@ -107,4 +108,7 @@ After building, a new window will launch with your dev container.
 </p>
 
 ## 4. Reference
-- [IntelliJ Dev Containers](https://www.jetbrains.com/help/idea/connect-to-devcontainer.html)
+- [IntelliJ Install](./../README.md)
+- [MacOS local developer environment](./../../../mac/README.md)
+- [Windows local developer environment](./../../../windows/README.md)
+- [Official IntelliJ Dev Containers](https://www.jetbrains.com/help/idea/connect-to-devcontainer.html)

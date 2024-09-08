@@ -7,6 +7,11 @@
 ## 1. **Introduction**
 
 ## 2. **Prerequisites**
+In order to use this guide successfully, there may be assumptions within your current environment. Please follow these other guides that are dependencies to successfully utilizes this one. 
+
+Local development environment:  
+- [MacOS local developer environment](./../../mac/README.md)
+- [Windows local developer environment](./../../windows/README.md)
 
 ## 3. **Generate Toke**
 Launch-CLI makes use of a Personal Access Token (PAT) to authenticate with GitHub.
@@ -81,6 +86,5 @@ $ aws sso login --profile "YOUR_AWS_PROFILE"
 ```
 
 ## 4. **Appendix**
-Local development environment:  
 - [MacOS local developer environment](./../../mac/README.md)
 - [Windows local developer environment](./../../windows/README.md)

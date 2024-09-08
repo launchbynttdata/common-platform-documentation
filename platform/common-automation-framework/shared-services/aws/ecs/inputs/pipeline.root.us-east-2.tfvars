@@ -4,7 +4,7 @@ logical_product_service = "ecs_ptfrm"
 environment = "root"
 environment_number = "000"
 resource_number = "000"
-build_image = "ghcr.io/launchbynttdata/launch-build-agent-aws:version-bump"
+build_image = "ghcr.io/launchbynttdata/launch-build-agent-aws:latest"
 build_image_pull_credentials_type = "SERVICE_ROLE"
 additional_codebuild_projects = [{
     name = "trigger_pipeline"
@@ -12,7 +12,7 @@ additional_codebuild_projects = [{
     description = "Trigger the pipeline based on the event type."
     source_type = "NO_SOURCE"
     artifact_type = "NO_ARTIFACTS"
-    build_image = "ghcr.io/launchbynttdata/launch-build-agent-aws:version-bump"
+    build_image = "ghcr.io/launchbynttdata/launch-build-agent-aws:latest"
     build_image_pull_credentials_type = "SERVICE_ROLE"
     environment_variables = [{
         name = "LAUNCH_ACTION"
@@ -1333,7 +1333,7 @@ pipelines = [
                 "name":"AWS_DEPLOYMENT_ROLE",
                 "value":"arn:aws:iam::020127659860:role/demo_iam-useast2-sandbox-000-role-000",
                 "type":"PLAINTEXT"
-              }
+              },
               {
                 "name":"GITHUB_APPLICATION_ID",
                 "value":"932069",
@@ -1459,31 +1459,31 @@ pipelines = [
         configuration = {
           EnvironmentVariables = <<EOF
             [
-                {
-                  "name": "LAUNCH_ACTION",
-                  "value": "trigger-pipeline",
-                  "type": "PLAINTEXT"
-                },
-                {
-                  "name": "USERVAR_S3_CODEPIPELINE_BUCKET",
-                  "value": "demo-ecs-ptfrm-uat-useast2-root-000-s3-000",
-                  "type": "PLAINTEXT"
-                },
-                {
-                  "name":"GITHUB_APPLICATION_ID",
-                  "value":"932069",
-                  "type":"PLAINTEXT"
-                },
-                {
-                  "name":"GITHUB_INSTALLATION_ID",
-                  "value":"52272900",
-                  "type":"PLAINTEXT"
-                },
-                {
-                  "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                  "value":"github/app/aws-codepipeline-authentication/private_key",
-                  "type":"PLAINTEXT"
-                }
+              {
+                "name": "LAUNCH_ACTION",
+                "value": "trigger-pipeline",
+                "type": "PLAINTEXT"
+              },
+              {
+                "name": "USERVAR_S3_CODEPIPELINE_BUCKET",
+                "value": "demo-ecs-ptfrm-uat-useast2-root-000-s3-000",
+                "type": "PLAINTEXT"
+              },
+              {
+                "name":"GITHUB_APPLICATION_ID",
+                "value":"932069",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"GITHUB_INSTALLATION_ID",
+                "value":"52272900",
+                "type":"PLAINTEXT"
+              },
+              {
+                "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
+                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "type":"PLAINTEXT"
+              }
             ]
           EOF
         }

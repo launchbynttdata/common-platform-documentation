@@ -19,6 +19,8 @@ In order to use this guide successfully, there may be assumptions within your cu
 Local development environment:  
 - [MacOS local developer environment](./../../../mac/README.md)
 - [Windows local developer environment](./../../../windows/README.md)
+
+Software:
 - [VS Code is installed](./../README.md)
 
 ## 3. Step-by-step Guide
@@ -103,5 +105,8 @@ Rebuild the container `>Dev Container: Rebuild Container`
 </p>
 
 ## 4. References
-- [Create a Dev Container](https://code.visualstudio.com/docs/devcontainers/create-dev-container)
-- [Developing inside a Container](https://code.visualstudio.com/docs/devcontainers/containers)
+- [VS Code is installed](./../README.md)
+- [MacOS local developer environment](./../../../mac/README.md)
+- [Windows local developer environment](./../../../windows/README.md)
+- [Official Create a Dev Container](https://code.visualstudio.com/docs/devcontainers/create-dev-container)
+- [Official Developing inside a Container](https://code.visualstudio.com/docs/devcontainers/containers)

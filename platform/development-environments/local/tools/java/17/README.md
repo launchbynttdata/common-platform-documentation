@@ -3,14 +3,24 @@
 1. [Introduction](#1-introduction)
 2. [Prerequisites](#2-prerequisites)
 3. [Install Java](#3-install-java)  
+  3.1. [Intellij IDEA](#31-intellij-idea)  
 4. [Appendix](#4-appendix)
 
 ## 1. **Introduction**
 
 ## 2. **Prerequisites**
+In order to use this guide successfully, there may be assumptions within your current environment. Please follow these other guides that are dependencies to successfully utilizes this one. 
+
+Local development environment:  
+- [MacOS local developer environment](./../../mac/README.md)
+- [Windows local developer environment](./../../windows/README.md)
+
+Software:
+- [(Optional) IntelliJ IDEA](./../../intellij/README.md)
 
 ## 3. **Install Java**
 
+### 3.1. Intellij IDEA
 - Open a project in Intellij IDE
 <p align="center">
   <img src="./pictures/3.3-intellij-java-01.png" /> 
@@ -56,6 +66,5 @@ $ source ~/.zshrc
 ```
 
 ## 4. **Appendix**
-Local development environment:  
 - [MacOS local developer environment](./../../../mac/README.md)
 - [Windows local developer environment](./../../../windows/README.md)

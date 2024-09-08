@@ -13,8 +13,8 @@ This guide will describe how to establlish connectivity to the AWS VPN endpoint,
 The AWS Client VPN Endpoint has been configured with split-tunneling enabled, minimizing data transfer to and from AWS to that which is essential to this (or future) services to minimize costs.
 
 ## 2. **Prerequisites**
-- Follow the [Setting up AWS config guide](../../../../../../platform/development-environments/local/aws/config/README.md)
-- Follow the [Setting up aws-sso-utils guide](../../../../../../platform/development-environments/local/aws/sso-login/README.md)
+- Follow the [Setting up AWS config guide](./../cli/README.md)
+- Follow the [Setting up aws-sso-utils guide](./../sso-login/README.md)
 - AWS Console Access (optional for macOS users)
 
 ## 3. **Downloading OpenVPN Connect Software**

@@ -12,12 +12,12 @@
 ## 2. **Prerequisites**
 In order to use this guide successfully, there may be assumptions within your current environment. Please follow these other guides that are dependencies to successfully utilizes this one. 
 
-Local development environment:
-  - [MacOS local developer environment](./../../../../../development-environments/local/mac/README.md)
-  - [Windows local developer environment](./../../../../../development-environments/local/java/windows/README.md)
+Local development environment:  
+- [MacOS local developer environment](./../../mac/README.md)
+- [Windows local developer environment](./../../windows/README.md)
 
 MacOS:
-- [Homebrew](../homebrew/README.md)
+- [Homebrew](./../homebrew/README.md)
 
 ## 3. **Install asdf**
 
@@ -64,6 +64,5 @@ MacOS:
 ### 3.4 Windows
 
 ## 4. **Appendix**
-Local development environment:  
 - [MacOS local developer environment](./../../mac/README.md)
 - [Windows local developer environment](./../../windows/README.md)
