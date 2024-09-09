@@ -1521,7 +1521,7 @@ pipelines = [
               },
               {
                 "name": "USERVAR_S3_CODEPIPELINE_BUCKET",
-                "value": "demo-ecs-ptfrm-uat-useast2-root-000-s3-000",
+                "value": "demo-ecs-app-uat-useast2-root-000-s3-000",
                 "type": "PLAINTEXT"
               },
               {
@@ -1856,7 +1856,7 @@ pipelines = [
               },
               {
                 "name": "USERVAR_S3_CODEPIPELINE_BUCKET",
-                "value": "demo-ecs-ptfrm-uat-useast2-root-000-s3-000",
+                "value": "demo-ecs-app-uat-useast2-root-000-s3-000",
                 "type": "PLAINTEXT"
               },
               {
