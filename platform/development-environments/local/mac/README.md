@@ -51,7 +51,7 @@ Launch platform includes support to utilize a common local developer container t
 If you do not wish to utilize the launch containers. Please follow the guides in Section [4.4. Builder Tools](#44-builder-tools) to install all the tools you may need to build on your platform. 
 
 ### 4.4 Getting started with environment
-You can utilize ou Capability Matrix to get started with your development environment to deploy our accelerators. 
+You can utilize our Capability Matrix to get started with your development environment to deploy our accelerators. 
 - [Launch CAF Capability Matrix](./../../../common-automation-framework/README.md)
 
 ## 5. **Builder Tools**
