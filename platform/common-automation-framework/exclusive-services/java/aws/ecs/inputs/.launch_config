@@ -14,7 +14,7 @@
     "sources": {
         "application": {
             "url": "https://github.com/launchbynttdata/launch-api-hex-java-template.git",
-            "tag": "patch/git-ignore"
+            "tag": "1.0.0"
         },
         "service": {
             "url": "https://github.com/launchbynttdata/tf-aws-module_collection-ecs_app.git",
