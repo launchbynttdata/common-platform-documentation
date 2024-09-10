@@ -44,7 +44,7 @@ TODO:
 ### 4.2 (Option 2) Local Dev Container
 Launch platform includes support to utilize a common local developer container through your IDE. This Dev Container has all the tools and software loaded and configured to build and test utilizing the Launch platform. Please follow the following guides to utilize this method.
 
-- [Setting up IntelliJ dev containers](./../../../development-environments/local/tools/intellij/dev-containers/README.md)
+- [Setting up IntelliJ dev containers](./../../../development-environments/local/tools/jetbrains/dev-containers/README.md)
 - [Setting up Visual Studio Code dev containers](./../../../development-environments/local/tools/vscode/dev-containers/README.md)
 
 ### 4.3 (Option 3) Local system
