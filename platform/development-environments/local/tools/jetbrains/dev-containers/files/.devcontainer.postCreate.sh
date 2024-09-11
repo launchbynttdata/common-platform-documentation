@@ -63,7 +63,7 @@ echo "
 [push]
         autoSetupRemote = true
 [safe]
-        directory = '*'
+        directory = *
 " >> /home/${container_user}/.gitconfig
 
 # shell aliases
