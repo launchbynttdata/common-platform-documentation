@@ -3,7 +3,7 @@
 # changes to the host machine. It is used to set up the dev container.
 echo "Setting up dev-container..."
 container_user=${1}
-work_dir="/workspaces/CHANGEME"
+work_dir="/IdeaProjects"
 git_token="CHANGEME"
 
 sso_aws_url="CHANGEME"
@@ -34,13 +34,12 @@ chmod a+rx /home/${container_user}/.bin/repo
 git clone https://github.com/asdf-vm/asdf.git /home/${container_user}/.asdf --branch v0.14.0
 echo '. "$HOME/.asdf/asdf.sh"' >> /home/${container_user}/.bashrc
 
-# Install aws-sso-util as a make check dependency
+# Install dependencies
 python -m pip install aws-sso-util
+python -m pip install ruamel_yaml
 
 # Install Launch CLI as a dev dependency
 python -m pip install launch-cli
-
-python -m pip install ruamel_yaml
 
 ## Uncomment the following lines if wish to have a local
 ## dev source as the install folder
@@ -64,7 +63,7 @@ echo "
 [push]
         autoSetupRemote = true
 [safe]
-        directory = ${work_dir}
+        directory = '*'
 " >> /home/${container_user}/.gitconfig
 
 # shell aliases
