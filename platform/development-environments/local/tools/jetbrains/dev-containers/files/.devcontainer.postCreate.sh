@@ -57,10 +57,15 @@ echo password ${git_token} >> /home/${container_user}/.netrc
 chmod 600 /home/${container_user}/.netrc
 
 # Configure git
-git config --global user.name ${github_public_user}
-git config --global user.email ${github_public_email}
-git config --global push.autoSetupRemote true
-git config --global --add safe.directory ${work_dir}
+echo "
+[user]
+        name = ${github_public_user}
+        email = ${github_public_email}
+[push]
+        autoSetupRemote = true
+[safe]
+        directory = ${work_dir}
+" >> /home/${container_user}/.gitconfig
 
 # shell aliases
 echo 'alias git_sync="git pull origin main"' >> /home/${container_user}/.bashrc # Alias to sync the repo with the main branch
@@ -112,4 +117,5 @@ credential_process = aws-sso-util credential-process --profile launch-sandbox-ad
 sso_auto_populated = true
 " >> /home/${container_user}/.aws/config
 chown -R ${container_user}:${container_user} /home/${container_user}
+chown -R ${container_user}:${container_user} /IdeaProjects
 echo "Dev container setup complete"
