@@ -30,8 +30,49 @@ Local development environment:
 ## 3. **Getting Started**
 
 ### 3.1. Configure the inputs
-This guide has provided basic inputs to be used with the services we are deploying. However, we cannot use these right out of the box and we need to quickly update some paths within our `.launch_config` file.
+This guide has provided basic inputs to be used with the services we are deploying. However, we cannot use these right out of the box and we need to update some of the properties specific to your infrastructure. 
 
+#### 3.1.1 Pipeline Properties
+We are now going to update our pipeline properties with account spcific properties needed. We will be utilizing the pipeline file at the following location.
+- [Pipeline `properties file` ./inputs/pipeline.root.us-east-2.tfvars](./inputs/pipeline.root.us-east-2.tfvars)
+
+
+Update the following variables with spicific account information. Within each `sed` command, ensure you have the correct path to the pipeline properties file.  You can then run the entire block in the terminal to update the pipeline file.
+```sh
+# Update these variables
+GITHUB_APPLICATION_ID='000000'
+GITHUB_INSTALLATION_ID='00000000'
+GITHUB_SIGNING_CERT_SECRET_NAME='github/app/aws-codepipeline-authentication/private_key'
+ROOT_ACCOUNT_DEPLOY_ROLE='arn:aws:iam::111111111111:role/demo_iam-useast2-sandbox-000-role-000'
+QA_ACCOUNT_DEPLOY_ROLE='arn:aws:iam::222222222222:role/demo_iam-useast2-sandbox-000-role-000'
+UAT_ACCOUNT_DEPLOY_ROLE='arn:aws:iam::333333333333:role/demo_iam-useast2-sandbox-000-role-000'
+PROD_ACCOUNT_DEPLOY_ROLE='arn:aws:iam::444444444444:role/demo_iam-useast2-sandbox-000-role-000'
+
+sed -i "s|<GITHUB_APPLICATION_ID>|$GITHUB_APPLICATION_ID|g" ./pipeline.root.us-east-2.tfvars
+sed -i "s|<GITHUB_INSTALLATION_ID>|$GITHUB_INSTALLATION_ID|g" ./pipeline.root.us-east-2.tfvars
+sed -i "s|<GITHUB_SIGNING_CERT_SECRET_NAME>|"$GITHUB_SIGNING_CERT_SECRET_NAME"|g" ./pipeline.root.us-east-2.tfvars
+sed -i "s|<ROOT_ACCOUNT_DEPLOY_ROLE>|$ROOT_ACCOUNT_DEPLOY_ROLE|g" ./pipeline.root.us-east-2.tfvars
+sed -i "s|<QA_ACCOUNT_DEPLOY_ROLE>|$QA_ACCOUNT_DEPLOY_ROLE|g" ./pipeline.root.us-east-2.tfvars
+sed -i "s|<UAT_ACCOUNT_DEPLOY_ROLE>|$UAT_ACCOUNT_DEPLOY_ROLE|g" ./pipeline.root.us-east-2.tfvars
+sed -i "s|<PROD_ACCOUNT_DEPLOY_ROLE>|$PROD_ACCOUNT_DEPLOY_ROLE|g" ./pipeline.root.us-east-2.tfvars
+```
+
+#### 3.1.2 Webhook Properties
+We are now going to update our pipeline properties with account spcific properties needed. We will be utilizing the pipeline file at the following location.
+- [Webhooks `properties file` ./inputs/webhooks.root.us-east-2.tfvars](./inputs/webhooks.root.us-east-2.tfvars)
+
+
+```sh
+# Update these variables
+GIT_SECRET_SM_ARN='arn:aws:secretsmanager:us-east-2:111111111111:secret:example/git/signature/secret'
+
+sed -i "s|<GIT_SECRET_SM_ARN>|$GIT_SECRET_SM_ARN|g" ./webhooks.root.us-east-2.tfvars
+```
+
+#### 3.1.3 Service Properties
+This example does not need any specific updates for the service properties and will work out of the box. 
+
+#### 3.1.4 .launch_config
 The launch config for the platform in this guide is at the following:
 - [./inputs/.launch_config](./inputs/.launch_config)
 
@@ -159,6 +200,19 @@ $ launch terragrunt --target-environment sandbox --platform-resource service --a
 
 
 ## 5. **Teardown Service**
+```sh
+launch terragrunt --target-environment root --platform-resource pipeline --destroy --generation
+launch terragrunt --target-environment root --platform-resource webhook --destroy --generation
+
+# For each environment deployed
+launch terragrunt --target-environment sandbox --platform-resource service --destroy --generation
+launch terragrunt --target-environment qa --platform-resource service --destroy --generation
+launch terragrunt --target-environment uat --platform-resource service --destroy --generation
+launch terragrunt --target-environment prod --platform-resource service --destroy --generation
+```
 
 ## 6. **Appendix**
+- [Compatibility Matrix](./../../../../README.md)
 - [Platform Application Naming Schema](./../../../../../standards/common-development/git/repository/naming-schemes/platform-sample-applications.md)
+- [MacOS local developer environment](./../development-environments/local/mac/README.md)
+- [Windows local developer environment](./../development-environments/local/windows/README.md)

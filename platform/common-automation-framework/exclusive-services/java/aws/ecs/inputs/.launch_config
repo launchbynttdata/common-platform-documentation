@@ -2,9 +2,9 @@
     "provider": "aws",
     "accounts": {
         "root": "launch-sandbox-admin",
-        "qa": "launch-qa-admin",
-        "uat": "launch-uat-admin",
-        "prod": "launch-prod-admin"
+        "qa": "launch-sandbox-admin",
+        "uat": "launch-sandbox-admin",
+        "prod": "launch-sandbox-admin"
     },
     "naming_prefix": "demo-ecs_app",
     "skeleton": {

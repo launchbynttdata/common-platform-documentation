@@ -32,15 +32,15 @@ additional_codebuild_projects = [{
         type = "PLAINTEXT"
       },  {
         name = "GITHUB_APPLICATION_ID"
-        value = "932069"
+        value = "<GITHUB_APPLICATION_ID>"
         type = "PLAINTEXT"
       }, {
         name = "GITHUB_INSTALLATION_ID"
-        value = "52272900"
+        value = "<GITHUB_INSTALLATION_ID>"
         type = "PLAINTEXT"
       }, {
         name = "GITHUB_SIGNING_CERT_SECRET_NAME"
-        value = "github/app/aws-codepipeline-authentication/private_key"
+        value = "<GITHUB_SIGNING_CERT_SECRET_NAME>"
         type = "PLAINTEXT"
       }, {
         name = "TARGETENV"
@@ -133,22 +133,22 @@ pipelines = [
               },
               {
                 "name":"AWS_DEPLOYMENT_ROLE",
-                "value":"arn:aws:iam::020127659860:role/demo_iam-useast2-sandbox-000-role-000",
+                "value":"<ROOT_ACCOUNT_DEPLOY_ROLE>",
                 "type":"PLAINTEXT"
               }, 
               {
                 "name":"GITHUB_APPLICATION_ID",
-                "value":"932069",
+                "value":"<GITHUB_APPLICATION_ID>",
                 "type":"PLAINTEXT"
               }, 
               {
                 "name":"GITHUB_INSTALLATION_ID",
-                "value":"52272900",
+                "value":"<GITHUB_INSTALLATION_ID>",
                 "type":"PLAINTEXT"
               }, 
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "value":"<GITHUB_SIGNING_CERT_SECRET_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -198,22 +198,22 @@ pipelines = [
               },
               {
                 "name":"AWS_DEPLOYMENT_ROLE",
-                "value":"arn:aws:iam::020127659860:role/demo_iam-useast2-sandbox-000-role-000",
+                "value":"<ROOT_ACCOUNT_DEPLOY_ROLE>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_APPLICATION_ID",
-                "value":"932069",
+                "value":"<GITHUB_APPLICATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_INSTALLATION_ID",
-                "value":"52272900",
+                "value":"<GITHUB_INSTALLATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "value":"<GITHUB_SIGNING_CERT_SECRET_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -263,22 +263,22 @@ pipelines = [
               },
               {
                 "name":"AWS_DEPLOYMENT_ROLE",
-                "value":"arn:aws:iam::020127659860:role/demo_iam-useast2-sandbox-000-role-000",
+                "value":"<ROOT_ACCOUNT_DEPLOY_ROLE>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_APPLICATION_ID",
-                "value":"932069",
+                "value":"<GITHUB_APPLICATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_INSTALLATION_ID",
-                "value":"52272900",
+                "value":"<GITHUB_INSTALLATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "value":"<GITHUB_SIGNING_CERT_SECRET_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -328,22 +328,22 @@ pipelines = [
               },
               {
                 "name":"AWS_DEPLOYMENT_ROLE",
-                "value":"arn:aws:iam::020127659860:role/demo_iam-useast2-sandbox-000-role-000",
+                "value":"<ROOT_ACCOUNT_DEPLOY_ROLE>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_APPLICATION_ID",
-                "value":"932069",
+                "value":"<GITHUB_APPLICATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_INSTALLATION_ID",
-                "value":"52272900",
+                "value":"<GITHUB_INSTALLATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "value":"<GITHUB_SIGNING_CERT_SECRET_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -406,17 +406,17 @@ pipelines = [
               },
               {
                 "name":"GITHUB_APPLICATION_ID",
-                "value":"932069",
+                "value":"<GITHUB_APPLICATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_INSTALLATION_ID",
-                "value":"52272900",
+                "value":"<GITHUB_INSTALLATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "value":"<GITHUB_SIGNING_CERT_SECRET_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -461,17 +461,17 @@ pipelines = [
               },
               {
                 "name":"GITHUB_APPLICATION_ID",
-                "value":"932069",
+                "value":"<GITHUB_APPLICATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_INSTALLATION_ID",
-                "value":"52272900",
+                "value":"<GITHUB_INSTALLATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "value":"<GITHUB_SIGNING_CERT_SECRET_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -521,22 +521,22 @@ pipelines = [
               },
               {
                 "name":"AWS_DEPLOYMENT_ROLE",
-                "value":"arn:aws:iam::020127659860:role/demo_iam-useast2-sandbox-000-role-000",
+                "value":"<QA_ACCOUNT_DEPLOY_ROLE>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_APPLICATION_ID",
-                "value":"932069",
+                "value":"<GITHUB_APPLICATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_INSTALLATION_ID",
-                "value":"52272900",
+                "value":"<GITHUB_INSTALLATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "value":"<GITHUB_SIGNING_CERT_SECRET_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -591,22 +591,22 @@ pipelines = [
               },
               {
                 "name":"AWS_DEPLOYMENT_ROLE",
-                "value":"arn:aws:iam::020127659860:role/demo_iam-useast2-sandbox-000-role-000",
+                "value":"<ROOT_ACCOUNT_DEPLOY_ROLE>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_APPLICATION_ID",
-                "value":"932069",
+                "value":"<GITHUB_APPLICATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_INSTALLATION_ID",
-                "value":"52272900",
+                "value":"<GITHUB_INSTALLATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "value":"<GITHUB_SIGNING_CERT_SECRET_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -661,22 +661,22 @@ pipelines = [
               },
               {
                 "name":"AWS_DEPLOYMENT_ROLE",
-                "value":"arn:aws:iam::020127659860:role/demo_iam-useast2-sandbox-000-role-000",
+                "value":"<ROOT_ACCOUNT_DEPLOY_ROLE>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_APPLICATION_ID",
-                "value":"932069",
+                "value":"<GITHUB_APPLICATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_INSTALLATION_ID",
-                "value":"52272900",
+                "value":"<GITHUB_INSTALLATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "value":"<GITHUB_SIGNING_CERT_SECRET_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -736,17 +736,17 @@ pipelines = [
               },
               {
                 "name":"GITHUB_APPLICATION_ID",
-                "value":"932069",
+                "value":"<GITHUB_APPLICATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_INSTALLATION_ID",
-                "value":"52272900",
+                "value":"<GITHUB_INSTALLATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "value":"<GITHUB_SIGNING_CERT_SECRET_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -814,22 +814,22 @@ pipelines = [
               },
               {
                 "name":"AWS_DEPLOYMENT_ROLE",
-                "value":"arn:aws:iam::020127659860:role/demo_iam-useast2-sandbox-000-role-000",
+                "value":"<QA_ACCOUNT_DEPLOY_ROLE>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_APPLICATION_ID",
-                "value":"932069",
+                "value":"<GITHUB_APPLICATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_INSTALLATION_ID",
-                "value":"52272900",
+                "value":"<GITHUB_INSTALLATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "value":"<GITHUB_SIGNING_CERT_SECRET_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -884,22 +884,22 @@ pipelines = [
               },
               {
                 "name":"AWS_DEPLOYMENT_ROLE",
-                "value":"arn:aws:iam::020127659860:role/demo_iam-useast2-sandbox-000-role-000",
+                "value":"<ROOT_ACCOUNT_DEPLOY_ROLE>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_APPLICATION_ID",
-                "value":"932069",
+                "value":"<GITHUB_APPLICATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_INSTALLATION_ID",
-                "value":"52272900",
+                "value":"<GITHUB_INSTALLATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "value":"<GITHUB_SIGNING_CERT_SECRET_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -954,22 +954,22 @@ pipelines = [
               },
               {
                 "name":"AWS_DEPLOYMENT_ROLE",
-                "value":"arn:aws:iam::020127659860:role/demo_iam-useast2-sandbox-000-role-000",
+                "value":"<ROOT_ACCOUNT_DEPLOY_ROLE>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_APPLICATION_ID",
-                "value":"932069",
+                "value":"<GITHUB_APPLICATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_INSTALLATION_ID",
-                "value":"52272900",
+                "value":"<GITHUB_INSTALLATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "value":"<GITHUB_SIGNING_CERT_SECRET_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -1029,17 +1029,17 @@ pipelines = [
               },
               {
                 "name":"GITHUB_APPLICATION_ID",
-                "value":"932069",
+                "value":"<GITHUB_APPLICATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_INSTALLATION_ID",
-                "value":"52272900",
+                "value":"<GITHUB_INSTALLATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "value":"<GITHUB_SIGNING_CERT_SECRET_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -1084,22 +1084,22 @@ pipelines = [
               },
               {
                 "name":"ROLE_TO_ASSUME",
-                "value":"arn:aws:iam::020127659860:role/demo_iam-useast2-sandbox-000-role-000",
+                "value":"<ROOT_ACCOUNT_DEPLOY_ROLE>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_APPLICATION_ID",
-                "value":"932069",
+                "value":"<GITHUB_APPLICATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_INSTALLATION_ID",
-                "value":"52272900",
+                "value":"<GITHUB_INSTALLATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "value":"<GITHUB_SIGNING_CERT_SECRET_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -1159,17 +1159,17 @@ pipelines = [
               },
               {
                 "name":"GITHUB_APPLICATION_ID",
-                "value":"932069",
+                "value":"<GITHUB_APPLICATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_INSTALLATION_ID",
-                "value":"52272900",
+                "value":"<GITHUB_INSTALLATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "value":"<GITHUB_SIGNING_CERT_SECRET_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -1266,22 +1266,22 @@ pipelines = [
               },
               {
                 "name":"AWS_DEPLOYMENT_ROLE",
-                "value":"arn:aws:iam::020127659860:role/demo_iam-useast2-sandbox-000-role-000",
+                "value":"<QA_ACCOUNT_DEPLOY_ROLE>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_APPLICATION_ID",
-                "value":"932069",
+                "value":"<GITHUB_APPLICATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_INSTALLATION_ID",
-                "value":"52272900",
+                "value":"<GITHUB_INSTALLATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "value":"<GITHUB_SIGNING_CERT_SECRET_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -1331,22 +1331,22 @@ pipelines = [
               },
               {
                 "name":"AWS_DEPLOYMENT_ROLE",
-                "value":"arn:aws:iam::020127659860:role/demo_iam-useast2-sandbox-000-role-000",
+                "value":"<QA_ACCOUNT_DEPLOY_ROLE>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_APPLICATION_ID",
-                "value":"932069",
+                "value":"<GITHUB_APPLICATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_INSTALLATION_ID",
-                "value":"52272900",
+                "value":"<GITHUB_INSTALLATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "value":"<GITHUB_SIGNING_CERT_SECRET_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -1400,22 +1400,22 @@ pipelines = [
               },
               {
                 "name":"AWS_DEPLOYMENT_ROLE",
-                "value":"arn:aws:iam::020127659860:role/demo_iam-useast2-sandbox-000-role-000",
+                "value":"<QA_ACCOUNT_DEPLOY_ROLE>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_APPLICATION_ID",
-                "value":"932069",
+                "value":"<GITHUB_APPLICATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_INSTALLATION_ID",
-                "value":"52272900",
+                "value":"<GITHUB_INSTALLATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "value":"<GITHUB_SIGNING_CERT_SECRET_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -1471,17 +1471,17 @@ pipelines = [
               },
               {
                 "name":"GITHUB_APPLICATION_ID",
-                "value":"932069",
+                "value":"<GITHUB_APPLICATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_INSTALLATION_ID",
-                "value":"52272900",
+                "value":"<GITHUB_INSTALLATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "value":"<GITHUB_SIGNING_CERT_SECRET_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -1569,22 +1569,22 @@ pipelines = [
               },
               {
                 "name":"AWS_DEPLOYMENT_ROLE",
-                "value":"arn:aws:iam::020127659860:role/demo_iam-useast2-sandbox-000-role-000",
+                "value":"<UAT_ACCOUNT_DEPLOY_ROLE>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_APPLICATION_ID",
-                "value":"932069",
+                "value":"<GITHUB_APPLICATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_INSTALLATION_ID",
-                "value":"52272900",
+                "value":"<GITHUB_INSTALLATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "value":"<GITHUB_SIGNING_CERT_SECRET_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -1633,22 +1633,22 @@ pipelines = [
               },
               {
                 "name":"AWS_DEPLOYMENT_ROLE",
-                "value":"arn:aws:iam::020127659860:role/demo_iam-useast2-sandbox-000-role-000",
+                "value":"<UAT_ACCOUNT_DEPLOY_ROLE>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_APPLICATION_ID",
-                "value":"932069",
+                "value":"<GITHUB_APPLICATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_INSTALLATION_ID",
-                "value":"52272900",
+                "value":"<GITHUB_INSTALLATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "value":"<GITHUB_SIGNING_CERT_SECRET_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -1702,22 +1702,22 @@ pipelines = [
               },
               {
                 "name":"AWS_DEPLOYMENT_ROLE",
-                "value":"arn:aws:iam::020127659860:role/demo_iam-useast2-sandbox-000-role-000",
+                "value":"<UAT_ACCOUNT_DEPLOY_ROLE>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_APPLICATION_ID",
-                "value":"932069",
+                "value":"<GITHUB_APPLICATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_INSTALLATION_ID",
-                "value":"52272900",
+                "value":"<GITHUB_INSTALLATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "value":"<GITHUB_SIGNING_CERT_SECRET_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -1773,17 +1773,17 @@ pipelines = [
                 },
                 {
                   "name":"GITHUB_APPLICATION_ID",
-                  "value":"932069",
+                  "value":"<GITHUB_APPLICATION_ID>",
                   "type":"PLAINTEXT"
                 },
                 {
                   "name":"GITHUB_INSTALLATION_ID",
-                  "value":"52272900",
+                  "value":"<GITHUB_INSTALLATION_ID>",
                   "type":"PLAINTEXT"
                 },
                 {
                   "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                  "value":"github/app/aws-codepipeline-authentication/private_key",
+                  "value":"<GITHUB_SIGNING_CERT_SECRET_NAME>",
                   "type":"PLAINTEXT"
                 }
             ]
@@ -1864,22 +1864,22 @@ pipelines = [
               },
               {
                 "name":"AWS_DEPLOYMENT_ROLE",
-                "value":"arn:aws:iam::020127659860:role/demo_iam-useast2-sandbox-000-role-000",
+                "value":"<PROD_ACCOUNT_DEPLOY_ROLE>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_APPLICATION_ID",
-                "value":"932069",
+                "value":"<GITHUB_APPLICATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_INSTALLATION_ID",
-                "value":"52272900",
+                "value":"<GITHUB_INSTALLATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "value":"<GITHUB_SIGNING_CERT_SECRET_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -1928,22 +1928,22 @@ pipelines = [
               },
               {
                 "name":"AWS_DEPLOYMENT_ROLE",
-                "value":"arn:aws:iam::020127659860:role/demo_iam-useast2-sandbox-000-role-000",
+                "value":"<PROD_ACCOUNT_DEPLOY_ROLE>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_APPLICATION_ID",
-                "value":"932069",
+                "value":"<GITHUB_APPLICATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_INSTALLATION_ID",
-                "value":"52272900",
+                "value":"<GITHUB_INSTALLATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "value":"<GITHUB_SIGNING_CERT_SECRET_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -1997,22 +1997,22 @@ pipelines = [
               },
               {
                 "name":"AWS_DEPLOYMENT_ROLE",
-                "value":"arn:aws:iam::020127659860:role/demo_iam-useast2-sandbox-000-role-000",
+                "value":"<PROD_ACCOUNT_DEPLOY_ROLE>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_APPLICATION_ID",
-                "value":"932069",
+                "value":"<GITHUB_APPLICATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_INSTALLATION_ID",
-                "value":"52272900",
+                "value":"<GITHUB_INSTALLATION_ID>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"GITHUB_SIGNING_CERT_SECRET_NAME",
-                "value":"github/app/aws-codepipeline-authentication/private_key",
+                "value":"<GITHUB_SIGNING_CERT_SECRET_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
