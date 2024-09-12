@@ -1029,12 +1029,12 @@ pipelines = [
               },
               {
                 "name":"CONTAINER_REGISTRY",
-                "value":"020127659860.dkr.ecr.us-east-2.amazonaws.com",
+                "value":"<CONTAINER_REGISTRY>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"CONTAINER_IMAGE_NAME",
-                "value":"launch-api",
+                "value":"<CONTAINER_IMAGE_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -1318,12 +1318,12 @@ pipelines = [
               },
               {
                 "name":"CONTAINER_REGISTRY",
-                "value":"020127659860.dkr.ecr.us-east-2.amazonaws.com",
+                "value":"<CONTAINER_REGISTRY>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"CONTAINER_IMAGE_NAME",
-                "value":"launch-api",
+                "value":"<CONTAINER_IMAGE_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -1448,12 +1448,12 @@ pipelines = [
               },
               {
                 "name":"CONTAINER_REGISTRY",
-                "value":"020127659860.dkr.ecr.us-east-2.amazonaws.com",
+                "value":"<CONTAINER_REGISTRY>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"CONTAINER_IMAGE_NAME",
-                "value":"launch-api",
+                "value":"<CONTAINER_IMAGE_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -1653,12 +1653,12 @@ pipelines = [
               },
               {
                 "name":"CONTAINER_REGISTRY",
-                "value":"020127659860.dkr.ecr.us-east-2.amazonaws.com",
+                "value":"<CONTAINER_REGISTRY>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"CONTAINER_IMAGE_NAME",
-                "value":"launch-api",
+                "value":"<CONTAINER_IMAGE_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -1783,12 +1783,12 @@ pipelines = [
               },
               {
                 "name":"CONTAINER_REGISTRY",
-                "value":"020127659860.dkr.ecr.us-east-2.amazonaws.com",
+                "value":"<CONTAINER_REGISTRY>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"CONTAINER_IMAGE_NAME",
-                "value":"launch-api",
+                "value":"<CONTAINER_IMAGE_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
@@ -1980,12 +1980,12 @@ pipelines = [
               },
               {
                 "name":"CONTAINER_REGISTRY",
-                "value":"020127659860.dkr.ecr.us-east-2.amazonaws.com",
+                "value":"<CONTAINER_REGISTRY>",
                 "type":"PLAINTEXT"
               },
               {
                 "name":"CONTAINER_IMAGE_NAME",
-                "value":"launch-api",
+                "value":"<CONTAINER_IMAGE_NAME>",
                 "type":"PLAINTEXT"
               }
             ]
