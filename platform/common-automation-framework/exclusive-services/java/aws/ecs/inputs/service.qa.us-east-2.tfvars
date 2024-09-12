@@ -149,13 +149,9 @@ tags = {
   Team    = "dso"
 }
 
-vpc_id = "vpc-099fd3eb16bcdfafc"
-private_subnets = [
-  "subnet-0e13d45c866b2e7b2",
-  "subnet-0c9280cbd4c3a01dd",
-  "subnet-0369ba8e77a48792b",
-]
-ecs_cluster_arn = "arn:aws:ecs:us-east-2:020127659860:cluster/demo-ecs_ptfrm-useast2-qa-000-fargate-000"
+vpc_id = "<vpc_id>"
+private_subnets = <private_subnets>
+ecs_cluster_arn = "<ecs_cluster_arn>"
 
 runtime_platform = [{
   cpu_architecture        = "X86_64",

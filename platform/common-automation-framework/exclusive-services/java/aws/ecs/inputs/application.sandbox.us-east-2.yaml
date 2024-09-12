@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://aarti-private-postgres-db.cafhcpgcbext.us-east-2.rds.amazonaws.com:5432/postgres
-    username: example/postgres/username
-    password: example/postgres/password
+    url: <url>
+    username: <username>
+    password: <password>
     driverClassName: org.postgresql.Driver
   main:
     banner_mode: off
@@ -27,8 +27,8 @@ spring:
     show_sql: true
     generate_ddl: true
     defer_datasource_initialization: true
-actuator_username: example/actuator/username
-actuator_password: example/actuator/password
+actuator_username: <actuator_username>
+actuator_password: <actuator_password>
 logging:
   level:
     org:
