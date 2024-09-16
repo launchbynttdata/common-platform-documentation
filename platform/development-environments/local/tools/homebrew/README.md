@@ -6,6 +6,7 @@
 4. [Appendix](#4-appendix)
 
 ## 1. **Introduction**
+This guide will walk you through installing Homebrew on your local MacOS device. Homebrew is used as a package manager for various tools and software needed.
 
 ## 2. **Prerequisites**
 In order to use this guide successfully, there may be assumptions within your current environment. Please follow these other guides that are dependencies to successfully utilizes this one. 

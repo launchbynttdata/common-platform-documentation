@@ -34,6 +34,19 @@ Local development environment:
   - [Windows local developer environment](./../../../../../development-environments/local/java/windows/README.md)
 
 ## 3. **Getting Started**
+#### Pre-flight
+1. Please ensure you have set your AWS credentials.
+    - If using SSO: [AWS SSO](./../../../../development-environments/local/tools/aws/sso-login/README.md)
+    - Standard config: [AWS cli](./../../../../development-environments/local/tools/aws/cli/README.md)
+
+2. Please ensure you have generated a Github token and it is ready to use in your environment.
+    - [Github Token](./../../../../development-environments/local/tools/token/README.md)
+    ```sh
+    export GITHUB_TOKEN=<replace_me>
+    ```
+
+3. (Optional) Configure a git credential manager to cache credentials
+    - [git-credential-manager](./../../../../development-environments/local/tools/git/git-credential-manager/README.md)
 
 ### 3.1. Configure the inputs
 
@@ -55,13 +68,6 @@ $ launch service create --name launch-demo-kms --in-file /workspaces/workplace/c
 ## 4. **Deploy service**
 
 ### Pre-flight
-1. Please ensure you have generated a Github token and it is ready to use in your environment.
-    - [Github Token](./../../../../development-environments/local/tools/token/README.md)
-
-2. Please ensure you have set your AWS credentials.
-    - If using SSO: [AWS SSO](./../../../../../development-environments/local/tools/aws/sso-login/README.md)
-    - Standard config: [AWS cli](./../../../../../development-environments/local/tools/aws/cli/README.md)
-
 ### 4.1. Deploy Infrastructure
 
 

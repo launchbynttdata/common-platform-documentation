@@ -39,15 +39,27 @@ Cloud Services:
 - [Key Management Services (KMS)](./../../../../shared-services/aws/kms/README.md)
 - [Secrets Manager](./../../../../shared-services/aws/secretsmanager/README.md)
 
-
 ## 3. **Getting Started**
+#### Pre-flight
+1. Please ensure you have set your AWS credentials.
+    - If using SSO: [AWS SSO](./../../../../../development-environments/local/tools/aws/sso-login/README.md)
+    - Standard config: [AWS cli](./../../../../../development-environments/local/tools/aws/cli/README.md)
+
+2. Please ensure you have generated a Github token and it is ready to use in your environment.
+    - [Github Token](./../../../../../development-environments/local/tools/token/README.md)
+    ```sh
+    export GITHUB_TOKEN=<replace_me>
+    ```
+
+3. (Optional) Configure a git credential manager to cache credentials
+    - [git-credential-manager](./../../../../../development-environments/local/tools/git/git-credential-manager/README.md)
+
 ### 3.1. Configure the inputs
 This guide has provided basic inputs to be used with the services we are deploying. However, we cannot use these right out of the box and we need to update some of the properties specific to your infrastructure. 
 
 #### 3.1.1 Pipeline Properties
 We are now going to update our pipeline properties with account spcific properties needed. We will be utilizing the pipeline file at the following location.
 - [Pipeline `properties file` ./inputs/pipeline.root.us-east-2.tfvars](./inputs/pipeline.root.us-east-2.tfvars)
-
 
 Update the following variables with spicific account information. Within each `sed` command, ensure you have the correct path to the pipeline properties file.  You can then run the entire block in the terminal to update the pipeline file.
 ```sh
@@ -77,7 +89,6 @@ sed -i "s|<CONTAINER_IMAGE_NAME>|$CONTAINER_IMAGE_NAME|g" ./pipeline.root.us-eas
 We are now going to update our pipeline properties with account spcific properties needed. We will be utilizing the pipeline file at the following location.
 - [Webhooks `properties file` ./inputs/webhooks.root.us-east-2.tfvars](./inputs/webhooks.root.us-east-2.tfvars)
 
-
 ```sh
 # Update these variables
 GIT_SECRET_SM_ARN='arn:aws:secretsmanager:us-east-2:111111111111:secret:example/git/signature/secret'
@@ -86,6 +97,7 @@ sed -i "s|<GIT_SECRET_SM_ARN>|$GIT_SECRET_SM_ARN|g" ./webhooks.root.us-east-2.tf
 ```
 
 #### 3.1.3 Service Properties
+- [Service QA `properties file` ./inputs/service.qa.us-east-2.tfvars](./inputs/service.qa.us-east-2.tfvars)
 ```sh
 # service.qa.us-east-2.tfvars
 ecs_cluster_arn_qa="arn:aws:ecs:us-east-2:020127659860:cluster/demo-ecs_ptfrm-useast2-qa-000-fargate-000"
@@ -96,6 +108,7 @@ sed -i "s|<ecs_cluster_arn>|$ecs_cluster_arn_qa|g" ./service.qa.us-east-2.tfvars
 sed -i "s|<private_subnets>|$private_subnets_qa|g" ./service.qa.us-east-2.tfvars
 sed -i "s|<vpc_id>|$vpc_id_qa|g" ./service.qa.us-east-2.tfvars
 ```
+- [Service UAT `properties file` ./inputs/service.uat.us-east-2.tfvars](./inputs/service.uat.us-east-2.tfvars)
 ```sh
 # service.uat.us-east-2.tfvars
 ecs_cluster_arn_uat="arn:aws:ecs:us-east-2:111111111111:cluster/demo-ecs_ptfrm-useast2-uat-000-fargate-000"
@@ -106,6 +119,7 @@ sed -i "s|<ecs_cluster_arn>|$ecs_cluster_arn_uat|g" ./service.uat.us-east-2.tfva
 sed -i "s|<private_subnets>|$private_subnets_uat|g" ./service.uat.us-east-2.tfvars
 sed -i "s|<vpc_id>|$vpc_id_uat|g" ./service.uat.us-east-2.tfvars
 ```
+- [Service Prod `properties file` ./inputs/service.prod.us-east-2.tfvars](./inputs/service.prod.us-east-2.tfvars)
 ```sh
 # service.prod.us-east-2.tfvars
 ecs_cluster_arn_prod="arn:aws:ecs:us-east-2:111111111111:cluster/demo-ecs_ptfrm-useast2-prod-000-fargate-000"
@@ -116,6 +130,7 @@ sed -i "s|<ecs_cluster_arn>|$ecs_cluster_arn_prod|g" ./service.prod.us-east-2.tf
 sed -i "s|<private_subnets>|$private_subnets_prod|g" ./service.prod.us-east-2.tfvars
 sed -i "s|<vpc_id>|$vpc_id_prod|g" ./service.prod.us-east-2.tfvars
 ```
+- [Application `properties file` ./inputs/application.sandbox.us-east-2.yaml](./inputs/application.sandbox.us-east-2.yaml)
 ```sh
 # application.sandbox.us-east-2.yaml
 url="jdbc:postgresql://myDB-db.111111111111.us-east-2.rds.amazonaws.com:5432/postgres"
@@ -137,16 +152,9 @@ The launch config for the application in this guide is at the following:
 
 Open this file and update the `properties_file` key with the absolute path from your system to the input files to be used, and then save it.
 
-We are going to be using the following inputs for our `.launch_config` files. 
-- [Service `properties file` ./inputs/service.sandbox.us-east-2.tfvars](./inputs/service.sandbox.us-east-2.tfvars)
-- [Pipeline `properties file` ./inputs/pipeline.root.us-east-2.tfvars](./inputs/pipeline.root.us-east-2.tfvars)
-- [Webhooks `properties file` ./inputs/webhooks.root.us-east-2.tfvars](./inputs/webhooks.root.us-east-2.tfvars)
-- [Application `properties file` ./inputs/application.sandbox.us-east-2.yaml](./inputs/application.sandbox.us-east-2.yaml)
-
-This file also includes 2 other files for jinja templates. Update these paths as well.
+This application also includes 2 other files for jinja templates. Update these paths as well.
 - [Application secrets templates./inputs/common-application-config-secret.env.jinja2](./inputs/common-application-config-secret.env.jinja2)
 - [Application non-secrets templates ./inputs/common-application-config-non-secret.env.jinja2](./inputs/common-application-config-non-secret.env.jinja2)
-
 
 Open this file and update the `properties_file` key with the absolute path from your system to the input files to be used and then save it.
 
@@ -172,15 +180,6 @@ launch service create --name launch-demo-ecs-application --in-file /workspaces/w
 </p>
 
 ## 4. **Deploy service**
-
-### Pre-flight
-1. Please ensure you have generated a Github token and it is ready to use in your environment.
-    - [Github Token](./../../../../development-environments/local/tools/token/README.md)
-
-2. Please ensure you have set your AWS credentials.
-    - If using SSO: [AWS SSO](./../../../../../development-environments/local/tools/aws/sso-login/README.md)
-    - Standard config: [AWS cli](./../../../../../development-environments/local/tools/aws/cli/README.md)
-
 ### 4.1. Deploy Infrastructure
 Deploy the pipeline for the Java application service. This step will deploy all the CICD pipeline infrastructure to manage this repository.
 

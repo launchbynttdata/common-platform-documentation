@@ -3,8 +3,8 @@
 1. [Introduction](#1-introduction)
 2. [Prerequisites](#2-prerequisites)
 3. [Install asdf](#3-install-asdf)  
-    3.1. [MacOS local](#31-macos-local)  
-    3.2. [Windows local](#31-windows-local) 
+    3.1. [MacOS](#31-macos)  
+    3.2. [Windows](#31-windows) 
 4. [Appendix](#4-appendix)
 
 ## 1. **Introduction**

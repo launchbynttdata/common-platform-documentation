@@ -30,21 +30,21 @@
             "qa": {
                 "us-east-2": {
                     "000": {
-                        "properties_file": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/shared-services/aws/ecs/inputs/service.qa.us-east-2.tfvars"
+                        "properties_file": "/Users/achristian/workplace/common-platform-documentation/platform/common-automation-framework/shared-services/aws/ecs/inputs/service.qa.us-east-2.tfvars"
                     }
                 }
             },
             "uat": {
                 "us-east-2": {
                     "000": {
-                        "properties_file": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/shared-services/aws/ecs/inputs/service.uat.us-east-2.tfvars"
+                        "properties_file": "/Users/achristian/workplace/common-platform-documentation/platform/common-automation-framework/shared-services/aws/ecs/inputs/service.uat.us-east-2.tfvars"
                     }
                 }
             },
             "prod": {
                 "us-east-2": {
                     "000": {
-                        "properties_file": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/shared-services/aws/ecs/inputs/service.prod.us-east-2.tfvars"
+                        "properties_file": "/Users/achristian/workplace/common-platform-documentation/platform/common-automation-framework/shared-services/aws/ecs/inputs/service.prod.us-east-2.tfvars"
                     }
                 }
             }
@@ -54,7 +54,7 @@
                 "root": {
                     "us-east-2": {
                         "000": {
-                            "properties_file": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/shared-services/aws/ecs/inputs/pipeline.root.us-east-2.tfvars"
+                            "properties_file": "/Users/achristian/workplace/common-platform-documentation/platform/common-automation-framework/shared-services/aws/ecs/inputs/pipeline.root.us-east-2.tfvars"
                         }
                     }
                 }
@@ -63,7 +63,7 @@
                 "root": {
                     "us-east-2": {
                         "000": {
-                            "properties_file": "/workspaces/workplace/common-platform-documentation/platform/common-automation-framework/shared-services/aws/ecs/inputs/webhooks.root.us-east-2.tfvars"
+                            "properties_file": "/Users/achristian/workplace/common-platform-documentation/platform/common-automation-framework/shared-services/aws/ecs/inputs/webhooks.root.us-east-2.tfvars"
                         }
                     }
                 }

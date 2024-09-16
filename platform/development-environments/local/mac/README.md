@@ -60,6 +60,7 @@ You can utilize our Capability Matrix to get started with your development envir
 #### 5.1.1 MacOS
 We use homebrew to install the `asdf` utility. Please follow this guide to install it.
 - [Homebrew](./../tools/homebrew/README.md)
+- [git-credential-manager](./../tools/git/git-credential-manager/README.md)
 
 #### 5.1.2 Windows
 - WSL

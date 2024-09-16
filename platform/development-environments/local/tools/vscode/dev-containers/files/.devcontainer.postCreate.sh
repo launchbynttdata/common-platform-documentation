@@ -59,7 +59,8 @@ chmod 600 ~/.netrc
 git config --global user.name ${github_public_user}
 git config --global user.email ${github_public_email}
 git config --global push.autoSetupRemote true
-git config --global --add safe.directory ${work_dir}
+git config --global --add safe.directory '*'
+git config --global credential.credentialStore cache
 
 # shell aliases
 echo 'alias git_sync="git pull origin main"' >> ~/.bashrc # Alias to sync the repo with the main branch
