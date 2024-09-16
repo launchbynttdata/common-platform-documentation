@@ -70,7 +70,7 @@ We use asdf to manage our runtime versions for the `common-automation-framework`
 - [asdf](./../tools/asdf/README.md)
 
 Our automation is handled through the `launch-cli` utility.
-- [launch-cli]()
+- [launch-cli](./../tools/launch-cli/README.md)
 
 ### 5.3 Cloud Provider:
 - [AWS cli](./../tools/aws/cli/README.md)

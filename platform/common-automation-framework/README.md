@@ -24,7 +24,7 @@ Developer Containers:
 
 If not using Launch's developer container:
 - [asdf](./../development-environments/local/tools/asdf/README.md)
-- [launch-cli](./../development-environments/local/tools/)
+- [launch-cli](./../development-environments/local/tools/launch-cli/README.md)
 
 ## 3. Template Architecture Compatibility
 Template architecture compatibility matrix that shows each our of our templates and their certified compute platform. 

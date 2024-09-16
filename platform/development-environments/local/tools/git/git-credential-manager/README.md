@@ -2,9 +2,9 @@
 ## **Table of Contents**
 1. [Introduction](#1-introduction)
 2. [Prerequisites](#2-prerequisites)
-3. [Install git-credential-manager ](#3-install-homebrew)  
+3. [Install git-credential-manager](#3-install-git-credential-manager)  
     3.1. [MacOS local](#31-macos-local)  
-    3.2. [Windows local](#31-windows-local) 
+    3.2. [Windows local](#31-windows-local)  
 4. [Appendix](#4-appendix)
 
 ## 1. **Introduction**
