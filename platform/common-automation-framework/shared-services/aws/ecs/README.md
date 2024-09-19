@@ -163,7 +163,7 @@ Alternatively, you can find the function URL by navigating to the lambdas in the
 
 Using `launch-cli`, you will need to run this for each of the 4 lambdas' functional URLs.
 
-[WARNING]: You can not copy and paste this command directly. You need to update `MY_SECRET` with the value of the git secret created in the Secrets Manager section.
+> [WARNING]: You can not copy and paste this command directly. You need to update `MY_SECRET` with the value of the git secret created in the Secrets Manager section.
 
 ```sh
 launch github hooks create --repository-name launch-demo-ecs-platform --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL_1

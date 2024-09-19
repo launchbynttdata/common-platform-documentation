@@ -62,10 +62,10 @@ We use homebrew to install the `asdf` utility. Please follow this guide to insta
 - [Homebrew](./../tools/homebrew/README.md)
 - [git-credential-manager](./../tools/git/git-credential-manager/README.md)
 
-#### 5.1.2 Windows
-- WSL
-
 ### 5.2 Common
+Create a GIT token
+- [GITHUB Token](./../tools/git/token/README.md)
+
 We use asdf to manage our runtime versions for the `common-automation-framework`.
 - [asdf](./../tools/asdf/README.md)
 

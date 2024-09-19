@@ -1,4 +1,4 @@
-# Shared-service: Elastic Container Service (ECS)
+# Generate GIT Token
 ### **Table of Contents**
 1. [Introduction](#1-introduction)
 2. [Prerequisites](#2-Prerequisites)
@@ -13,7 +13,7 @@ Local development environment:
 - [MacOS local developer environment](./../../mac/README.md)
 - [Windows local developer environment](./../../windows/README.md)
 
-## 3. **Generate Toke**
+## 3. **Generate Token**
 Launch-CLI makes use of a Personal Access Token (PAT) to authenticate with GitHub.
 
 We currently support fine-grained personal access tokens. More information about setting up a fine-grained token can be found here.
