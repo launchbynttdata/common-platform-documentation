@@ -5,7 +5,8 @@
 3. [Launchify your Application](#3-launchify-your-application)  
   3.1. [Directory Structure](#31-directory-structure)  
   3.2. [Required files](#32-required-files)  
-4. [References](#4-references)
+4. []()
+5. [References](#5-references)
 
 ## 1. Introduction
 An exclusive service in the Launch `common-automation-framework` (LCAF) platform is a service that utilizes many additional services, called shared services. An exclusive service is not dependant on any other service to run and operate nominal. This guide will walk you through on how to turn your application into a repository that can be utilized by the Launch CAF platform. 
@@ -39,20 +40,20 @@ Makefile.includes # Makefile variables to include
 ```
 
 ### 3.1. Directory Structure
-Within your repository, you should structure your application with the following reccomend directory. There are 3 basic folders, the `source`, `platform`, and `test` folder.
+Within your repository, you should structure your application with the following recommend directories. There are 3 basic folders, the `source`, `platform`, and `test` folder.
 
 #### 3.1.1 `source` folder
-This folder is where your application code lives. If your application is a container, your Dockerfile should live here. `make build` assumes your applciation lives in this folder. 
+This folder is where your application code lives. If your application is a container, your Dockerfile should live here. `make build` assumes your application lives in this folder. 
 
 > Can be overridden with `SOURCE_FOLDER` Makefile variable. 
 
 #### 3.1.2 `platform` folder
-This folder is where your infrasturture platform will live. This will contain any pipeline or webhook resources for your CICD. 
+This folder is where your infrastructure platform will live. This will contain any pipeline or webhook resources for your CICD. 
 
 This folder can and should be automatically generated from the `launch service <create|update>` command
 
 #### 3.1.3 `test` folder
-This folder is where your test infrastrucre will live.
+This folder is where your test infrastructure will live.
 
 > TODO: Not Implemented. 
 
@@ -60,12 +61,12 @@ This folder is where your test infrastrucre will live.
 
 To Launch-ify an application, these files need to be added to you repository. Please copy these files and replace or add the necessary configuration for your application. 
 
-- .secrets.baseline
-- .tool-versions
-- Makefile
-- .lcafenv
-- Makefile.includes
-- .gitignore
+- [.secrets.baseline](#321-secretsbaseline)
+- [.tool-versions](#322-tool-versions)
+- [Makefile](#323-makefile)
+- [.lcafenv](#324-lcafenv)
+- [Makefile.includes](#325-makefileincludes)
+- [.gitignore](#326-gitignore)
 
 #### 3.2.1. .secrets.baseline
 This file is used as part of the credential detect-secrets workflow. You can copy this file as is without any changes.
@@ -122,7 +123,7 @@ REPO_MANIFEST="manifests/terraform_modules/seed/manifest.xml"
 # IS_PIPELINE="false"
 # IS_AUTHENTICATED="false"
 # JOB_NAME="job"
-# JOB_EMAIL="job@job.job"
+# JOB_EMAIL="job@job.job"s
 # PLATFORM_VER=
 # CONTAINER_VER=
 # PIPELINES_VER=
@@ -150,7 +151,10 @@ DOCKER_BUILD_ARCH ?= linux/amd64
 This file contains the .gitignore you will need to prevent unneeded LCAF build files to be committed to your repository. 
 - [.gitignore](https://github.com/launchbynttdata/lcaf-template-terragrunt/blob/main/.gitignore)
 
-## 4. References
+## 4. Example Launch-ify
+In this section, we will walk through Launch-ify an application. We will walk through containerizing an application and then adding the necessary files to successfully work with the Launch Platform. 
+
+## 5. References
 - [Compatibility Matrix](./../README.md)
 - [MacOS local developer environment](./../development-environments/local/mac/README.md)
 - [Windows local developer environment](./../development-environments/local/windows/README.md)

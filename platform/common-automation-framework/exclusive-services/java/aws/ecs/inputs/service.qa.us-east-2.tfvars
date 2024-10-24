@@ -141,8 +141,6 @@ http_tcp_listeners = [
 
 https_listeners = []
 
-enable_service_discovery = false
-
 tags = {
   Purpose = "terratest examples"
   Env     = "qa"
@@ -194,3 +192,5 @@ ecs_exec_role_custom_policy_json = <<-EOF
     }
 ]}
 EOF
+
+enable_service_discovery = false

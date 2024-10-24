@@ -275,7 +275,8 @@ If you cannot wait for the pipeline to deploy your service through the PR proces
 We will now deploy the Java application service. 
 
 ```sh
-launch terragrunt --target-environment qa --platform-resource service --apply --generation --render-app-vars
+# Ensure you replace the --aws-secrets-profile with the profile that your Application secrets live in.
+launch terragrunt --target-environment qa --platform-resource service --apply --generation --render-app-vars --aws-secrets-profile <REPLACE_WITH_PROFILE>
 ```
 
 <p align="center">
@@ -319,7 +320,6 @@ launch terragrunt --target-environment root --platform-resource pipeline --destr
 launch terragrunt --target-environment root --platform-resource webhook --destroy --generation
 
 # For each environment deployed
-launch terragrunt --target-environment sandbox --platform-resource service --destroy --generation --render-app-vars
 launch terragrunt --target-environment qa --platform-resource service --destroy --generation --render-app-vars
 launch terragrunt --target-environment uat --platform-resource service --destroy --generation --render-app-vars
 launch terragrunt --target-environment prod --platform-resource service --destroy --generation --render-app-vars
