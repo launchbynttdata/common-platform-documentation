@@ -53,6 +53,7 @@ To configure a token to work with Launch-CLI, follow these steps:
    * **Contents**: Read and write (used to push and pull from repositories)
    * **Metadata**: Read-only (mandatory; required by other permissions)
    * **Pull requests**: Read and Write (coming soon!)
+   * **Webhooks**: Read and Write (for configuration of shared pipelines)
 
 <p align="center">
   <img src="./pictures/img_3.png" /> 
