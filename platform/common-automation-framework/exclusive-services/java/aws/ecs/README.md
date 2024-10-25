@@ -272,7 +272,16 @@ The webhooks will initially fail as the lambda does not allow ping requests.
 #### 4.3.2 Manually deploy service
 If you cannot wait for the pipeline to deploy your service through the PR process, you can manually deploy your service.
 
-We will now deploy the Java application service. 
+You will need to set a few environmental variables to successfully deploy the ECS container. Please update these variables with your correct account information.  
+
+```sh
+# Update the variables with your information
+export CONTAINER_REGISTRY=<MY_REGISTRY> # 012345678912.dkr.ecr.us-east-2.amazonaws.com
+export CONTAINER_IMAGE_VERSION=<MY_VERSION> # latest
+export CONTAINER_IMAGE_NAME=<MY_IMAGE> # launch-api
+```
+
+We will now deploy the Java application service.
 
 ```sh
 # Ensure you replace the --aws-secrets-profile with the profile that your Application secrets live in.
@@ -291,9 +300,6 @@ launch terragrunt --target-environment qa --platform-resource service --apply --
 ```
 This guide is not complete. You will need to manually update the following while updating on the additional development of the outstanding terraform modules.
 
-- Update Secrets in root account with ecs task execution role
-- Update KMS in root account with ecs task execution role
-- Update ECR in root account with ecs task execution role
 - create 8080 listener on `vpn-poc-nlb1` to `vpn-poc-nlb-albtg-privatelink2` target group
 - attach ECS LB to the `vpn-poc-nlb-albtg-privatelink2` TG. 
 ```
@@ -301,11 +307,7 @@ This guide is not complete. You will need to manually update the following while
 In order to view the Java application, you will need a way to access the private VPC. 
 
 Perform these guides to deploy an AWS Client VPN utilizing the launch platform to view this application in a private VPC:
-- [Deploy Client VPN](#TODO)
-- [Configure VPN Client](#TODO)
-
-Utilize a bastion host:
-- [AWS Bastion EC2 Host](#TODO)
+- [Configure VPN Client](./../../../../../development-environments/local/tools/aws/configure_vpn_client/README.md)
 
 Once you are able to connect to the private VPC that your application is running in:
  - You should see your application running by navigating to [http://vpn-poc-nlb1-84d114247ebc21eb.elb.us-east-2.amazonaws.com:8080/swagger-ui/index.html](http://vpn-poc-nlb1-84d114247ebc21eb.elb.us-east-2.amazonaws.com:8080/swagger-ui/index.html). 

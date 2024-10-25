@@ -5,8 +5,12 @@
 3. [Launchify your Application](#3-launchify-your-application)  
   3.1. [Directory Structure](#31-directory-structure)  
   3.2. [Required files](#32-required-files)  
-4. []()
-5. [References](#5-references)
+4. [Launchify Tutorial](#4-launchify-tutorial)  
+  4.1. [Base Project](#41-base-project)  
+  4.2. [Containerize Project](#42-containerize-project)  
+  4.3. [Launch-ify project](#43-launch-ify-project)  
+  4.4. [Deploy Project](#44-deploy-project)  
+5. [References](#5-references)  
 
 ## 1. Introduction
 An exclusive service in the Launch `common-automation-framework` (LCAF) platform is a service that utilizes many additional services, called shared services. An exclusive service is not dependant on any other service to run and operate nominal. This guide will walk you through on how to turn your application into a repository that can be utilized by the Launch CAF platform. 
@@ -151,8 +155,83 @@ DOCKER_BUILD_ARCH ?= linux/amd64
 This file contains the .gitignore you will need to prevent unneeded LCAF build files to be committed to your repository. 
 - [.gitignore](https://github.com/launchbynttdata/lcaf-template-terragrunt/blob/main/.gitignore)
 
-## 4. Example Launch-ify
-In this section, we will walk through Launch-ify an application. We will walk through containerizing an application and then adding the necessary files to successfully work with the Launch Platform. 
+## 4. Launchify Tutorial
+In this section, we will walk through Launch-ify an application. We will containerize an application and then adding the necessary files to successfully work with the Launch Platform. 
+
+### 4.1 Base Project
+We will be using the following example project during this tutorial
+
+- [example-app-containerization-tutorial](https://github.com/launchbynttdata/example-app-containerization-tutorial)
+
+```sh
+git clone https://github.com/launchbynttdata/example-app-containerization-tutorial.git
+```
+
+### 4.2 Containerize Project
+We will now add a `Dockerfile` to the project for containerization.
+
+```sh
+# Ensure you are in the cloned repo's directory
+cd example-app-containerization-tutorial
+echo 'FROM node:18-alpine
+WORKDIR /app
+COPY . .
+RUN yarn install --production
+CMD ["node", "src/index.js"]
+EXPOSE 3000' > Dockerfile
+```
+
+The example application has now been containerized. 
+
+### 4.3 Launch-ify project
+We will now make the necessary changes to the project to launch-ify it.
+
+#### 4.3.1 Folder Structure
+Create a new folder at the root of the repository called `source`.
+
+```sh
+mkdir source
+```
+
+We will move all the files within this project except for the README into this folder. You can do this manually or use this quick one-line script.
+
+```sh
+find . -mindepth 1 -maxdepth 1 ! -name 'README.md' ! -name 'source' -exec mv "{}" source/ \;
+```
+
+You should now have a folder similar to the following:
+
+<p align="center">
+  <img src="./pictures/source-folder.png" /> 
+</p>
+
+#### 4.3.2 Add required files
+We now need to add the required files to the root of the project for the Launch platform.
+
+```sh
+wget https://github.com/launchbynttdata/lcaf-template-terragrunt/blob/main/.secrets.baseline
+wget https://github.com/launchbynttdata/lcaf-template-terragrunt/blob/main/.tool-versions
+wget https://github.com/launchbynttdata/lcaf-template-terragrunt/blob/main/Makefile
+wget https://github.com/launchbynttdata/lcaf-template-terragrunt/blob/main/.gitignore
+```
+
+Create your `Makefile.includes` file based off the guidance in section [3.2.5](#325-makefileincludes)
+```sh
+# You can replace these vars to your needs. These defaults will work as well.
+echo 'CONTAINER_REGISTRY ?= my.container.registry.com
+CONTAINER_IMAGE_NAME ?= launch-example-tutorial
+CONTAINER_IMAGE_VERSION ?= dev
+BUILD_ARGS ?= --progress plain --no-cache
+DOCKER_BUILD_ARCH ?= linux/amd64' > Makefile.includes
+```
+
+Update the `.lcafenv` file based off the guidance in [3.2.4](#324-lcafenv)
+```sh
+wget https://github.com/launchbynttdata/lcaf-template-terragrunt/blob/main/.lcafenv
+vi .lcafenv
+```
+
+### 4.4 Deploy Project
 
 ## 5. References
 - [Compatibility Matrix](./../README.md)
