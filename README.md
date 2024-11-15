@@ -45,8 +45,8 @@ Explore our comprehensive capability matrix to see the compatibility and feature
 Transform your cloud deployment experience with LCAF. Our platform is designed to provide you with the tools and resources you need to succeed in today’s competitive landscape.
 
 Local development environment:  
-- [MacOS local developer environment](https://github.com/launchbynttdata/common-platform-documentation/blob/main/platform/development-environments/local/mac/README.md)
-- [Windows local developer environment](https://github.com/launchbynttdata/common-platform-documentation/blob/main/platform/development-environments/local/windows/README.md)
+- [MacOS local developer environment](./platform/development-environments/local/mac/README.md)
+- [Windows local developer environment](./platform/development-environments/local/windows/README.md)
 
 ## 6. Contact Us
 Ready to take the next step? [Contact Us](link-to-contact-us) for a demo to start your journey with the Launch Common Automation Framework (LCAF) Platform.
