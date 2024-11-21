@@ -232,6 +232,8 @@ vi .lcafenv
 ```
 
 ### 4.4 Deploy Project
+Once the application is launch-ifed, you are now able to follow any of these deployment guides in the compatibility matrix to deploy your exclusive service.
+- [Compatibility Matrix](./../README.md)
 
 ## 5. References
 - [Compatibility Matrix](./../README.md)
