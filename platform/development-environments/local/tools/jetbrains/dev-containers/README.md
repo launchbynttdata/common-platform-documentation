@@ -47,7 +47,7 @@ Add a 2 new files to the root of the repo's repository called `.devcontainer.jso
 We are now going to update the `.devcontainer.json` with our template from this guide. 
 
 You can find the file at:
-- [.devcontainer.json](./files/.devcontainer.json)
+- [.devcontainer.json](https://github.com/launchbynttdata/launch-developer-containers/blob/main/jetbrains/intellij-IDEA/complete/.devcontainer.json)
 
 Copy the settings from that into your newly created `.devcontainer.json` file.
 <p align="center">
@@ -64,7 +64,7 @@ Within `.devcontainer.json`, update the relative path in the `postCreateCommand`
 We are now going to update the `.devcontainer.postCreate.sh` with our template from this guide.
 
 You can find the file at:
-- [.devcontainer.postCreate.sh](./files/.devcontainer.postCreate.sh)
+- [.devcontainer.postCreate.sh](https://github.com/launchbynttdata/launch-developer-containers/blob/main/jetbrains/intellij-IDEA/complete/.devcontainer.postCreate.sh)
 
 <p align="center">
   <img src="./pictures/3-intellij-devcontainer-postcreate-copy-01.png" /> 

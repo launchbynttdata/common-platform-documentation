@@ -189,7 +189,11 @@ Deploy the ECS service. This is the actual ECS cluster.
 
 ```sh
 cd launch-demo-ecs-platform # Ensure you are in your created repository's directory
-launch terragrunt --target-environment sandbox --platform-resource service --apply --generation
+launch terragrunt --target-environment qa --platform-resource service --apply --generation
+
+# For each additional environment
+launch terragrunt --target-environment uat --platform-resource service --apply --generation
+launch terragrunt --target-environment prod --platform-resource service --apply --generation
 ```
 
 <p align="center">
@@ -207,7 +211,6 @@ launch terragrunt --target-environment root --platform-resource pipeline --destr
 launch terragrunt --target-environment root --platform-resource webhook --destroy --generation
 
 # For each environment deployed
-launch terragrunt --target-environment sandbox --platform-resource service --destroy --generation
 launch terragrunt --target-environment qa --platform-resource service --destroy --generation
 launch terragrunt --target-environment uat --platform-resource service --destroy --generation
 launch terragrunt --target-environment prod --platform-resource service --destroy --generation
