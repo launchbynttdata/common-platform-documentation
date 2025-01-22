@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ### MicrosoftOffice template
 *.tmp
 
@@ -354,3 +355,8 @@ fabric.properties
 .nfs*
 
 .idea/
+=======
+**/.vscode
+# Finder
+.DS_Store
+>>>>>>> 361f2ad5a7a978370cb4d4a12cd68b9d674ac1d7
