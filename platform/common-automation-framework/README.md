@@ -52,6 +52,8 @@ Shared services are cloud services deployed that are utilized by many other serv
 ### 4.2 Exclusive Services
 Exclusive services are services deployed that are self contained. These services might use one or many shared services. 
 
+- [Launch-ify an Application](./exclusive-services/README.md)
+
 #### 4.2.1 AWS:
 - [Java application on Elastic Container Service (ECS)](./exclusive-services/java/aws/ecs/README.md)
 

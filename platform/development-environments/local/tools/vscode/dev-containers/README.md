@@ -70,10 +70,10 @@ This will create and build a new Ubuntu dev container.
 ### 3.4. Configure Container
 We are now going to update the `.devcontainer.json` with our template from this guide. You can find the file at:
 
-- [devcontainer.json](./files/.devcontainer.json)
+- [devcontainer.json](https://github.com/launchbynttdata/launch-developer-containers/blob/main/vscode/complete/.devcontainer.json)
 
 There is also another file within this guide called `.devcontainer.postCreate.sh`. This script is a first time boot script that runs after your container is built. This script performs most of our containers configuration. 
-- [.devcontainer.postCreate.sh](./files/.devcontainer.postCreate.sh)
+- [.devcontainer.postCreate.sh](https://github.com/launchbynttdata/launch-developer-containers/blob/main/vscode/complete/.devcontainer.postCreate.sh)
 
 Within `.devcontainer.json`, update the relative path in the `postCreateCommand` to the path to where you saved `.devcontainer.postCreate.sh`. 
 `./.devcontainer.postCreate.sh`
