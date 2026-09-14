@@ -15,7 +15,7 @@ Terraform will be broadly used to manage the state of resources. This includes:
 
 Collections of services provisioned through the use of Terraform resources, which collectively aim to provide a service with continuity, will be configured such that the code (HCL, YAML, JSON, etc.) describes the desired state of this service, made available for consumption. These service collections when unified to provide constructive capability, will fall into one of two categories both of which must comply with the following principles:
 - [Self Contained Repository Deployment Principle](../../principles/self-contained-repository-deployment-principle.md)
-- [Single Purpose RepositoryPrinciple](../../principles/self-contained-repository-deployment-principle.md)
+- [Single Purpose Repository Principle](../../principles/single-purpose-repository-principle.md)
 
 #### 1. "Exclusive Service"
 
