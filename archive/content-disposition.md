@@ -4,7 +4,7 @@ This record is the decision log for legacy material in the knowledge base. It do
 
 The rows below are the pull request 1 outcomes. This task does not rewrite active pages into new standards. It does not leave a legacy page in place as a final keep. Rewritten and retained are defined so later tasks use the same outcomes. They have no rows in this task.
 
-A few active pages were edited only where a checker violation or a removed target required it. The platform map no longer calls empty title reservations historical procedures. The repository naming index dropped the section for the archived framework naming scheme and the link to a removed Python placeholder. The library module page dropped a deprecated product name from its example sentence. The standards index no longer lists the tagging page. The versioning page now points at the archived tagging note so that pointer still resolves. The rest of those pages is unchanged.
+A few active pages were edited only where a checker violation or a removed target required it. The platform map no longer calls empty title reservations historical procedures. The repository naming index dropped the section for the archived framework naming scheme and the link to a removed Python placeholder. The library module page dropped a deprecated product name from its example sentence. The standards index no longer lists the tagging page. The versioning page points at the archived tagging note and states that the note is historical and non-authoritative. The rest of those pages is unchanged.
 
 ## Outcomes
 
@@ -27,7 +27,7 @@ The archive task moved these paths with history preserved. Destinations are the 
 | `standards/iac-development/terraform/module/wrapper/deploy/` | `archive/framework-era/standards/iac-development/terraform/module/wrapper/deploy/` | Service-specific deploy notes. They are procedures, not the Terraform module standard. |
 | `platform/pipeline/iac/azure-subscription-bootstrapping/` | `archive/framework-era/platform/pipeline/iac/azure-subscription-bootstrapping/` | Subscription bootstrap diagrams and their drawing source. They are historical procedure assets, not an active pipeline standard. |
 | `standards/common-development/git/repository/naming-schemes/lcaf-component-names.md` | `archive/framework-era/standards/common-development/git/repository/naming-schemes/lcaf-component-names.md` | Repository names for the deprecated framework. The scheme is historical context, not a current naming standard. |
-| `standards/common-development/git/tagging/README.md` | `archive/pre-refresh/standards/common-development/git/tagging/README.md` | The page contained a former-company repository link and a personal shell prompt. It is a historical note, not an active standard. The page was not rewritten. |
+| `standards/common-development/git/tagging/README.md` | `archive/pre-refresh/standards/common-development/git/tagging/README.md` | Historical note, not an active standard. Personal shell prompts were replaced with `developer@workstation`. The former-company repository link was removed and labeled as a historical example that is not publicly linked. The rest of the page was not rewritten into a current standard. |
 
 `platform/development-environments/` includes substantive tool pages and the placeholder pages outside `serverless/`. Those moved with the directory. The three `serverless/` placeholders were removed instead; see below.
 

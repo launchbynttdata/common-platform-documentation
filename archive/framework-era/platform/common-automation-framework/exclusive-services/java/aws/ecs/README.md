@@ -277,8 +277,8 @@ launch terragrunt --target-environment qa --platform-resource service --apply --
 ```
 This guide is not complete. You will need to manually update the following while updating on the additional development of the outstanding terraform modules.
 
-- create 8080 listener on `vpn-poc-nlb1` to `vpn-poc-nlb-albtg-privatelink2` target group
-- attach ECS LB to the `vpn-poc-nlb-albtg-privatelink2` TG.
+- create 8080 listener on `example-nlb` to `example-target-group` target group
+- attach ECS LB to the `example-target-group` TG.
 ```
 
 In order to view the Java application, you will need a way to access the private VPC.
@@ -287,7 +287,7 @@ Perform these guides to deploy an AWS Client VPN utilizing the launch platform t
 - [Configure VPN Client](./../../../../../development-environments/local/tools/aws/configure_vpn_client/README.md)
 
 Once you are able to connect to the private VPC that your application is running in:
- - You should see your application running by navigating to [http://vpn-poc-nlb1-84d114247ebc21eb.elb.us-east-2.amazonaws.com:8080/swagger-ui/index.html](http://vpn-poc-nlb1-84d114247ebc21eb.elb.us-east-2.amazonaws.com:8080/swagger-ui/index.html).
+ - You should see your application running by navigating to [http://example.invalid:8080/swagger-ui/index.html](http://example.invalid:8080/swagger-ui/index.html).
 
   <br>
 

@@ -2,7 +2,7 @@
 
 ## Discussion
 
-The Launch Platform Team utilizes automated git tagging for managing code versioning. This approach ensures adherence to versioning standards and generates consistent version outputs. To facilitate this process, the team has developed a custom tool called [launch-cli](https://github.com/nexient-llc/launch-cli). The tool is capable of detecting, predicting, and tagging Semver version IDs.
+The Launch Platform Team utilizes automated git tagging for managing code versioning. This approach ensures adherence to versioning standards and generates consistent version outputs. To facilitate this process, the team has developed a custom tool called launch-cli (historical example, not publicly linked). The tool is capable of detecting, predicting, and tagging Semver version IDs.
 
 See [semver.org](https://semver.org) for a complete discussion of Semantic Versioning.
 
