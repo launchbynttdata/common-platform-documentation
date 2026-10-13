@@ -2,7 +2,9 @@
 
 This record is the decision log for legacy material in the knowledge base. It does not repeat private source locations, credentials, account identifiers, or personal filesystem paths.
 
-The archive task that follows this navigation change implements the archived and removed rows below. It does not rewrite active prose and it does not leave a legacy page in place as a final keep. Rewritten and retained are defined so later tasks use the same outcomes. They have no rows in this task.
+The rows below are the pull request 1 outcomes. This task does not rewrite active pages into new standards. It does not leave a legacy page in place as a final keep. Rewritten and retained are defined so later tasks use the same outcomes. They have no rows in this task.
+
+A few active pages were edited only where a checker violation or a removed target required it. The platform map no longer calls empty title reservations historical procedures. The repository naming index dropped the section for the archived framework naming scheme and the link to a removed Python placeholder. The library module page dropped a deprecated product name from its example sentence. The rest of those pages is unchanged.
 
 ## Outcomes
 
@@ -16,7 +18,7 @@ The archive task that follows this navigation change implements the archived and
 
 ## Archived
 
-The archive task moves these paths with history preserved. Destinations are the archive locations for that move.
+The archive task moved these paths with history preserved. Destinations are the archive locations for that move.
 
 | Former path | Destination | Reason |
 | --- | --- | --- |
@@ -24,25 +26,35 @@ The archive task moves these paths with history preserved. Destinations are the 
 | `platform/development-environments/` | `archive/framework-era/platform/development-environments/` | Step-by-step local and hybrid environment procedures, including tool setup. They are not the platform map. |
 | `standards/iac-development/terraform/module/wrapper/deploy/` | `archive/framework-era/standards/iac-development/terraform/module/wrapper/deploy/` | Service-specific deploy notes. They are procedures, not the Terraform module standard. |
 | `platform/pipeline/iac/azure-subscription-bootstrapping/` | `archive/framework-era/platform/pipeline/iac/azure-subscription-bootstrapping/` | Subscription bootstrap diagrams and their drawing source. They are historical procedure assets, not an active pipeline standard. |
+| `standards/common-development/git/repository/naming-schemes/lcaf-component-names.md` | `archive/framework-era/standards/common-development/git/repository/naming-schemes/lcaf-component-names.md` | Repository names for the deprecated framework. The scheme is historical context, not a current naming standard. |
 
-`platform/development-environments/` includes substantive tool pages and the placeholder pages outside `serverless/`. Those move with the directory. The three `serverless/` placeholders are removed instead; see below.
+`platform/development-environments/` includes substantive tool pages and the placeholder pages outside `serverless/`. Those moved with the directory. The three `serverless/` placeholders were removed instead; see below.
 
-`standards/iac-development/terraform/module/wrapper/deploy/` includes `dns.md`, `expressroute.md`, and a placeholder `README.md`. The two notes stay in the archived directory. The placeholder `README.md` is removed after the move.
+`standards/iac-development/terraform/module/wrapper/deploy/` includes `dns.md` and `expressroute.md`. Both notes stayed in the archived directory. The placeholder `README.md` was removed after the move. Client tenant, subscription, and DNS names in `dns.md` were replaced with obvious neutral examples.
+
+Account identifiers, personal names, contact details, machine-local paths, former-company repository locations, and client hostnames in the archived trees were replaced with obvious neutral examples. The rendered hub-and-spoke diagram image was removed because it showed a client DNS name and could not be redacted as text. The drawing source and HTML export stayed after those names were replaced. Console screenshots under the archived automation procedures were removed, except the architecture diagram exports. The VPN client pictures were removed. Two multi-account images that showed a personal GitHub account were removed. Pages no longer reference those removed images.
 
 ## Removed
 
-Placeholder-only Markdown has no body after headings are removed, or the body is only an empty marker. Non-empty documents in the same trees are not removed by this task and do not yet have a rewritten or retained outcome.
+Placeholder-only Markdown has no body after headings are removed, or the body is only an empty marker. Non-empty documents in the same trees were not removed by this task and do not yet have a rewritten or retained outcome.
 
 | Former path | Reason |
 | --- | --- |
-| Every `*.md` file under `platform/pipeline/` | Each one is placeholder-only and only reserves a pipeline title. This does not include `platform/pipeline/iac/azure-subscription-bootstrapping/`, which has no Markdown and is archived above. |
-| Every `.keep` file under `platform/infrastructure/`, then any directory that deletion leaves empty | The tree has no documentation. It only reserves infrastructure titles. |
-| Placeholder-only `*.md` files under `standards/common-development/` | Empty or heading-only pages reserve titles. The non-empty exceptions below stay in place. |
-| Placeholder-only `*.md` files under `standards/iac-development/` | Empty pages reserve titles. The non-empty module and strategy pages below stay in place. The placeholder `standards/iac-development/terraform/module/wrapper/deploy/README.md` is removed even though its directory is archived. |
+| Every `*.md` file under `platform/pipeline/` | Each one was placeholder-only and only reserved a pipeline title. This does not include `platform/pipeline/iac/azure-subscription-bootstrapping/`, which has no Markdown and was archived above. |
+| Every `.keep` file under `platform/infrastructure/`, then any directory that deletion left empty | The tree had no documentation. It only reserved infrastructure titles. |
+| Placeholder-only `*.md` files under `standards/common-development/` | Empty or heading-only pages reserved titles. The non-empty exceptions below stayed in place. |
+| Placeholder-only `*.md` files under `standards/iac-development/` | Empty pages reserved titles. The non-empty module and strategy pages below stayed in place. The placeholder `standards/iac-development/terraform/module/wrapper/deploy/README.md` was removed even though its directory was archived. |
 | `platform/development-environments/serverless/README.md` | Placeholder-only. Not kept inside the archived environment tree. |
 | `platform/development-environments/serverless/aws-sam-cli/README.md` | Placeholder-only. Not kept inside the archived environment tree. |
 | `platform/development-environments/serverless/azure-functions-core-tools/README.md` | Placeholder-only. Not kept inside the archived environment tree. |
-| Directories left empty by the deletions above | They exist only to hold the removed scaffolding. |
+| `platform/launch-public-service/README.md` | Empty placeholder. The module-registry page in the same directory stayed. |
+| `platform/launch-public-service/regula-policies/README.md` | Empty placeholder. The directory held no other file, so the directory was removed. |
+| `platform/development-environments/hybrid/terraform/hub-spoke_networks/architecture_diagram-per_wrapper.jpg` | The rendered diagram showed a client DNS name. The image could not be redacted, so it was removed instead of archived. |
+| Console screenshots under `platform/common-automation-framework/`, except `*complete.png` architecture exports | The samples showed account identifiers and live webhook URLs. The images could not be redacted, so the console captures were removed. |
+| `platform/development-environments/local/tools/aws/configure_vpn_client/pictures/` | The pictures showed account details, VPN configuration, and a VPN endpoint. The directory was removed. |
+| `platform/development-environments/local/tools/git/multi-account/images/github-user-selection.png` | The image showed personal GitHub account names. |
+| `platform/development-environments/local/tools/git/multi-account/images/reauthorization.png` | The image showed a personal GitHub account name. |
+| Directories left empty by the deletions above | They existed only to hold the removed scaffolding. |
 
 ### Non-empty documents this task does not remove
 
@@ -50,10 +62,12 @@ Under `standards/common-development/`:
 
 - `standards/common-development/git/repository/naming-schemes.md`
 - `standards/common-development/git/repository/naming-schemes/iac-repository-names.md`
-- `standards/common-development/git/repository/naming-schemes/lcaf-component-names.md`
 - `standards/common-development/git/repository/naming-schemes/platform-sample-applications.md`
 - `standards/common-development/git/tagging/README.md`
 - `standards/common-development/versioning/README.md`
+- `standards/common-development/java/hexagonal/pictures/`
+
+The hexagonal pictures stayed because they are not Markdown and the directory was not empty after the placeholder page was removed. They are not a current standard.
 
 Under `standards/iac-development/`, excluding the archived deploy directory:
 
@@ -63,6 +77,6 @@ Under `standards/iac-development/`, excluding the archived deploy directory:
 - `standards/iac-development/terraform/module/reference-architecture/README.md`
 - `standards/iac-development/terraform/module/library/README.md`
 
-Under the archived deploy directory, `dns.md` and `expressroute.md` are archived, not removed.
+Under the archived deploy directory, `dns.md` and `expressroute.md` were archived, not removed.
 
 No other legacy path receives an outcome in this task. Later tasks record those decisions in this file.

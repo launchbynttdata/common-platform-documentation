@@ -35,6 +35,6 @@ The capability map itself is not written yet. The links below are the substantiv
 
 The three deployment pages describe delivery approaches that currently live in this directory. They are not map entries for platform components.
 
-Other populated directories under `platform/` are historical procedures. They are not linked from this map. The [archive disposition](../archive/content-disposition.md) lists the path families that move out of the active tree. Read the [archive warning](../archive/README.md) before using anything stored there.
+Historical procedures that used to sit under `platform/` are listed in the [archive disposition](../archive/content-disposition.md). They are not linked from this map. Empty title reservations were removed rather than kept as procedures. Read the [archive warning](../archive/README.md) before using anything stored there.
 
 [Knowledge base home](../README.md)

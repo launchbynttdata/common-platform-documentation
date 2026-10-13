@@ -22,6 +22,6 @@ Archived pages are not active guidance. They are not held to the four questions 
 
 ## Disposition
 
-The archive body is not filled by the navigation change. [Content disposition](content-disposition.md) defines the four outcomes for legacy material: rewritten, retained, archived, and removed. It records the path-family decisions for the task that moves and deletes historical content.
+[Content disposition](content-disposition.md) defines the four outcomes for legacy material: rewritten, retained, archived, and removed. It records which path families were moved into this archive and which were deleted.
 
 [Knowledge base home](../README.md)
