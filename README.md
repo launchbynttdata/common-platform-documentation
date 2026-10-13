@@ -1,61 +1,42 @@
-# Launch Common Automation Framework (LCAF) Platform
-Welcome to the Launch Common Automation Framework (LCAF) Platform – your ultimate solution for seamless, efficient, and scalable cloud deployments. Designed for innovators, developers, and IT professionals, LCAF empowers you to accelerate your digital transformation journey with ease and confidence.
+# Platform engineering knowledge base
 
-## Table of Contents
-1. [Why Choose LCAF?](#1-why-choose-lcaf)
-2. [Key Features](#2-key-features)
-3. [Who Can Benefit?](#3-who-can-benefit)
-4. [Capability Matrix](#4-capability-matrix)
-5. [Getting Started](#5-getting-started)
-6. [Contact Us](#6-contact-us)
+This repository is the platform engineering team's public knowledge base. It records why the team builds the platform as it does, which choices are current team defaults, and where implementation detail lives.
 
-## 1. Why Choose LCAF?
-### Seamless Integration
-LCAF is built to integrate effortlessly with all major cloud platforms, ensuring a smooth and efficient deployment process. Say goodbye to compatibility issues and hello to a unified, streamlined workflow.
+Platform engineers are the primary audience. The repository is public, so an engineer outside the team should be able to follow the argument without internal account access or unstated context.
 
-### Robust Technology Templates
-Our extensive library of technology templates is designed to meet diverse business needs. Whether you're working on microservices, serverless architectures, or data analytics, LCAF has you covered.
+Commands, configuration, and verification belong with the component that owns them. This knowledge base states the durable reason, the team default, and which owning repository holds the mechanics. It does not replace that component's documentation.
 
-### Optimized Performance
-With LCAF, you can be assured of optimal performance. Our templates are fine-tuned to make the most of your cloud infrastructure, delivering high efficiency and reliability.
+## Content types
 
-### Scalability
-As your business grows, so do your requirements. LCAF provides the scalability you need to expand your operations without compromising on performance or manageability.
+**Principle.** A durable claim about why the team works this way. It should still hold after the current tools change.
 
-### Cost-Effective
-Maximize your ROI with LCAF. Our platform helps you make data-driven decisions to optimize your cloud resources, reducing costs while maintaining top-notch performance.
+**Practice.** How those principles change delivery and operations: what an engineer is expected to do, and what stays in a component repository.
 
-## 2. Key Features
-- **Multi-Cloud Compatibility**: Deploy your applications on any major cloud platform, including AWS, Azure, Google Cloud, and more.
-- **Pre-Built Templates**: Choose from a wide array of pre-built templates that cater to various technological needs and use cases.
-- **Automated Workflows**: Automate repetitive tasks and workflows, freeing up your team to focus on innovation.
-- **Security**: Implement best-in-class security practices with our built-in security features, ensuring your data and applications are protected.
+**Standard.** A current team default or compatibility contract. Follow it unless a documented reason justifies an exception.
 
-## 3. Who Can Benefit?
-- **Developers**: Accelerate your development process with ready-to-use templates and automated workflows.
-- **IT Managers**: Simplify management and scaling of cloud resources while maintaining control and visibility.
-- **Business Leaders**: Achieve faster time-to-market and improved operational efficiency, driving business growth.
+**Platform map.** A capability-level picture of the current platform: what each major component is for, how the components relate, and where the owning documentation lives. It does not copy component procedures.
 
-## 4. Capability Matrix
-Explore our comprehensive capability matrix to see the compatibility and feature set of our templates across various cloud environments.
+**New idea.** A proposal under exploration. Publishing it here is not a commitment, and it is not a supported standard.
 
-- [Capability Matrix](./platform/common-automation-framework/README.md)
+## Active guidance
 
-## 5. Getting Started
-Transform your cloud deployment experience with LCAF. Our platform is designed to provide you with the tools and resources you need to succeed in today’s competitive landscape.
+- [Principles](principles/README.md)
+- [Practices](practices/README.md)
+- [Standards](standards/README.md)
+- [Platform map](platform/README.md)
 
-Local development environment:  
-- [MacOS local developer environment](./platform/development-environments/local/mac/README.md)
-- [Windows local developer environment](./platform/development-environments/local/windows/README.md)
+## Proposals
 
-## 6. Contact Us
-Ready to take the next step? [Contact Us](link-to-contact-us) for a demo to start your journey with the Launch Common Automation Framework (LCAF) Platform.
+- [New ideas](new-ideas/README.md)
 
-## 7. **License**
-Unless explicitly stated otherwise, the content of the "common-platform-documentation" repository is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License (CC BY-NC-ND 4.0).
+## Historical material
 
-[Read Full License](./LICENSE)
+- [Archive](archive/README.md)
 
----
+The archive is not current guidance. Do not use it as a procedure, a team default, or a source for commands. It remains so older decisions can be read in context. Active navigation stops at that entry point.
 
-Join the future of cloud deployment with LCAF – where innovation meets efficiency.
+## License
+
+Unless explicitly stated otherwise, the content of this repository is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License (CC BY-NC-ND 4.0).
+
+[Full license](LICENSE)
