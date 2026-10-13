@@ -356,3 +356,6 @@ fabric.properties
 .idea/
 
 **/.vscode
+
+# Local Git worktrees
+.worktrees/
