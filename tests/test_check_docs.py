@@ -67,6 +67,18 @@ class CheckDocsTests(unittest.TestCase):
         self.write("README.md", f"Use `{local_path}`.\n")
         self.assertHasViolation("machine-local path")
 
+    def test_rejects_windows_backslash_user_path(self):
+        local_path = "C:" + "\\" + "Users\\" + "example\\tool"
+        self.write("README.md", f"Use `{local_path}`.\n")
+        violations = check_repository(self.root)
+        self.assertTrue(any(local_path in item for item in violations), violations)
+
+    def test_rejects_windows_forward_slash_user_path(self):
+        local_path = "C:" + "/" + "Users/" + "example/tool"
+        self.write("README.md", f"Use `{local_path}`.\n")
+        violations = check_repository(self.root)
+        self.assertTrue(any(local_path in item for item in violations), violations)
+
     def test_rejects_missing_relative_link(self):
         self.write("README.md", "[Missing](./missing.md)\n")
         self.assertHasViolation("missing link target")

@@ -135,7 +135,7 @@ PLACEHOLDER_TEXT = {
 LOCAL_PATH_PATTERNS = (
     re.compile(r"(?<![\w])/(?:Users|home)/[^`\s)]+"),
     re.compile(r"\b" + re.escape("file" + "://") + r"[^\s)]+"),
-    re.compile(r"\b[A-Za-z]:\\\\Users\\\\[^\s)]+"),
+    re.compile(r"\b[A-Za-z]:([/\\])Users\1[^`\s)]+"),
 )
 MODULE_URL_PAIRS = (
     (
@@ -172,7 +172,9 @@ Implementation requirements:
    placeholder-only active pages. Reject bodies containing only a standard
    placeholder marker.
 5. Reject macOS, Linux, Windows, and local-filesystem URI paths in all tracked
-   text, including the archive.
+   text, including the archive. A Windows user-profile path is machine-local
+   when a drive letter and colon are followed by one backslash or one forward
+   slash, the Users directory, and that same separator.
 6. Parse inline Markdown links and images. Ignore `http`, `https`, `mailto`,
    and heading-only links. URL-decode repository-relative targets, remove
    query strings and fragments, resolve from the source file, and require the

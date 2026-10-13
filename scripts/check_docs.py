@@ -32,7 +32,7 @@ PLACEHOLDER_TEXT = {
 LOCAL_PATH_PATTERNS = (
     re.compile(r"(?<![\w])/(?:Users|home)/[^`\s)]+"),
     re.compile(r"\b" + re.escape("file" + "://") + r"[^\s)]+"),
-    re.compile(r"\b[A-Za-z]:\\\\Users\\\\[^\s)]+"),
+    re.compile(r"\b[A-Za-z]:([/\\])Users\1[^`\s)]+"),
 )
 MODULE_URL_PAIRS = (
     (
