@@ -359,3 +359,7 @@ fabric.properties
 
 # Local Git worktrees
 .worktrees/
+
+# Python test artifacts
+__pycache__/
+*.py[cod]
