@@ -44,17 +44,10 @@ Software:
 </p>
 
 - After downloaded, click `Ok`
-<p align="center">
-  <img src="./pictures/3.3-intellij-java-04.png" /> 
-</p>
-
 - Launch a terminal and type the following to ensure java was installed.
 ```sh
 $ java --version
 ```
-<p align="center">
-  <img src="./pictures/3.3-intellij-java-05.png" /> 
-</p>
 - Run the command in terminal to set JAVA_HOME "export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home"
 - Add the jdk/bin path to system path variable PATH=$JAVA_HOME/bin:$PATH
 

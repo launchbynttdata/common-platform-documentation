@@ -24,10 +24,6 @@ MacOS:
 ### 3.3 MacOS
 1. Open Terminal.
 
-<p align="center">
-  <img src="./pictures/3.2-asdf-terminal-01.png" /> 
-</p>
-
 2. Install `asdf` by running the following commands:
 
     ```sh
@@ -36,7 +32,6 @@ MacOS:
     ```
 
 <p align="center">
-  <img src="./pictures/3.2-asdf-install-01.png" /> </br>
   <img src="./pictures/3.2-asdf-install-02.png" /> 
 </p>
 
@@ -47,19 +42,11 @@ MacOS:
     $ source ~/.zshrc
     ```
 
-<p align="center">
-  <img src="./pictures/3.2-asdf-shell-01.png" /> 
-</p>
-
 4. Verify the installation by running:
 
     ```sh
     asdf --version
     ```
-
-<p align="center">
-  <img src="./pictures/3.2-asdf-version-01.png" /> 
-</p>
 
 ### 3.4 Windows
 

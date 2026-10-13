@@ -32,10 +32,6 @@ Software:
 
 - Click on `Build, Execution, Deployment` -> `Build Tools` -> `Gradle`, then click on `Ok`
 
-<p align="center">
-  <img src="./pictures/3.3-intellij-gradle-02.png" /> 
-</p>
-
 ### 3.2 Visual Studio Code
 
 ### 3.3 MacOS local

@@ -18,19 +18,11 @@ Local development environment:
 ## 3. **Install Homebrew**
 1. Open Terminal.
 
-<p align="center">
-  <img src="./pictures/3.1-homebrew-terminal-01.png" /> 
-</p>
-
 2. Install Homebrew by running the following command:
 
     ```sh
     $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
-
-<p align="center">
-  <img src="./pictures/3.1-homebrew-install-01.png" /> 
-</p>
 
 3. Once the installation is complete, verify it by running:
 

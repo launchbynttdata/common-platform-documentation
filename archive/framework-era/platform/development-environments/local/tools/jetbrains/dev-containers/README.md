@@ -40,8 +40,7 @@ Click on `Plugins` and search for `containers`. Ensure `Dev Containers` is enabl
 Add a 2 new files to the root of the repo's repository called `.devcontainer.json` and `.devcontainer.postCreate.sh`.
 
 <p align="center">
-  <img src="./pictures/3-intellij-devcontainer-json-01.png" /> </br>
-  <img src="./pictures/3-intellij-devcontainer-postcreate-01.png" />
+  <img src="./pictures/3-intellij-devcontainer-json-01.png" />
 </p>
 
 We are now going to update the `.devcontainer.json` with our template from this guide. 
@@ -50,10 +49,6 @@ You can find the file at:
 - [.devcontainer.json](https://github.com/launchbynttdata/launch-developer-containers/blob/main/jetbrains/intellij-IDEA/complete/.devcontainer.json)
 
 Copy the settings from that into your newly created `.devcontainer.json` file.
-<p align="center">
-  <img src="./pictures/3-intellij-devcontainer-copy-01.png" /> 
-</p>
-
 Within `.devcontainer.json`, update the relative path in the `postCreateCommand` to the path to where you saved `.devcontainer.postCreate.sh`. 
 `./.devcontainer.postCreate.sh`
 
@@ -66,15 +61,7 @@ We are now going to update the `.devcontainer.postCreate.sh` with our template f
 You can find the file at:
 - [.devcontainer.postCreate.sh](https://github.com/launchbynttdata/launch-developer-containers/blob/main/jetbrains/intellij-IDEA/complete/.devcontainer.postCreate.sh)
 
-<p align="center">
-  <img src="./pictures/3-intellij-devcontainer-postcreate-copy-01.png" /> 
-</p>
-
 Within the `.devcontainer.postCreate.sh`, update the vars at the top of the file with your config.
-
-<p align="center">
-  <img src="./pictures/3-intellij-devcontainer-postcreate-settings-01.png" /> 
-</p>
 
 Once files are updated and saved, right click on the `.devcontainer.json` file:
 - Go to `Dev Containers` -> `Create Dev Container and Mount Sources`
@@ -84,10 +71,6 @@ Once files are updated and saved, right click on the `.devcontainer.json` file:
 </p>
 
 The container will now build. 
-
-<p align="center">
-  <img src="./pictures/3-intellij-devcontainer-build-01.png" />
-</p>
 
 Once the container has built, hit `Continue`
 

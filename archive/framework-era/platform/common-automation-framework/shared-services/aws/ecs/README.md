@@ -197,7 +197,7 @@ launch terragrunt --target-environment prod --platform-resource service --destro
 ```
 
 ## 6. **Appendix**
-- [Compatibility Matrix](../../../../../../../platform/README.md)
+- [Compatibility Matrix](../../../README.md)
 - [Platform Application Naming Schema](../../../../../../../standards/common-development/git/repository/naming-schemes/platform-sample-applications.md)
 - [MacOS local developer environment](../../../../development-environments/local/mac/README.md)
 - [Windows local developer environment](../../../../development-environments/local/windows/README.md)

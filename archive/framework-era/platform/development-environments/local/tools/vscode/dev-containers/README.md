@@ -63,10 +63,6 @@ Click `Create Dev Container`
 
 This will create and build a new Ubuntu dev container. 
 
-<p align="center">
-  <img src="./pictures/dev-containers-new-container-ubuntu-fresh.png" /> 
-</p>
-
 ### 3.4. Configure Container
 We are now going to update the `.devcontainer.json` with our template from this guide. You can find the file at:
 
@@ -84,10 +80,6 @@ It is a good idea to save it in the workspace dir. In this guide, we will place 
 </p>
 
 Within the `.devcontainer.postCreate.sh`, update the vars at the top of the file with your config.
-
-<p align="center">
-  <img src="./pictures/dev-containers-new-container-ubuntu-script-settings.png" /> 
-</p>
 
 ### 3.5. Build and open the container
 Rebuild the container `>Dev Container: Rebuild Container`

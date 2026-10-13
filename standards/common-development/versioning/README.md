@@ -1,1 +1,1 @@
-See [tagging](../git/tagging/README.md)
+See [tagging](../../../archive/pre-refresh/standards/common-development/git/tagging/README.md)

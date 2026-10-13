@@ -31,10 +31,6 @@ To configure a token to work with Launch-CLI, follow these steps:
 
 3. At the top right, press the **Generate new token** button
 
-<p align="center">
-  <img src="./pictures/img_1.png" /> 
-</p>
-
 4. Enter a memorable **Token name**, like Launch-CLI Token
 
 5. Choose an **Expiration**, we highly recommend setting yourself a reminder so that you can generate a new token prior to this token's expiration

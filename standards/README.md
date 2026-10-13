@@ -35,10 +35,9 @@ This index does not add pages for topics that are not written yet. Placeholder f
 - [Repository naming schemes](common-development/git/repository/naming-schemes.md)
 - [Infrastructure-as-code repository names](common-development/git/repository/naming-schemes/iac-repository-names.md)
 - [Platform sample application names](common-development/git/repository/naming-schemes/platform-sample-applications.md)
-- [Automatic semver tagging](common-development/git/tagging/README.md)
 - [Versioning](common-development/versioning/README.md)
 
-The versioning page is a pointer to the tagging page.
+The versioning page points at the archived tagging note.
 
 ### Helm
 
