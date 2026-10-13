@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Replace the deprecated-framework-centered repository with a public-safe, high-level platform engineering knowledge base delivered as five sequential pull requests.
+**Goal:** Replace the deprecated-framework-centered repository with a public-safe, high-level knowledge base for the Launch by NTT DATA Platform Engineering team, delivered as five sequential pull requests.
 
 **Architecture:** Active Markdown is organized into principles, practices, standards, a platform map, and non-canonical new ideas. Historical procedures move under `archive/`; component repositories continue to own detailed mechanics. A dependency-free Python checker enforces active-content boundaries, links, path portability, and stable Terraform module URLs.
 
@@ -242,7 +242,7 @@ git commit -S -m "Add documentation validation"
 
 Include:
 
-- purpose: the platform engineering team's public knowledge base;
+- purpose: the public knowledge base for the Launch by NTT DATA Platform Engineering team;
 - primary audience: platform engineers, readable by external engineers;
 - definitions of principle, practice, standard, platform map, and new idea;
 - a statement that implementation detail belongs with the owning component;

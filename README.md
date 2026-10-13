@@ -1,6 +1,6 @@
 # Platform engineering knowledge base
 
-This repository is the platform engineering team's public knowledge base. It records why the team builds the platform as it does, which choices are current team defaults, and where implementation detail lives.
+This repository is the public knowledge base for the Launch by NTT DATA Platform Engineering team. It records why the team builds the platform as it does, which choices are current team defaults, and where implementation detail lives.
 
 Platform engineers are the primary audience. The repository is public, so an engineer outside the team should be able to follow the argument without internal account access or unstated context.
 

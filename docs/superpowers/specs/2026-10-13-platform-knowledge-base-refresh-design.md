@@ -2,18 +2,19 @@
 
 ## Outcome
 
-Refresh this repository into the platform engineering team's public, high-level
-knowledge base: a durable explanation of why the team works as it does, with
-clear prescriptions where a team default is justified.
+Refresh this repository into the public, high-level knowledge base for the
+Launch by NTT DATA Platform Engineering team: a durable explanation of why
+the team works as it does, with clear prescriptions where a team default is
+justified.
 
 The first pass will cover the substantive topics represented in the current
 repository while separating current guidance from historical procedures.
 
 ## Audience and scope
 
-The primary audience is the platform engineering team. The repository is
-publicly accessible, so active guidance must also be safe and understandable
-for engineers outside the team.
+The primary audience is the Launch by NTT DATA Platform Engineering team. The
+repository is publicly accessible, so active guidance must also be safe and
+understandable for engineers outside the team.
 
 This refresh includes:
 
