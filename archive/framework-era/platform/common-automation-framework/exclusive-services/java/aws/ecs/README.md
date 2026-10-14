@@ -1,3 +1,5 @@
+> **Historical.** This page is not current guidance.
+
 # Exclusive-service: Java application on Elastic Container Service (ECS)
 ### **Table of Contents**
 1. [Introduction](#1-introduction)
@@ -31,7 +33,7 @@ Local development environment:
 - [Windows local developer environment](../../../../../development-environments/local/windows/README.md)
 
 Java application built to [Launch's requirements.](#TODO)(TODO:)
-- This guide will use the following repository: [launch-api-hex-java-template](https://github.com/launchbynttdata/launch-api-hex-java-template)
+- This guide will use the following repository: historical example, not publicly linked
 
 Cloud Services:
 - [Elastic Container Service (ECS)](./../../../../shared-services/aws/ecs/README.md)
@@ -229,13 +231,13 @@ launch github hooks create --repository-name launch-demo-ecs-application --event
 ```
 
 
-You will also need to connect the webhooks to the repository where your Java application lives. In this case, [launch-api-hex-java-template](https://github.com/launchbynttdata/launch-api-hex-java-template). You will use the same function urls.
+You will also need to connect the webhooks to the repository where your Java application lives. In this case, a historical example that is not publicly linked. You will use the same function urls.
 
 ```sh
-launch github hooks create --repository-name launch-api-hex-java-template --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL_1
-launch github hooks create --repository-name launch-api-hex-java-template --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL_2
-launch github hooks create --repository-name launch-api-hex-java-template --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL_3
-launch github hooks create --repository-name launch-api-hex-java-template --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL_4
+launch github hooks create --repository-name example-java-service --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL_1
+launch github hooks create --repository-name example-java-service --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL_2
+launch github hooks create --repository-name example-java-service --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL_3
+launch github hooks create --repository-name example-java-service --events '["pull_request"]'  --secret MY_SECRET --url FUNCTION_URL_4
 ```
 
 

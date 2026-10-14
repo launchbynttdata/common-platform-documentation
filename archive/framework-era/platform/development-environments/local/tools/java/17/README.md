@@ -1,3 +1,5 @@
+> **Historical.** This page is not current guidance.
+
 # Java JDK 17
 ## **Table of Contents**
 1. [Introduction](#1-introduction)
@@ -53,9 +55,9 @@ $ java --version
 
 - Run the following commands to set you `JAVA_HOME` and `PATH`
 ```sh
-$ echo 'export JAVA_HOME="/Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home"' >> ~/.zshrc
-$ echo 'export PATH="$JAVA_HOME/bin:$PATH"' >> ~/.zshrc
-$ source ~/.zshrc
+$ echo 'export JAVA_HOME="/Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home"' >> <home>/.zshrc
+$ echo 'export PATH="$JAVA_HOME/bin:$PATH"' >> <home>/.zshrc
+$ source <home>/.zshrc
 ```
 
 ## 4. **Appendix**

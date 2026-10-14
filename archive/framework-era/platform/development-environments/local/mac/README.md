@@ -1,3 +1,5 @@
+> **Historical.** This page is not current guidance.
+
 # MacOS local environment
 ## **Table of Contents**
 1. [Introduction](#1-introduction)

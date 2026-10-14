@@ -1,3 +1,5 @@
+> **Historical.** This page is not current guidance.
+
 # Generate GIT Token
 ### **Table of Contents**
 1. [Introduction](#1-introduction)

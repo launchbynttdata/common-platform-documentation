@@ -31,9 +31,28 @@ PLACEHOLDER_TEXT = {
 }
 LOCAL_PATH_PATTERNS = (
     re.compile(r"(?<![\w])/(?:Users|home)/[^`\s)]+"),
+    re.compile(r"(?<![\w])" + re.escape("~" + "/") + r"[^\s`)]+"),
+    re.compile(r"(?<![\w])" + re.escape("$" + "HOME") + r"(?:/|\\)[^\s`)]+"),
     re.compile(r"\b" + re.escape("file" + "://") + r"[^\s)]+"),
     re.compile(r"\b[A-Za-z]:([/\\])Users\1[^`\s)]+"),
 )
+_ACCOUNT_ID = re.compile(r"(?<!\d)\d{12}(?!\d)")
+_ARN = re.compile(re.escape("arn:" + "aws") + r"(?:-[a-z]+)?:[^\s)`]+")
+_GUID = re.compile(
+    r"\b[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-"
+    r"[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\b"
+)
+_EMAIL = re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b")
+_ALLOWED_ACCOUNT_IDS = {digit * 12 for digit in "0123456789"}
+_ALLOWED_ACCOUNT_IDS.add("012345" + "678912")
+_NIL_GUID = ("00000000-0000-0000-0000-" + ("0" * 6) + ("0" * 6))
+_ALLOWED_GUIDS = {_NIL_GUID.casefold()}
+_ALLOWED_EMAIL_DOMAINS = {"example.com", "job." + "job"}
+ARCHIVE_CURRENT_PAGES = {
+    Path("archive/README.md"),
+    Path("archive/content-disposition.md"),
+}
+HISTORICAL_BANNER = "> **Historical.** This page is not current guidance."
 MODULE_URL_PAIRS = (
     (
         Path("standards/iac-development/terraform/module/primitive/README.md"),
@@ -80,8 +99,11 @@ def check_repository(root: Path, require_module_urls: bool = False) -> list[str]
                 if not historical:
                     violations.extend(_deprecated_violations(relative, text))
                     violations.extend(_placeholder_violations(relative, text))
+                else:
+                    violations.extend(_historical_banner_violations(relative, text))
                 violations.extend(_link_violations(root, path, relative, text))
             violations.extend(_local_path_violations(relative, text))
+            violations.extend(_sensitive_identifier_violations(relative, text))
     if require_module_urls:
         violations.extend(_module_url_violations(root))
     return sorted(set(violations))
@@ -241,6 +263,54 @@ def _content_lines(text: str) -> list[str]:
         skipped.add(previous)
         skipped.add(index)
     return [line for index, line in enumerate(raw) if index not in skipped]
+
+
+def _account_allowed(value: str) -> bool:
+    return value in _ALLOWED_ACCOUNT_IDS
+
+
+def _historical_banner_violations(relative: Path, text: str) -> list[str]:
+    if relative in ARCHIVE_CURRENT_PAGES:
+        return []
+    for line in text.splitlines():
+        if not line.strip():
+            continue
+        if line.strip() == HISTORICAL_BANNER:
+            return []
+        break
+    return [f"{relative.as_posix()}: missing historical banner"]
+
+
+def _sensitive_identifier_violations(relative: Path, text: str) -> list[str]:
+    violations: list[str] = []
+    seen: set[str] = set()
+
+    def add(kind: str, value: str) -> None:
+        key = f"{kind}:{value.casefold()}"
+        if key in seen:
+            return
+        seen.add(key)
+        violations.append(f"{relative.as_posix()}: {kind}: {value}")
+
+    for match in _ACCOUNT_ID.finditer(text):
+        value = match.group(0)
+        if not _account_allowed(value):
+            add("account identifier", value)
+    for match in _ARN.finditer(text):
+        value = match.group(0)
+        account_ids = _ACCOUNT_ID.findall(value)
+        if not account_ids or any(not _account_allowed(item) for item in account_ids):
+            add("cloud resource name", value)
+    for match in _GUID.finditer(text):
+        value = match.group(0)
+        if value.casefold() not in _ALLOWED_GUIDS:
+            add("tenant identifier", value)
+    for match in _EMAIL.finditer(text):
+        value = match.group(0)
+        domain = value.rpartition("@")[2].casefold()
+        if domain not in _ALLOWED_EMAIL_DOMAINS and not domain.endswith("." + "example"):
+            add("email address", value)
+    return violations
 
 
 def _local_path_violations(relative: Path, text: str) -> list[str]:

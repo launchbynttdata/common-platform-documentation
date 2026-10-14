@@ -1,3 +1,5 @@
+> **Historical.** This page is not current guidance.
+
 # git-credential-manager
 ## **Table of Contents**
 1. [Introduction](#1-introduction)

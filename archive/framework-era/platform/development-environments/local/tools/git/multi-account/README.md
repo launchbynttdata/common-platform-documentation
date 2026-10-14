@@ -1,3 +1,5 @@
+> **Historical.** This page is not current guidance.
+
 # Git Setup for Multiple Orgs/Identities
 
 This document covers setting up to Git to interact with repositories from multiple organizations over HTTPS only. This is also possible to do with SSH keys, but that approach is out of scope for this document.
@@ -15,7 +17,7 @@ brew install --cask git-credential-manager
 Installing git-credential-manager should automatically populate this item in the .gitconfig file in your home directory, confirm its presence before proceeding:
 
 ```sh
-# You should see this in your ~/.gitconfig file
+# You should see this in your <home>/.gitconfig file
 [credential "https://dev.azure.com"]
         useHttpPath = true
 ```
@@ -56,15 +58,15 @@ I keep all my Git repositories underneath a single top-level folder and split al
 
 ```
 # Top-level folder under which everything Git-related is contained
-~/code
+<home>/code
 
 # My folders are named to match their GitHub Organization name, but can be anything memorable for you.
-~/code/example-user
-~/code/launchbynttdata
-~/code/nttdata-launch
-~/code/client-a
-~/code/client-b
-~/code/client-c
+<home>/code/example-user
+<home>/code/launchbynttdata
+<home>/code/nttdata-launch
+<home>/code/client-a
+<home>/code/client-b
+<home>/code/client-c
 ```
 
 ## Per-folder Git Config
@@ -88,7 +90,7 @@ email = example.user@example-client.example
 To accommodate this, we will create a `.gitconfig` file for each of the organizations/subfolders above so that we can have separate configurations for each. A few examples are shown below:
 
 ```sh
-# ~/.gitconfig.launchbynttdata
+# <home>/.gitconfig.launchbynttdata
 [user]
     name = Example User
     email = example.user@example.com
@@ -96,7 +98,7 @@ To accommodate this, we will create a `.gitconfig` file for each of the organiza
 
 ```sh
 
-# ~/.gitconfig.client-a
+# <home>/.gitconfig.client-a
 [user]
     name = Example User
     email = example.user@example-client.example
@@ -105,15 +107,15 @@ To accommodate this, we will create a `.gitconfig` file for each of the organiza
 Finally, to make Git utilize these configuration files, we need to add some [conditional includes](https://git-scm.com/docs/git-config#_conditional_includes) to the main `.gitconfig` file.
 
 ```sh
-# ~/.gitconfig
-[includeIf "gitdir:~/code/example-user"]
-	path = ~/.gitconfig.example-user
-[includeIf "gitdir:~/code/launchbynttdata"]
-	path = ~/.gitconfig.launchbynttdata
-[includeIf "gitdir:~/code/nttdata-launch"]
-	path = ~/.gitconfig.nttdata-launch
-[includeIf "gitdir:~/code/client-a"]
-	path = ~/.gitconfig.client-a
+# <home>/.gitconfig
+[includeIf "gitdir:<home>/code/example-user"]
+	path = <home>/.gitconfig.example-user
+[includeIf "gitdir:<home>/code/launchbynttdata"]
+	path = <home>/.gitconfig.launchbynttdata
+[includeIf "gitdir:<home>/code/nttdata-launch"]
+	path = <home>/.gitconfig.nttdata-launch
+[includeIf "gitdir:<home>/code/client-a"]
+	path = <home>/.gitconfig.client-a
 ...
 ```
 

@@ -33,7 +33,7 @@ The archive task moved these paths with history preserved. Destinations are the 
 
 `standards/iac-development/terraform/module/wrapper/deploy/` includes `dns.md` and `expressroute.md`. Both notes stayed in the archived directory. The placeholder `README.md` was removed after the move. Client tenant, subscription, and DNS names in `dns.md` were replaced with obvious neutral examples.
 
-Account identifiers, personal names, contact details, machine-local paths, former-company repository locations, and client hostnames in the archived trees were replaced with obvious neutral examples. The rendered hub-and-spoke diagram image was removed because it showed a client DNS name and could not be redacted as text. The drawing source and HTML export stayed after those names were replaced. An unverified private-link DNS name in that drawing and in the matching HTML export was replaced with `privatelink.example.com` in both files. Console screenshots under the archived automation procedures were removed, except the architecture diagram exports. The VPN client pictures were removed. Two multi-account images that showed a personal GitHub account were removed. A later pass removed more archived screenshots that showed a personal account, a home path, a machine name, cloud account identifiers, an identity-provider start URL, or an email address. Pages no longer reference those removed images.
+Account identifiers, personal names, contact details, machine-local paths, former-company repository locations, and client hostnames in the archived trees were replaced with obvious neutral examples. Home-relative paths that began with a tilde and a slash were rewritten as `<home>/...`. Each archived Markdown page, other than `archive/README.md` and this record, starts with a one-line historical banner. The rendered hub-and-spoke diagram image was removed because it showed a client DNS name and could not be redacted as text. The drawing source and HTML export stayed after those names were replaced. An unverified private-link DNS name in that drawing and in the matching HTML export was replaced with `privatelink.example.com` in both files. Console screenshots under the archived automation procedures were removed, except the architecture diagram exports. The VPN client pictures were removed. Two multi-account images that showed a personal GitHub account were removed. A later pass removed more archived screenshots that showed a personal account, a home path, a machine name, cloud account identifiers, an identity-provider start URL, or an email address. Pages no longer reference those removed images.
 
 ## Removed
 
@@ -97,3 +97,9 @@ Under `standards/iac-development/`, excluding the archived deploy directory:
 Under the archived deploy directory, `dns.md` and `expressroute.md` were archived, not removed.
 
 No other legacy path receives an outcome in this task. Later tasks record those decisions in this file.
+
+## Inbound links
+
+GitHub does not redirect a file when it moves. Other repositories link the old macOS and Windows environment pages (`platform/development-environments/local/mac/README.md` and `platform/development-environments/local/windows/README.md`). A private demo configuration points at the old ECS input files under `platform/common-automation-framework/exclusive-services/java/aws/ecs/inputs/`. Those targets are framework-era procedures. No forwarding page is added for them, so those outside links will stop resolving.
+
+Private and missing repository locations inside the archive were unlabeled the same way as the other private links. That covers the internal Java template in the archived framework README, the ECS walkthrough, and its launch configuration, and the missing containerization tutorial.

@@ -1,3 +1,5 @@
+> **Historical.** This page is not current guidance.
+
 # Visual Studio Code Dev Containers
 ## **Table of Contents**
 1. [Introduction](#1-introduction)
@@ -40,7 +42,7 @@ Please install the `Dev Containers` extension from the extension marketplace:
 Somewhere within your base operating system, please create or identify a folder in which you wish to be the root of your dev container's home directory. Within this example, we have created a new folder called `workplace` within the home directory of the user. When you run a dev container, you have the ability to attach it to your current workspace. This path is going to be needed in some of the scripts we are going to be updating.
 
 ```
-~/workplace
+<home>/workplace
 ```
 
 ### 3.3. Create a new Dev Container

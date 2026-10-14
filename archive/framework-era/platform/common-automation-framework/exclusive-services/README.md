@@ -1,3 +1,5 @@
+> **Historical.** This page is not current guidance.
+
 # Exclusive Service
 ## **Table of Contents**
 1. [Introduction](#1-introduction)
@@ -161,10 +163,10 @@ In this section, we will walk through Launch-ify an application. We will contain
 ### 4.1 Base Project
 We will be using the following example project during this tutorial
 
-- [example-app-containerization-tutorial](https://github.com/launchbynttdata/example-app-containerization-tutorial)
+- historical example, not publicly linked
 
 ```sh
-git clone https://github.com/launchbynttdata/example-app-containerization-tutorial.git
+# The tutorial repository is a historical example and is not publicly linked.
 ```
 
 ### 4.2 Containerize Project
@@ -172,7 +174,7 @@ We will now add a `Dockerfile` to the project for containerization.
 
 ```sh
 # Ensure you are in the cloned repo's directory
-cd example-app-containerization-tutorial
+cd example-app
 echo 'FROM node:18-alpine
 WORKDIR /app
 COPY . .

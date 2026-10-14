@@ -1,3 +1,5 @@
+> **Historical.** This page is not current guidance.
+
 # asdf
 ## **Table of Contents**
 1. [Introduction](#1-introduction)
@@ -38,8 +40,8 @@ MacOS:
 3. Add `asdf` to your shell by running the following commands:
 
     ```sh
-    $ echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ~/.zshrc
-    $ source ~/.zshrc
+    $ echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> <home>/.zshrc
+    $ source <home>/.zshrc
     ```
 
 4. Verify the installation by running:

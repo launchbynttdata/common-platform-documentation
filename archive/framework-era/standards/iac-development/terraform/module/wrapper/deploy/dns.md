@@ -1,3 +1,5 @@
+> **Historical.** This page is not current guidance.
+
 # DNS resolution
 In hub-spoke architecture, both Public DNS and Private DNS Zone azure services are used for external and internal domain name resolution respectively. This document specifies different test case scenarios for the domain resolution. It also demonstrates via use of `az-cli` commands how to deploy the architecture in Azure cloud and test it.
 

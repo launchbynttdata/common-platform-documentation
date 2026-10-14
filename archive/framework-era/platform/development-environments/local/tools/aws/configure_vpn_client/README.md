@@ -1,3 +1,5 @@
+> **Historical.** This page is not current guidance.
+
 # Usage Guide: Set up OpenVPN Client to connect to AWS Client VPN Endpoint [AWS] (0.5 hours)
 ## **Table of Contents**
 1. [Introduction](#1-introduction)
@@ -54,7 +56,7 @@ It can most easily be retrieved via the AWS CLI, but is also available via the A
 CLIENT_CONFIG=$(aws --profile launch-root-admin secretsmanager get-secret-value  \
 --secret-id=arn:aws:secretsmanager:us-east-2:111111111111:secret:example/vpn/client_config \
 --query SecretString | sed -e 's/^"//' -e 's/"$//');
-printf "%b" $CLIENT_CONFIG  > ~/client_config.ovpn
+printf "%b" $CLIENT_CONFIG  > <home>/client_config.ovpn
 ```
 
 ### 4.2.2 **Downloading Client Certificate and Key .p12 Bundle**
@@ -66,7 +68,7 @@ Because this file is binary rather than text, it cannot be retreived via the AWS
 ```sh
 aws --profile launch-root-admin secretsmanager get-secret-value \
 --secret-id=arn:aws:secretsmanager:us-east-2:111111111111:secret:example/vpn/cert_bundle \
---query SecretBinary --output text | base64 --decode > ~/cert_bundle.p12 && chmod 0600 ~/cert_bundle.p12
+--query SecretBinary --output text | base64 --decode > <home>/cert_bundle.p12 && chmod 0600 <home>/cert_bundle.p12
 ```
 
 ### 4.2.3 **Obtaining .p12 Bundle password**

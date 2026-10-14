@@ -1,3 +1,5 @@
+> **Historical.** This page is not current guidance.
+
 # LCAF Git Repository Naming Scheme
 
 The Launch Common Automation Framework's platform-level concerns break down into a few types:

@@ -1,3 +1,5 @@
+> **Historical.** This page is not current guidance.
+
 # `launch-cli`
 - [Launch-cli official README](https://github.com/launchbynttdata/launch-cli/blob/main/README.md)
 

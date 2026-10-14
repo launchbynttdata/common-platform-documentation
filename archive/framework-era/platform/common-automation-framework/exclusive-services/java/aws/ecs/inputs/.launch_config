@@ -13,7 +13,7 @@
     },
     "sources": {
         "application": {
-            "url": "https://github.com/launchbynttdata/launch-api-hex-java-template.git",
+            "url": "https://example.invalid/example-java-service.git",
             "tag": "1.0.0"
         },
         "service": {

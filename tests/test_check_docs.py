@@ -18,7 +18,7 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 from scripts import check_docs  # noqa: E402
-from scripts.check_docs import check_repository  # noqa: E402
+from scripts.check_docs import HISTORICAL_BANNER, check_repository  # noqa: E402
 
 MARKER = "DEPRECATED_FRAMEWORK_TERM"
 
@@ -55,8 +55,76 @@ class CheckDocsTests(unittest.TestCase):
         self.assertHasViolation("deprecated terminology")
 
     def test_allows_deprecated_term_in_archive(self):
-        self.write("archive/legacy/README.md", "Historical deprecated acronym.\n")
+        self.write(
+            "archive/legacy/README.md",
+            f"{HISTORICAL_BANNER}\n\nHistorical deprecated acronym.\n",
+        )
         self.assertNoViolations()
+
+    def test_requires_historical_banner_on_archived_pages(self):
+        self.write("archive/legacy/README.md", "Historical page without a banner.\n")
+        self.assertHasViolation("missing historical banner")
+
+    def test_rejects_home_relative_paths(self):
+        tilde_path = "~" + "/code/x"
+        home_path = "$" + "HOME/x"
+        self.write("README.md", f"Use `{tilde_path}` and `{home_path}`.\n")
+        violations = check_repository(self.root)
+        self.assertTrue(any(tilde_path in item for item in violations), violations)
+        self.assertTrue(any(home_path in item for item in violations), violations)
+
+    def test_rejects_sensitive_identifiers_and_allows_placeholders(self):
+        account = "123456" + "789012"
+        allowed_account = "111111" + "111111"
+        arn = "arn:" + "aws:iam::" + account + ":role/example"
+        guid = "12345678-1234-1234-1234-" + "123456" + "789012"
+        allowed_guid = "00000000-0000-0000-0000-" + ("0" * 6) + ("0" * 6)
+        email = "person" + "@" + "example.org"
+        allowed_email = "person" + "@" + "example.com"
+        example_domain_email = "person" + "@" + "client.example"
+        placeholder_arn = "arn:" + "aws:iam::" + allowed_account + ":role/example"
+        self.write(
+            "README.md",
+            "\n".join(
+                [
+                    account,
+                    allowed_account,
+                    arn,
+                    placeholder_arn,
+                    guid,
+                    allowed_guid,
+                    email,
+                    allowed_email,
+                    example_domain_email,
+                ]
+            )
+            + "\n",
+        )
+        violations = check_repository(self.root)
+        self.assertTrue(any(account in item for item in violations), violations)
+        self.assertTrue(any(arn in item for item in violations), violations)
+        self.assertTrue(any(guid in item for item in violations), violations)
+        self.assertTrue(any(email in item for item in violations), violations)
+        self.assertFalse(
+            any(f"account identifier: {allowed_account}" in item for item in violations),
+            violations,
+        )
+        self.assertFalse(
+            any(f"tenant identifier: {allowed_guid}" in item for item in violations),
+            violations,
+        )
+        self.assertFalse(
+            any(f"email address: {allowed_email}" in item for item in violations),
+            violations,
+        )
+        self.assertFalse(
+            any(example_domain_email in item for item in violations),
+            violations,
+        )
+        self.assertFalse(
+            any(f"cloud resource name: {placeholder_arn}" in item for item in violations),
+            violations,
+        )
 
     def test_rejects_empty_active_markdown(self):
         self.write("principles/empty.md", "# Heading\n\nComing soon.\n")

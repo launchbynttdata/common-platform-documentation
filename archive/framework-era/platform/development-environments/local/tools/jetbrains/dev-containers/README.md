@@ -1,3 +1,5 @@
+> **Historical.** This page is not current guidance.
+
 # IntelliJ Dev Containers
 ## **Table of Contents**
 1. [Introduction](#1-introduction)

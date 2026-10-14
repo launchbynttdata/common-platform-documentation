@@ -1,3 +1,5 @@
+> **Historical.** This page is not current guidance.
+
 # Launch `common-automation-framework`
 ## **Table of Contents**
 1. [Introduction](#1-introduction)
@@ -31,7 +33,7 @@ Template architecture compatibility matrix that shows each our of our templates 
 
 | App Template | [AWS ECS](./shared-services/aws/ecs/README.md) | AWS EKS | Azure AKS | Google GKE |
 |------|-------|-------|-------|-------|
-| [Java Hexagonal OpenAPI](https://github.com/launchbynttdata/launch-api-hex-java-template) | &check; | &cross; | &cross; | &cross; |
+| Java Hexagonal OpenAPI (historical example, not publicly linked) | &check; | &cross; | &cross; | &cross; |
 | Next.js Web App (historical example, not publicly linked) | &check; | &cross; | &cross; | &cross; |
 
 ## 4. Service examples

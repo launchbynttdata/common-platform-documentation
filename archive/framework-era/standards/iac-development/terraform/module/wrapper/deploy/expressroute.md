@@ -1,3 +1,5 @@
+> **Historical.** This page is not current guidance.
+
 ## High level components required for architecture
     1. Express Route Circuit
     2. VPN Gateteway of type "-GatewayType ExpressRoute"
