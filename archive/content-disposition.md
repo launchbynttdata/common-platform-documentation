@@ -2,7 +2,7 @@
 
 This record is the decision log for legacy material in the knowledge base. It does not repeat private source locations, credentials, account identifiers, or personal filesystem paths.
 
-The rows below are the pull request 1 outcomes. This task does not rewrite active pages into new standards. It does not leave a legacy page in place as a final keep. Rewritten and retained are defined so later tasks use the same outcomes. They have no rows in this task.
+The rows below are the pull request 1 outcomes. This task does not rewrite active pages into new standards. It does not leave a legacy page in place as a final keep. Rewritten and retained are defined so later pull requests use the same outcomes. Pull request 1 has no rows for them. Later pull requests record those outcomes in their own sections.
 
 A few active pages were edited only where a checker violation or a removed target required it. The platform map no longer calls empty title reservations historical procedures. The repository naming index dropped the section for the archived framework naming scheme and the link to a removed Python placeholder. The library module page dropped a deprecated product name from its example sentence. The standards index no longer lists the tagging page. The versioning page points at the archived tagging note and states that the note is historical and non-authoritative. The rest of those pages is unchanged.
 
@@ -97,6 +97,16 @@ Under `standards/iac-development/`, excluding the archived deploy directory:
 Under the archived deploy directory, `dns.md` and `expressroute.md` were archived, not removed.
 
 No other legacy path receives an outcome in this task. Later tasks record those decisions in this file.
+
+## Rewritten
+
+The principles pull request rewrote these pages in place. Each path is unchanged because other pages link to it.
+
+| Path | Outcome |
+| --- | --- |
+| `principles/single-purpose-repository-principle.md` | Rewritten around one independently understandable lifecycle, cohesion, and explicit contracts between repositories. Multiple repositories are labeled as the team default. |
+| `principles/self-contained-repository-deployment-principle.md` | Rewritten so the delivery path is discoverable from the repository, with configuration, secrets, shared services, and shared tooling kept as explicit external dependencies. The title is now "Self-contained repository delivery". |
+| `strategies/poly-git-repo-strategy.md` | The placeholder was replaced with the trade-offs between multiple repositories and a single repository. It is labeled a context-dependent choice and links to the single-purpose repository principle. |
 
 ## Inbound links
 

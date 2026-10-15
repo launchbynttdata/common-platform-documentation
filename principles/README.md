@@ -14,22 +14,32 @@ A page that states a reason the team is willing to keep when the implementation 
 - A proposal the team has not adopted. That belongs in [new ideas](../new-ideas/README.md).
 - A page that only reserves a future title.
 
-## Questions an active principle page answers
+## How a principle page is organized
 
-1. What problem does this address?
-2. Why does the team take this position?
-3. What does the team expect engineers to do?
-4. Where do current implementation details live?
+Each principle page uses four headings:
 
-The answer to the last question is a pointer to the owning component, not a copy of its runbook.
+1. **The problem** describes the situation the principle addresses.
+2. **The position** states the principle and the reasoning behind it.
+3. **What the team expects** lists what engineers are expected to do because of it.
+4. **Where implementation details live** points to the owning section or component, rather than copying its procedures.
+
+Each page states its strength at the top. A statement inside a page that is a team default or a context-dependent choice, rather than a principle, is labeled where it appears. [How to read these docs](../how-to-read-these-docs.md) explains the labels.
 
 ## Pages
 
-These are the substantive principle documents that exist today. They predate this index and have not been rewritten to the questions above. A link means the document is in the repository. It does not mean the wording is the current editorial form.
+How the team approaches platform work:
+
+- [Platform work serves delivery outcomes](outcomes-over-activity.md)
+- [Trust is earned through reliability and evidence](trust-and-evidence.md)
+- [Leave people and systems more capable](stewardship-and-enablement.md)
+- [Speed is safe when controls keep pace](safe-speed-and-accountability.md)
+- [Rigor increases as others depend on a capability](rigor-follows-dependency.md)
+
+How repositories are shaped:
 
 - [Single-purpose repository](single-purpose-repository-principle.md)
-- [Self-contained repository deployment](self-contained-repository-deployment-principle.md)
+- [Self-contained repository delivery](self-contained-repository-deployment-principle.md)
 
-No other principle pages exist.
+[Repository topology](../strategies/poly-git-repo-strategy.md) describes the trade-offs between multiple repositories and a single repository. It is a context-dependent choice, not a principle.
 
 [Knowledge base home](../README.md)

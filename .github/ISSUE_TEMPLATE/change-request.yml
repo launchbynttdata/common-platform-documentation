@@ -1,0 +1,73 @@
+name: Documentation change request
+description: Propose a new page or a change to existing guidance.
+title: "[Change]: "
+labels:
+  - documentation
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to propose new guidance or a change to existing guidance. A useful request explains the problem with the current documentation and the reasoning behind the proposed change.
+
+        This repository is public. Do not include credentials, account or tenant identifiers, internal hostnames, personal file paths, or client details.
+  - type: input
+    id: pages
+    attributes:
+      label: Pages affected
+      description: Link the page or pages this request affects. Write "New page" if the request adds a page.
+    validations:
+      required: true
+  - type: dropdown
+    id: change-type
+    attributes:
+      label: Type of change
+      options:
+        - Add a new page
+        - Revise an existing page
+        - Reorganize or move content
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: document-type
+    attributes:
+      label: Document type
+      description: See "How to read these docs" for the definition of each type.
+      options:
+        - Principle
+        - Practice
+        - Standard
+        - Platform map
+        - New idea
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What is missing, unclear, or no longer accurate in the current documentation, and who is affected?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the change and the reasoning that supports it. Draft wording is welcome but not required.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and references
+      description: Link to public repositories, documentation, or other sources that support the change.
+    validations:
+      required: false
+  - type: checkboxes
+    id: public-content
+    attributes:
+      label: Public content
+      options:
+        - label: This request contains no credentials, private identifiers, internal hostnames, personal file paths, or client details.
+          required: true
