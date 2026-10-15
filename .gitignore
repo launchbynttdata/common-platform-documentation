@@ -356,3 +356,10 @@ fabric.properties
 .idea/
 
 **/.vscode
+
+# Local Git worktrees
+.worktrees/
+
+# Python test artifacts
+__pycache__/
+*.py[cod]
