@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: How to read these docs
+    url: https://github.com/launchbynttdata/common-platform-documentation/blob/main/how-to-read-these-docs.md
+    about: Document types, page structure, and strength labels used in this knowledge base.
