@@ -8,7 +8,7 @@ When the path to build, test, release, deploy, and observe a component is spread
 
 ## The position
 
-A repository should make its delivery path discoverable. A reader should be able to find how the component is built, how it is tested and scanned, how a version is released, how it is deployed, and how its behavior is observed. Most of that path should be defined in the repository as code and configuration that are reviewed and versioned with the component.
+A repository is self-contained when a person can start a build or a deployment from that repository without first collecting the missing steps from other documents, people, or tools. The delivery path is discoverable from the repository: a reader can find how the component is built, how it is tested and scanned, how a version is released, how it is deployed, and how its behavior is observed. Most of that path is defined in the repository as code and configuration that are reviewed and versioned with the component. A path that is written down somewhere, but still has to be assembled from several places before work can start, does not meet this test.
 
 Discoverable does not mean that the repository contains everything. Some information should never be stored with the code, and some capabilities are better maintained once and shared by many repositories. In those cases, the repository points to what it needs instead of holding it.
 

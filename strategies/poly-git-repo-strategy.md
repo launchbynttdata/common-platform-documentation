@@ -26,8 +26,6 @@ The choice of repository arrangement depends on the trade-offs that matter most 
 - When working within a client's existing arrangement, apply the single-purpose repository principle inside it rather than reorganizing the client's repositories without agreement.
 - Revisit the arrangement when coordination costs or shared release timing repeatedly slow delivery.
 
-
-
 ## Where implementation details live
 
 Repository naming and versioning belong in [standards](../standards/README.md).

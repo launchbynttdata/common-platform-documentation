@@ -2,13 +2,13 @@
 
 This file records notable changes to the knowledge base, such as new or rewritten pages, changes to its structure, and changes to how the documentation is checked. Each entry links to the pull request that made the change. Corrections to spelling and minor wording are not listed.
 
-Each pull request adds its entry under "Unreleased". When the pull request merges, that heading is replaced with the merge date and the pull request title.
+Each open pull request records its changes under "Unreleased", with the pull request number and title in the heading. After that pull request merges, the next pull request replaces "Unreleased" with the merge date.
 
-## Unreleased
+## Unreleased: #22, Publish platform engineering principles
 
 ### Added
 
-- Five principle pages: platform work serves delivery outcomes; trust is earned through reliability and evidence; leave people and systems more capable; speed is safe when controls keep pace; and rigor increases as others depend on a capability.
+- Six principle pages: platform work serves delivery outcomes; trust is earned through reliability and evidence; leave people and systems more capable; delivery, security, and observability built in from the start; speed is safe when controls keep pace; and rigor increases as others depend on a capability.
 - A page explaining how to read the knowledge base, including document types, page structure, strength labels, and how pages are written.
 - Issue templates for documentation change requests and problem reports.
 - This changelog.

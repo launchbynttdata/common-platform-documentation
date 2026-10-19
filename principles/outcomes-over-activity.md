@@ -10,9 +10,9 @@ Platform work produces visible activity. Environments are provisioned, pipelines
 
 The Launch by NTT DATA Platform Engineering team builds platform systems so that delivery teams can change software safely, repeatedly, and with confidence. Infrastructure, pipelines, modules, and telemetry are the means to that result. The team judges its work by the effect it has on the people who deliver and operate software for a client.
 
-This matters because effort spent on the platform has a cost, even when the work is done well, so the team needs to direct that effort where it helps most. A change moves through a sequence of steps on its way to production, such as being written, reviewed, tested, approved, and deployed. Every change must pass through every step, so the slowest step sets the pace for all of them.
+This matters because effort spent on the platform has a cost, even when the work is done well, so the team needs to direct that effort where it helps most. A change moves through a sequence of steps on its way to production, such as being written, reviewed, tested, approved, and deployed. Every change must pass through every step. Shortening any one of those steps shortens the time that particular change takes.
 
-Improving a step that is already faster than the others does not shorten the overall time. It can also add something new that the team must maintain. Improving the slowest step shortens the time for every change that follows, even when the improvement itself is small. For that reason, the team looks for the step that is holding work back before deciding what to build.
+The pace of finished work is a different measure. The team can finish changes only as fast as its slowest step allows. Improving a step that is already faster than the others does not increase how many changes the team finishes. Changes complete that earlier step sooner and then wait in front of the slower one, so the queue there grows. The improvement can also add something new that the team must maintain. Improving the slowest step increases how much finished work follows, even when the improvement itself is small. For that reason, the team looks for the step that is holding finished work back before deciding what to build.
 
 ## What the team expects
 

@@ -20,8 +20,6 @@ This serves the client's long-term interest. Clients often operate systems after
 - Ask for help at the edge of current knowledge, and share what was learned with the project and, where useful, with the wider practice. **Asking for help is an expected part of professional work.**
 - Design for the whole life of a capability, including upgrades, configuration changes, recovery, replacement, and retirement, as well as its first deployment.
 
-
-
 ## Where implementation details live
 
 Documentation ownership and layering belong in [standards](../standards/README.md). How the team supports a delivery team across ownership boundaries belongs in [practices](../practices/README.md).

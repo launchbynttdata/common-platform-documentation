@@ -32,6 +32,7 @@ How the team approaches platform work:
 - [Platform work serves delivery outcomes](outcomes-over-activity.md)
 - [Trust is earned through reliability and evidence](trust-and-evidence.md)
 - [Leave people and systems more capable](stewardship-and-enablement.md)
+- [Build delivery, security, and observability in from the start](built-in-from-the-beginning.md)
 - [Speed is safe when controls keep pace](safe-speed-and-accountability.md)
 - [Rigor increases as others depend on a capability](rigor-follows-dependency.md)
 

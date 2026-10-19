@@ -100,12 +100,12 @@ No other legacy path receives an outcome in this task. Later tasks record those 
 
 ## Rewritten
 
-The principles pull request rewrote these pages in place. Each path is unchanged because other pages link to it.
+Pull request #22 rewrote these pages in place. Each path is unchanged because other pages link to it.
 
 | Path | Outcome |
 | --- | --- |
 | `principles/single-purpose-repository-principle.md` | Rewritten around one independently understandable lifecycle, cohesion, and explicit contracts between repositories. Multiple repositories are labeled as the team default. |
-| `principles/self-contained-repository-deployment-principle.md` | Rewritten so the delivery path is discoverable from the repository, with configuration, secrets, shared services, and shared tooling kept as explicit external dependencies. The title is now "Self-contained repository delivery". |
+| `principles/self-contained-repository-deployment-principle.md` | Rewritten so a person can start a build or deployment from the repository without collecting steps from elsewhere. Configuration, secrets, shared services, and shared tooling stay explicit external dependencies. The title is now "Self-contained repository delivery". |
 | `strategies/poly-git-repo-strategy.md` | The placeholder was replaced with the trade-offs between multiple repositories and a single repository. It is labeled a context-dependent choice and links to the single-purpose repository principle. |
 
 ## Inbound links

@@ -8,7 +8,7 @@ Delivery teams depend on the platform team for systems they cannot fully inspect
 
 ## The position
 
-An important measure of a platform team is how much the rest of the delivery team is willing to rely on it. A delivery team that trusts the platform uses shared capabilities directly, without building its own checks and workarounds, and spends that time on its own work instead. The team earns that trust in four ways.
+An important measure of a platform team is how much the rest of the delivery team is willing to rely on the platform. A delivery team that trusts the platform uses shared capabilities directly, without building its own checks and workarounds, and spends that time on its own work instead. The platform team earns that trust in four ways.
 
 - **Reliability.** The team does what it says it will do, and the capabilities it provides behave as described.
 - **Evidence.** Claims about a system are supported by something others can check, such as a test result, a log, a plan, a version, or a reproducible observation. When the evidence is incomplete, the team says so and works to improve.
@@ -24,8 +24,6 @@ These qualities support one another. Evidence lets others confirm the team's rel
 - When someone reports a problem, begin by establishing what is known, and investigate the evidence together with the reporting team. Stay involved even if the cause turns out to be outside the platform.
 - When the cause belongs to another team, help that team reach a resolution with the information the platform team holds, such as logs, configuration, and steps to reproduce the problem.
 - **Treat being wrong as an ordinary part of investigation.** Correct an earlier conclusion promptly and plainly when the evidence requires it.
-
-
 
 ## Where implementation details live
 
