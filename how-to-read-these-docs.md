@@ -49,7 +49,7 @@ Pages are formal and easy to follow. They should leave a reader with a clear und
 
 A page leads the reader to its conclusion. It states the context the conclusion depends on, then the reasoning, then what the team expects. It does not skip a step that a reader would have to supply, and it does not compress an argument into a short phrase that makes sense only to someone who already shares it.
 
-Pages use complete sentences. They avoid slogans, exaggeration, antagonistic comparisons, and terms that do not have a plain meaning on the page. A comparison appears only when the team already shares it, and the page explains it in ordinary language. Two of those shared phrases are going fast like IndyCar rather than fast like Wile E. Coyote, and "slow is smooth, smooth is fast."
+Pages use complete sentences. They state the team's position and the reasons for it. A sentence has to say something a reader can apply or check. A phrase that only sounds decisive, or a sentence that restates an intention the rest of the page already assumes, does not do that work. Pages avoid slogans, exaggeration, antagonistic comparisons, and terms that do not have a plain meaning on the page. A comparison appears only when the team already shares it, and the page explains it in ordinary language. Two of those shared phrases are going fast like IndyCar rather than fast like Wile E. Coyote, and "slow is smooth, smooth is fast."
 
 The length of a page follows the argument. A page is not padded with restatement, and it is not cut so short that the reader has to guess the missing step.
 

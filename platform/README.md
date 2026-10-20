@@ -29,11 +29,10 @@ For a map page, the third answer is which capability to use and which component 
 The capability map itself is not written yet. The links below are the substantive documents in this directory that are not historical procedures. They predate the map. A link locates the document. It does not mean the page already meets the questions above.
 
 - [Terraform module registry](launch-public-service/terraform-module-registry/README.md). This page explains how to construct a registry source. It is not yet a capability description.
-- [Immutable application deployments](continuous-deployment/immutable-application-deployment/README.md)
-- [Evolutionary database migration and continuous deployment](continuous-deployment/evolutionary-database-deployment/README.md)
-- [Continuous deployment](continuous-deployment/kubernetes/README.md)
+- [Immutable application deployment](continuous-deployment/immutable-application-deployment/README.md)
+- [Evolutionary database changes](continuous-deployment/evolutionary-database-deployment/README.md)
 
-The three deployment pages describe delivery approaches that currently live in this directory. They are not map entries for platform components.
+These two pages are delivery notes. The practices they belong to are indexed under [practices](../practices/README.md). They are not map entries for platform components. The Kubernetes continuous-deployment note that used to be listed here is archived.
 
 Historical procedures that used to sit under `platform/` are listed in the [archive disposition](../archive/content-disposition.md). They are not linked from this map. Empty title reservations were removed rather than kept as procedures. Read the [archive warning](../archive/README.md) before using anything stored there.
 

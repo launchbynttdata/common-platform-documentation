@@ -98,6 +98,16 @@ Under the archived deploy directory, `dns.md` and `expressroute.md` were archive
 
 No other legacy path receives an outcome in this task. Later tasks record those decisions in this file.
 
+## Practices update
+
+The practices pages keep two delivery notes at their existing addresses and archive the Kubernetes note. The pull request number is added here when that pull request is opened.
+
+| Path | Outcome |
+| --- | --- |
+| `platform/continuous-deployment/immutable-application-deployment/README.md` | Rewritten in place. Replacing a running application version, promoting one artifact, and keeping configuration outside the artifact stay. Product-specific deployment mechanics were removed. |
+| `platform/continuous-deployment/evolutionary-database-deployment/README.md` | Rewritten in place. Versioned, compatible schema steps stay. Claims that the technique removes the need for data migration were removed. |
+| `platform/continuous-deployment/kubernetes/README.md` | Archived at `archive/pre-refresh/platform/continuous-deployment/kubernetes/README.md`. The distinction between deployment and delivery was kept on the trustworthy-delivery practice. The Helm product notes were not carried forward as current practice. |
+
 ## Rewritten
 
 Pull request #22 rewrote these pages in place. Each path is unchanged because other pages link to it.

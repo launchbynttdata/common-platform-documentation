@@ -4,7 +4,18 @@ This file records notable changes to the knowledge base, such as new or rewritte
 
 Each open pull request records its changes under "Unreleased", with the pull request number and title in the heading. After that pull request merges, the next pull request replaces "Unreleased" with the merge date.
 
-## Unreleased: #22, Publish platform engineering principles
+## Unreleased: Core platform engineering practices
+
+### Added
+
+- Eight practice pages: the application and platform boundary, trustworthy software delivery, infrastructure as software, observability, shared security responsibility, AI-assisted engineering, the technical backstop, and the minimum platform path at the start of an engagement.
+
+### Changed
+
+- Rewrote the immutable application deployment and evolutionary database notes into the practice page structure. Their addresses are unchanged.
+- Archived the Kubernetes continuous-deployment note after keeping its durable delivery points on the trustworthy-delivery practice.
+
+## 2026-10-19: Publish platform engineering principles ([#22](https://github.com/launchbynttdata/common-platform-documentation/pull/22))
 
 ### Added
 
