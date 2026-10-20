@@ -100,7 +100,7 @@ No other legacy path receives an outcome in this task. Later tasks record those 
 
 ## Practices update
 
-The practices pages keep two delivery notes at their existing addresses and archive the Kubernetes note. The pull request number is added here when that pull request is opened.
+Pull request #23 keeps two delivery notes at their existing addresses and archives the Kubernetes note.
 
 | Path | Outcome |
 | --- | --- |

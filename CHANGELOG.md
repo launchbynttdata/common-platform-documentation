@@ -4,7 +4,7 @@ This file records notable changes to the knowledge base, such as new or rewritte
 
 Each open pull request records its changes under "Unreleased", with the pull request number and title in the heading. After that pull request merges, the next pull request replaces "Unreleased" with the merge date.
 
-## Unreleased: Core platform engineering practices
+## Unreleased: #23, Publish core platform engineering practices
 
 ### Added
 
