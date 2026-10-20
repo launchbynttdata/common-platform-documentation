@@ -10,7 +10,7 @@ AI tools can draft code, tests, configuration, and explanations faster than a pe
 
 The team uses AI to augment engineering work. It can help an engineer explore, draft, explain, and remove repetitive toil. The engineer remains accountable for the recommendation, the change, and the result. Accountability does not move to the model, and it does not depend on whether a person or a tool produced the first draft.
 
-AI output is not yet automation. A model can give different answers to the same question. That is useful while an engineer is exploring. A delivery step has to behave the same way every time. The team uses AI to help write a script, a test, or a pipeline, and then keeps the deterministic version. It does not put a model in the path as the thing that approves, merges, or deploys.
+AI output is not automation. A model can give different answers to the same question. That is useful while an engineer is exploring. A delivery step has to behave the same way every time. The team uses AI to help write a script, a test, or a pipeline, and then keeps the deterministic version. It does not put a model in the path as the thing that approves, merges, or deploys.
 
 Deterministic checks are how the team examines that output at the speed it is produced. Tests, static analysis, security scans, and policy checks apply the same rules to AI-assisted work as to any other work. They catch known classes of mistake. They do not prove the change is appropriate. [Speed is safe when controls keep pace](../principles/safe-speed-and-accountability.md) states the rule for judgment steps: a person is the decider.
 

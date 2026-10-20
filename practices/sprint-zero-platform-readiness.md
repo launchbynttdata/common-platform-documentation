@@ -12,14 +12,13 @@ Sprint 0 is the opening period of an engagement, before substantial business fun
 
 Sprint 0 is complete when every item below is true. An item that is not yet true is open work. Name the gap, the person responsible for closing it, and what the application team cannot do until it is closed.
 
-- **Access.** The people who must change the system can reach the accounts, repositories, and pipelines they need within days. An open-ended wait is a risk to name, not a normal state to absorb.
+- **Access.** The people who must change the system can reach the accounts, repositories, and pipelines they need within days. How long that takes depends on the project and the team. The whole team decides the right pace from the people on the engagement and the project requirements. An open-ended wait is a risk to name, not a normal state to absorb.
 - **Environments.** The first environment is created from reviewed infrastructure source, so it can be explained and repeated.
 - **Build once.** A change produces an identified artifact that is promoted, not rebuilt, for the next environment. [Deliver software through an evidence chain](trustworthy-software-delivery.md) describes that chain.
 - **A thin slice.** A small deployable application or change exercises the path before much business logic depends on it.
 - **One completed change.** At least one change goes from source through review, checks, artifact, and deployment, so the path is known to work.
 - **Operation and recovery.** The team can see whether that change is running and can return to the previous version.
 - **Instructions in the repository.** A new engineer can find how to build, test, and deploy from the repository, as [Self-contained repository delivery](../principles/self-contained-repository-deployment-principle.md) requires.
-- **Open work.** For any item above that is not yet true, record the gap, the person closing it, and what the application team cannot do until it is closed.
 
 Security and observability are part of this minimum, in the thin form described in [Build delivery, security, and observability in from the start](../principles/built-in-from-the-beginning.md). They are not deferred until a later phase.
 

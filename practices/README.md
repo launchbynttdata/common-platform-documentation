@@ -2,7 +2,7 @@
 
 A practice explains how the principles change engineering work: delivery, infrastructure, operations, and the judgment calls that cut across them.
 
-Security and the use of AI-assisted engineering cut across delivery and operations. Addressing either on its own page, when such a page exists, does not remove the need to address it in the relevant practice.
+Security and the use of AI-assisted engineering cut across delivery and operations. Addressing either on its own page does not remove the need to address it in the relevant practice.
 
 ## What belongs here
 

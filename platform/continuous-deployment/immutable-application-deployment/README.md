@@ -12,7 +12,7 @@ Editing a running application in place makes the running version differ from the
 
 Deploy a new version of the same immutable artifact into a new execution context, and move users to it when it is healthy. Keep the previous version available until the new one is accepted, so recovery is a routing change rather than an attempt to undo an in-place edit.
 
-The artifact is built once and does not contain environment-specific values. Configuration is supplied at deployment and can be tied to the artifact version it belongs with.
+The artifact is built once and does not contain environment-specific values. Configuration is supplied at deployment and is versioned with the artifact it belongs to.
 
 This is the team default for application packages. A database usually cannot be replaced as a whole in the same way. Schema changes follow [Evolutionary database changes](../evolutionary-database-deployment/README.md).
 
