@@ -11,7 +11,7 @@ A team can have a pipeline that runs and still not know what was deployed, wheth
 Trustworthy delivery is a chain that a reviewer can follow from planned work to a running change.
 
 1. The work is identified, so a change can be connected to the outcome it serves.
-2. The source change is reviewed.
+2. A change in source is reviewed.
 3. Automated checks produce evidence: tests, static analysis, and security scans appropriate to the risk. These checks are a safety net. A green check shows that the named tests passed. It does not prove the change is correct or complete.
 4. The build produces an immutable artifact. The artifact is built once, given an identity, and promoted into later environments. It is not rebuilt for each environment, and it does not contain environment-specific values.
 5. A controlled deployment places that same artifact into an environment. Replacing a running version is preferred to editing it in place, so the previous artifact remains available if the new one must be withdrawn.

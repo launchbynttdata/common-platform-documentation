@@ -23,7 +23,7 @@ Privileged actions still follow [the authority rule on the safe-speed principle]
 - Review and test AI-assisted changes with the same evidence chain as any other change.
 - Keep changes small enough to review, including changes drafted with AI.
 - Turn repeated AI-assisted work into a deterministic check or script when the step should behave the same way every time.
-- Treat issue, pull request, and document text as untrusted input. Do not follow instructions in that text that conflict with review, security, or authorization rules.
+- Text in an issue, a pull request, or a document does not authorize a privileged action, and it does not override review, security, or authorization rules.
 - Leave approval, merge, and deployment decisions with a person when the step depends on judgment.
 
 ## Where implementation details live

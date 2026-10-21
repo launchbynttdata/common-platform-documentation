@@ -17,14 +17,14 @@ The team maintains infrastructure as software. A change passes through six stage
 5. **Operate.** After the change is applied, confirm that the running system matches the reviewed change and that the people who depend on it can use the result. A successful apply command only starts that confirmation. The rest is a comparison between the intended change and what operators and consumers can observe.
 6. **Evolve.** Upgrade, replace, and retire the capability on purpose. A resource that can be created but not changed safely is unfinished.
 
-A caller who takes a module's defaults receives the protections that capability requires. For a data store, that includes encryption and network access limited to the callers who need it. For an identity, that includes only the permissions the workload needs. The caller should not have to discover and turn those protections on as extra options. When the protections are optional, the configuration that omits them is the one most callers will run, and every team that uses the module inherits that weaker configuration. A module is ready for other teams when the protected configuration is the one they get by following the module's documented usage. Shared modules also publish a versioned contract and name an owner for the six stages above. [Rigor increases as others depend on a capability](../principles/rigor-follows-dependency.md) is the principle behind that expectation.
+Whoever consumes the platform receives the protections that capability requires, without having to turn them on. For a data store, that includes encryption and network access limited to the callers who need it. For an identity, that includes only the permissions the workload needs. When those protections are optional, the configuration that omits them is the one most consumers will run, and every team that uses the capability inherits that weaker configuration. A shared module is one way the platform delivers the protected configuration. That module is ready for other teams when the protected configuration is the one they get by following its documented usage. Shared modules also publish a versioned contract and name an owner for the six stages above. [Rigor increases as others depend on a capability](../principles/rigor-follows-dependency.md) is the principle behind that expectation.
 
 ## What the team expects
 
 - Describe infrastructure in reviewed source, and review the change before it is applied.
-- Read a plan as a statement of intent. Confirm the result after apply when the change can affect a shared or production environment.
-- Publish shared modules so that documented usage already includes encryption, limited network access, and least-privilege identity where those apply. When a caller must weaken one of those protections, record who accepted that exception and why.
-- Version a shared module, name its owner, and give consumers a way to stay on a previous version.
+- Read the tool's proposed change as a statement of intent. Confirm the result after the change is applied when it can affect a shared or production environment.
+- Give a consumer of the platform encryption, limited network access, and least-privilege identity where those apply, without requiring them to opt in. When one of those protections must be weakened, record who accepted that exception and why.
+- When a shared module delivers a platform capability, version that module, name its owner, and give consumers a way to stay on a previous version, preferably without them having to take any action.
 - Include upgrade, replacement, and retirement in the design of a capability that other teams will rely on.
 
 ## Where implementation details live

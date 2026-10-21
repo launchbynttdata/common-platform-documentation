@@ -14,7 +14,9 @@ The work is evidence-led. Establish what is known, write down the investigation,
 
 When the evidence points to another team, hand that team the logs, the configuration, and the steps that reproduce the problem, and stay available through the resolution. When the evidence may indicate a security incident, stop ordinary troubleshooting and follow the engagement's response path, as [Share responsibility for security](security-as-shared-responsibility.md) describes.
 
-An engineer who is stuck tries, then asks for help. **Team default:** the engineer allows about an hour of being stuck, then asks. The exact moment to ask varies with the problem. **Asking for help is expected and never punished.** Asking for help is nothing to be afraid of or ashamed of. It is how engineers on the team learn and grow. Other members of the Launch by NTT DATA Platform Engineering team who are not staffed on the engagement can provide advice and suggest direction, but they cannot join the engagement or own the delivery. The engineer on the engagement remains responsible for applying that advice.
+An engineer who is stuck tries, then asks for help. The engineer allows about an hour of being stuck, then asks. The exact moment to ask varies with the problem. **Asking for help is expected and never punished.** Asking for help is nothing to be afraid of or ashamed of. It is how engineers on the team learn and grow.
+
+Helping each other across engagements is part of how the Launch by NTT DATA Platform Engineering team works. More senior members are expected to step in to offer advice and direction when asked. A member who is not staffed on the engagement can advise, but cannot join the engagement or own the delivery. The engineer on the engagement remains responsible for applying that advice.
 
 A learning review can follow a failure, a near miss, or a repeated frustration. [Observe the system in order to operate it](observability-and-operability.md) describes what that review is for.
 

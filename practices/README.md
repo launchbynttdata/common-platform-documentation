@@ -25,7 +25,7 @@ Each practice page uses four headings:
 3. **What the team expects** lists the decisions an engineer is expected to make.
 4. **Where implementation details live** points to the owning repository or standard, rather than copying commands.
 
-Each page states its strength at the top. [How to read these docs](../how-to-read-these-docs.md) explains the labels. Security and AI-assisted engineering also appear inside the delivery and infrastructure pages, because a separate page does not remove the need to apply them there.
+Each page states its strength at the top. [How to read these docs](../how-to-read-these-docs.md) explains the labels.
 
 ## Pages
 

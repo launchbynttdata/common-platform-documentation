@@ -24,7 +24,7 @@ Security-relevant events belong in this evidence. Telemetry should make unexpect
 
 A local health check should report the health of that component. A check that calls through to every dependency turns one failure into many alarms and hides the source. End-to-end availability is watched from outside the component, not by every component probing every other one.
 
-After a failure, a near miss, or a repeated delivery problem, the team can hold a learning review. The review asks what would have made the problem visible sooner and what default, check, or document should change. It is not a search for someone to blame.
+After a failure, a near miss, or a repeated delivery problem, the team can hold a learning review. The review asks what would have made the problem visible sooner and what default, check, or document should change. It is not a search for someone to blame. Blame gives people a reason to conceal an incident, and a concealed incident removes the evidence the next review needs.
 
 ## What the team expects
 
