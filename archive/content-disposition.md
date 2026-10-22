@@ -108,6 +108,16 @@ Pull request #22 rewrote these pages in place. Each path is unchanged because ot
 | `principles/self-contained-repository-deployment-principle.md` | Rewritten so a person can start a build or deployment from the repository without collecting steps from elsewhere. Configuration, secrets, shared services, and shared tooling stay explicit external dependencies. The title is now "Self-contained repository delivery". |
 | `strategies/poly-git-repo-strategy.md` | The placeholder was replaced with the trade-offs between multiple repositories and a single repository. It is labeled a context-dependent choice and links to the single-purpose repository principle. |
 
+## Practices update
+
+Pull request #23 keeps two delivery notes at their existing addresses and archives the Kubernetes note.
+
+| Path | Outcome |
+| --- | --- |
+| `platform/continuous-deployment/immutable-application-deployment/README.md` | Rewritten in place. Replacing a running application version, promoting one artifact, and keeping configuration outside the artifact stay. Product-specific deployment mechanics were removed. |
+| `platform/continuous-deployment/evolutionary-database-deployment/README.md` | Rewritten in place. Versioned, compatible schema steps stay. Claims that the technique removes the need for data migration were removed. |
+| `platform/continuous-deployment/kubernetes/README.md` | Archived at `archive/pre-refresh/platform/continuous-deployment/kubernetes/README.md`. The distinction between deployment and delivery was kept on the trustworthy-delivery practice. The Helm product notes were not carried forward as current practice. |
+
 ## Inbound links
 
 GitHub does not redirect a file when it moves. Other repositories link the old macOS and Windows environment pages (`platform/development-environments/local/mac/README.md` and `platform/development-environments/local/windows/README.md`). A private demo configuration points at the old ECS input files under `platform/common-automation-framework/exclusive-services/java/aws/ecs/inputs/`. Those targets are framework-era procedures. No forwarding page is added for them, so those outside links will stop resolving.

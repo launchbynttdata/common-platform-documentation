@@ -1,3 +1,5 @@
+> **Historical.** This page is not current guidance.
+
 # Continuous Deployment
 
 ## Introduction
