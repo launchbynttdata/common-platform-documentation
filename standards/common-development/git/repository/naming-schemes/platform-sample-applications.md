@@ -1,59 +1,40 @@
-# Platform Sample Applications
+# Name platform sample applications by language, platform, and purpose
 
-Names for our IaC Git repositories are standardized to provide a predictable format for easy lookup and retrieval. Repository names are case-insensitive and should always be normalized to lowercase and folded to ASCII characters.
+**Strength:** Team default
 
-Sample Applications maintained by the Platform Team should follow the following general format:
+## The problem
 
-> language-platform-sample-description
+Sample applications are how the platform team shows a supported path and how it exercises a component. A sample whose name does not say what it is, or that hides a cloud-specific choice, gets reused for the wrong runtime or the wrong cloud.
 
-## Separators
+## The position
 
-We use hyphens (`-`) to separate fields in a repository's name. Only underscores (`_`) are used within a field to separate words, and any compound value for a [language](#language) or [description](#description) should be expressed in `snake_case`, that is, lowercase words separated by underscores.
+A sample application maintained by the platform team uses four fields: language, platform, the literal type `sample`, and a short description.
 
-## Language
+```text
+language-platform-sample-description
+```
 
-**Language** indicates the programming language or runtime for which the sample application is written.
+Names are lowercase ASCII. Hyphens separate the fields. Underscores separate words inside a field. The type field is always `sample`, so a sample cannot be confused with a module.
 
-For the major Javascript Frameworks (React, Vue, Angular, NextJS), we will use the framework name in this field directly.
+The platform field is `platform` when the application is not written for one cloud. When the application depends on a specific cloud resource, the platform field uses the same provider names as [infrastructure repository names](iac-repository-names.md).
 
-Some valid options might be:
+## What the team expects
 
-- `dotnet` for .NET applications written in a CLR language (C#, F#)
-- `java` for Java applications
-- `javascript` or `typescript` for a web application that doesn't use a major JS/TS Framework
-- `react`, `angular`, `vue`, or `nextjs` for a web application using one of those frameworks
-- `python` for Python modules
-∂
-## Platform
+**Language.** Name the language or the framework that determines how the sample is built. Use `dotnet`, `java`, `python`, `javascript`, or `typescript` when that is the accurate runtime. For a major JavaScript framework, use the framework name: `react`, `angular`, `vue`, or `nextjs`.
 
-For all sample applications maintained by the Platform Team, this value is a constant `platform` if the application code is agnostic to the runtime environment. If there are cloud-specific qualities to the application (perhaps it was designed to work with a specific AWS resource like Kinesis), the value should reflect the cloud provider and match the [providers from the general IAC naming standards](./iac-repository-names.md#provider).
+**Platform.** Use `platform` when the sample is not tied to one cloud. Otherwise use the provider name from the infrastructure naming standard.
 
-## Sample
+**Description.** Describe the sample in broad terms, with underscores between words. `rest_api`, `queue_consumer`, and `static_frontend` are the expected grain. Do not encode a client or an environment in the name.
 
-For all sample applications maintained by the Platform Team, the field for type is a constant value `sample`.
+**Examples.**
 
-## Description
+- `dotnet-platform-sample-rest_api` is a .NET REST API with no cloud-specific requirement.
+- `java-platform-sample-queue_consumer` is a Java application that reads example messages from a queue.
+- `angular-platform-sample-static_frontend` is an Angular sample that produces static files.
+- `python-platform-sample-wsgi_rest_api` is a Python WSGI REST API. An asynchronous sample uses a description such as `asgi_rest_api`.
 
-The **description** field should describe the sample application in broad terms. Separators in the name are limited to underscore (`_`) characters.
+## Where implementation details live
 
-For most sample applications, this should be something extremely simple, like `rest_api`, `queue_consumer`, or `static_frontend`.
+The sample repository holds its build and its README. This page does not set the application framework beyond the name.
 
-# Examples in Practice
-
-Below are some example names and explanations of what they should contain.
-
-- `dotnet-platform-sample-rest_api`
-
-Represents a C# REST API with no cloud-specific requirements. This example API might provide a single route and return a static response like "Hello World".
-
-- `java-platform-sample-queue_consumer`
-
-A Java application designed to pick up example messages from a message queue.
-
-- `angular-platform-sample-static_frontend`
-
-An Angular JS application to serve as an example static frontend (i.e. only static files are produced, no Node server is involved in servicing requests)
-
-- `python-platform-sample-wsgi_rest_api`
-
-A Python application using a WSGI framework (e.g. Django) to provide a REST API. The asynchronous equivalent might be `asgi_rest_api` for a FastAPI or Litestar application.
+[Repository names](../naming-schemes.md)

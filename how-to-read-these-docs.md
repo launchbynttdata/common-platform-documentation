@@ -14,7 +14,7 @@ The knowledge base has five kinds of active content. Each has its own section.
 
 - **Principles** explain why the team works as it does. A principle should remain true even after the current tools are replaced.
 - **Practices** describe how the principles shape everyday delivery and operations work.
-- **Standards** state the team's current defaults and the contracts that other work relies on.
+- **Standards** state how the team would implement a capability when it is free to choose. They are requirements for components the team owns and a direction to work toward when client constraints do not allow the default to be applied directly.
 - **The platform map** describes what each major part of the Launch platform is for, how the parts relate, and which repository owns each one.
 - **New ideas** record proposals the team is exploring. A new idea is not yet a supported standard, and publishing it is not a commitment to adopt it.
 
@@ -31,6 +31,8 @@ Principle, practice, and standard pages use the same four headings, so a reader 
 
 Pages that describe a context-dependent choice, such as [repository topology](strategies/poly-git-repo-strategy.md), use the same headings. Their position section sets out the trade-offs and names the team default.
 
+[Promote a new idea into active guidance](promoting-an-idea.md) is a team default about how this knowledge base changes. It sits beside this page rather than in a content section, and it uses the same four headings.
+
 New idea pages follow the [idea template](new-ideas/idea-template.md), which records the problem, the current hypothesis, the open questions, and the criteria for adopting or abandoning the idea. Platform map pages describe what a capability is for, how it relates to other capabilities, and where its documentation lives. Section index pages describe what belongs in the section and what does not.
 
 ## Strength labels
@@ -38,7 +40,7 @@ New idea pages follow the [idea template](new-ideas/idea-template.md), which rec
 Each principle, practice, and standard page states its strength near the top. The strength tells the reader how firmly the team holds the statement and how much room there is to depart from it. The term is shared with the team's other engineering guidance, so the same label means the same thing wherever it appears.
 
 - **Principle.** A durable reason that the team expects to keep when tools and circumstances change. Departing from a principle means the team's reasoning has changed. If a principle no longer seems right, raise it for discussion rather than working around it.
-- **Team default.** The team's current preferred approach. Follow it unless there is a documented reason to do otherwise, and record that reason where the work is done so others can understand the exception.
+- **Team default.** The team's current preferred approach. Follow it in work the team owns unless there is a documented reason to do otherwise. On a client engagement, understand the client's requirements and work toward the default at a pace the client and the engagement can support. Record the constraint, the trade-off, and the next useful step where the work is done so others can understand the departure.
 - **Context-dependent choice.** A decision that depends on the needs of a particular engagement or client. The page explains the trade-offs and, where one exists, the team default. Make the choice deliberately and record the reasons.
 
 A page labeled as a principle can contain a statement with a different strength. In that case, the statement is labeled where it appears. For example, the [single-purpose repository](principles/single-purpose-repository-principle.md) principle includes a team default about using multiple repositories.
@@ -68,7 +70,7 @@ Practices, standards, and the platform map use this standard as well. Principles
 
 Anyone can propose a change by opening an issue. The issue templates ask for the information the team needs to evaluate the request, such as the page affected, the problem with the current text, and the evidence for a correction.
 
-Changes are made through pull requests. Each pull request runs an automated documentation check that verifies links and blocks private information, such as personal file paths, account identifiers, and email addresses.
+Changes are made through pull requests. Each pull request runs an automated documentation check that verifies links and blocks private information, such as personal file paths, account identifiers, and email addresses. An idea becomes a principle, a practice, or a standard only through the process in [Promote a new idea into active guidance](promoting-an-idea.md).
 
 Notable changes are recorded in the [changelog](CHANGELOG.md).
 
