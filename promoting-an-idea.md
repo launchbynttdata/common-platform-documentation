@@ -12,7 +12,7 @@ An idea has no authority until the team publishes active guidance that stands on
 
 The idea page names its owner, its last review, and the evidence required to adopt or abandon it before anyone treats the proposal as ready for that decision. The same review used for any other change to this knowledge base decides the pull request. Promotion is not a separate board.
 
-Abandonment is the same kind of decision. The reviewed change records why the idea is **Abandoned** and does not add an active page. An abandoned idea is not a side door into the standards.
+Abandonment is the same kind of decision. The reviewed change records why the idea is **Abandoned** and does not add an active page. The abandoned page records why the team stopped, and it does not add a requirement for engineers to follow.
 
 After promotion, the active page is the guidance. The idea page remains as the record of the decision, and an engineer does not have to read it to find a requirement. Every requirement moves onto the active page in that same change, written with the four headings and the strength label that [How to read these docs](how-to-read-these-docs.md) requires of active pages.
 
@@ -22,7 +22,7 @@ After promotion, the active page is the guidance. The idea page remains as the r
 - Promote an idea only when the reviewed evidence meets its criteria. Publish the active page and mark the idea **Promoted** in the same change, so the knowledge base never shows one without the other.
 - Make the promoted page self-contained. An engineer must be able to follow it without reading the idea page.
 - Keep the idea page as the record of the decision, and point it at the active page.
-- Abandon an idea by recording the reason in a reviewed change, without adding an active page. Do not let an idea expire by silence.
+- Abandon an idea by recording the reason in a reviewed change, without adding an active page. An idea remains a proposal until a reviewed change adopts it or records that the team has abandoned it.
 - Review the idea page when the evidence has changed since its last-reviewed date.
 
 ## Where implementation details live

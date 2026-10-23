@@ -16,6 +16,7 @@ Each open pull request records its changes under "Unreleased", with the pull req
 ### Changed
 
 - The documentation check now requires the canonical Terraform module pages and the compatibility links to them.
+- A standard now states how the team would implement a capability when free to choose. On a client engagement, the team works toward that standard at a pace the client can support.
 
 ## 2026-10-22: Publish core platform engineering practices ([#23](https://github.com/launchbynttdata/common-platform-documentation/pull/23))
 

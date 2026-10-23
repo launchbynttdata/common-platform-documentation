@@ -64,6 +64,6 @@ Archived standards:
 - The archived framework repository-naming page in `archive/framework-era/standards/common-development/git/repository/naming-schemes/`. The file name contains the retired product acronym, so this index does not repeat it.
 - [DNS deploy note](../archive/framework-era/standards/iac-development/terraform/module/wrapper/deploy/dns.md) and [ExpressRoute deploy note](../archive/framework-era/standards/iac-development/terraform/module/wrapper/deploy/expressroute.md).
 
-The Helm chart pages are not in the lists above. They are not a current standard. They point at [Deliver Kubernetes workloads with Helm and Argo CD](../new-ideas/helm-and-argocd.md).
+The Helm chart pages are not in the lists above. They are not a current standard. The 2024 notes are archived under `archive/pre-refresh/standards/helm-development/`, and the current addresses point at [Deliver Kubernetes workloads with Helm and Argo CD](../new-ideas/helm-and-argocd.md).
 
 [Knowledge base home](../README.md)

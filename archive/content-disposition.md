@@ -128,7 +128,7 @@ This refresh publishes canonical Terraform module pages under `standards/terrafo
 | `standards/iac-development/terraform/module/collection/README.md` | Compatibility page. Canonical page: `standards/terraform/modules/collection.md`. |
 | `standards/iac-development/terraform/module/reference-architecture/README.md` | Compatibility page. Canonical page: `standards/terraform/modules/reference-architecture.md`. |
 | `standards/iac-development/terraform/module/library/README.md` | Compatibility page. Canonical page: `standards/terraform/modules/library.md`. |
-| `standards/helm-development/` | The four Helm pages point at `new-ideas/helm-and-argocd.md`. They are not a current standard. |
+| `standards/helm-development/` | The four current pages point at `new-ideas/helm-and-argocd.md`. They are not a current standard. The 2024 text is archived under `archive/pre-refresh/standards/helm-development/`. |
 | `standards/iac-development/README.md` | Not rewritten. Listed for review. |
 | `standards/common-development/java/hexagonal/pictures/` | Not rewritten. Diagrams with no standard text. Listed for review. |
 | `archive/pre-refresh/standards/common-development/git/tagging/README.md` | Left in place. The versioning standard covers published modules. The note was not rewritten. |

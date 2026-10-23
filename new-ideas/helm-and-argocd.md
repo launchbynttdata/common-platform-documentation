@@ -6,11 +6,11 @@
 
 ## Problem or opportunity
 
-Application teams deploy workloads to Kubernetes without a platform path that says how the package is built, how it is applied, and how the cluster is brought back to the reviewed desired state. The knowledge base has had Helm chart notes since 2024. Those notes were never tied to a reconciler, and they were never shown to be the path engagements use. Teams that need Kubernetes delivery still have to invent the package and the deployment step.
+Application teams deploy workloads to Kubernetes without a platform path that says how the package is built, how it is applied, and how the cluster is brought back to the reviewed desired state. The 2024 Helm notes describe chart kinds, versioning, and the tools used to check a chart. They do not name a reconciler, and they were not shown to be the path engagements use. Teams that need Kubernetes delivery still have to invent the deployment step.
 
 ## Current hypothesis
 
-Helm is the package. Argo CD is the reconciler. A chart is built and versioned as an artifact. Argo CD applies that artifact to the cluster and keeps the running state aligned with the reviewed desired state. Drift is corrected by the reconciler, not by an edit in the cluster.
+Helm with Argo CD is the next evolution of that Helm work, and it is the latest suggestion the team is exploring. The 2024 notes did not include Argo CD. The team is now suggesting that Helm remain the package and that Argo CD be the reconciler: a chart is built and versioned as an artifact, Argo CD applies that artifact, and Argo CD keeps the running state aligned with the reviewed desired state. Drift is corrected by the reconciler, not by an edit in the cluster. This is a suggestion to test. It is not a decision that the team already operates this path.
 
 The 2024 notes proposed three chart kinds. This idea carries them forward as candidates, not as requirements. A library chart holds reusable templates and deploys nothing by itself. A deployment chart deploys one workload shape and can be rendered on its own. An umbrella chart is the application entry point: a `Chart.yaml` and a `values.yaml` that depend on deployment charts. An umbrella chart does not depend on a library chart directly. Deployment charts do not depend on sibling charts for values they need at render time.
 
@@ -26,7 +26,7 @@ Engagements already meet Kubernetes, and [Deliver software through an evidence c
 - A reconciler that applies Git continuously can bypass the evidence chain if the Git state is not the reviewed artifact. The path has to say which repository Argo CD watches and how a promoted artifact gets there.
 - The 2024 notes also named `helm lint`, `yamllint`, `kubeconform`, and `helm-docs`. Those tools are candidates for the checks. They are not required by this idea.
 - Who operates the cluster, the Argo CD project, and the chart repositories is not decided. The platform team should not become the owner of every application chart.
-- The older Helm pages under `standards/helm-development/` are pointers to this idea. They are not a current standard.
+- The 2024 Helm notes are archived and are not a current standard. The addresses under `standards/helm-development/` now point here. The archived notes are [Helm chart tools and practices](../archive/pre-refresh/standards/helm-development/README.md), [Helm deployment charts](../archive/pre-refresh/standards/helm-development/charts/deployment/README.md), [Helm library charts](../archive/pre-refresh/standards/helm-development/charts/library/README.md), and [Helm chart helpers](../archive/pre-refresh/standards/helm-development/helpers/README.md).
 
 ## Evidence or experiments needed
 
