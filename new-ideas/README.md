@@ -16,7 +16,7 @@ A proposal that can be reviewed against evidence. It names the problem, the curr
 
 ## Questions an idea page answers
 
-Idea pages do not answer the active-guidance contract. Those four questions (problem, position, expectation, and where the mechanics live) apply only after promotion, on the principle, practice, standard, or map page that replaces the proposal.
+Idea pages do not answer the active-guidance contract. Those four questions (problem, position, expectation, and where the mechanics live) apply only after promotion, on the principle, practice, or standard page that receives the idea. The idea page remains as the record of the decision.
 
 Until then, the proposal answers the sections in [idea-template.md](idea-template.md):
 
@@ -29,13 +29,10 @@ Until then, the proposal answers the sections in [idea-template.md](idea-templat
 
 ## Lifecycle
 
-1. Copy [idea-template.md](idea-template.md) to a new Markdown file in this directory. Leave the template as the blank form.
-2. Set **Status** to `Exploring`, name an owner as a team or a role, and set **Last reviewed** to the date the page was last judged still accurate.
-3. Fill every section. Do not add a file that only reserves a title.
-4. While status is `Exploring`, the page is a hypothesis under test. It requires nothing of engineers building on the platform.
-5. **Promoted.** The promotion criteria on the page are met. Rewrite the durable content into the matching active section. Set **Status** to `Promoted` and point to that active page. The idea page is no longer guidance.
-6. **Abandoned.** The abandonment criteria are met, or the evidence shows the idea is not worth pursuing. Set **Status** to `Abandoned` and record why. An abandoned page is not a side door into the standards.
+Copy [idea-template.md](idea-template.md) to a new Markdown file in this directory. Leave the template as the blank form. While status is `Exploring`, the page requires nothing of engineers building on the platform. [Promote a new idea into active guidance](../promoting-an-idea.md) describes how an idea is promoted or abandoned.
 
-No proposal pages exist yet. The template is the only file in this directory besides this index.
+## Proposals
+
+- [Deliver Kubernetes workloads with Helm and Argo CD](helm-and-argocd.md)
 
 [Knowledge base home](../README.md)

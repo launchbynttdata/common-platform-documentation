@@ -29,6 +29,6 @@ Whoever consumes the platform receives the protections that capability requires,
 
 ## Where implementation details live
 
-Terraform module types, testing, and version floors are standards and will be published in [standards](../standards/README.md). Each module repository holds its own contract, examples, and tests. [Build delivery, security, and observability in from the start](../principles/built-in-from-the-beginning.md) states why infrastructure is delivered like software.
+Terraform module types, testing, and version floors are [standards](../standards/terraform/modules/README.md). Each module repository holds its own contract, examples, and tests. [Build delivery, security, and observability in from the start](../principles/built-in-from-the-beginning.md) states why infrastructure is delivered like software.
 
 [Practices](README.md)

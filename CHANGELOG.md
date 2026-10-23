@@ -4,7 +4,21 @@ This file records notable changes to the knowledge base, such as new or rewritte
 
 Each open pull request records its changes under "Unreleased", with the pull request number and title in the heading. After that pull request merges, the next pull request replaces "Unreleased" with the merge date.
 
-## Unreleased: #23, Publish core platform engineering practices
+## Unreleased: #24, Publish current engineering standards
+
+### Added
+
+- Standards for repository names, semantic versions, tool pins, documentation ownership, and the check that confirms a claim.
+- The Terraform module contract, the four module types, module testing, and version-floor checks. Existing module-definition addresses remain as compatibility pages.
+- A process for promoting or abandoning a new idea.
+- A Helm and Argo CD proposal. The previous Helm pages point at that proposal.
+
+### Changed
+
+- The documentation check now requires the canonical Terraform module pages and the compatibility links to them.
+- A standard now states how the team would implement a capability when free to choose. On a client engagement, the team works toward that standard at a pace the client can support.
+
+## 2026-10-22: Publish core platform engineering practices ([#23](https://github.com/launchbynttdata/common-platform-documentation/pull/23))
 
 ### Added
 

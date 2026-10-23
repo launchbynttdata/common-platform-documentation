@@ -118,6 +118,22 @@ Pull request #23 keeps two delivery notes at their existing addresses and archiv
 | `platform/continuous-deployment/evolutionary-database-deployment/README.md` | Rewritten in place. Versioned, compatible schema steps stay. Claims that the technique removes the need for data migration were removed. |
 | `platform/continuous-deployment/kubernetes/README.md` | Archived at `archive/pre-refresh/platform/continuous-deployment/kubernetes/README.md`. The distinction between deployment and delivery was kept on the trustworthy-delivery practice. The Helm product notes were not carried forward as current practice. |
 
+## Standards update
+
+This refresh publishes canonical Terraform module pages under `standards/terraform/modules/` and leaves the previous addresses in place as compatibility pages. It records Helm as a new idea rather than a standard. It does not move archived standards. Pages that were not rewritten are listed on the standards index for a relevance and currency review.
+
+| Path | Outcome |
+| --- | --- |
+| `standards/iac-development/terraform/module/primitive/README.md` | Compatibility page. Canonical page: `standards/terraform/modules/primitive.md`. |
+| `standards/iac-development/terraform/module/collection/README.md` | Compatibility page. Canonical page: `standards/terraform/modules/collection.md`. |
+| `standards/iac-development/terraform/module/reference-architecture/README.md` | Compatibility page. Canonical page: `standards/terraform/modules/reference-architecture.md`. |
+| `standards/iac-development/terraform/module/library/README.md` | Compatibility page. Canonical page: `standards/terraform/modules/library.md`. |
+| `standards/helm-development/` | The four current pages point at `new-ideas/helm-and-argocd.md`. They are not a current standard. The 2024 text is archived under `archive/pre-refresh/standards/helm-development/`. |
+| `standards/iac-development/README.md` | Not rewritten. Listed for review. |
+| `standards/common-development/java/hexagonal/pictures/` | Not rewritten. Diagrams with no standard text. Listed for review. |
+| `archive/pre-refresh/standards/common-development/git/tagging/README.md` | Left in place. The versioning standard covers published modules. The note was not rewritten. |
+| `archive/framework-era/standards/` | Left in place. No successor was published for the retired framework names or the deploy notes. |
+
 ## Inbound links
 
 GitHub does not redirect a file when it moves. Other repositories link the old macOS and Windows environment pages (`platform/development-environments/local/mac/README.md` and `platform/development-environments/local/windows/README.md`). A private demo configuration points at the old ECS input files under `platform/common-automation-framework/exclusive-services/java/aws/ecs/inputs/`. Those targets are framework-era procedures. No forwarding page is added for them, so those outside links will stop resolving.

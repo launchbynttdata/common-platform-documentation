@@ -14,7 +14,7 @@ Commands, configuration, and verification belong with the component that owns th
 
 **Practice.** How those principles change delivery and operations: what an engineer is expected to do, and what stays in a component repository.
 
-**Standard.** A current team default or compatibility contract. Follow it unless a documented reason justifies an exception.
+**Standard.** How the team would implement a capability when it is free to choose. It is a requirement for work the team owns and a direction to work toward, at the client's pace, when an engagement imposes different requirements.
 
 **Platform map.** A capability-level picture of the current platform: what each major component is for, how the components relate, and where the owning documentation lives. It does not copy component procedures.
 
