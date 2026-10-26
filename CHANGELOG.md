@@ -11,7 +11,7 @@ Each open pull request records its changes under "Unreleased", with the pull req
 - Standards for repository names, semantic versions, tool pins, documentation ownership, and the check that confirms a claim.
 - The Terraform module contract, the four module types, module testing, and version-floor checks. Existing module-definition addresses remain as compatibility pages.
 - A process for promoting or abandoning a new idea.
-- A Helm and Argo CD proposal. The previous Helm pages point at that proposal.
+- A Helm and Argo CD proposal. The 2024 Helm pages are archived at `archive/pre-refresh/standards/helm-development/`. The previous addresses remain as pointers to that proposal.
 
 ### Changed
 
@@ -21,6 +21,7 @@ Each open pull request records its changes under "Unreleased", with the pull req
 - A breaking change bumps the major version at every stage, including below 1.0. The changelog for that release points to documentation that tells consumers how to take the change. A version-floor change uses that same contract test. In the general case it is breaking because callers lose a version they were allowed to use.
 - The version-floor page states what the check is for and points at the public skeleton script for what the check runs today.
 - An infrastructure repository name is required to follow `tool-provider-name`. The token lists are consistency guidance, not a closed list. Helm remains a new idea.
+- The module generator is named, not linked. Its creation steps stay in the private repository `launch-terraform-modules`. The public skeleton skills remain the instructions for building a module.
 - A primitive is one provider resource. A related resource type is its own primitive. Secure defaults apply inside that module. A primitive does not generate names. Its examples and tests may call `resource_name`.
 - The module-URL check now has a test where the compatibility links are correct and a test where a compatibility page points at the wrong canonical page.
 
