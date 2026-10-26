@@ -1,6 +1,6 @@
 # Standards
 
-A standard states how the Launch by NTT DATA Platform Engineering team would implement a capability when the team is free to choose. For repositories and platform components the team owns, a standard is a requirement. A departure needs a documented reason, recorded where the work is done.
+A standard states how the Launch by NTT DATA Platform Engineering team would implement a capability when the team is free to choose. The team owns the modules in the `launchbynttdata` organization, and a standard is a requirement for those modules. Client work can drive a change to a module the team owns. That change still meets the standard or records a documented reason where the work is done. An engagement owns the client code that calls those modules. This knowledge base does not govern code the client owns.
 
 A standard is more specific than the practice it comes from. The practice says what kind of decision the team makes. The standard says the default itself: the name, the version, the test, or the contract another repository is expected to meet.
 
@@ -27,7 +27,7 @@ A default the team uses now and expects engineers to meet. Examples are reposito
 Repository and evidence:
 
 - [Name a repository for the contract it publishes](common-development/git/repository/naming-schemes.md)
-- [Name infrastructure repositories by tool, provider, type, and resource](common-development/git/repository/naming-schemes/iac-repository-names.md)
+- [Name infrastructure repositories by tool, provider, and name](common-development/git/repository/naming-schemes/iac-repository-names.md)
 - [Name platform sample applications by language, platform, and purpose](common-development/git/repository/naming-schemes/platform-sample-applications.md)
 - [Version published modules semantically](common-development/versioning/README.md)
 - [Pin the tools a repository requires](common-development/tool-versions.md)

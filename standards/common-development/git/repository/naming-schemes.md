@@ -10,19 +10,20 @@ People find a repository by its name, and they infer its contract from that name
 
 The team has two naming schemes, and a repository uses the one that matches what it publishes.
 
-An infrastructure module or chart uses [tool, provider, type, and resource](naming-schemes/iac-repository-names.md). A sample application maintained by the platform team uses [language, platform, sample, and description](naming-schemes/platform-sample-applications.md). Both schemes are lowercase ASCII, with hyphens between fields and underscores inside a field.
+An infrastructure module or chart uses [tool, provider, and name](naming-schemes/iac-repository-names.md). A sample application maintained by the platform team uses [language, platform, sample, and description](naming-schemes/platform-sample-applications.md). Both schemes are lowercase ASCII, with hyphens between fields and underscores inside a field.
 
-A repository name is not a reason to adopt the tool in the name. A Helm chart repository, if one is created, is named with the infrastructure scheme. The name does not make Helm a supported path. Helm as a delivery path is a [new idea](../../../../new-ideas/helm-and-argocd.md).
+The infrastructure requirement is that hyphen pattern. The field examples on the infrastructure page are guidance for staying consistent with existing repositories and for keeping one contract distinct from another. They are not a closed list.
+
+A repository name is not a reason to adopt the tool in the name. Helm chart repositories that already exist use the infrastructure pattern. Helm is not a standard. It remains a [new idea](../../../../new-ideas/helm-and-argocd.md).
 
 ## What the team expects
 
-- Name an infrastructure repository with the infrastructure scheme before the repository is created.
+- Name an infrastructure repository `tool-provider-name`, in lowercase ASCII, with hyphens between the fields.
+- Choose each field so the name matches existing repositories of the same kind, and so a reader cannot confuse it with a different contract.
 - Name a platform sample with the sample scheme.
-- Do not invent a third field order for a one-off repository.
-- Open a change to the scheme before introducing a new tool, provider, or type. Do not start a repository on a type this standard does not list.
 
 ## Where implementation details live
 
-The two scheme pages hold the field lists and the examples. New Terraform module repositories are created from the [module generator](https://github.com/launchbynttdata/launch-terraform-modules).
+The two scheme pages hold the examples. How a Terraform module repository is created, and where the collection-module instructions live, is on [Name infrastructure repositories by tool, provider, and name](naming-schemes/iac-repository-names.md).
 
 [Standards](../../../README.md)

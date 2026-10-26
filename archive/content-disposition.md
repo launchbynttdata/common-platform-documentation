@@ -120,19 +120,23 @@ Pull request #23 keeps two delivery notes at their existing addresses and archiv
 
 ## Standards update
 
-This refresh publishes canonical Terraform module pages under `standards/terraform/modules/` and leaves the previous addresses in place as compatibility pages. It records Helm as a new idea rather than a standard. It does not move archived standards. Pages that were not rewritten are listed on the standards index for a relevance and currency review.
+Pull request #24 uses the four outcome names defined above. A retained module address stays so existing links resolve, and the page is a pointer rather than a second copy of the standard. Helm stays a new idea. It is not a standard. Pages that were not rewritten stay listed on the standards index for a relevance and currency review.
 
 | Path | Outcome |
 | --- | --- |
-| `standards/iac-development/terraform/module/primitive/README.md` | Compatibility page. Canonical page: `standards/terraform/modules/primitive.md`. |
-| `standards/iac-development/terraform/module/collection/README.md` | Compatibility page. Canonical page: `standards/terraform/modules/collection.md`. |
-| `standards/iac-development/terraform/module/reference-architecture/README.md` | Compatibility page. Canonical page: `standards/terraform/modules/reference-architecture.md`. |
-| `standards/iac-development/terraform/module/library/README.md` | Compatibility page. Canonical page: `standards/terraform/modules/library.md`. |
-| `standards/helm-development/` | The four current pages point at `new-ideas/helm-and-argocd.md`. They are not a current standard. The 2024 text is archived under `archive/pre-refresh/standards/helm-development/`. |
-| `standards/iac-development/README.md` | Not rewritten. Listed for review. |
-| `standards/common-development/java/hexagonal/pictures/` | Not rewritten. Diagrams with no standard text. Listed for review. |
-| `archive/pre-refresh/standards/common-development/git/tagging/README.md` | Left in place. The versioning standard covers published modules. The note was not rewritten. |
-| `archive/framework-era/standards/` | Left in place. No successor was published for the retired framework names or the deploy notes. |
+| `standards/iac-development/terraform/module/primitive/README.md` | Retained. The address stays. The page points at the canonical page `standards/terraform/modules/primitive.md`. |
+| `standards/iac-development/terraform/module/collection/README.md` | Retained. The address stays. The page points at the canonical page `standards/terraform/modules/collection.md`. |
+| `standards/iac-development/terraform/module/reference-architecture/README.md` | Retained. The address stays. The page points at the canonical page `standards/terraform/modules/reference-architecture.md`. |
+| `standards/iac-development/terraform/module/library/README.md` | Retained. The address stays. The page points at the canonical page `standards/terraform/modules/library.md`. |
+| `standards/common-development/git/repository/naming-schemes.md` | Rewritten in place. The index now states the two schemes. The previous sentence that treated Helm, Terraform, and Terragrunt as the current infrastructure tools was not kept as a limit on names. |
+| `standards/common-development/git/repository/naming-schemes/iac-repository-names.md` | Rewritten in place. The requirement is the hyphen pattern `tool-provider-name`. The previous closed lists of tools, providers, and types were not kept as limits. Specific Helm chart repository names and `ecs_appmesh_platform` were not carried forward. |
+| `standards/common-development/git/repository/naming-schemes/platform-sample-applications.md` | Rewritten in place. The four-field sample scheme stays. A non-ASCII character in the previous page was removed. |
+| `standards/common-development/versioning/README.md` | Rewritten in place. Published modules use semantic versions. A breaking change bumps the major version, including below 1.0. The previous versioning guidance was replaced. |
+| `standards/helm-development/` | Retained as pointers to `new-ideas/helm-and-argocd.md`. They are not a current standard. The 2024 text is Archived at `archive/pre-refresh/standards/helm-development/`. |
+| `standards/iac-development/README.md` | Retained. Not rewritten. Listed for review. |
+| `standards/common-development/java/hexagonal/pictures/` | Retained. Diagrams with no standard text. Listed for review. |
+| `archive/pre-refresh/standards/common-development/git/tagging/README.md` | Archived. The versioning standard covers published modules. The note was not rewritten. |
+| `archive/framework-era/standards/` | Archived. No successor was published for the retired framework names or the deploy notes. |
 
 ## Inbound links
 

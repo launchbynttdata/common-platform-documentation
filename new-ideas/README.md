@@ -4,7 +4,7 @@ Pages in this directory are proposals. A proposal is neither a commitment nor a 
 
 ## What belongs here
 
-A proposal that can be reviewed against evidence. It names the problem, the current hypothesis, why the idea may be worth pursuing, the known trade-offs, the evidence still required, an owner, a last-reviewed date, and the criteria for promoting or abandoning it.
+A proposal that can be reviewed against evidence. It names the problem, the current hypothesis, why the idea may be worth pursuing, the known trade-offs, the evidence still required, an owner, and the criteria for promoting or abandoning it. The last review is the latest commit on the page.
 
 ## What does not belong here
 
@@ -29,7 +29,7 @@ Until then, the proposal answers the sections in [idea-template.md](idea-templat
 
 ## Lifecycle
 
-Copy [idea-template.md](idea-template.md) to a new Markdown file in this directory. Leave the template as the blank form. While status is `Exploring`, the page requires nothing of engineers building on the platform. [Promote a new idea into active guidance](../promoting-an-idea.md) describes how an idea is promoted or abandoned.
+Copy [idea-template.md](idea-template.md) to a new Markdown file in this directory. Leave the template as the blank form. Set **Status** to `Exploring` and fill every section. Do not add a file that only reserves a title. While status is `Exploring`, the page requires nothing of engineers building on the platform. [Promote a new idea into active guidance](../promoting-an-idea.md) describes how an idea is promoted or abandoned. The last review is visible in the git history of the idea page. There is no fixed interval for the next review.
 
 ## Proposals
 

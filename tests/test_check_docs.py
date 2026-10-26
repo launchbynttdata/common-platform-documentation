@@ -163,6 +163,65 @@ class CheckDocsTests(unittest.TestCase):
         violations = check_repository(self.root, require_module_urls=True)
         self.assertTrue(any("module URL contract" in item for item in violations))
 
+    def _write_module_url_pages(self, primitive_link: str) -> None:
+        pages = (
+            (
+                "standards/iac-development/terraform/module/primitive/README.md",
+                "standards/terraform/modules/primitive.md",
+                primitive_link,
+            ),
+            (
+                "standards/iac-development/terraform/module/collection/README.md",
+                "standards/terraform/modules/collection.md",
+                "../../../../terraform/modules/collection.md",
+            ),
+            (
+                "standards/iac-development/terraform/module/"
+                "reference-architecture/README.md",
+                "standards/terraform/modules/reference-architecture.md",
+                "../../../../terraform/modules/reference-architecture.md",
+            ),
+            (
+                "standards/iac-development/terraform/module/library/README.md",
+                "standards/terraform/modules/library.md",
+                "../../../../terraform/modules/library.md",
+            ),
+        )
+        for compatibility, canonical, link in pages:
+            self.write(
+                canonical,
+                "# Canonical module page\n\n"
+                "This page states the module contract callers rely on.\n",
+            )
+            self.write(
+                compatibility,
+                "# Compatibility page\n\n"
+                f"The current page is [the module contract]({link}).\n",
+            )
+
+    def test_accepts_module_urls_when_each_page_links_to_its_canonical_page(self):
+        self._write_module_url_pages("../../../../terraform/modules/primitive.md")
+        violations = check_repository(self.root, require_module_urls=True)
+        self.assertFalse(
+            any("module URL contract" in item for item in violations),
+            violations,
+        )
+
+    def test_rejects_compatibility_page_that_links_to_the_wrong_canonical_page(self):
+        self._write_module_url_pages("../../../../terraform/modules/library.md")
+        violations = check_repository(self.root, require_module_urls=True)
+        self.assertTrue(
+            any(
+                "module/primitive/README.md" in item and "missing link" in item
+                for item in violations
+            ),
+            violations,
+        )
+        self.assertFalse(
+            any("module/library/README.md" in item and "missing link" in item for item in violations),
+            violations,
+        )
+
     def test_ignores_link_inside_fenced_code(self):
         self.write(
             "README.md",

@@ -10,7 +10,7 @@ A page under new ideas can be mistaken for a standard because it is in the knowl
 
 An idea has no authority until the team publishes active guidance that stands on its own. Promotion is the decision that the idea's own criteria are met. That decision is one change: the pull request publishes the principle, practice, or standard, and it marks the idea page **Promoted** with a link to that page. Splitting those two updates leaves a period when the knowledge base says two different things. Using the idea on one engagement does not promote it. Linking to the idea from a design does not promote it. Leaving the idea in place long enough that people depend on it does not promote it.
 
-The idea page names its owner, its last review, and the evidence required to adopt or abandon it before anyone treats the proposal as ready for that decision. The same review used for any other change to this knowledge base decides the pull request. Promotion is not a separate board.
+The idea page names its owner and the evidence required to adopt or abandon it before anyone treats the proposal as ready for that decision. The last review is the latest commit that changed the idea page. Git history shows that commit. The knowledge base does not set a date by which the next review must happen. The same review used for any other change to this knowledge base decides the pull request. Promotion is not a separate board.
 
 Abandonment is the same kind of decision. The reviewed change records why the idea is **Abandoned** and does not add an active page. The abandoned page records why the team stopped, and it does not add a requirement for engineers to follow.
 
@@ -18,12 +18,12 @@ After promotion, the active page is the guidance. The idea page remains as the r
 
 ## What the team expects
 
-- Name the owner, the last-reviewed date, and the evidence required to adopt or abandon an idea before treating the page as ready for a promotion decision.
+- Name the owner and the evidence required to adopt or abandon an idea before treating the page as ready for a promotion decision. The last review is the latest commit on the idea page.
 - Promote an idea only when the reviewed evidence meets its criteria. Publish the active page and mark the idea **Promoted** in the same change, so the knowledge base never shows one without the other.
 - Make the promoted page self-contained. An engineer must be able to follow it without reading the idea page.
 - Keep the idea page as the record of the decision, and point it at the active page.
 - Abandon an idea by recording the reason in a reviewed change, without adding an active page. An idea remains a proposal until a reviewed change adopts it or records that the team has abandoned it.
-- Review the idea page when the evidence has changed since its last-reviewed date.
+- Review the idea page when its evidence has changed. Record that review as a commit. Do not set a calendar deadline for the next review.
 
 ## Where implementation details live
 

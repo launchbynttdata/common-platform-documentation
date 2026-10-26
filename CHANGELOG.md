@@ -16,7 +16,13 @@ Each open pull request records its changes under "Unreleased", with the pull req
 ### Changed
 
 - The documentation check now requires the canonical Terraform module pages and the compatibility links to them.
-- A standard now states how the team would implement a capability when free to choose. On a client engagement, the team works toward that standard at a pace the client can support.
+- A standard now states how the team would implement a capability when free to choose. It is a requirement for modules the team owns in the `launchbynttdata` organization. It does not govern code the client owns. On that work, platform engineers extend it as far as the engagement can support.
+- Pages now keep one meaning for each term. Shared jargon is defined once and reused, and a page defines a local term only when a reader could otherwise take it to mean something else.
+- A breaking change bumps the major version at every stage, including below 1.0. The changelog for that release points to documentation that tells consumers how to take the change. A version-floor change uses that same contract test. In the general case it is breaking because callers lose a version they were allowed to use.
+- The version-floor page states what the check is for and points at the public skeleton script for what the check runs today.
+- An infrastructure repository name is required to follow `tool-provider-name`. The token lists are consistency guidance, not a closed list. Helm remains a new idea.
+- A primitive is one provider resource. A related resource type is its own primitive. Secure defaults apply inside that module. A primitive does not generate names. Its examples and tests may call `resource_name`.
+- The module-URL check now has a test where the compatibility links are correct and a test where a compatibility page points at the wrong canonical page.
 
 ## 2026-10-22: Publish core platform engineering practices ([#23](https://github.com/launchbynttdata/common-platform-documentation/pull/23))
 

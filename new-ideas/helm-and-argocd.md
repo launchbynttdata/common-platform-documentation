@@ -2,7 +2,6 @@
 
 **Status:** Exploring
 **Owner:** Launch by NTT DATA Platform Engineering team
-**Last reviewed:** 2026-10-22
 
 ## Problem or opportunity
 
@@ -14,7 +13,7 @@ Helm with Argo CD is the next evolution of that Helm work, and it is the latest 
 
 The 2024 notes proposed three chart kinds. This idea carries them forward as candidates, not as requirements. A library chart holds reusable templates and deploys nothing by itself. A deployment chart deploys one workload shape and can be rendered on its own. An umbrella chart is the application entry point: a `Chart.yaml` and a `values.yaml` that depend on deployment charts. An umbrella chart does not depend on a library chart directly. Deployment charts do not depend on sibling charts for values they need at render time.
 
-A Helm chart repository, if one is created, is named with the [infrastructure naming scheme](../standards/common-development/git/repository/naming-schemes/iac-repository-names.md), using the type `chart_library`, `chart_deployment`, or `chart_umbrella`. The name does not make Helm a supported path.
+Helm chart repositories that already exist are named with the [infrastructure naming scheme](../standards/common-development/git/repository/naming-schemes/iac-repository-names.md). Some of those names use `chart_library`, `chart_deployment`, or `chart_umbrella`. Those names do not make Helm a standard. This page is still a proposal.
 
 ## Why this may be worth pursuing
 
