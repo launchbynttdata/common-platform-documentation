@@ -1,92 +1,15 @@
-# Terraform Module Registry
+# Serve public Terraform modules from the registry
 
-Launch provides a publicly-accessible Terraform Module Registry that can be used to retrieve our modules.
+## Responsibility
 
-To utilize this registry, you must craft a module source in your Terraform code that points at our registry and the module you wish to consume.
+The registry is how a caller fetches a public module published by the Launch by NTT DATA Platform Engineering team. The hostname is `terraform.registry.launch.nttdata.com`. It serves modules that are public in the [launchbynttdata organization](https://github.com/launchbynttdata).
 
-This snippet demonstrates a registry source for an example module:
+## Boundary
 
-```hcl
-module "resource_name" {
-    source = "terraform.registry.launch.nttdata.com/module_library/resource_name/launch"
-    version = "~> 1.0"
+The registry is not a catalog of every module, and it is not the module contract. HashiCorp documents how a [registry source](https://developer.hashicorp.com/terraform/language/modules/sources#terraform-registry) is written. The version a caller pins follows [Version published modules semantically](../../../standards/common-development/versioning/README.md).
 
-    ...
-}
-```
+## Where the behavior lives
 
-## Module Source Construction
+The registry hostname above is the public service. [Hold shared Terraform modules to one contract](../../../standards/terraform/modules/README.md) is the standard for what a module contains. [Name infrastructure repositories by tool, provider, and name](../../../standards/common-development/git/repository/naming-schemes/iac-repository-names.md) is how a repository name is formed. The previous source-construction recipe is archived at [archive/pre-refresh/platform/launch-public-service/terraform-module-registry/README.md](../../../archive/pre-refresh/platform/launch-public-service/terraform-module-registry/README.md).
 
-Constructing a module source value requires four pieces of information:
-
-- Hostname 
-- Namespace
-- Name
-- Provider
-
-The **hostname** for our registry is always `terraform.registry.launch.nttdata.com`. Do not specify the protocol; Terraform will force this to be HTTPS.
-
-The **namespace**, **name**, and **provider** values are driven based on the name of the repository in question. Refer to our [IaC Git Repository Naming Scheme](../../../standards/common-development/git/repository/naming-schemes/iac-repository-names.md) for a refresher on how our names are constructed. 
-
-```
-Repository name inputs for example Azure Key Vault:
-
-Tool: tf (Terraform)
-Provider: azurerm (Microsoft Azure Cloud)
-Type: module_primitive
-resource: key_vault
-
-Repository name output:
-
-    tf-azurerm-module_primitive-key_vault
-
-Registry name inputs for the same repo:
-
-Hostname: terraform.registry.launch.nttdata.com (never changes)
-Namespace: module_primitive
-Name: key_vault
-Provider: azurerm
-
-Registry source output:
-
-terraform.registry.launch.nttdata.com/module_primitive/key_vault/azurerm
-
-```
-
-A graphical representation of this mapping can be found here:
-
-```mermaid
----
-title: Reconfiguring Repository Name for Terraform module source
----
-flowchart LR
-  subgraph Git Repository Name
-    repotool[Tool] --- repoprovider[Provider]
-    repoprovider --- repotype[Type]
-    repotype --- reponame[Resource Name]
-  end
-  subgraph Terraform Module Source
-    tfhostname[Hostname] --- tfnamespace[Namespace]
-    tfnamespace --- tfname[Name]
-    tfname --- tfprovider[Provider]
-  end
-  repoprovider --> tfprovider
-  repotype --> tfnamespace
-  reponame --> tfname
-```
-
-For the official documentation from HashiCorp around registry sources, [see here](https://developer.hashicorp.com/terraform/language/modules/sources#terraform-registry).
-
-## Fuzzy Versioning
-
-By utilizing the `source` and `version` when creating your Terraform modules, you gain the ability to supply fuzzy version matches. 
-
-While any version string that Terraform supports is valid, we encourage the use of the [Pessimistic Constraint Operator](https://developer.hashicorp.com/terraform/language/expressions/version-constraints#-3) (`~>`) as it can be used to set a compatible floor version and consume from all non-breaking releases past that point, a natural fit with our semantic versioning strategy.
-
-Setting your version to `~> 1.0` would mean that version 1.0.0, 1.0.1, and 1.999.0 are all valid, but 2.0.0 would not be valid.
-
-## Limitations
-
-Our Terraform Module registry will only serve modules that exist within our GitHub organization located at https://github.com/launchbynttdata. 
-
-Only modules that are set as publicly-accessible can be served through this registry.
+[Platform map](../../README.md)

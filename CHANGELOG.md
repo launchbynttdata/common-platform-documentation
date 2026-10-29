@@ -4,7 +4,23 @@ This file records notable changes to the knowledge base, such as new or rewritte
 
 Each open pull request records its changes under "Unreleased", with the pull request number and title in the heading. After that pull request merges, the next pull request replaces "Unreleased" with the merge date.
 
-## Unreleased: #24, Publish current engineering standards
+## Unreleased
+
+### Added
+
+- A platform map for reusable workflows, the Terraform skeleton, the Terraform module template, public modules, the module registry, repository engineering instructions, and readiness.
+- A standard for exclusive services and shared services.
+
+### Changed
+
+- The registry page now states what the registry serves. The source-construction recipe is archived.
+- The previous Terraform strategy page now points at the exclusive and shared service standard. The provider-fork procedure, the older module class list, and the Terragrunt repository rules stay on the archived page.
+
+### Removed
+
+- The Java hexagonal diagrams under `standards/common-development/java/hexagonal/pictures/`. Nothing in the knowledge base used them.
+
+## 2026-10-29: #24, Publish current engineering standards
 
 ### Added
 
