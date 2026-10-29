@@ -84,7 +84,7 @@ Under `standards/common-development/`:
 - `standards/common-development/versioning/README.md`
 - `standards/common-development/java/hexagonal/pictures/`
 
-The hexagonal pictures stayed because they are not Markdown and the directory was not empty after the placeholder page was removed. They are not a current standard.
+The hexagonal pictures stayed in that pass because they are not Markdown and the directory was not empty after the placeholder page was removed. The platform map section below records their removal.
 
 Under `standards/iac-development/`, excluding the archived deploy directory:
 
@@ -137,6 +137,18 @@ Pull request #24 uses the four outcome names defined above. A retained module ad
 | `standards/common-development/java/hexagonal/pictures/` | Retained. Diagrams with no standard text. Listed for review. |
 | `archive/pre-refresh/standards/common-development/git/tagging/README.md` | Archived. The versioning standard covers published modules. The note was not rewritten. |
 | `archive/framework-era/standards/` | Archived. No successor was published for the retired framework names or the deploy notes. |
+
+## Platform map
+
+The exclusive and shared service distinction is rewritten as its own standard. The provider-fork procedure is not current guidance. The registry page is a capability entry. The Java hexagonal diagrams are removed. These rows replace the review status recorded above for the strategy page and the diagrams.
+
+| Path | Outcome |
+| --- | --- |
+| `standards/iac-development/README.md` | Rewritten as a pointer. The address stays. The current standard is `standards/terraform/exclusive-and-shared-services.md`. Exclusive and shared services stay on that page. The provider-fork procedure was not carried forward. |
+| `archive/pre-refresh/standards/iac-development/README.md` | Archived. The previous strategy page, including the provider-fork procedure, the older module class list, and the Terragrunt repository rules. |
+| `platform/launch-public-service/terraform-module-registry/README.md` | Rewritten in place as a capability entry. The hostname and the fact that it serves public modules stay. |
+| `archive/pre-refresh/platform/launch-public-service/terraform-module-registry/README.md` | Archived. The source-construction recipe and the version-constraint example. |
+| `standards/common-development/java/hexagonal/pictures/` | Removed. The diagrams had no standard text and no page linked them. |
 
 ## Inbound links
 

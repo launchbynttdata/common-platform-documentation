@@ -43,26 +43,9 @@ Terraform modules:
 - [Use a library module to transform inputs into shared outputs](terraform/modules/library.md)
 - [Test the behavior a module claims](terraform/testing.md)
 - [Show that the declared version floor works](terraform/version-compatibility.md)
+- [Put an exclusive service with its consumer and a shared service in one repository](terraform/exclusive-and-shared-services.md)
 
-The previous addresses under `standards/iac-development/terraform/module/` remain as compatibility pages. Each one links to the page above.
-
-## Awaiting review
-
-These pages still need a review for relevance and currency. Until that review replaces or retires a page, treat it as it is labeled today. An active page is still current. An archived page is still historical. The review decides whether each page stays as it is, is replaced by a new standard, or has a rule restored from it. [Content disposition](../archive/content-disposition.md) records how the legacy paths were handled.
-
-Active page:
-
-- [The Terraform state strategy page](iac-development/README.md). It describes exclusive and shared services and a provider approach. It has not yet been compared with the module contract.
-
-Active files with no standard text:
-
-- The diagrams under `standards/common-development/java/hexagonal/pictures/`.
-
-Archived standards:
-
-- [Git tagging note](../archive/pre-refresh/standards/common-development/git/tagging/README.md). The versioning standard above replaces it for published modules.
-- The archived framework repository-naming page in `archive/framework-era/standards/common-development/git/repository/naming-schemes/`. The file name contains the retired product acronym, so this index does not repeat it.
-- [DNS deploy note](../archive/framework-era/standards/iac-development/terraform/module/wrapper/deploy/dns.md) and [ExpressRoute deploy note](../archive/framework-era/standards/iac-development/terraform/module/wrapper/deploy/expressroute.md).
+The previous addresses under `standards/iac-development/terraform/module/` remain as compatibility pages. Each one links to the page above. The previous strategy page at `standards/iac-development/README.md` points at the exclusive and shared service standard.
 
 The Helm chart pages are not in the lists above. They are not a current standard. The 2024 notes are archived under `archive/pre-refresh/standards/helm-development/`, and the current addresses point at [Deliver Kubernetes workloads with Helm and Argo CD](../new-ideas/helm-and-argocd.md).
 
