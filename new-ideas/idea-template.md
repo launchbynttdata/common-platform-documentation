@@ -2,7 +2,6 @@
 
 **Status:** Exploring
 **Owner:** <team or role>
-**Last reviewed:** YYYY-MM-DD
 
 ## Problem or opportunity
 ## Current hypothesis

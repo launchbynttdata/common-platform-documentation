@@ -1,5 +1,5 @@
-# Library Module
+# Library module
 
-A library module is a helper module that does not deploy any resources on its own. Instead, it accepts some inputs, performs transformations on those inputs, and then outputs the results to be utilized by other Terraform modules.
+This address is kept because existing links use it. The standard is [Use a library module to transform inputs into shared outputs](../../../../terraform/modules/library.md).
 
-The canonical example is the [resource_name library](https://github.com/launchbynttdata/tf-launch-module_library-resource_name), that accepts a series of naming inputs and then generates many variants of a name in its outputs, which are then referenced by other modules. This allows us to provide consistent naming schemes across our ecosystem that are used in resource names and tags.
+[Standards](../../../../README.md)

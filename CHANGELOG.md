@@ -4,7 +4,29 @@ This file records notable changes to the knowledge base, such as new or rewritte
 
 Each open pull request records its changes under "Unreleased", with the pull request number and title in the heading. After that pull request merges, the next pull request replaces "Unreleased" with the merge date.
 
-## Unreleased: #23, Publish core platform engineering practices
+## Unreleased: #24, Publish current engineering standards
+
+### Added
+
+- Standards for repository names, semantic versions, tool pins, documentation ownership, and the check that confirms a claim.
+- The Terraform module contract, the four module types, module testing, and version-floor checks. Existing module-definition addresses remain as compatibility pages.
+- A process for promoting or abandoning a new idea.
+- A Helm and Argo CD proposal. The 2024 Helm pages are archived at `archive/pre-refresh/standards/helm-development/`. The previous addresses remain as pointers to that proposal.
+
+### Changed
+
+- The documentation check now requires the canonical Terraform module pages and the compatibility links to them.
+- A standard now states how the team would implement a capability when free to choose. It is a requirement for modules the team owns in the `launchbynttdata` organization. It does not govern code the client owns. On that work, platform engineers extend it as far as the engagement can support.
+- Pages now keep one meaning for each term. Shared jargon is defined once and reused, and a page defines a local term only when a reader could otherwise take it to mean something else.
+- A breaking change bumps the major version at every stage, including below 1.0. The changelog for that release points to documentation that tells consumers how to take the change. A version-floor change uses that same contract test. In the general case it is breaking because callers lose a version they were allowed to use.
+- The CI version-floor check confirms the oldest Terraform version a module supports. The page points at the public skeleton script for how that check runs. A provider version floor is verified by the engineer implementing the module. There is no automated provider-floor check today.
+- A collection that contains security-sensitive resources sets secure values for those configurations by default. Examples include data stores, network connections, and server configurations.
+- An infrastructure repository name is required to follow `tool-provider-name`. The token lists are consistency guidance, not a closed list. Helm remains a new idea.
+- The module generator is named, not linked. Its creation steps stay in the private repository `launch-terraform-modules`. The public skeleton skills remain the instructions for building a module.
+- A primitive is one provider resource. A related resource type is its own primitive. Secure defaults apply inside that module. A primitive does not generate names. Its examples and tests may call `resource_name`.
+- The module-URL check now has a test where the compatibility links are correct and a test where a compatibility page points at the wrong canonical page.
+
+## 2026-10-22: Publish core platform engineering practices ([#23](https://github.com/launchbynttdata/common-platform-documentation/pull/23))
 
 ### Added
 

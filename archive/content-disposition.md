@@ -118,6 +118,26 @@ Pull request #23 keeps two delivery notes at their existing addresses and archiv
 | `platform/continuous-deployment/evolutionary-database-deployment/README.md` | Rewritten in place. Versioned, compatible schema steps stay. Claims that the technique removes the need for data migration were removed. |
 | `platform/continuous-deployment/kubernetes/README.md` | Archived at `archive/pre-refresh/platform/continuous-deployment/kubernetes/README.md`. The distinction between deployment and delivery was kept on the trustworthy-delivery practice. The Helm product notes were not carried forward as current practice. |
 
+## Standards update
+
+Pull request #24 uses the four outcome names defined above. A retained module address stays so existing links resolve, and the page is a pointer rather than a second copy of the standard. Helm stays a new idea. It is not a standard. Pages that were not rewritten stay listed on the standards index for a relevance and currency review.
+
+| Path | Outcome |
+| --- | --- |
+| `standards/iac-development/terraform/module/primitive/README.md` | Retained. The address stays. The page points at the canonical page `standards/terraform/modules/primitive.md`. |
+| `standards/iac-development/terraform/module/collection/README.md` | Retained. The address stays. The page points at the canonical page `standards/terraform/modules/collection.md`. |
+| `standards/iac-development/terraform/module/reference-architecture/README.md` | Retained. The address stays. The page points at the canonical page `standards/terraform/modules/reference-architecture.md`. |
+| `standards/iac-development/terraform/module/library/README.md` | Retained. The address stays. The page points at the canonical page `standards/terraform/modules/library.md`. |
+| `standards/common-development/git/repository/naming-schemes.md` | Rewritten in place. The index now states the two schemes. The previous sentence that treated Helm, Terraform, and Terragrunt as the current infrastructure tools was not kept as a limit on names. |
+| `standards/common-development/git/repository/naming-schemes/iac-repository-names.md` | Rewritten in place. The requirement is the hyphen pattern `tool-provider-name`. The previous closed lists of tools, providers, and types were not kept as limits. Specific Helm chart repository names and `ecs_appmesh_platform` were not carried forward. |
+| `standards/common-development/git/repository/naming-schemes/platform-sample-applications.md` | Rewritten in place. The four-field sample scheme stays. A non-ASCII character in the previous page was removed. |
+| `standards/common-development/versioning/README.md` | Rewritten in place. Published modules use semantic versions. A breaking change bumps the major version, including below 1.0. The previous versioning guidance was replaced. |
+| `standards/helm-development/` | Retained as pointers to `new-ideas/helm-and-argocd.md`. They are not a current standard. The 2024 text is Archived at `archive/pre-refresh/standards/helm-development/`. |
+| `standards/iac-development/README.md` | Retained. Not rewritten. Listed for review. |
+| `standards/common-development/java/hexagonal/pictures/` | Retained. Diagrams with no standard text. Listed for review. |
+| `archive/pre-refresh/standards/common-development/git/tagging/README.md` | Archived. The versioning standard covers published modules. The note was not rewritten. |
+| `archive/framework-era/standards/` | Archived. No successor was published for the retired framework names or the deploy notes. |
+
 ## Inbound links
 
 GitHub does not redirect a file when it moves. Other repositories link the old macOS and Windows environment pages (`platform/development-environments/local/mac/README.md` and `platform/development-environments/local/windows/README.md`). A private demo configuration points at the old ECS input files under `platform/common-automation-framework/exclusive-services/java/aws/ecs/inputs/`. Those targets are framework-era procedures. No forwarding page is added for them, so those outside links will stop resolving.
