@@ -6,7 +6,7 @@ The skeleton is the shared configuration, workflows, and tool pins that Terrafor
 
 ## Boundary
 
-The skeleton is not a module and it does not define a cloud resource. A change that belongs to one module stays in that module's repository. The [module template](terraform-module-template.md) is the starting contents of a new module repository. New module repositories are created from the private repository `launch-terraform-modules`. A reader outside the organization does not need those creation steps.
+The skeleton is not a module and it does not define a cloud resource. A change that belongs to one module stays in that module's repository. The [module template](terraform-module-template.md) is the starting contents of a new module repository. The team creates new module repositories from the private repository `launch-terraform-modules`. Work on a published module happens in that module's public repository.
 
 ## Where the behavior lives
 

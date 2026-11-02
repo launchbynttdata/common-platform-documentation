@@ -6,7 +6,7 @@ The reusable module library is the set of public Terraform modules the team publ
 
 ## Boundary
 
-This page is not a catalog. A public catalog of the modules is not published here. Public module repositories are in the [launchbynttdata organization](https://github.com/orgs/launchbynttdata/repositories?q=module_). That search finds repositories whose names contain `module_`. It is a way to locate them today, and it is not a maintained list. New module repositories are created from the private repository `launch-terraform-modules`. A reader outside the organization does not need those creation steps.
+This page is not a catalog. A public catalog of the modules is not published here. Public module repositories are in the [launchbynttdata organization](https://github.com/orgs/launchbynttdata/repositories?q=module_). That search finds repositories whose names contain `module_`. It is a way to locate them today, and it is not a maintained list. The team creates new module repositories from the private repository `launch-terraform-modules`. Work on a published module happens in that module's public repository.
 
 ## Where the behavior lives
 

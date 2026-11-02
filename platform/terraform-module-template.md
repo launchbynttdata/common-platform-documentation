@@ -6,7 +6,7 @@ The template is the starting contents of a new Terraform module repository: the 
 
 ## Boundary
 
-Shared workflows and shared configuration belong in the [skeleton](terraform-skeleton.md), not in a change to the template. Creating the GitHub repository is a step in the private repository `launch-terraform-modules`. A reader outside the organization does not need those creation steps. What the module is required to contain is the [module contract](../standards/terraform/modules/README.md).
+Shared workflows and shared configuration belong in the [skeleton](terraform-skeleton.md), not in a change to the template. The team creates new module repositories from the private repository `launch-terraform-modules`. Work on a published module happens in that module's public repository. What the module is required to contain is the [module contract](../standards/terraform/modules/README.md).
 
 ## Where the behavior lives
 
