@@ -140,12 +140,12 @@ Pull request #24 uses the four outcome names defined above. A retained module ad
 
 ## Platform map
 
-The exclusive and shared service distinction is rewritten as its own standard. The provider-fork procedure is not current guidance. The registry page is a capability entry. The Java hexagonal diagrams are removed. These rows replace the review status recorded above for the strategy page and the diagrams.
+The exclusive and shared service distinction is rewritten as its own standard. The provider-fork procedure is not current guidance. The Terragrunt layout rules on the archived strategy page were not carried forward. The current Terragrunt standard does not prescribe a layout. The registry page is a capability entry. The Java hexagonal diagrams are removed. These rows replace the review status recorded above for the strategy page and the diagrams.
 
 | Path | Outcome |
 | --- | --- |
-| `standards/iac-development/README.md` | Rewritten as a pointer. The address stays. The current standard is `standards/terraform/exclusive-and-shared-services.md`. Exclusive and shared services stay on that page. The provider-fork procedure was not carried forward. |
-| `archive/pre-refresh/standards/iac-development/README.md` | Archived. The previous strategy page, including the provider-fork procedure, the older module class list, and the Terragrunt repository rules. |
+| `standards/iac-development/README.md` | Rewritten as a pointer. The address stays. Exclusive and shared services are at `standards/terraform/exclusive-and-shared-services.md`. Terragrunt guidance is at `standards/terraform/terragrunt.md`. The provider-fork procedure was not carried forward. The older Terragrunt layout rules were not carried forward. |
+| `archive/pre-refresh/standards/iac-development/README.md` | Archived. The previous strategy page, including the provider-fork procedure, the older module class list, and the Terragrunt layout rules. |
 | `platform/launch-public-service/terraform-module-registry/README.md` | Rewritten in place as a capability entry. The hostname and the fact that it serves public modules stay. |
 | `archive/pre-refresh/platform/launch-public-service/terraform-module-registry/README.md` | Archived. The source-construction recipe and the version-constraint example. |
 | `standards/common-development/java/hexagonal/pictures/` | Removed. The diagrams had no standard text and no page linked them. |

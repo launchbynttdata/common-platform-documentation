@@ -25,7 +25,7 @@ The third answer is the owning repository, or the practice page when the capabil
 
 ## Pages
 
-- [Shared workflows for delivery and for pipelines](reusable-workflows.md)
+- [Shared automation for delivery and for pipelines](reusable-workflows.md)
 - [The skeleton shares configuration across Terraform module repositories](terraform-skeleton.md)
 - [The template is how a new Terraform module repository starts](terraform-module-template.md)
 - [The team publishes Terraform modules that others can reuse](reusable-modules.md)

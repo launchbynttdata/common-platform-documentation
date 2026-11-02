@@ -44,8 +44,9 @@ Terraform modules:
 - [Test the behavior a module claims](terraform/testing.md)
 - [Show that the declared version floor works](terraform/version-compatibility.md)
 - [Put an exclusive service with its consumer and a shared service in one repository](terraform/exclusive-and-shared-services.md)
+- [Use Terragrunt to orchestrate Terraform across environments and regions](terraform/terragrunt.md)
 
-The previous addresses under `standards/iac-development/terraform/module/` remain as compatibility pages. Each one links to the page above. The previous strategy page at `standards/iac-development/README.md` points at the exclusive and shared service standard.
+The previous addresses under `standards/iac-development/terraform/module/` remain as compatibility pages. Each one links to the page above. The previous strategy page at `standards/iac-development/README.md` points at the exclusive and shared service standard and at the Terragrunt standard.
 
 The Helm chart pages are not in the lists above. They are not a current standard. The 2024 notes are archived under `archive/pre-refresh/standards/helm-development/`, and the current addresses point at [Deliver Kubernetes workloads with Helm and Argo CD](../new-ideas/helm-and-argocd.md).
 

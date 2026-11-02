@@ -6,7 +6,7 @@ The team publishes Terraform modules for other repositories to use. A Terraform 
 
 ## Boundary
 
-There is no catalog of those modules in this knowledge base. The public repositories are in the [launchbynttdata organization](https://github.com/orgs/launchbynttdata/repositories?q=module_). That search finds repositories whose names contain `module_`. The search is a way to find the repositories today. The team does not treat the search result as a list it maintains. The team creates a new module repository from the private repository `launch-terraform-modules`. After the module is published, changes are made in that module's public repository.
+There is no catalog of those modules in this knowledge base. The public repositories are in the [launchbynttdata organization](https://github.com/orgs/launchbynttdata/repositories?q=module_). That search finds repositories whose names contain `module_`. The search is a way to find the repositories today. The team does not treat the search result as a list it maintains. How the team creates a new module repository is recorded on the [template](terraform-module-template.md) page.
 
 ## Where the behavior lives
 

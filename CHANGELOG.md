@@ -8,14 +8,14 @@ Each open pull request records its changes under "Unreleased", with the pull req
 
 ### Added
 
-- A platform map for reusable workflows, the Terraform skeleton, the Terraform module template, public modules, the module registry, repository engineering instructions, and readiness.
+- A platform map for shared delivery and pipeline automation, the Terraform skeleton, the Terraform module template, public modules, the module registry, repository engineering instructions, and readiness. The automation can run on the orchestration system an engagement uses. Public GitHub Actions workflows are in `launch-workflows`. Azure DevOps pipeline templates are in the private repository `launch-platform-ado-pipeline-templates`.
 - A standard for exclusive services and shared services.
+- A standard for using Terragrunt to orchestrate Terraform across environments and regions. The standard does not prescribe a layout.
 
 ### Changed
 
 - The registry page now states what the registry serves. The source-construction recipe is archived.
-- The previous Terraform strategy page now points at the exclusive and shared service standard. The provider-fork procedure, the older module class list, and the Terragrunt repository rules stay on the archived page.
-- The capability pages explain each capability in ordinary sentences.
+- The previous Terraform strategy page now points at the exclusive and shared service standard and at the Terragrunt standard. The provider-fork procedure stays archived. The older module class list was replaced by the module contract. The previous Terragrunt layout rules stay on the archived page and were not carried forward.
 
 ### Removed
 

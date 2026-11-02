@@ -6,7 +6,7 @@ Terraform module repositories share configuration, workflows, and tool versions.
 
 ## Boundary
 
-The skeleton is shared configuration. It is not a Terraform module, and it does not create a cloud resource. A change that applies to only one module is made in that module's repository. The [template](terraform-module-template.md) is the set of files a new module repository starts with. The team creates a new module repository from the private repository `launch-terraform-modules`. After the module is published, further changes are made in that module's public repository.
+The skeleton is shared configuration. It is not a Terraform module, and it does not create a cloud resource. A change that applies to only one module is made in that module's repository. The [template](terraform-module-template.md) is the set of files a new module repository starts with. That page records how the team creates the repository.
 
 ## Where the behavior lives
 
