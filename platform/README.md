@@ -25,13 +25,13 @@ The third answer is the owning repository, or the practice page when the capabil
 
 ## Pages
 
-- [Publish reusable delivery and pipeline workflows](reusable-workflows.md)
-- [Distribute shared Terraform module configuration from the skeleton](terraform-skeleton.md)
-- [Start a Terraform module repository from the template](terraform-module-template.md)
-- [Publish reusable Terraform modules](reusable-modules.md)
-- [Serve public Terraform modules from the registry](launch-public-service/terraform-module-registry/README.md)
-- [Carry engineering instructions in the module repository](repository-instructions.md)
-- [Describe readiness as the minimum platform path at the start](readiness.md)
+- [Shared workflows for delivery and for pipelines](reusable-workflows.md)
+- [The skeleton shares configuration across Terraform module repositories](terraform-skeleton.md)
+- [The template is how a new Terraform module repository starts](terraform-module-template.md)
+- [The team publishes Terraform modules that others can reuse](reusable-modules.md)
+- [The registry is where Terraform downloads a public module](launch-public-service/terraform-module-registry/README.md)
+- [A module repository contains a README and instructions for coding agents](repository-instructions.md)
+- [Readiness is the delivery path at the start of an engagement](readiness.md)
 
 Two delivery notes stay beside the map. They are not map entries. The practices they belong to are indexed under [practices](../practices/README.md).
 

@@ -15,6 +15,7 @@ Each open pull request records its changes under "Unreleased", with the pull req
 
 - The registry page now states what the registry serves. The source-construction recipe is archived.
 - The previous Terraform strategy page now points at the exclusive and shared service standard. The provider-fork procedure, the older module class list, and the Terragrunt repository rules stay on the archived page.
+- The capability pages explain each capability in ordinary sentences.
 
 ### Removed
 

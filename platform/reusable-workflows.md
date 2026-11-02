@@ -1,15 +1,15 @@
-# Publish reusable delivery and pipeline workflows
+# Shared workflows for delivery and for pipelines
 
 ## Responsibility
 
-Shared delivery workflows and shared pipeline workflows live in one public repository. A repository calls a published workflow instead of keeping a private copy of the same workflow.
+The team keeps workflows for delivering software, and workflows for running pipelines, in one public repository. Another repository runs a workflow from that repository. It does not keep a separate copy of the same workflow.
 
 ## Boundary
 
-A workflow in that repository is shared. A step that exists for one service stays in that service's repository. This page does not list workflow files, inputs, or versions. Those change in the workflow repository.
+The workflows in that repository are shared, so more than one repository can run them. A step that only one service needs stays in that service's repository. The workflow files, the inputs those files accept, and the versions the team has released are recorded in the workflow repository, because that is where they change.
 
 ## Where the behavior lives
 
-The workflows are in [launch-workflows](https://github.com/launchbynttdata/launch-workflows). That repository holds the workflow files and the release process.
+The workflows are in [launch-workflows](https://github.com/launchbynttdata/launch-workflows). That repository contains the workflow files and describes how the team releases a workflow.
 
 [Platform map](README.md)

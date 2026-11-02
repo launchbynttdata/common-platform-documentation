@@ -1,12 +1,12 @@
-# Start a Terraform module repository from the template
+# The template is how a new Terraform module repository starts
 
 ## Responsibility
 
-The template is the starting contents of a new Terraform module repository: the module files, the example, and the tests a new module begins with.
+When the team creates a Terraform module repository, the repository starts from the template. The template includes the module files, an example, and the tests.
 
 ## Boundary
 
-Shared workflows and shared configuration belong in the [skeleton](terraform-skeleton.md), not in a change to the template. The team creates new module repositories from the private repository `launch-terraform-modules`. Work on a published module happens in that module's public repository. What the module is required to contain is the [module contract](../standards/terraform/modules/README.md).
+Configuration and workflows that every module repository shares belong in the [skeleton](terraform-skeleton.md). That kind of change is made in the skeleton. The template remains the starting files for a new repository. The team creates the GitHub repository from the private repository `launch-terraform-modules`. After the repository exists, changes to the module are made in its public repository. [Hold shared Terraform modules to one contract](../standards/terraform/modules/README.md) states what the module must contain.
 
 ## Where the behavior lives
 

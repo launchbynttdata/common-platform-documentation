@@ -1,15 +1,15 @@
-# Publish reusable Terraform modules
+# The team publishes Terraform modules that others can reuse
 
 ## Responsibility
 
-The reusable module library is the set of public Terraform modules the team publishes. A caller fetches a public module from the [registry](launch-public-service/terraform-module-registry/README.md).
+The team publishes Terraform modules for other repositories to use. A Terraform configuration that uses one of those public modules downloads it from the [registry](launch-public-service/terraform-module-registry/README.md).
 
 ## Boundary
 
-This page is not a catalog. A public catalog of the modules is not published here. Public module repositories are in the [launchbynttdata organization](https://github.com/orgs/launchbynttdata/repositories?q=module_). That search finds repositories whose names contain `module_`. It is a way to locate them today, and it is not a maintained list. The team creates new module repositories from the private repository `launch-terraform-modules`. Work on a published module happens in that module's public repository.
+There is no catalog of those modules in this knowledge base. The public repositories are in the [launchbynttdata organization](https://github.com/orgs/launchbynttdata/repositories?q=module_). That search finds repositories whose names contain `module_`. The search is a way to find the repositories today. The team does not treat the search result as a list it maintains. The team creates a new module repository from the private repository `launch-terraform-modules`. After the module is published, changes are made in that module's public repository.
 
 ## Where the behavior lives
 
-[Hold shared Terraform modules to one contract](../standards/terraform/modules/README.md) is the standard for what a module contains. The registry page states how a caller fetches a public module. The search above is the current way to find the public repositories.
+[Hold shared Terraform modules to one contract](../standards/terraform/modules/README.md) states what a module must contain. The registry page explains how a Terraform configuration downloads a public module. The organization search above is the current way to find the public repositories.
 
 [Platform map](README.md)
