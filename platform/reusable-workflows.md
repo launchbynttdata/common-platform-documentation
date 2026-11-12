@@ -4,7 +4,7 @@
 
 The team keeps shared automation that other repositories use to deliver software and to run pipelines. A repository uses that shared automation. It does not keep a separate copy of the same automation.
 
-The automation runs on the orchestration system the engagement uses. GitHub Actions, Azure DevOps, Jenkins, AWS CodeBuild, AWS CodeDeploy, and Bitbucket Pipelines are examples. Another orchestration system meets the same expectation when the team publishes the shared automation once and the repositories that need it use that shared automation.
+The current shared automation exists for GitHub Actions and Azure DevOps. Launch uses the orchestration system the client requires for the engagement. If that system is another one, the same guidance applies: publish the shared automation once and have the repositories that need it reuse that shared automation.
 
 The team publishes GitHub Actions workflows in the public repository [launch-workflows](https://github.com/launchbynttdata/launch-workflows). The team keeps Azure DevOps pipeline templates in the private repository `launch-platform-ado-pipeline-templates`.
 
