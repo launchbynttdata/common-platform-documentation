@@ -17,22 +17,28 @@ A short description of a current platform capability and a pointer to the compon
 
 ## Questions an active map page answers
 
-1. What problem does this address?
-2. Why does the team take this position?
-3. What does the team expect engineers to do?
-4. Where do current implementation details live?
+1. What is this capability responsible for?
+2. Where does that responsibility stop?
+3. Which repository or page holds the current behavior?
 
-For a map page, the third answer is which capability to use and which component owns it. The fourth answer is that component's repository, not a procedure copied into this knowledge base.
+The third answer is the owning repository, or the practice page when the capability has no repository of its own. It is not a procedure copied into this knowledge base.
 
 ## Pages
 
-The capability map itself is not written yet. The links below are the substantive documents in this directory that are not historical procedures. They predate the map. A link locates the document. It does not mean the page already meets the questions above.
+- [Shared automation for delivery and for pipelines](reusable-workflows.md)
+- [The skeleton shares configuration across Terraform module repositories](terraform-skeleton.md)
+- [The template is how a new Terraform module repository starts](terraform-module-template.md)
+- [The team publishes Terraform modules that others can reuse](reusable-modules.md)
+- [The registry is where Terraform downloads a public module](launch-public-service/terraform-module-registry/README.md)
+- [A module repository contains a README and instructions for coding agents](repository-instructions.md)
+- [Readiness is the delivery path at the start of an engagement](readiness.md)
 
-- [Terraform module registry](launch-public-service/terraform-module-registry/README.md). This page explains how to construct a registry source. It is not yet a capability description.
+Two delivery notes stay beside the map. They are not map entries. The practices they belong to are indexed under [practices](../practices/README.md).
+
 - [Immutable application deployment](continuous-deployment/immutable-application-deployment/README.md)
 - [Evolutionary database changes](continuous-deployment/evolutionary-database-deployment/README.md)
 
-These two pages are delivery notes. The practices they belong to are indexed under [practices](../practices/README.md). They are not map entries for platform components. The Kubernetes continuous-deployment note that used to be listed here is archived.
+The Kubernetes continuous-deployment note that used to be listed here is archived.
 
 Historical procedures that used to sit under `platform/` are listed in the [archive disposition](../archive/content-disposition.md). They are not linked from this map. Empty title reservations were removed rather than kept as procedures. Read the [archive warning](../archive/README.md) before using anything stored there.
 

@@ -84,7 +84,7 @@ Under `standards/common-development/`:
 - `standards/common-development/versioning/README.md`
 - `standards/common-development/java/hexagonal/pictures/`
 
-The hexagonal pictures stayed because they are not Markdown and the directory was not empty after the placeholder page was removed. They are not a current standard.
+The hexagonal pictures stayed in that pass because they are not Markdown and the directory was not empty after the placeholder page was removed. The platform map section below records their removal.
 
 Under `standards/iac-development/`, excluding the archived deploy directory:
 
@@ -137,6 +137,18 @@ Pull request #24 uses the four outcome names defined above. A retained module ad
 | `standards/common-development/java/hexagonal/pictures/` | Retained. Diagrams with no standard text. Listed for review. |
 | `archive/pre-refresh/standards/common-development/git/tagging/README.md` | Archived. The versioning standard covers published modules. The note was not rewritten. |
 | `archive/framework-era/standards/` | Archived. No successor was published for the retired framework names or the deploy notes. |
+
+## Platform map
+
+The exclusive and shared service distinction is rewritten as its own standard. The archived instruction to select a mainstream stable provider was not carried forward as a separate prescription, and the provider-fork procedure is not current guidance. The old primitive, library, wrapper, and client-specific wrapper module class list was superseded by the module contract and its current primitive, library, collection, and reference-architecture pages; “wrapper” became “collection,” and client-specific wrapper was not carried forward. The old Terragrunt layout rules were not carried forward; the current Terragrunt standard does not prescribe a layout. The old resource naming and tagging strategy was superseded by current `resource_name` guidance; the archived fixed naming string and resource-name suffix pattern were not preserved. The old `tf-module-*` repository naming examples were superseded by the current tool-provider-name repository naming standard. The registry page is a capability entry. The Java hexagonal diagrams are removed. These rows replace the review status recorded above for the strategy page and the diagrams.
+
+| Path | Outcome |
+| --- | --- |
+| `standards/iac-development/README.md` | Rewritten as a pointer. The address stays. Exclusive and shared services are at `standards/terraform/exclusive-and-shared-services.md`; module requirements and the current module classes are at `standards/terraform/modules/README.md` and its type pages; Terragrunt guidance is at `standards/terraform/terragrunt.md`; repository naming is at `standards/common-development/git/repository/naming-schemes/iac-repository-names.md`; and naming outputs and tags are covered by the `resource_name` guidance at `standards/terraform/modules/library.md`. The old module class list and `tf-module-*` repository naming examples were superseded. The archived mainstream-stable provider prescription, provider-fork procedure, Terragrunt layout rules, fixed naming string, and resource-name suffix pattern were not carried forward. |
+| `archive/pre-refresh/standards/iac-development/README.md` | Archived. The previous strategy page, including the exclusive/shared service distinction; mainstream-stable provider prescription; provider-fork procedure; primitive, library, wrapper, and client-specific wrapper module class list; Terragrunt layout rules; resource naming and tagging strategy with its fixed naming string and resource-name suffix pattern; and `tf-module-*` repository naming examples. The module class list and repository naming examples were superseded. The mainstream-stable provider prescription, provider-fork procedure, Terragrunt layout rules, fixed naming string, and resource-name suffix pattern were not carried forward. |
+| `platform/launch-public-service/terraform-module-registry/README.md` | Rewritten in place as a capability entry. The hostname and the fact that it serves public modules stay. |
+| `archive/pre-refresh/platform/launch-public-service/terraform-module-registry/README.md` | Archived. The source-construction recipe and the version-constraint example. |
+| `standards/common-development/java/hexagonal/pictures/` | Removed. The diagrams had no standard text and no page linked them. |
 
 ## Inbound links
 

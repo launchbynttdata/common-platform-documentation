@@ -4,7 +4,24 @@ This file records notable changes to the knowledge base, such as new or rewritte
 
 Each open pull request records its changes under "Unreleased", with the pull request number and title in the heading. After that pull request merges, the next pull request replaces "Unreleased" with the merge date.
 
-## Unreleased: #24, Publish current engineering standards
+## Unreleased: #25, Publish the platform capability map
+
+### Added
+
+- A platform map for shared delivery and pipeline automation, the Terraform skeleton, the Terraform module template, public modules, the module registry, repository engineering instructions, and readiness. The automation can run on the orchestration system an engagement uses. Public GitHub Actions workflows are in `launch-workflows`. Azure DevOps pipeline templates are in the private repository `launch-platform-ado-pipeline-templates`.
+- A standard for exclusive services and shared services.
+- A standard for using Terragrunt to orchestrate Terraform across environments and regions. The standard does not prescribe a layout.
+
+### Changed
+
+- The registry page now states what the registry serves. The source-construction recipe is archived.
+- The previous Terraform strategy page now points at the exclusive and shared service standard and at the Terragrunt standard. The provider-fork procedure stays archived. The older module class list was replaced by the module contract. The previous Terragrunt layout rules stay on the archived page and were not carried forward.
+
+### Removed
+
+- The Java hexagonal diagrams under `standards/common-development/java/hexagonal/pictures/`. Nothing in the knowledge base used them.
+
+## 2026-10-29: #24, Publish current engineering standards
 
 ### Added
 
