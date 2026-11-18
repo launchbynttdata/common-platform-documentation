@@ -6,7 +6,7 @@ Platform engineers are the primary audience. The repository is public, so an eng
 
 Commands, configuration, and verification belong with the component that owns them. This knowledge base states the durable reason, the team default, and which owning repository holds the mechanics. It does not replace that component's documentation.
 
-[How to read these docs](how-to-read-these-docs.md) explains the document types, the structure each page follows, the strength labels, and how to propose a change. Notable changes are recorded in the [changelog](CHANGELOG.md).
+[How to read these docs](how-to-read-these-docs.md) explains the document types, the structure each page follows, the strength labels, and how to propose a change. [Topic index](TOPIC-INDEX.md) provides a source-linked route to active topics. [Maintaining the topic index](maintaining-the-topic-index.md) describes how to keep it current. Notable changes are recorded in the [changelog](CHANGELOG.md).
 
 ## Content types
 

@@ -72,7 +72,7 @@ Practices, standards, and the platform map use this standard as well. Principles
 
 Anyone can propose a change by opening an issue. The issue templates ask for the information the team needs to evaluate the request, such as the page affected, the problem with the current text, and the evidence for a correction.
 
-Changes are made through pull requests. Each pull request runs an automated documentation check that verifies links and blocks private information, such as personal file paths, account identifiers, and email addresses. An idea becomes a principle, a practice, or a standard only through the process in [Promote a new idea into active guidance](promoting-an-idea.md).
+Changes are made through pull requests. Each pull request runs an automated documentation check that verifies links and blocks private information, such as personal file paths, account identifiers, and email addresses. The check also verifies [the topic index](TOPIC-INDEX.md) for entry shape, source coverage, and source anchors. [Maintaining the topic index](maintaining-the-topic-index.md) describes the update rules. An idea becomes a principle, a practice, or a standard only through the process in [Promote a new idea into active guidance](promoting-an-idea.md).
 
 Notable changes are recorded in the [changelog](CHANGELOG.md).
 
