@@ -12,7 +12,7 @@ Each open pull request records its changes under "Unreleased", with the pull req
 - A standard for exclusive services and shared services.
 - A standard for using Terragrunt to orchestrate Terraform across environments and regions. The standard does not prescribe a layout.
 - A root `TOPIC-INDEX.md` that maps active topics to canonical source pages, including compatibility aliases where older addresses still exist.
-- A maintenance standard for keeping the topic index synchronized with source pages.
+- A team default for keeping the topic index synchronized with source pages.
 - A pull request template checklist for changelog and topic-index updates.
 
 ### Changed

@@ -239,6 +239,7 @@ class CheckDocsTests(unittest.TestCase):
         self.write("new-ideas/helm-and-argocd.md", "# Helm and Argo CD\n\n**Status:** Exploring\n\n## Current hypothesis\nText.\n")
         self.write("how-to-read-these-docs.md", "# How to read these docs\n\n## How pages are organized\nText.\n")
         self.write("promoting-an-idea.md", "# Promote a new idea into active guidance\n\n**Strength:** Team default\n\n## The position\nText.\n")
+        self.write("maintaining-the-topic-index.md", "# Maintain the topic index with the source\n\n**Strength:** Team default\n\n## The position\nText.\n")
 
         # Exempt pages should not require entries.
         self.write("principles/README.md", "# Principles\n\nIndex body.\n")
@@ -356,6 +357,13 @@ class CheckDocsTests(unittest.TestCase):
                     "  type: knowledge-base",
                     "  strength: Team default",
                     "  source: promoting-an-idea.md#the-position",
+                    "- id: docs.maintaining-topic-index",
+                    "  title: Maintain topic index",
+                    "  summary: Summary",
+                    "  aliases: [index maintenance]",
+                    "  type: knowledge-base",
+                    "  strength: Team default",
+                    "  source: maintaining-the-topic-index.md#the-position",
                     "```",
                     "",
                 ]
@@ -414,6 +422,18 @@ class CheckDocsTests(unittest.TestCase):
         )
         violations = check_repository(self.root, require_topic_index=True)
         self.assertTrue(any("missing entry for active page" in item for item in violations), violations)
+
+    def test_heading_slug_keeps_repeated_hyphens_like_github(self):
+        slugs = check_docs._markdown_heading_slugs("# A - B\n")
+        self.assertIn("a---b", slugs)
+        self.assertNotIn("a-b", slugs)
+
+    def test_heading_slug_ignores_headings_inside_fenced_code(self):
+        slugs = check_docs._markdown_heading_slugs(
+            "# Real heading\n\n```md\n# Fake heading\n```\n"
+        )
+        self.assertIn("real-heading", slugs)
+        self.assertNotIn("fake-heading", slugs)
 
 
 if __name__ == "__main__":

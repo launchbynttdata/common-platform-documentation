@@ -25,6 +25,7 @@ Do not place model instructions, hidden answer keys, or duplicate authoritative 
 
 - Keep topic IDs stable across title edits.
 - Keep one source page per entry and one entry per source page in scope.
+- When adding a new section index page, update `TOPIC_INDEX_EXEMPT_PAGES` in `scripts/check_docs.py` or the coverage check will fail.
 - Use repository-relative links only.
 - Keep aliases factual and source-aligned.
 - Update `CHANGELOG.md` when index structure or maintenance process changes.

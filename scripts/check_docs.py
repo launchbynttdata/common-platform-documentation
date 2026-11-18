@@ -16,8 +16,6 @@ from collections.abc import Iterator, Sequence
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
-import yaml
-
 ARCHIVE_PART = "archive"
 # Keep each entry split so this source file does not contain a contiguous
 # banned term and the checker does not report itself.
@@ -110,6 +108,7 @@ TOPIC_INDEX_CONTENT_DIRS = (
 TOPIC_INDEX_ROOT_ACTIVE_PAGES = {
     Path("how-to-read-these-docs.md"),
     Path("promoting-an-idea.md"),
+    Path("maintaining-the-topic-index.md"),
 }
 TOPIC_INDEX_EXEMPT_PAGES = {
     Path("principles/README.md"),
@@ -436,6 +435,12 @@ def _module_url_violations(root: Path) -> list[str]:
 
 
 def _topic_index_violations(root: Path) -> list[str]:
+    try:
+        import yaml
+    except ImportError:
+        return [
+            f"{TOPIC_INDEX_FILE.as_posix()}: install PyYAML to run --require-topic-index"
+        ]
     path = root / TOPIC_INDEX_FILE
     if not path.is_file():
         return [f"{TOPIC_INDEX_FILE.as_posix()}: missing topic index"]
@@ -745,7 +750,7 @@ def _yaml_fence_blocks(text: str) -> list[str]:
 def _markdown_heading_slugs(text: str) -> set[str]:
     counts: dict[str, int] = {}
     slugs: set[str] = set()
-    for line in text.splitlines():
+    for line in _without_fenced_code(text).splitlines():
         match = re.match(r"^[ \t]{0,3}#{1,6}[ \t]+(.+?)\s*$", line)
         if match is None:
             continue
@@ -766,7 +771,6 @@ def _heading_slug(heading: str) -> str:
     slug = heading.casefold()
     slug = re.sub(r"[^\w\s-]", "", slug)
     slug = re.sub(r"\s+", "-", slug)
-    slug = re.sub(r"-{2,}", "-", slug)
     return slug.strip("-")
 
 

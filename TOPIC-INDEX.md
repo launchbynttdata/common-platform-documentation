@@ -1,6 +1,7 @@
 # Topic index
 
 This index helps readers and AI tools find canonical guidance quickly. Each entry links to the authoritative source page. Summaries and aliases here are routing aids; they do not replace the source.
+An entry is a team position only when it carries a `strength` label. `new-idea` entries are proposals under exploration.
 
 Archived pages are not indexed as canonical sources. Compatibility addresses can appear in `former_paths` only.
 
@@ -20,6 +21,13 @@ Archived pages are not indexed as canonical sources. Compatibility addresses can
   type: knowledge-base
   strength: Team default
   source: promoting-an-idea.md
+- id: docs.maintaining-the-topic-index
+  title: Maintain the topic index with the source
+  summary: Defines how topic-index updates stay synchronized with canonical pages.
+  aliases: [topic index maintenance, index maintenance]
+  type: knowledge-base
+  strength: Team default
+  source: maintaining-the-topic-index.md
 - id: idea.helm-and-argocd
   title: Deliver Kubernetes workloads with Helm and Argo CD
   summary: Proposal for packaging with Helm and reconciling with Argo CD.
@@ -107,7 +115,7 @@ Archived pages are not indexed as canonical sources. Compatibility addresses can
 - id: practice.observability-and-operability
   title: Observe the system in order to operate it
   summary: Defines observability and operability practices.
-  aliases: [observability]
+  aliases: [observability, monitoring, telemetry]
   type: practice
   strength: Team default
   source: practices/observability-and-operability.md
