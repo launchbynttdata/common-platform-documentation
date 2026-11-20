@@ -74,6 +74,61 @@ MODULE_URL_PAIRS = (
         Path("standards/terraform/modules/library.md"),
     ),
 )
+TOPIC_INDEX_FILE = Path("TOPIC-INDEX.md")
+TOPIC_INDEX_ID = re.compile(r"^[a-z0-9]+(?:\.[a-z0-9-]+)+$")
+TOPIC_INDEX_TYPES = {
+    "principle",
+    "practice",
+    "standard",
+    "platform-map",
+    "new-idea",
+    "knowledge-base",
+}
+TOPIC_INDEX_ALLOWED_FIELDS = {
+    "id",
+    "title",
+    "summary",
+    "aliases",
+    "type",
+    "strength",
+    "status",
+    "source",
+    "related",
+    "former_paths",
+}
+TOPIC_INDEX_REQUIRED_FIELDS = {"id", "title", "summary", "aliases", "type", "source"}
+TOPIC_INDEX_CONTENT_DIRS = (
+    "principles",
+    "practices",
+    "standards",
+    "platform",
+    "new-ideas",
+    "strategies",
+)
+TOPIC_INDEX_ROOT_ACTIVE_PAGES = {
+    Path("how-to-read-these-docs.md"),
+    Path("promoting-an-idea.md"),
+    Path("maintaining-the-topic-index.md"),
+}
+TOPIC_INDEX_EXEMPT_PAGES = {
+    Path("principles/README.md"),
+    Path("practices/README.md"),
+    Path("standards/README.md"),
+    Path("platform/README.md"),
+    Path("new-ideas/README.md"),
+    Path("new-ideas/idea-template.md"),
+    Path("standards/iac-development/README.md"),
+    Path("standards/helm-development/README.md"),
+    Path("standards/helm-development/charts/deployment/README.md"),
+    Path("standards/helm-development/charts/library/README.md"),
+    Path("standards/helm-development/helpers/README.md"),
+    Path("README.md"),
+    Path("CHANGELOG.md"),
+    Path("TOPIC-INDEX.md"),
+}
+TOPIC_INDEX_COMPATIBILITY_PAGES = {
+    pair[0] for pair in MODULE_URL_PAIRS
+}
 
 _ATX_HEADING = re.compile(r"^[ \t]{0,3}#{1,6}(?:[ \t].*)?$")
 _SETEXT_UNDERLINE = re.compile(r"^[ \t]{0,3}(?:=|-){3,}[ \t]*$")
@@ -82,7 +137,11 @@ _IGNORED_LINK_SCHEMES = {"http", "https", "mailto"}
 _TRAILING_PUNCTUATION = ".,;:!?\"'"
 
 
-def check_repository(root: Path, require_module_urls: bool = False) -> list[str]:
+def check_repository(
+    root: Path,
+    require_module_urls: bool = False,
+    require_topic_index: bool = False,
+) -> list[str]:
     """Return sorted repository-relative violation messages for ``root``."""
     root = Path(root).resolve()
     violations: list[str] = []
@@ -106,6 +165,8 @@ def check_repository(root: Path, require_module_urls: bool = False) -> list[str]
             violations.extend(_sensitive_identifier_violations(relative, text))
     if require_module_urls:
         violations.extend(_module_url_violations(root))
+    if require_topic_index:
+        violations.extend(_topic_index_violations(root))
     return sorted(set(violations))
 
 
@@ -126,10 +187,16 @@ def main(argv: Sequence[str] | None = None) -> int:
         action="store_true",
         help="Require Terraform module compatibility and canonical pages.",
     )
+    parser.add_argument(
+        "--require-topic-index",
+        action="store_true",
+        help="Require a valid topic index that covers active pages.",
+    )
     args = parser.parse_args(argv)
     violations = check_repository(
         args.root,
         require_module_urls=args.require_module_urls,
+        require_topic_index=args.require_topic_index,
     )
     if violations:
         print("\n".join(violations))
@@ -367,6 +434,230 @@ def _module_url_violations(root: Path) -> list[str]:
     return violations
 
 
+def _topic_index_violations(root: Path) -> list[str]:
+    try:
+        import yaml
+    except ImportError:
+        return [
+            f"{TOPIC_INDEX_FILE.as_posix()}: install PyYAML to run --require-topic-index"
+        ]
+    path = root / TOPIC_INDEX_FILE
+    if not path.is_file():
+        return [f"{TOPIC_INDEX_FILE.as_posix()}: missing topic index"]
+    text = _read_text(path)
+    if text is None:
+        return [f"{TOPIC_INDEX_FILE.as_posix()}: unreadable topic index"]
+    blocks = _yaml_fence_blocks(text)
+    if not blocks:
+        return [f"{TOPIC_INDEX_FILE.as_posix()}: missing yaml entries"]
+    entries: list[dict[str, object]] = []
+    violations: list[str] = []
+    seen_ids: set[str] = set()
+    source_to_entry: dict[Path, str] = {}
+    all_paths = _iter_files(root)
+    all_relative = {
+        item.relative_to(root) for item in all_paths if item.suffix.casefold() == ".md"
+    }
+    active_pages = _topic_index_active_pages(all_relative)
+    for block_number, block in enumerate(blocks, start=1):
+        try:
+            loaded = yaml.safe_load(block)
+        except yaml.YAMLError as error:
+            violations.append(
+                f"{TOPIC_INDEX_FILE.as_posix()}: yaml block {block_number} parse error: {error}"
+            )
+            continue
+        if not isinstance(loaded, list):
+            violations.append(
+                f"{TOPIC_INDEX_FILE.as_posix()}: yaml block {block_number} is not a list"
+            )
+            continue
+        for index, item in enumerate(loaded, start=1):
+            label = (
+                f"{TOPIC_INDEX_FILE.as_posix()}: block {block_number} entry {index}"
+            )
+            if not isinstance(item, dict):
+                violations.append(f"{label}: entry is not a mapping")
+                continue
+            entries.append(item)
+            unknown = set(item) - TOPIC_INDEX_ALLOWED_FIELDS
+            for key in sorted(unknown):
+                violations.append(f"{label}: unknown field: {key}")
+            missing = TOPIC_INDEX_REQUIRED_FIELDS - set(item)
+            for key in sorted(missing):
+                violations.append(f"{label}: missing required field: {key}")
+            if missing:
+                continue
+            violations.extend(_topic_index_entry_type_violations(label, item))
+            entry_id = str(item.get("id", ""))
+            if TOPIC_INDEX_ID.fullmatch(entry_id) is None:
+                violations.append(f"{label}: invalid id format: {entry_id}")
+            elif entry_id in seen_ids:
+                violations.append(f"{label}: duplicate id: {entry_id}")
+            else:
+                seen_ids.add(entry_id)
+            source_target = _path_and_anchor(str(item.get("source", "")))
+            if source_target is None:
+                violations.append(f"{label}: invalid source: {item.get('source')}")
+                continue
+            source_relative, source_anchor = source_target
+            source_path = (path.parent / source_relative).resolve()
+            try:
+                source_repo = source_path.relative_to(root)
+            except ValueError:
+                violations.append(f"{label}: source escapes repository: {source_relative}")
+                continue
+            if not source_path.is_file():
+                violations.append(f"{label}: source missing: {source_relative}")
+                continue
+            if ARCHIVE_PART in source_repo.parts:
+                violations.append(f"{label}: source cannot be archived: {source_repo.as_posix()}")
+            if source_repo in TOPIC_INDEX_EXEMPT_PAGES or source_repo in TOPIC_INDEX_COMPATIBILITY_PAGES:
+                violations.append(f"{label}: source cannot be exempt page: {source_repo.as_posix()}")
+            existing = source_to_entry.get(source_repo)
+            if existing is not None:
+                violations.append(
+                    f"{label}: duplicate source page: {source_repo.as_posix()} (already used by {existing})"
+                )
+            else:
+                source_to_entry[source_repo] = entry_id
+            source_text = _read_text(source_path) or ""
+            if source_anchor:
+                slugs = _markdown_heading_slugs(source_text)
+                if source_anchor not in slugs:
+                    violations.append(
+                        f"{label}: source anchor missing: {source_repo.as_posix()}#{source_anchor}"
+                    )
+            violations.extend(
+                _topic_index_declared_label_violations(label, item, source_repo, source_text)
+            )
+            violations.extend(
+                _topic_index_link_list_violations(
+                    root,
+                    path.parent,
+                    label,
+                    item,
+                    source_repo,
+                )
+            )
+    missing_pages = sorted(page for page in active_pages if page not in source_to_entry)
+    for page in missing_pages:
+        violations.append(
+            f"{TOPIC_INDEX_FILE.as_posix()}: missing entry for active page: {page.as_posix()}"
+        )
+    return violations
+
+
+def _topic_index_entry_type_violations(
+    label: str, item: dict[str, object]
+) -> list[str]:
+    violations: list[str] = []
+    if not isinstance(item.get("title"), str):
+        violations.append(f"{label}: title must be a string")
+    if not isinstance(item.get("summary"), str):
+        violations.append(f"{label}: summary must be a string")
+    aliases = item.get("aliases")
+    if not isinstance(aliases, list) or any(not isinstance(entry, str) for entry in aliases):
+        violations.append(f"{label}: aliases must be a list of strings")
+    entry_type = item.get("type")
+    if not isinstance(entry_type, str) or entry_type not in TOPIC_INDEX_TYPES:
+        violations.append(f"{label}: invalid type: {entry_type}")
+    if "strength" in item and not isinstance(item.get("strength"), str):
+        violations.append(f"{label}: strength must be a string")
+    if "status" in item and not isinstance(item.get("status"), str):
+        violations.append(f"{label}: status must be a string")
+    for field in ("related", "former_paths"):
+        if field not in item:
+            continue
+        value = item[field]
+        if not isinstance(value, list) or any(not isinstance(entry, str) for entry in value):
+            violations.append(f"{label}: {field} must be a list of strings")
+    return violations
+
+
+def _topic_index_declared_label_violations(
+    label: str,
+    item: dict[str, object],
+    source_repo: Path,
+    source_text: str,
+) -> list[str]:
+    violations: list[str] = []
+    expected_strength = _declared_line(source_text, "Strength")
+    actual_strength = item.get("strength")
+    if expected_strength is None and actual_strength is not None:
+        violations.append(
+            f"{label}: strength must be omitted for {source_repo.as_posix()}"
+        )
+    if expected_strength is not None and actual_strength != expected_strength:
+        violations.append(
+            f"{label}: strength mismatch for {source_repo.as_posix()}: expected '{expected_strength}'"
+        )
+    expected_status = _declared_line(source_text, "Status")
+    actual_status = item.get("status")
+    if expected_status is None and actual_status is not None:
+        violations.append(
+            f"{label}: status must be omitted for {source_repo.as_posix()}"
+        )
+    if expected_status is not None and actual_status != expected_status:
+        violations.append(
+            f"{label}: status mismatch for {source_repo.as_posix()}: expected '{expected_status}'"
+        )
+    return violations
+
+
+def _topic_index_link_list_violations(
+    root: Path,
+    base_dir: Path,
+    label: str,
+    item: dict[str, object],
+    source_repo: Path,
+) -> list[str]:
+    violations: list[str] = []
+    for field in ("related", "former_paths"):
+        values = item.get(field)
+        if not isinstance(values, list):
+            continue
+        for raw in values:
+            target = _path_and_anchor(raw)
+            if target is None:
+                violations.append(f"{label}: invalid {field} target: {raw}")
+                continue
+            relative, anchor = target
+            candidate = (base_dir / relative).resolve()
+            try:
+                candidate_repo = candidate.relative_to(root)
+            except ValueError:
+                violations.append(f"{label}: {field} escapes repository: {raw}")
+                continue
+            if not candidate.is_file():
+                violations.append(f"{label}: {field} missing target: {raw}")
+                continue
+            if field == "former_paths" and candidate_repo == source_repo:
+                violations.append(f"{label}: former_paths cannot include source page")
+            if anchor:
+                text = _read_text(candidate) or ""
+                if anchor not in _markdown_heading_slugs(text):
+                    violations.append(
+                        f"{label}: {field} anchor missing: {candidate_repo.as_posix()}#{anchor}"
+                    )
+    return violations
+
+
+def _topic_index_active_pages(all_relative: set[Path]) -> set[Path]:
+    pages: set[Path] = set()
+    for relative in all_relative:
+        if relative.suffix.casefold() != ".md":
+            continue
+        if any(part == ".git" for part in relative.parts):
+            continue
+        if any(relative.as_posix().startswith(prefix + "/") for prefix in TOPIC_INDEX_CONTENT_DIRS):
+            pages.add(relative)
+    pages.update(TOPIC_INDEX_ROOT_ACTIVE_PAGES)
+    for exempt in TOPIC_INDEX_EXEMPT_PAGES | TOPIC_INDEX_COMPATIBILITY_PAGES:
+        pages.discard(exempt)
+    return pages
+
+
 def _links_to(root: Path, source: Path, text: str, canonical: Path) -> bool:
     expected = (root / canonical).resolve()
     for raw in _inline_link_targets(_without_fenced_code(text)):
@@ -381,6 +672,21 @@ def _links_to(root: Path, source: Path, text: str, canonical: Path) -> bool:
 def _target_exists(root: Path, source: Path, raw: str) -> bool:
     candidate = _candidate_target(root, source, raw)
     return candidate is not None and candidate.exists()
+
+
+def _path_and_anchor(raw: str) -> tuple[str, str] | None:
+    target = raw.strip()
+    if not target:
+        return None
+    pieces = urlsplit(target)
+    if pieces.scheme.casefold() in _IGNORED_LINK_SCHEMES or pieces.netloc:
+        return None
+    if pieces.scheme and pieces.scheme.casefold() != "file":
+        return None
+    path = unquote(pieces.path)
+    if not path:
+        return None
+    return path, unquote(pieces.fragment).casefold()
 
 
 def _candidate_target(root: Path, source: Path, raw: str) -> Path | None:
@@ -408,6 +714,64 @@ def _repository_relative_path(raw: str) -> str | None:
     if not path:
         return None
     return path
+
+
+def _declared_line(text: str, label: str) -> str | None:
+    pattern = re.compile(rf"^\*\*{re.escape(label)}:\*\*\s*(.+)$", re.MULTILINE)
+    match = pattern.search(text)
+    if match is None:
+        return None
+    return match.group(1).strip()
+
+
+def _yaml_fence_blocks(text: str) -> list[str]:
+    blocks: list[str] = []
+    lines = text.splitlines()
+    in_block = False
+    current: list[str] = []
+    for line in lines:
+        marker = line.strip()
+        if marker.startswith("```"):
+            language = marker[3:].strip().casefold()
+            if not in_block and language in {"yaml", "yml"}:
+                in_block = True
+                current = []
+                continue
+            if in_block:
+                blocks.append("\n".join(current))
+                in_block = False
+                current = []
+            continue
+        if in_block:
+            current.append(line)
+    return blocks
+
+
+def _markdown_heading_slugs(text: str) -> set[str]:
+    counts: dict[str, int] = {}
+    slugs: set[str] = set()
+    for line in _without_fenced_code(text).splitlines():
+        match = re.match(r"^[ \t]{0,3}#{1,6}[ \t]+(.+?)\s*$", line)
+        if match is None:
+            continue
+        heading = match.group(1).strip()
+        if heading.endswith("#"):
+            heading = heading.rstrip("#").rstrip()
+        base = _heading_slug(heading)
+        if not base:
+            continue
+        count = counts.get(base, 0)
+        slug = base if count == 0 else f"{base}-{count}"
+        counts[base] = count + 1
+        slugs.add(slug)
+    return slugs
+
+
+def _heading_slug(heading: str) -> str:
+    slug = heading.casefold()
+    slug = re.sub(r"[^\w\s-]", "", slug)
+    slug = re.sub(r"\s+", "-", slug)
+    return slug.strip("-")
 
 
 def _without_fenced_code(text: str) -> str:

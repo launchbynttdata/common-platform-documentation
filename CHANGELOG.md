@@ -11,11 +11,15 @@ Each open pull request records its changes under "Unreleased", with the pull req
 - A platform map for shared delivery and pipeline automation, the Terraform skeleton, the Terraform module template, public modules, the module registry, repository engineering instructions, and readiness. The automation can run on the orchestration system an engagement uses. Public GitHub Actions workflows are in `launch-workflows`. Azure DevOps pipeline templates are in the private repository `launch-platform-ado-pipeline-templates`.
 - A standard for exclusive services and shared services.
 - A standard for using Terragrunt to orchestrate Terraform across environments and regions. The standard does not prescribe a layout.
+- A root `TOPIC-INDEX.md` that maps active topics to canonical source pages, including compatibility aliases where older addresses still exist.
+- A team default for keeping the topic index synchronized with source pages.
+- A pull request template checklist for changelog and topic-index updates.
 
 ### Changed
 
 - The registry page now states what the registry serves. The source-construction recipe is archived.
 - The previous Terraform strategy page now points at the exclusive and shared service standard and at the Terragrunt standard. The provider-fork procedure stays archived. The older module class list was replaced by the module contract. The previous Terragrunt layout rules stay on the archived page and were not carried forward.
+- The documentation checker can now validate the topic index schema, source coverage, and source anchors.
 
 ### Removed
 
